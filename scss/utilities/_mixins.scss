@@ -1,0 +1,95 @@
+@mixin desktop(){
+    @media screen and (max-width: $xl){
+        @content;
+    }
+}
+
+@mixin notebook(){
+    @media screen and (max-width: $lg){
+        @content;
+    }
+}
+
+@mixin tablets(){
+    @media screen and (max-width: $md){
+        @content;
+    }
+}
+
+@mixin movile(){
+    @media screen and (max-width: $sm){
+    
+    }
+}
+
+@mixin caja_flex($direction:row,$wrap:wrap,$al_cont:flex-start,$just_cont:flex-start,$al_item:center){
+    display:flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    align-content: $al_cont;
+    justify-content: $just_cont;
+    align-items: $al_item;
+}
+/*
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+para movil y tablets  horizontal
+320 x 480
+1024 x 768
+*/
+
+@mixin caja_relative ($ancho, $alto, $margin, $max_ancho:unset){
+    position: relative;
+    width: $ancho;
+    max-width: $max_ancho;
+    height: $alto;
+    margin:$margin;
+}
+
+@mixin ancho_general(){
+    width: 80%;
+    max-width: 1300px;
+    margin: auto;
+
+    @media screen and (max-width: $xl){
+        width: 80%;
+        max-width: auto;
+    }
+    @media screen and (max-width: $lg){
+        width: 90%;
+        max-width: auto;
+    } 
+    @media screen and (max-width: $md){
+        width: 98%;
+        max-width: auto;
+    }
+    @media screen and (max-width: $sm){
+        width: 100%;
+        max-width: auto;
+    }
+}
+
+@mixin fuentes ($f_size:$font_normal, $f_weight:$medium, $fuente:$font_body, $color:$titulo_color){
+    font-family: $fuente;
+    font-size: $f_size;
+    font-weight: $f_weight;
+    color: $color;   
+}
+
+//para las cajas contenedoras dentro de una reolativa.. como en el caso de las targetas de los programas.
+@mixin caja_absoluta($white, $height, $margen ,$tipo_margen:auto){
+    position: absolute;
+    width: $white;
+    height: $height;
+
+    @if $tipo_margen == t {
+        top: $margen;
+    } @else if $tipo_margen == b {
+        bottom: $margen;
+    } else{
+        top: $tipo_margen;
+    }
+} 

@@ -1,0 +1,24 @@
+{
+  "name": "ejersicio1",
+  "version": "1.0.0",
+  "main": "nota.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/main.scss style/style.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "startjs":"nodemon ./main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "dependencies": {
+    "node-sass": "^7.0.3",
+    "nodemon": "^2.0.20",
+    "morgan": "^1.10.0",
+    "prompt": "^1.3.0"
+  }
+}

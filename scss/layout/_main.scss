@@ -1,0 +1,59 @@
+.main{
+    height: auto;
+
+    .banner{
+        top: 0;
+        width: 100%;
+        height: 600px;
+
+        .envoltura_art {
+            width: 100%;
+            height: 100%;
+
+            .art_princial{
+                margin-top: 50px;
+                width: 100%;
+                height: 100%;
+                @include caja_flex(row, wrap, center, flex-start, center);
+    
+                .caja{
+                    width: 50%;
+                    height: 100%;
+                    overflow: hidden;
+
+                    @include caja_flex(row, wrap, center, flex-start, center);
+
+                    @include tablets(){
+                    width: 100%;
+                    
+                    &.left{
+                        height: 40%;
+                    }
+                    &.right{
+                        height: 60%;
+                    }
+
+                    @include caja_flex(row, wrap, center, flex-start, center);
+                    }
+
+                    img{
+                        width: 100%;
+                        height: 100%;
+                        object-fit: contain;
+                        margin: auto;
+                    
+                        @include tablets(){
+                            height: 100%;
+                            width:auto;
+                        }
+                    }
+                }       
+            }
+        }
+        --swiper-navigation-size:20px;
+        .swiper-button-next, .swiper-button-prev {
+            position: absolute;
+            top: 50%;
+        }
+    }
+}

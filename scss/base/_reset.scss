@@ -1,0 +1,24 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;  //scroll lento
+
+    &.sr .widget {
+        visibility: hidden;
+    }
+}
+
+body{
+    margin: 5px 0 0 0;
+    background: $bg_body;
+    width: 100%;
+    height: 100%;
+    font-family: $font_body;
+    font-size: $font_normal;
+    color: $text_color;
+}
