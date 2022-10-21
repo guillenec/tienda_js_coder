@@ -1,0 +1,31 @@
+.categorias{
+    width: 100%;
+    height: 400px;
+    margin-top: 150px;
+
+    h2{
+        width: 100%;
+        height: 50px;
+        text-transform: capitalize;
+        font-size: $font_h2;
+        @include align_mid_grid();
+    }
+    .cont_categorias{
+        width: 100%;
+        height: calc(100% - 50px);
+        background: rgb(71, 255, 86);
+        @include caja_flex(row, wrap, center, flex-start, center);
+
+        .targeta_simple{
+            width: 33.33%;
+            height: 100%;
+            background: rgb(148, 148, 238);
+            img{
+                width: 100%;
+                height: 60%;
+                object-fit: contain;
+            }
+        }
+
+    }
+}

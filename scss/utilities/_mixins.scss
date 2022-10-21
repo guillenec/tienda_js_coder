@@ -89,7 +89,12 @@ para movil y tablets  horizontal
         top: $margen;
     } @else if $tipo_margen == b {
         bottom: $margen;
-    } else{
+    } else {
         top: $tipo_margen;
     }
 } 
+
+@mixin align_mid_grid(){
+    display: grid;
+    place-content: center;
+}
