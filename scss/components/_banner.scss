@@ -22,7 +22,8 @@
                 @include caja_flex(row, wrap, center, flex-start, center);
 
                 @include tablets(){
-                width: 100%;
+                width: 98%;
+                margin: auto;
                 
                 &.left{
                     height: 40%;
@@ -46,6 +47,10 @@
                     text-transform: uppercase;
                     margin: 0;
                     padding: 0;
+
+                    @include tablets(){
+                        font-size: $font_mediana;
+                    }
                 }
                 .precio{
                     width: 100%;
@@ -53,6 +58,9 @@
                     font-size: $font_mediana;
                     margin: 0;
                     padding: 0;
+                    @include tablets(){
+                        font-size: $font_h2;
+                    }
                 }
                 .textos{
                     width: 100%;
@@ -69,6 +77,10 @@
                     padding: 15px;
                     text-decoration: none;
                     border-radius: 10%;
+                    @include tablets(){
+                        font-size: $font_small;
+                    }
+                        
                 }
                 .descuento{
                     @include caja_absoluta(55px, 55px, 0 ,t);
