@@ -6,7 +6,7 @@
 <div>
 <br>
 
-## :pushpin: Vistazo de Procedilinux
+## :pushpin: Vistazo a funkshop
 ![screenshot of HTTRiRi website](https://res.cloudinary.com/dpiwmbsog/image/upload/v1666360744/imgs/haloween/funkoshop_index_i5kyg4.png)
 
 <br>
