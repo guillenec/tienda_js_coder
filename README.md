@@ -1,5 +1,5 @@
 <div>
-    <h1 align="center">eComerce Funkoshop</h1>
+    <h1 align="center">eCommerce Funkoshop</h1>
     <p>
     Página para la primera entrega del proyecto final "javascript- coderhouse"; En el mismo declarare variables , usare bucles, switch, condicionale, operadores, operadores ternarios, funciones generales y funciones flechas, se linkeara a una pagina básica realizada con html, scss y se comenzara ya con la organización de los directorios, etc.
     se mostrara, interactuara con el usuario a travéz de alerts, confirm, console.log.. espero te resulte intuitivo su funcionamiento..</p>
