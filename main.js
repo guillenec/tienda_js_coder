@@ -72,7 +72,7 @@ function bienvenido() {
 
 //funcion flecha para el menu
 const eleccion = () => {
-    return ("1- kaonash : "+funko1+"\n2 - kaonashi duo : "+funko2+"\n3- calafuego : "+funko3+"\n4) gorrito: "+funko3+"\ncual comprara: ");
+    return ("1- kaonash : "+funko1+"\n2 - kaonashi duo : "+funko2+"\n3- calafuego : "+funko3+"\n4- sombrero: "+funko3+"\ncual comprara: ");
 }          
 
 //permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
