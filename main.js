@@ -169,3 +169,5 @@ function compra_general() {
 // +++ TESTEAMOS  +++
 //lamamos a la funcion bienvenido
 compra_general();
+
+
