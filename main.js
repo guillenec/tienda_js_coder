@@ -3,11 +3,11 @@
 
 El programa principal preguntara si deseamos ingresar al menu de compra, si lo hacemos nos mostrarauna una lista de productos disponibles y los podremos elegir por su numero identificador. si se ingresa otro valor , nos avisara.
 A su vez se iran sumando los productos comprados y se calcularan los descuentos previamente cargados automatiocamente. 
-Estos se mostraran por consola con un console.log. ya que me resulta engorroso el uso exesivo de alerts.
+Estos se mostraran por consola con un console.log. ya que me resulta engorroso el uso excesivo de alerts.
 Se calculata el precio total sin iva, +iva y tambien a medida que interactuemos se mostrara el nombre y precio del producto que estamos comprando.. 
 
 Observacion: 
-se que tengo un exeso de condicionales.
+se que tengo un exceso de condicionales.
 Los productos que en la pagina tienen un 10 % de descuento tambien los tienen dentro de la funcuion juguetes precios, po lo que si un valor es menor al esperado, posiblemente se le este aplicando un descuento del 10%.
 
 */
