@@ -1,17 +1,13 @@
 .categorias{
     width: 100%;
-    height: 450px;
+    height: auto;
     margin-top: 150px;
     @include tablets(){
         height: 900px;
     }
 
     h2{
-        width: 100%;
-        height: 50px;
-        text-transform: capitalize;
-        font-size: $font_h2;
-        @include align_mid_grid();
+        @include titulosh2();
     }
     .cont_categorias{
         margin-top: 50px;
@@ -67,12 +63,8 @@
                     height: 100%;
                     gap: 10px 0;
                 }
-                &.left{
-                    @include caja_flex(row-reverse, wrap, center, center, center);
-                }
-                &.right{
-                    @include caja_flex(row, wrap, center, center, center);
-                }
+                @include left_right();
+
             }
         }
 

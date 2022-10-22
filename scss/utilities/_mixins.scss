@@ -98,3 +98,19 @@ para movil y tablets  horizontal
     display: grid;
     place-content: center;
 }
+
+@mixin titulosh2(){
+    width: 100%;
+    height: 50px;
+    text-transform: capitalize;
+    font-size: $font_h2;
+    @include align_mid_grid();
+}
+@mixin left_right(){
+    &.left{
+        @include caja_flex(row-reverse, wrap, center, center, center);
+    }
+    &.right{
+        @include caja_flex(row, wrap, center, center, center);
+    }
+}
