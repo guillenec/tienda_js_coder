@@ -1,4 +1,4 @@
-/* +-- NOTA IMPORTANTE --+ */ 
+/* +-- NOTA IMPORTANTE --+ */
 /* Simulare un carrito de compra basico, se usare un solo bucle while en la fucion principal, ya que no creo que haga falta mas para esta entrega.
 
 El programa principal preguntara si deseamos ingresar al menu de compra, si lo hacemos nos mostrarauna una lista de productos disponibles y los podremos elegir por su numero identificador. si se ingresa otro valor , nos avisara.
@@ -27,6 +27,7 @@ const iva = 0.16;
 const descuento = 0.10;
 let sumaPrecioTotal = 0;
 let sale = 0
+let val;
 
 //las 2 siguientes funciones son solo para cumplir con las consignas y usar un switch
 
@@ -120,6 +121,7 @@ const menu = () => {
     return ("1- kaonash : " + funko1 + "\n2 - kaonashi duo : " + funko2 + "\n3- calafuego : " + funko3 + "\n4- huesito: " + funko3 + "\n5- caramelo: " + funko5 + "\n6- espanta suegras: " + funko6 + "\n7- chupetin: " + funko7 + "\n8- calabaza: " + funko8 + "\n9- fantasma: " + funko9 + "\nCual comprara: ");
 }
 
+
 //permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
 function compra_general() {
     let entrarMenu = bienvenido();
@@ -160,14 +162,33 @@ function compra_general() {
         console.log("ERROR " + 404)
     }
 
-
 }
+const max= 1;
+const min = 8;
+function regalo() {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+console.log(regalo());
+
+function obtenerRegalo() {
+    val = regalo(); 
+    for (i=0; i<=8 ;i++){
+        if (i == val) {
+            console.log("¡¡¡OBTUVISTE UN REGALO!!!");
+            console.log(juguete_nombre(i));
+            break;
+        } 
+    }
+}
+
+compra_general();
+console.log("\n \n"); 
+obtenerRegalo();
 
 /* NOTA: siento que estoy usando muchas veces el if, cual seria la forma correcta de reducir el codigo, probe con encadenamiento opcional, pero nose si es correcto su uso.
 */
 
 // +++ TESTEAMOS  +++
 //lamamos a la funcion bienvenido
-compra_general();
-
-
+//compra_general();
