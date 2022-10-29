@@ -1,132 +1,85 @@
-/* +-- NOTA IMPORTANTE --+ */
-/* Simulare un carrito de compra basico, se usare un solo bucle while en la fucion principal, ya que no creo que haga falta mas para esta entrega.
-
-El programa principal preguntara si deseamos ingresar al menu de compra, si lo hacemos nos mostrarauna una lista de productos disponibles y los podremos elegir por su numero identificador. si se ingresa otro valor , nos avisara.
-A su vez se iran sumando los productos comprados y se calcularan los descuentos previamente cargados automatiocamente. 
-Estos se mostraran por consola con un console.log. ya que me resulta engorroso el uso excesivo de alerts.
-Se calculata el precio total sin iva, +iva y tambien a medida que interactuemos se mostrara el nombre y precio del producto que estamos comprando.. 
-
-Observacion: 
-se que tengo un exceso de condicionales.
-Los productos que en la pagina tienen un 10 % de descuento tambien los tienen dentro de la funcuion juguetes precios, po lo que si un valor es menor al esperado, posiblemente se le este aplicando un descuento del 10%.
-
-*/
+// DUDAS: debo declarar las variables que usio en el constructor, al comienzo del archivo ??? por las dudas lo hago con let... pero esto me genera dudas ya que sin declararlas al comienzom todo anda bien
 
 //Declaracion de variables 
-const funko1 = 500;
-const funko2 = 550;
-const funko3 = 800;
-const funko4 = 550;
-const funko5 = 500;
-const funko6 = 800;
-const funko7 = 600;
-const funko8 = 550;
-const funko9 = 800;
+//const funko1 = 500;
+let id = 0;
+let nombre = "";
+let precio = "";
+let material = "";
+let marca = "";
+let descuento = 0;
 
-const iva = 0.16;
-const descuento = 0.10;
-let sumaPrecioTotal = 0;
-let sale = 0
-let val;
+let sumadorTotal = 0;
+let sumaSinIva = 0;
 
-//las 2 siguientes funciones son solo para cumplir con las consignas y usar un switch
+//constructor
+function funko(id, name, price, material, brand, discount){
+    //variables o propiedades publicas del objeto, se ven o acceden fuera del documento 
+    this.id = id;
+    this.nombre = name;
+    this.precio = price;
+    this.material = material;
+    this.marca = brand;
+    this.descuento = discount;
 
-//retorna un msj personalizado de acuerdo a la eleccion
-const juguete_nombre = (funco) => {
-    switch (funco) {
-        case 1:
-            return "juguete kaoanashi";
-            break;
-        case 2:
-            return "juguete kaoanashi duo";
-            break;
-        case 3:
-            return "juguete clafueguito";
-            break;
-        case 4:
-            return "juguete huesito";
-            break;
-        case 5:
-            return "juguete caramelo";
-            break;
-        case 6:
-            return "juguete espanta suegras";
-            break;
-        case 7:
-            return "juguete chupetin";
-            break;
-        case 8:
-            return "juguete calabaza";
-            break;
-        case 9:
-            return "juguete fantasma";
-            break;
-        default:
-            return 444;
-            break;
+    // variable privada, solo se visualiza dentro del documento.
+    let iva = 0.14;    
+    
+    //metodos, son funciones que seaplican a un objeto, las acciones que puede hacer el objeto
+    let descuentoReal = this.descuento * 0.01;
+    this.precioConDescuento = function(){
+        return (this.precio - this.precio * descuentoReal); 
+    }
+    
+    this.precioTotalMasIVA = function(){
+        return (this.precioConDescuento() + this.precioConDescuento()  * iva);
     }
 }
 
-//retorna el precio con descuento del producto
-const juguete_precio = (funco) => {
-    switch (funco) {
-        case 1:
-            return funko1 - (funko1 * descuento);
-            break;
-        case 2:
-            return funko2 - (funko2 * descuento);
-            break;
-        case 3:
-            return funko3 - (funko3 * descuento);
-            break;
-        case 4:
-            return funko4;
-            break;
-        case 5:
-            return funko5;
-            break;
-        case 6:
-            return funko6;
-            break;
-        case 7:
-            return funko4;
-            break;
-        case 8:
-            return funko5;
-            break;
-        case 9:
-            return funko6;
-            break;
-        default:
-            return 444;
-            break;
-    }
-}
+//primer instancia de la clase funko
+const funko1 = new funko (0, "kaoanashi",  500,  "plastco blando", "toys", 10 )
+//Instancias de la clase funko
+const funko2 = new funko (1,"kaoanashi duo",  550, "plastco blando",  "lego", 10 )
+const funko3 = new funko (2,"clafueguito", 800, "plastco blando", "bandai", 10 )
+const funko4 = new funko (3,"huesito", 530, "plastco blando", "hasbro", 10 )
+const funko5 = new funko (4,"caramelo",  521,  "plastco blando", "toys", 0 )
+const funko6 = new funko (5,"espanta suegra", 710, "plastco blando", "toys", 0 )
+const funko7 = new funko (6,"chupetin", 600,  "plastco blando", "matel", 0 )
+const funko8 = new funko (7,"calabaza",  560, "plastco blando", "hasbro", 0 )
+const funko9 = new funko (8,"fantasma", 760, "plastco blando", "bandai", 0 )
 
-//retorna precio real + iva.
-const iva_total = (total) => {
-    return (total * iva) + total;
-}
+
+// //ARREGLO DE OBJETOS
+const arregloJuguetes = [];
+arregloJuguetes.push(funko1,funko2,funko3,funko4,funko5,funko6,funko7,funko8,funko9);
+
 
 // funcion de bienvenida, retorna un codigo de error 
 function bienvenido() {
     let ingresar = prompt("deseas ver mi web? si / no").toLowerCase();
     (ingresar === "si" && (ingresar != "" && ingresar != null))
-        ? (alert("bienvenido!!!"), (sale = 4000)) : (alert("adios!!!"), (sale = 500));
+        ? (alert("bienvenido!!!"), (sale = true)) : (alert("adios!!!"), (sale = false));
     return sale;
 }
 
+let textoMenu = "";
 //funcion flecha para el menu
 const menu = () => {
-    return ("1- kaonash : " + funko1 + "\n2 - kaonashi duo : " + funko2 + "\n3- calafuego : " + funko3 + "\n4- huesito: " + funko3 + "\n5- caramelo: " + funko5 + "\n6- espanta suegras: " + funko6 + "\n7- chupetin: " + funko7 + "\n8- calabaza: " + funko8 + "\n9- fantasma: " + funko9 + "\nCual comprara: ");
+    let i = 0;
+    for (const iterador of arregloJuguetes) {
+        i++;
+        textoMenu += ( i+" => "+iterador.nombre+" $"+iterador.precio+", descuento "+iterador.descuento+"\n");
+    }
+    return (textoMenu + "Cual comprara: ");
 }
 
+// console.log(menu())
+// permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
 
-//permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
 function compra_general() {
     let entrarMenu = bienvenido();
     console.log(entrarMenu);  //viendo que todo vaya bien
-    if (entrarMenu == 4000) {
+    if (entrarMenu == true) {
         if (confirm("si desea continuar debe abrir la consola.")) {
 
             //bucle while, no crei necesario el uso de otro bucle mas  
@@ -135,15 +88,18 @@ function compra_general() {
                 let prod = Number(prompt(menu()));
                 if (prod <= 9 && prod >= 0) {
                     if (confirm("confirma la compra?")) {
-                        sumaPrecioTotal += juguete_precio(prod);
-                        console.log("precio de " + juguete_nombre(prod) + " :" + " $" + juguete_precio(prod));
+                        objeto = arregloJuguetes.find((el) =>  el.id === prod)    
+                        console.log(objeto);
+                        //console.log("precio de " + juguete_nombre(prod) + " :" + " $" + juguete_precio(prod));
+                        console.log("\n-------------\nProducto: "+objeto.id, objeto.nombre+"\nPrecio base: $"+objeto.precio +"\nMeno Descuento %"+objeto.descuento+": $"+objeto.precioConDescuento()+ "\n+IVA %14: "+objeto.precioTotalMasIVA());
+                        sumaSinIva += objeto.precioConDescuento();
+                        sumadorTotal += objeto.precioTotalMasIVA();
 
                         if (confirm("seguir comprando???")) {
                             continue;
                         } else {
                             break;
                         }
-
                     } else {
                         console.log("rata inmunda");
                         break
@@ -153,42 +109,54 @@ function compra_general() {
                     continue;
                 }
             }
-            console.log("el precio sin iva es de: $" + sumaPrecioTotal);
-            console.log("precio total carrito + iva: " + iva_total(sumaPrecioTotal));
+            console.log("\n++-------------------------------++\n");
+            console.log("Carrito sin iva es de: $" + sumaSinIva);
+            console.log("Carrito + iva: " + sumadorTotal);
         } else {
             console.log("Chau !!! podes seguir viendo la pagina.");
         }
     } else {
         console.log("ERROR " + 404)
     }
-
 }
-const max= 1;
-const min = 8;
-function regalo() {
+
+//FUNCION PARA RECIBIR UN REGALO ALEATORIO
+function regalo() { //genera un numero random
+    let max = 1;
+    let min = 8;
     return Math.round(Math.random() * (max - min) + min);
 }
-
-console.log(regalo());
-
-function obtenerRegalo() {
-    val = regalo(); 
-    for (i=0; i<=8 ;i++){
-        if (i == val) {
-            console.log("¡¡¡OBTUVISTE UN REGALO!!!");
-            console.log(juguete_nombre(i));
-            break;
-        } 
-    }
+function suerte(){
+    let max = 1;
+    let min = 100;
+    suerte1 = Math.round(Math.random() * (max - min) + min); 
+    (suerte1 === 32 || suerte1 === 72 || suerte1 <= 30) ? ret=true : ret=false ;
+    console.log(suerte1) 
+    return ret;
 }
 
-compra_general();
-console.log("\n \n"); 
-obtenerRegalo();
+function obtenerRegalo(func1,func2) {
+    let a = confirm("desea probar su suerte:")
+    let objeto=arregloJuguetes.find((el) =>  el.id === func1());
+
+    if (a) {
+        (func2() == true) 
+        ?  console.log("¡¡¡Ganaste !!! \nfunko: ",objeto.nombre,", marca: ",objeto.marca)
+        : console.log("¡¡¡ Mala suerte, no ganaste !!!")
+        
+    }else{
+        console.log("chau !!!");
+    }
+}
 
 /* NOTA: siento que estoy usando muchas veces el if, cual seria la forma correcta de reducir el codigo, probe con encadenamiento opcional, pero nose si es correcto su uso.
 */
 
-// +++ TESTEAMOS  +++
-//lamamos a la funcion bienvenido
-//compra_general();
+// // +++ TESTEAMOS  +++
+// //lamamos a la funcion bienvenido
+
+compra_general();
+
+console.log("\n \n"); 
+
+obtenerRegalo(regalo,suerte);
