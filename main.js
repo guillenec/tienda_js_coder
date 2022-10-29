@@ -118,9 +118,38 @@ function compra_general() {
     } else {
         console.log("ERROR " + 404)
     }
-
-
 }
+
+//FUNCION PARA RECIBIR UN REGALO ALEATORIO
+function regalo() { //genera un numero random
+    let max = 1;
+    let min = 8;
+    return Math.round(Math.random() * (max - min) + min);
+}
+function suerte(){
+    let max = 1;
+    let min = 100;
+    suerte1 = Math.round(Math.random() * (max - min) + min); 
+    (suerte1 === 32 || suerte1 === 72 || suerte1 <= 30) ? ret=true : ret=false ;
+    console.log(suerte1) 
+    return ret;
+}
+
+function obtenerRegalo(func1,func2) {
+    let a = confirm("desea probar su suerte:")
+    let objeto=arregloJuguetes.find((el) =>  el.id === func1());
+
+    if (a) {
+        (func2() == true) 
+        ?  console.log("¡¡¡Ganaste !!! \nfunko: ",objeto.nombre,", marca: ",objeto.marca)
+        : console.log("¡¡¡ Mala suerte, no ganaste !!!")
+        
+    }else{
+        console.log("chau !!!");
+    }
+}
+
+
 
 /* NOTA: siento que estoy usando muchas veces el if, cual seria la forma correcta de reducir el codigo, probe con encadenamiento opcional, pero nose si es correcto su uso.
 */
@@ -130,4 +159,6 @@ function compra_general() {
 
 compra_general();
 
+console.log("\n \n"); 
 
+obtenerRegalo(regalo,suerte);
