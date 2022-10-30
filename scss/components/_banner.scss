@@ -10,7 +10,7 @@
         .art_princial{
             margin-top: 50px;
             width: 100%;
-            height: 100%;
+            height: calc(100% - 50px);
             @include caja_flex(row, wrap, center, flex-start, center);
 
             .caja{
@@ -21,6 +21,9 @@
 
                 @include caja_flex(row, wrap, center, flex-start, center);
 
+                &.left{
+                    height: 90%;
+                }
                 @include tablets(){
                 width: 98%;
                 margin: auto;
@@ -96,7 +99,7 @@
                 img{
                     width: 100%;
                     height: 100%;
-                    object-fit: contain;
+                    object-fit: scale-down;
                     margin: auto;
                 
                     @include tablets(){

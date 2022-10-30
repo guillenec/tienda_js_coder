@@ -12,7 +12,7 @@
     .cont_categorias{
         margin-top: 50px;
         width: 100%;
-        height: calc(100% - 50px);
+        height: 620px;
         @include caja_flex(row, wrap, center, flex-start, center);
         
         @include tablets(){

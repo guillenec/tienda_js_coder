@@ -1,0 +1,15 @@
+.figuras_accion{
+    width: 100%;
+    height: 600px;
+    background: rgb(221, 216, 151);
+    margin: auto;
+
+    @include notebook(){
+        width: 90%;
+        height: auto;
+    }
+
+    h2{
+        @include titulosh2();
+    }
+}
