@@ -1,12 +1,10 @@
 .destacados{
-    margin-top: 150px;
     width: 100%;
-    height: 900px;
-    margin: 150px auto;
+    height: auto;
+    @include margin_principal();
 
     @include notebook(){
         width: 90%;
-        height: auto;
     }
     h2{
         @include titulosh2();

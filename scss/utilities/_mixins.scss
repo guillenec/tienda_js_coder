@@ -114,3 +114,7 @@ para movil y tablets  horizontal
         @include caja_flex(row, wrap, center, center, center);
     }
 }
+
+@mixin margin_principal() {
+    margin: 150px auto 0 auto;
+}
