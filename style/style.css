@@ -154,11 +154,29 @@ header .nav {
         right: 0;
         width: 60px;
         height: 100%;
+        transition: all .4s ease-in-out;
         display: grid;
         place-content: center; }
-        header .nav .toggle i {
-          font-size: 35px;
-          color: #fff; } }
+        header .nav .toggle span {
+          display: block;
+          width: 30px;
+          height: 3px;
+          border-radius: 50px;
+          background: #333;
+          transition: all .4s ease-in-out; }
+          header .nav .toggle span:not(:last-child) {
+            margin-bottom: 7px; } }
+    header .nav .toggle.active {
+      transition-delay: .8s;
+      transform: rotate(45deg); }
+      header .nav .toggle.active span:nth-child(2) {
+        width: 0; }
+      header .nav .toggle.active span:nth-child(1), header .nav .toggle.active span:nth-child(1) {
+        transition-delay: .4s; }
+      header .nav .toggle.active span:nth-child(1) {
+        transform: translateY(10px); }
+      header .nav .toggle.active span:nth-child(3) {
+        transform: translateY(-10px) rotate(90deg); }
 
 .main {
   margin-top: 0;
