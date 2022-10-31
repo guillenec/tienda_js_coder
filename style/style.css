@@ -546,25 +546,6 @@ header .nav {
       grid-area: 3 / 2 / 5 / 3; }
     .figuras_accion .cont_figuras .fig6 {
       grid-area: 3 / 3 / 5 / 4; }
-    @media screen and (max-width: 992px) {
-      .figuras_accion .cont_figuras {
-        display: grid;
-        grid-auto-columns: 1fr;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-        gap: 10px 10px; }
-        .figuras_accion .cont_figuras .fig1 {
-          grid-area: 1 / 1 / 3 / 2; }
-        .figuras_accion .cont_figuras .fig2 {
-          grid-area: 1 / 2 / 3 / 3; }
-        .figuras_accion .cont_figuras .fig3 {
-          grid-area: 3 / 1 / 5 / 2; }
-        .figuras_accion .cont_figuras .fig4 {
-          grid-area: 3 / 2 / 5 / 3; }
-        .figuras_accion .cont_figuras .fig5 {
-          grid-area: 5 / 1 / 7 / 2; }
-        .figuras_accion .cont_figuras .fig6 {
-          grid-area: 5 / 2 / 7 / 3; } }
     .figuras_accion .cont_figuras .tarjeta_fig {
       position: relative;
       border: solid 0px #333;
@@ -619,6 +600,57 @@ header .nav {
           .figuras_accion .cont_figuras .tarjeta_fig .carrito:hover ion-icon {
             color: #fff;
             transition: .7s; }
+    @media screen and (max-width: 992px) {
+      .figuras_accion .cont_figuras {
+        height: 1350px;
+        display: grid;
+        grid-auto-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+        gap: 10px 10px; }
+        .figuras_accion .cont_figuras .fig1 {
+          grid-area: 1 / 1 / 3 / 2; }
+        .figuras_accion .cont_figuras .fig2 {
+          grid-area: 1 / 2 / 3 / 3; }
+        .figuras_accion .cont_figuras .fig3 {
+          grid-area: 3 / 1 / 5 / 2; }
+        .figuras_accion .cont_figuras .fig4 {
+          grid-area: 3 / 2 / 5 / 3; }
+        .figuras_accion .cont_figuras .fig5 {
+          grid-area: 5 / 1 / 7 / 2; }
+        .figuras_accion .cont_figuras .fig6 {
+          grid-area: 5 / 2 / 7 / 3; }
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig {
+          width: 100%;
+          height: 20%;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-content: center;
+          justify-content: space-around;
+          align-items: center; }
+        .figuras_accion .cont_figuras .tarjeta_fig img {
+          padding: 10px;
+          height: 70%;
+          width: auto;
+          object-fit: contain; } }
+    @media screen and (max-width: 576px) {
+      .figuras_accion .cont_figuras {
+        height: 900px; }
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig {
+          width: 100%;
+          height: 30%;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-content: center;
+          justify-content: space-around;
+          align-items: center; }
+        .figuras_accion .cont_figuras .tarjeta_fig img {
+          padding: 10px;
+          height: 70%;
+          width: 100%;
+          object-fit: contain; } }
   @media screen and (max-width: 992px) {
     .figuras_accion {
       width: 98%;

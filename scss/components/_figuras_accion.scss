@@ -18,21 +18,6 @@
         .fig5 { grid-area: 3 / 2 / 5 / 3; }
         .fig6 { grid-area: 3 / 3 / 5 / 4; }
 
-        @include notebook(){
-            display: grid; 
-            grid-auto-columns: 1fr; 
-            grid-template-columns: 1fr 1fr; 
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
-            gap: 10px 10px; 
-            
-            .fig1 { grid-area: 1 / 1 / 3 / 2; }
-            .fig2 { grid-area: 1 / 2 / 3 / 3; }
-            .fig3 { grid-area: 3 / 1 / 5 / 2; }
-            .fig4 { grid-area: 3 / 2 / 5 / 3; }
-            .fig5 { grid-area: 5 / 1 / 7 / 2; }
-            .fig6 { grid-area: 5 / 2 / 7 / 3; }
-        }
-
         .tarjeta_fig{
             position: relative;
             border: solid 0px #333;
@@ -88,6 +73,56 @@
                 }
             }
 
+        }
+
+        @include notebook(){
+            height: 1350px;
+            display: grid; 
+            grid-auto-columns: 1fr; 
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr; 
+            gap: 10px 10px; 
+            
+            .fig1 { grid-area: 1 / 1 / 3 / 2; }
+            .fig2 { grid-area: 1 / 2 / 3 / 3; }
+            .fig3 { grid-area: 3 / 1 / 5 / 2; }
+            .fig4 { grid-area: 3 / 2 / 5 / 3; }
+            .fig5 { grid-area: 5 / 1 / 7 / 2; }
+            .fig6 { grid-area: 5 / 2 / 7 / 3; }
+
+            .tarjeta_fig{
+                .textos_fig{
+                    width: 100%;
+                    height: 20%;
+                    @include caja_flex(column, wrap, center, space-around, center);
+
+                }
+                img{
+                    padding: 10px;
+                    height: 70%;
+                    width: auto;
+                    object-fit: contain;
+                }
+            }
+    
+        }
+        @include movile(){
+            height: 900px;
+
+            .tarjeta_fig{
+                .textos_fig{
+                    width: 100%;
+                    height: 30%;
+                    @include caja_flex(column, wrap, center, space-around, center);
+
+                }
+                img{
+                    padding: 10px;
+                    height: 70%;
+                    width: 100%;
+                    object-fit: contain;
+                }
+            }
         }
     }
     
