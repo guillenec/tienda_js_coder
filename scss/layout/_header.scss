@@ -1,7 +1,12 @@
 header{
     //border: solid;
+    position: sticky;
+    background: #fff;
+    z-index: 2;
+
 
     .nav{
+        top: 2px;
         width: 100%;
         height: 60px;
         @include caja_flex(row, wrap, center, space-around, center);
@@ -37,7 +42,8 @@ header{
                         a{
                             @include caja_flex(row, wrap, center, center, center);
                             width: 110px;
-                            @include fuentes($font_h3);  
+                            @include fuentes($font_h3);
+                            color: $color_titulo1; 
                             text-transform: capitalize;
                             text-decoration: none;
                             border: solid 2px transparent;
@@ -48,17 +54,15 @@ header{
                             transition: .5s;
 
                             &:hover{
-                                background: tomato;
-
-                                &::before{
-                                    display: none;
-                                }
+                                //background: $hover1;
+                                //color: aliceblue;
+                                    
                             }
                             &.active{
                                 &::before{
                                     content: "";
                                     @include caja_absoluta(8px, 8px, 5px, b);
-                                    background: #fff;
+                                    background:$color_titulo2;
                                     border-radius: 50%;
                                     transform: .9s;
                                 }
@@ -98,7 +102,7 @@ header{
                     width: 30px;
                     height: 3px;
                     border-radius: 100px;
-                    background: $titulo_color;
+                    background: $color_titulo1;
                     transition: all .4s ease-in-out;
 
                     &:not(:last-child){//:last-child de CSS representa el último elemento entre un grupo de elementos hermanos.
@@ -108,7 +112,6 @@ header{
             }
             &.active{
                 transition-delay: .8s;
-                transform: rotate(45deg);
                 span{
                     &:nth-child(2){
                         width: 0;

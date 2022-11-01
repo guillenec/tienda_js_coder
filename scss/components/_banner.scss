@@ -111,6 +111,7 @@
         }
     }
     --swiper-navigation-size:20px;
+    --swiper-theme-color: #{$color_titulo2};
     .swiper-button-next, .swiper-button-prev {
         position: absolute;
         top: 50%;
