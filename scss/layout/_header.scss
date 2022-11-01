@@ -9,7 +9,7 @@ header{
         top: 2px;
         width: 100%;
         height: 60px;
-        @include caja_flex(row, wrap, center, space-around, center);
+        @include caja_flex(row, wrap, flex-start, space-between, center);
 
         .logo{
             @include caja_flex(row, wrap, center, space-around, center);
@@ -71,17 +71,61 @@ header{
                         }       
                         
                     }
-                @include notebook(){
-                    //De momento solo no lo mostraremos, a futuro con js armare un toggle
-                    display: none;
-                }
             }
 
-            .close_menu{
-                display: none;
-            }
+
             img{
                 display: none;
+            }
+
+            @include notebook(){
+            //a futuro cuando tenga la clase aciva de desplegara
+                &.active{
+                    margin-top: 0px;
+                    width: 100%;
+                    height: auto;
+
+                    .list{
+                        width: 100%;
+                        height: auto;
+                        list-style: none;
+                        @include caja_flex(column, wrap, center, flex-end, center);
+                        background: #fff;
+                    
+                            .item{
+        
+                                a{
+                                    position: relative;
+                                    @include caja_flex(row, wrap, center, center, center);
+                                    width: 110px;
+                                    @include fuentes($font_h3);
+                                    color: $color_titulo1; 
+                                    text-transform: capitalize;
+                                    text-decoration: none;
+                                    border: solid 2px transparent;
+                                    border-radius: 30px;
+                                    margin-right: 5px;
+                                    padding: 10px;
+                                    cursor: pointer;
+                                    transition: .5s;
+        
+                                    &:hover{
+                                        &::before{
+                                            content: "";
+                                            @include caja_absoluta(8px, 8px, 5px, b);
+                                            background:$color_titulo2;
+                                            border-radius: 10%;
+                                            width: 100px;
+                                            transition: width 2s;
+                                        }
+                                            
+                                    }
+                                    
+                                }       
+                                
+                            }
+                    }
+                }
             }
         }
         .toggle{
