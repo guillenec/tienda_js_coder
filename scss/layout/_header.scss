@@ -56,17 +56,17 @@ header{
                             &:hover{
                                 //background: $hover1;
                                 //color: aliceblue;
-                                    
-                            }
-                            &.active{
                                 &::before{
                                     content: "";
                                     @include caja_absoluta(8px, 8px, 5px, b);
                                     background:$color_titulo2;
                                     border-radius: 50%;
-                                    transform: .9s;
+                                    
                                 }
                             }
+                            // &.active{
+                                
+                            // }
                             
                         }       
                         
@@ -80,12 +80,16 @@ header{
 
             @include notebook(){
             //a futuro cuando tenga la clase aciva de desplegara
+                .list{
+                    display: none;
+                }
                 &.active{
                     margin-top: 0px;
                     width: 100%;
                     height: auto;
 
                     .list{
+                        display: block;
                         width: 100%;
                         height: auto;
                         list-style: none;
@@ -97,19 +101,11 @@ header{
                                 a{
                                     position: relative;
                                     @include caja_flex(row, wrap, center, center, center);
-                                    width: 110px;
-                                    @include fuentes($font_h3);
-                                    color: $color_titulo1; 
-                                    text-transform: capitalize;
-                                    text-decoration: none;
-                                    border: solid 2px transparent;
-                                    border-radius: 30px;
-                                    margin-right: 5px;
-                                    padding: 10px;
-                                    cursor: pointer;
                                     transition: .5s;
         
                                     &:hover{
+                                        
+                                        
                                         &::before{
                                             content: "";
                                             @include caja_absoluta(8px, 8px, 5px, b);
@@ -164,10 +160,12 @@ header{
                         transition-delay: .4s;
                     }
                     &:nth-child(1){
-                        transform: translateY(10px);
+                        rotate: 45deg;
+                        transform: translate(7px,7px);
                     }
                     &:nth-child(3){
-                        transform: translateY(-10px) rotate(90deg);
+                        rotate: -45deg;
+                        transform: translate(7px, -7px);
                     }
                 }
             }

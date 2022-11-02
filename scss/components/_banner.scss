@@ -67,7 +67,7 @@
                 }
                 .textos{
                     width: 100%;
-                    font-family: $font_body;
+                    font-family: $color_titulo3;
                     font-size: $font_normal;
                     color: #fff;
                     margin: 0;
@@ -75,11 +75,18 @@
                 }
                 a{
                     display: block;
+                    text-decoration: none;
                     width: 110px;
                     background: tomato;
                     padding: 15px;
                     text-decoration: none;
-                    border-radius: 10%;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    border-radius: 10px;
+                    font-size: $font_a;
+                    color: $color_titulo5;
+
+                    @include align_mid_grid();
                     @include tablets(){
                         font-size: $font_small;
                     }
@@ -89,7 +96,7 @@
                     @include caja_absoluta(55px, 55px, 0 ,t);
                     left: 1px;
                     background: red;
-                    color: $titulo_color;
+                    color: $color_titulo1;
                     font-size: 1.4rem;
                     font-weight: 600;
                     display: grid;

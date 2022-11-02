@@ -76,9 +76,11 @@
                 h2{
                     display: inline;
                     font-size: $font_h2;
+                    color: $color_titulo4;
                 }
                 h3{
                     font-size:$font_h3;
+                    color: $color_titulo4;
                 }
             }
             @include movile(){

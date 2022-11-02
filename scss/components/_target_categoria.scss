@@ -38,16 +38,19 @@
                 @include caja_flex(row, wrap, center, center, center);
 
                 p,a{
-                    color: $titulo_color;
                     text-align: center;
                     width: 90%;
+                    text-decoration: none;
 
                     &.title_targ{
-                        text-decoration: none;
-                        color: $titulo_color;
                         font-size: $font_h2;
-                        font-weight: $semi_bold;
+                        font-weight: $bold;
+                        color: $color_titulo2;
                     }
+                }
+
+                p{
+                    color: $color_titulo3;
                 }
             }
 

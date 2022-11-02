@@ -72,11 +72,11 @@ para movil y tablets  horizontal
     }
 }
 
-@mixin fuentes ($f_size:$font_normal, $f_weight:$medium, $fuente:$font_body, $color:$titulo_color){
+@mixin fuentes ($f_size:$font_normal, $f_weight:$medium, $fuente:$font_body, $color:#ffff){
     font-family: $fuente;
     font-size: $f_size;
     font-weight: $f_weight;
-    color: $color_titulo1;   
+    color: $color;   
 }
 
 //para las cajas contenedoras dentro de una reolativa.. como en el caso de las targetas de los programas.
