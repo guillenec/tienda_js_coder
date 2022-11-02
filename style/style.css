@@ -1,3 +1,6 @@
+/*
+
+*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400;1,500;1,600;1,700&display=swap");
 /*
 font-family: 'Poppins', sans-serif;
@@ -17,10 +20,7 @@ body {
   margin: 5px 0 0 0;
   background: #FFFFFF;
   width: 100%;
-  height: 100%;
-  font-family: "Poppins", sans-serif;
-  font-size: 0.92rem;
-  color: #3F3F3F; }
+  height: 100%; }
 
 /*
 $sm: 576px;
@@ -83,7 +83,7 @@ header {
       font-family: "Poppins", sans-serif;
       font-size: 1rem;
       font-weight: 500;
-      color: #3F3F3F;
+      color: #ffff;
       text-transform: capitalize; }
       header .nav .logo img {
         height: 2rem;
@@ -114,7 +114,7 @@ header {
             font-family: "Poppins", sans-serif;
             font-size: 1rem;
             font-weight: 500;
-            color: #3F3F3F;
+            color: #ffff;
             color: #3F3F3F;
             text-transform: capitalize;
             text-decoration: none;
@@ -124,25 +124,27 @@ header {
             padding: 10px;
             cursor: pointer;
             transition: .5s; }
-            header .nav .menu .list .item a.active::before {
+            header .nav .menu .list .item a:hover::before {
               content: "";
               position: absolute;
               width: 8px;
               height: 8px;
               bottom: 5px;
               background: #FF7C5F;
-              border-radius: 50%;
-              transform: .9s; }
-              header .nav .menu .list .item a.active::before else {
+              border-radius: 50%; }
+              header .nav .menu .list .item a:hover::before else {
                 top: b; }
       header .nav .menu img {
         display: none; }
       @media screen and (max-width: 992px) {
+        header .nav .menu .list {
+          display: none; }
         header .nav .menu.active {
           margin-top: 0px;
           width: 100%;
           height: auto; }
           header .nav .menu.active .list {
+            display: block;
             width: 100%;
             height: auto;
             list-style: none;
@@ -161,19 +163,6 @@ header {
               align-content: center;
               justify-content: center;
               align-items: center;
-              width: 110px;
-              font-family: "Poppins", sans-serif;
-              font-size: 1rem;
-              font-weight: 500;
-              color: #3F3F3F;
-              color: #3F3F3F;
-              text-transform: capitalize;
-              text-decoration: none;
-              border: solid 2px transparent;
-              border-radius: 30px;
-              margin-right: 5px;
-              padding: 10px;
-              cursor: pointer;
               transition: .5s; }
               header .nav .menu.active .list .item a:hover::before {
                 content: "";
@@ -216,9 +205,11 @@ header {
         header .nav .toggle.active span:nth-child(1), header .nav .toggle.active span:nth-child(1) {
           transition-delay: .4s; }
         header .nav .toggle.active span:nth-child(1) {
-          transform: translateY(10px); }
+          rotate: 45deg;
+          transform: translate(7px, 7px); }
         header .nav .toggle.active span:nth-child(3) {
-          transform: translateY(-10px) rotate(90deg); }
+          rotate: -45deg;
+          transform: translate(7px, -7px); }
 
 .main {
   margin-top: 0;
@@ -307,18 +298,25 @@ header {
               font-size: 1.5rem; } }
         .banner .envoltura_art .art_princial .caja .textos {
           width: 100%;
-          font-family: "Poppins", sans-serif;
+          font-family: #107263;
           font-size: 0.92rem;
           color: #fff;
           margin: 0;
           padding: 0; }
         .banner .envoltura_art .art_princial .caja a {
           display: block;
+          text-decoration: none;
           width: 110px;
           background: tomato;
           padding: 15px;
           text-decoration: none;
-          border-radius: 10%; }
+          font-weight: 600;
+          text-transform: capitalize;
+          border-radius: 10px;
+          font-size: 1.1rem;
+          color: #fff;
+          display: grid;
+          place-content: center; }
           @media screen and (max-width: 768px) {
             .banner .envoltura_art .art_princial .caja a {
               font-size: 0.82rem; } }
@@ -329,7 +327,7 @@ header {
           top: 0;
           left: 1px;
           background: red;
-          color: #ffffff;
+          color: #3F3F3F;
           font-size: 1.4rem;
           font-weight: 600;
           display: grid;
@@ -406,14 +404,15 @@ header {
         justify-content: center;
         align-items: center; }
         .categorias .cont_categorias .targeta_simple .textos_target p, .categorias .cont_categorias .targeta_simple .textos_target a {
-          color: #ffffff;
           text-align: center;
-          width: 90%; }
+          width: 90%;
+          text-decoration: none; }
           .categorias .cont_categorias .targeta_simple .textos_target p.title_targ, .categorias .cont_categorias .targeta_simple .textos_target a.title_targ {
-            text-decoration: none;
-            color: #ffffff;
             font-size: 1.5rem;
-            font-weight: 600; }
+            font-weight: 900;
+            color: #FF7C5F; }
+        .categorias .cont_categorias .targeta_simple .textos_target p {
+          color: #107263; }
       @media screen and (max-width: 768px) {
         .categorias .cont_categorias .targeta_simple {
           width: 100%;
@@ -535,9 +534,11 @@ header {
         text-align: center; }
         .destacados .cont_destacados .targeta .textos_target h2 {
           display: inline;
-          font-size: 1.5rem; }
+          font-size: 1.5rem;
+          color: #FFDE62; }
         .destacados .cont_destacados .targeta .textos_target h3 {
-          font-size: 1rem; }
+          font-size: 1rem;
+          color: #FFDE62; }
       @media screen and (max-width: 576px) {
         .destacados .cont_destacados .targeta {
           width: 90%;
