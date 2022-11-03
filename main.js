@@ -92,10 +92,18 @@ for (const iterator of arregloJuguetes) {
     console.log(iterator);
 }
 
-let objeto = prompt("buscador:");
-if (objeto) {
-    const resultado = arregloJuguetes.filter((el) => el.nombre(objeto) || el.genero(objeto) || el.busca(objeto) || el.tipo(objeto))
-}
+let busca_object = prompt("buscador:");
+
+//some me devolvera true o false si encuentra una referencia, asi que me sirve para hacer un filtro previo:
+console.log( arregloJuguetes.some((n) => n.nombre == busca_object || n.genero == busca_object || n.tipo == busca_object || n.busca == busca_object ));
+
+const resultado = arregloJuguetes.filter((m) => m.nombre == busca_object || m.genero == busca_object || m.tipo == busca_object || m.busca == busca_object );
+
+console.log(resultado);
+console.log("--------- --------");
+console.log(resultado[1]);
+
+
 
 // console.log(menu())
 // permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.

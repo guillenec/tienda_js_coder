@@ -307,16 +307,20 @@ header {
           display: block;
           text-decoration: none;
           width: 110px;
-          background: tomato;
+          background: #FF7C5F;
+          color: #fff;
           padding: 15px;
           text-decoration: none;
           font-weight: 600;
           text-transform: capitalize;
           border-radius: 10px;
           font-size: 1.1rem;
-          color: #fff;
+          transition: 0.7s;
           display: grid;
           place-content: center; }
+          .banner .envoltura_art .art_princial .caja a:hover {
+            background: #3F3F3F;
+            color: #FFDE62; }
           @media screen and (max-width: 768px) {
             .banner .envoltura_art .art_princial .caja a {
               font-size: 0.82rem; } }
@@ -326,8 +330,8 @@ header {
           height: 55px;
           top: 0;
           left: 1px;
-          background: red;
-          color: #3F3F3F;
+          background: #3F3F3F;
+          color: #FFDE62;
           font-size: 1.4rem;
           font-weight: 600;
           display: grid;
