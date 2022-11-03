@@ -5,21 +5,25 @@
 let id = 0;
 let nombre = "";
 let precio = "";
-let material = "";
 let marca = "";
+let genero = "";
+let tipo = "";
+let busca = "";
 let descuento = 0;
 
 let sumadorTotal = 0;
 let sumaSinIva = 0;
 
 //constructor
-function funko(id, name, price, material, brand, discount){
+function funko(id, name, price, brand, genero, tipo, busca, discount){
     //variables o propiedades publicas del objeto, se ven o acceden fuera del documento 
     this.id = id;
     this.nombre = name;
     this.precio = price;
-    this.material = material;
     this.marca = brand;
+    this.genero = genero;
+    this.tipo = tipo;
+    this.busca = busca;
     this.descuento = discount;
 
     // variable privada, solo se visualiza dentro del documento.
@@ -37,23 +41,33 @@ function funko(id, name, price, material, brand, discount){
 }
 
 //primer instancia de la clase funko
-const funko1 = new funko (1, "kaoanashi",  500,  "plastco blando", "toys", 10 )
+const funko1 = new funko (1,"michael myers",2000,"pop","movies","funko","halloween", 10)
 //Instancias de la clase funko
-const funko2 = new funko (2,"kaoanashi duo",  550, "plastco blando",  "lego", 10 )
-const funko3 = new funko (3,"clafueguito", 800, "plastco blando", "bandai", 10 )
-const funko4 = new funko (4,"huesito", 530, "plastco blando", "hasbro", 10 )
-const funko5 = new funko (5,"caramelo",  521,  "plastco blando", "toys", 0 )
-const funko6 = new funko (6,"espanta suegra", 710, "plastco blando", "toys", 0 )
-const funko7 = new funko (7,"chupetin", 600,  "plastco blando", "matel", 0 )
-const funko8 = new funko (8,"calabaza",  560, "plastco blando", "hasbro", 0 )
-const funko9 = new funko (9,"fantasma", 760, "plastco blando", "bandai", 0 )
-
+const funko2 = new funko (2,"chucky",  1550, "pop", "movies","funko","halloween", 10 )
+const funko3 = new funko (3,"sam", 1200, "pop","movies","funko","halloween", 10 )
+const funko4 = new funko (4,"yamcha y puar", 1530, "pop", "animation","funko","dragon ball", 10 )
+const funko5 = new funko (5,"homer muumuu",  1021,  "pop", "television","funko","simpsons", 0 )
+const funko6 = new funko (6,"neo", 1010, "pop", "movies","funko","ciencia ficcion", 0 )
 
 // //ARREGLO DE OBJETOS
 const arregloJuguetes = [];
-arregloJuguetes.push(funko1,funko2,funko3,funko4,funko5,funko6,funko7,funko8,funko9);
+arregloJuguetes.push(funko1,funko2,funko3,funko4,funko5,funko6);
 
 
+// lo anterior puedo simplificarlo haciendo 
+arregloJuguetes.push(new funko(7,"pennywise",1220,"pop","movies","funko","terror",0 ));
+arregloJuguetes.push(new funko(8,"t-800",1150,"pop","movies","funko","ciencia ficcion",0 ));
+arregloJuguetes.push(new funko(9,"charizard",1200,"pop","games","funko","pokemon",0 ));
+arregloJuguetes.push(new funko(10,"daemon targaryen",1500,"pop","serie","funko",0 ));
+
+arregloJuguetes.push(new funko(11,"thresh",1550,"spin master","games","figura","league of legends",0 ));
+arregloJuguetes.push(new funko(12,"yasuo",1550,"spin master","games","figura","league of legends",0 ));
+arregloJuguetes.push(new funko(13,"zed",1500,"spin master","games","figura","league of legends",0 ));
+arregloJuguetes.push(new funko(14,"ashe",1550,"spin master","games","figura","league of legends",0 ));
+arregloJuguetes.push(new funko(15,"wukong",1400,"spin master","games","figura","league of legends",0 ));
+arregloJuguetes.push(new funko(16,"darius",1500,"spin master","games","figura","league of legends",0 ));
+
+console.log(arregloJuguetes);
 // funcion de bienvenida, retorna un codigo de error 
 function bienvenido() {
     let ingresar = prompt("deseas ver mi web? si / no").toLowerCase();
@@ -74,6 +88,14 @@ const menu = () => {
 }
 
 //funcion que busca un tipo especifico de dato
+for (const iterator of arregloJuguetes) {
+    console.log(iterator);
+}
+
+let objeto = prompt("buscador:");
+if (objeto) {
+    const resultado = arregloJuguetes.filter((el) => el.nombre(objeto) || el.genero(objeto) || el.busca(objeto) || el.tipo(objeto))
+}
 
 // console.log(menu())
 // permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
