@@ -39,6 +39,7 @@ function funko(id, name, price, brand, genero, tipo, busca, discount){
         return (this.precioConDescuento() + this.precioConDescuento()  * iva);
     }
 }
+
 const menuPrincipal = () => {
     return valor = Number(prompt(
         "++ ------ Menu Principal ------++\n"+
@@ -55,12 +56,12 @@ const menuPrincipal = () => {
 
 
 //primer instancia de la clase funko
-const funko1 = new funko (1,"michael myers",2000,"pop","movies","funko","halloween", 10)
+const funko1 = new funko (1,"michael myers",2000,"pop","movies","funko","terror", 10)
 //Instancias de la clase funko
-const funko2 = new funko (2,"chucky",  1550, "pop", "movies","funko","halloween", 10 )
-const funko3 = new funko (3,"sam", 1200, "pop","movies","funko","halloween", 10 )
-const funko4 = new funko (4,"yamcha y puar", 1530, "pop", "animation","funko","dragon ball", 10 )
-const funko5 = new funko (5,"homer muumuu",  1021,  "pop", "television","funko","simpsons", 0 )
+const funko2 = new funko (2,"chucky",  1550, "pop", "movies","funko","terror", 10 )
+const funko3 = new funko (3,"sam", 1200, "pop","movies","funko","terror", 10 )
+const funko4 = new funko (4,"yamcha y puar", 1530, "pop", "anime","funko","dragon ball", 10 )
+const funko5 = new funko (5,"homer muumuu",  1021,  "pop", "animacion","funko","simpsons", 0 )
 const funko6 = new funko (6,"neo", 1010, "pop", "movies","funko","ciencia ficcion", 0 )
 
 // //ARREGLO DE OBJETOS
@@ -71,8 +72,8 @@ arregloJuguetes.push(funko1,funko2,funko3,funko4,funko5,funko6);
 // lo anterior puedo simplificarlo haciendo 
 arregloJuguetes.push(new funko(7,"pennywise",1220,"pop","movies","funko","terror",0 ));
 arregloJuguetes.push(new funko(8,"t-800",1150,"pop","movies","funko","ciencia ficcion",0 ));
-arregloJuguetes.push(new funko(9,"charizard",1200,"pop","games","funko","pokemon",0 ));
-arregloJuguetes.push(new funko(10,"daemon targaryen",1500,"pop","serie","funko",0 ));
+arregloJuguetes.push(new funko(9,"charizard",1200,"pop","anime","funko","pokemon",0 ));
+arregloJuguetes.push(new funko(10,"daemon targaryen",1500,"pop","serie","funko","game of throne",0 ));
 
 arregloJuguetes.push(new funko(11,"thresh",1550,"spin master","games","figura","league of legends",0 ));
 arregloJuguetes.push(new funko(12,"yasuo",1550,"spin master","games","figura","league of legends",0 ));
@@ -133,21 +134,21 @@ const buscaCoincidencia = (fun,arr) =>{
 // const comprados = resultado.map((element) => element.nombre);
 // console.log(comprados);
 
-
+confirm("asegurese de tener abierta la consola, sino no podra ver nada de lo que sucede!!!! \n");
 let opcion = 7;
 while (opcion != 0) {
     opcion = menuPrincipal();
     switch (opcion) {
         case 1:
             console.log("eligio "+opcion);
-            let val= "\n---- todos los productoos ---- ";
-            menu(val);
+            let textoP= "\n---- todos los productoos ---- ";
+            menu(textoP);
             break;
         case 2:
             console.log("eligio "+opcion);
             const filtrados = buscaCoincidencia(verifica,arregloJuguetes);
             if (filtrados == false) {
-                console.log("disculpe, no hay coincidencia, pruebe con movie | anime | pokemon | bragon ball z, etc..")
+                console.log("disculpe, no hay coincidencia, pruebe con movie | anime | pokemon | bragon ball |siencia ficcion | terror etc..")
             } else{
                 console.log(filtrados);
                 for (const iterator of filtrados) {
