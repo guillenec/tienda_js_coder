@@ -147,7 +147,7 @@ while (opcion != 0) {
             const filtrados = buscaCoincidencia(verifica,arregloJuguetes);
             console.log(filtrados);
             for (const iterator of filtrados) {
-                console.log(iterator.nombre);
+                console.log(`nombre ${iterator.nombre}  precio ${iterator.precio}`);
             }
             break;
         case 3:
