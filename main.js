@@ -143,7 +143,10 @@ const buscaCoincidencia = (fun,arr) =>{
 
 // console.log(menu())
 // permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
+let carritoActual = [];
 let comprados;
+//esto me permitira seguir comprando por mas que salga de la opcion 3
+let funkosComprado = carritoActual; 
 function compra_general() {
     // let entrarMenu = bienvenido();
     // console.log(entrarMenu);  //viendo que todo vaya bien
@@ -153,36 +156,38 @@ function compra_general() {
             //bucle while, no crei necesario el uso de otro bucle mas  
             do{
                 prod = Number(prompt(menu()));
-                if (prod.id > 17 || prod.id <= 0 ) {
-                    alert("ingrese un valor numerico entre 1 / 9.");
-                    continue;
-                } else {
+                if (prod < 17 && prod > 0) {
                     if (confirm("confirma la compra?")) {
-                         //find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
+                        //find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
                         objeto = arregloJuguetes.find((el) => el.id === prod)
+                        funkosComprado.push(objeto);
                         console.log(objeto);
+                        console.log(funkosComprado)
                         //console.log("precio de " + juguete_nombre(prod) + " :" + " $" + juguete_precio(prod));
-                        console.log("\n-------------\nProducto: " + objeto.id, objeto.nombre + "\nPrecio base: $" + objeto.precio + "\nMeno Descuento %" + objeto.descuento + ": $" + objeto.precioConDescuento() + "\n+IVA %14: " + objeto.precioTotalMasIVA());
-                        sumaSinIva += objeto.precioConDescuento();
-                        sumadorTotal += objeto.precioTotalMasIVA();
-                        
-                        comprados += objeto;
+                        // console.log("\n-------------\nProducto: " + objeto.id, objeto.nombre + "\nPrecio base: $" + objeto.precio + "\nMeno Descuento %" + objeto.descuento + ": $" + objeto.precioConDescuento() + "\n+IVA %14: " + objeto.precioTotalMasIVA());
+                        // sumaSinIva += objeto.precioConDescuento();
+                        // sumadorTotal += objeto.precioTotalMasIVA();
 
                         if (confirm("seguir comprando???")) {
                             continue;
                         } else {
-                            return comprados;
-                        }
+                            console.log("\n salto de linea por ERROR \n"); 
+                            }
                     } else {
                         console.log("rata inmunda");
                         break
                     }
+                    console.log("++---- DEPURANDO ----++")
+                    return(funkosComprado);
+                } else {
+                    alert("ingrese un valor numerico entre 1 / 9.");
+                    continue;
                 } 
             }while(confirm("ver menu?"));
 
-            console.log("\n++-------------------------------++\n");
-            console.log("Carrito sin iva es de: $" + sumaSinIva);
-            console.log("Carrito + iva: " + sumadorTotal);
+            // console.log("\n++-------------------------------++\n");
+            // console.log("Carrito sin iva es de: $" + sumaSinIva);
+            // console.log("Carrito + iva: " + sumadorTotal);
         // } else {
         //     console.log("Chau !!! podes seguir viendo la pagina.");
         // }
@@ -193,18 +198,24 @@ function compra_general() {
 
 confirm("asegurese de tener abierta la consola, sino no podra ver nada de lo que sucede!!!! \n");
 let opcion = 7;
-let carritoActual;
 
+// 1) ver todos los funkos      
+// 2) buscar una coincidencia   
+// 3) comprar un producto       
+// 4) ver carrito               
+// 5) eliminar product carrito 
+// 6) precio total              
+// 7) probar suerte             
+// 0) salir  
 while (opcion != 0) {
     opcion = menuPrincipal();
     switch (opcion) {
         case 1:
-            console.log("eligio "+opcion);
-            let textoP= "\n---- todos los productoos ---- ";
+            console.log("\n+---- "+opcion+") Mostrartodos los funkos ----+");
             menu(textoP);
             break;
         case 2:
-            console.log("eligio "+opcion);
+            console.log("\n+---- "+opcion+") Buscar palabra clave ----+");
             const filtrados = buscaCoincidencia(verifica,arregloJuguetes);
             if (filtrados == false) {
                 console.log("disculpe, no hay coincidencia, pruebe con movie | anime | pokemon | bragon ball |siencia ficcion | terror etc..")
@@ -216,12 +227,16 @@ while (opcion != 0) {
             }
             break;
         case 3:
-            console.log("eligio "+opcion);
-            const carritoActual = compra_general();
-            console.log(carritoActual);    
+            console.log("\n+---- "+opcion+") realizar compra ----+");
+            carritoActual = compra_general();
+            console.log(carritoActual);
+            console.log("\n++---- DEPURANDO 2 ----++\n")
             break;
         case 4:
-            console.log("eligio "+opcion);
+            console.log("\n+---- "+opcion+") ver carrito ----+");
+            carritoActual.forEach(element => {
+                console.log(element.nombre);
+            });
             break;
         case 5:
             console.log("eligio "+opcion);
