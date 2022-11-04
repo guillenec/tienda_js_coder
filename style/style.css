@@ -84,7 +84,10 @@ header {
       font-size: 1rem;
       font-weight: 500;
       color: #ffff;
-      text-transform: capitalize; }
+      text-transform: capitalize;
+      color: #FF7C5F;
+      font-weight: 800;
+      font-size: 1.1rem; }
       header .nav .logo img {
         height: 2rem;
         width: auto; }
