@@ -39,6 +39,20 @@ function funko(id, name, price, brand, genero, tipo, busca, discount){
         return (this.precioConDescuento() + this.precioConDescuento()  * iva);
     }
 }
+const menuPrincipal = () => {
+    return valor = Number(prompt(
+        "++ ------ Menu Principal ------++\n"+
+        "|| 1) ver todos los funkos      \n"+
+        "|| 2) buscar una coincidencia   \n"+
+        "|| 3) comprar un producto       \n"+
+        "|| 4) ver carrito               \n"+
+        "|| 5) eliminar product carrito  \n"+
+        "|| 6) precio total              \n"+
+        "|| 0) salir                     \n"+
+        "++ ---------- Fin Menu --------++\n"
+    ));
+}
+
 
 //primer instancia de la clase funko
 const funko1 = new funko (1,"michael myers",2000,"pop","movies","funko","halloween", 10)
@@ -78,9 +92,10 @@ function bienvenido() {
 
 let textoMenu = "";
 //funcion flecha permite mostrar por consola el menu
-const menu = () => {
+
+const menu = (texto) => {
     let i = 0;
-    console.log("++++ Cual Desea Comprar: ibgrese el numero correspondiente  \n");
+    console.log(texto+"\n");
     for (const iterador of arregloJuguetes) {
         i++;
         console.log(i+" => "+iterador.nombre+" $"+iterador.precio+", descuento "+iterador.descuento+"\n");
@@ -88,22 +103,76 @@ const menu = () => {
 }
 
 //funcion que busca un tipo especifico de dato
-for (const iterator of arregloJuguetes) {
-    console.log(iterator);
-}
+// for (const iterator of arregloJuguetes) {
+//     console.log(iterator);
+// }
 
-let busca_object = prompt("buscador:");
 
 //some me devolvera true o false si encuentra una referencia, asi que me sirve para hacer un filtro previo:
-console.log( arregloJuguetes.some((n) => n.nombre == busca_object || n.genero == busca_object || n.tipo == busca_object || n.busca == busca_object ));
+const verifica = (arreglo, valorBuscar) => {
+    return(arreglo.some((n) => n.nombre == valorBuscar || n.genero == valorBuscar || n.tipo == valorBuscar || n.busca == valorBuscar ));
+}
 
-const resultado = arregloJuguetes.filter((m) => m.nombre == busca_object || m.genero == busca_object || m.tipo == busca_object || m.busca == busca_object );
+let resultado;
+const buscaCoincidencia = (fun,arr) =>{
+    let busca_object = prompt("buscador:");
+    if (fun(arr, busca_object)) {
+        //filter igual que filter pero retorna un nuevo array con los elementos que cumplan la condicion. sino array vacionn "" 
+        return (resultado = arr.filter((m) => m.nombre == busca_object || m.genero == busca_object || m.tipo == busca_object || m.busca == busca_object ))
+        
+    } else{
+        console.log("error");
+    }
+}
 
-console.log(resultado);
-console.log("--------- --------");
-console.log(resultado[1]);
+// console.log(resultado);
+// console.log("--------- --------");
+// console.log(resultado[1]);1
+
+// const comprados = resultado.map((element) => element.nombre);
+// console.log(comprados);
 
 
+let opcion = 7;
+while (opcion != 0) {
+    opcion = menuPrincipal();
+    switch (opcion) {
+        case 1:
+            console.log("eligio "+opcion);
+            let val= "\n---- todos los productoos ---- ";
+            menu(val);
+            break;
+        case 2:
+            console.log("eligio "+opcion);
+            const filtrados = buscaCoincidencia(verifica,arregloJuguetes);
+            console.log(filtrados);
+            for (const iterator of filtrados) {
+                console.log(iterator.nombre);
+            }
+            break;
+        case 3:
+            console.log("eligio "+opcion);
+            break;
+        case 4:
+            console.log("eligio "+opcion);
+            break;
+        case 5:
+            console.log("eligio "+opcion);
+            break; 
+        case 6:
+            console.log("eligio "+opcion);
+            break;
+        case 0:
+            console.log("saliendo del menu");
+            break;
+        default:
+            console.log("valor ingresado es incorrecto. seleccione opcion entre 0 y 6.")
+            break;
+    }
+}
+//find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
+// objeto = arregloJuguetes.find((el) => el.id === prod)
+// console.log(objeto);
 
 // console.log(menu())
 // permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
@@ -120,6 +189,7 @@ console.log(resultado[1]);
             
 //                 if (prod.id <= 9 && prod.id > 0) {
 //                     if (confirm("confirma la compra?")) {
+                         //find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
 //                         objeto = arregloJuguetes.find((el) => el.id === prod)
 //                         console.log(objeto);
 //                         //console.log("precio de " + juguete_nombre(prod) + " :" + " $" + juguete_precio(prod));
