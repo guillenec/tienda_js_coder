@@ -49,6 +49,7 @@ const menuPrincipal = () => {
         "|| 4) ver carrito               \n"+
         "|| 5) eliminar product carrito  \n"+
         "|| 6) precio total              \n"+
+        "|| 7) probar suerte             \n"+
         "|| 0) salir                     \n"+
         "++ ---------- Fin Menu --------++\n"
     ));
@@ -71,7 +72,7 @@ arregloJuguetes.push(funko1,funko2,funko3,funko4,funko5,funko6);
 
 // lo anterior puedo simplificarlo haciendo 
 arregloJuguetes.push(new funko(7,"pennywise",1220,"pop","movies","funko","terror",0 ));
-arregloJuguetes.push(new funko(8,"t-800",1150,"pop","movies","funko","ciencia ficcion",0 ));
+arregloJuguetes.push(new funko(8,"t-8000",1150,"pop","movies","funko","ciencia ficcion",0 ));
 arregloJuguetes.push(new funko(9,"charizard",1200,"pop","anime","funko","pokemon",0 ));
 arregloJuguetes.push(new funko(10,"daemon targaryen",1500,"pop","serie","funko","game of throne",0 ));
 
@@ -81,6 +82,7 @@ arregloJuguetes.push(new funko(13,"zed",1500,"spin master","games","figura","lea
 arregloJuguetes.push(new funko(14,"ashe",1550,"spin master","games","figura","league of legends",0 ));
 arregloJuguetes.push(new funko(15,"wukong",1400,"spin master","games","figura","league of legends",0 ));
 arregloJuguetes.push(new funko(16,"darius",1500,"spin master","games","figura","league of legends",0 ));
+arregloJuguetes.push(new funko(17,"otto",1300,"pop", "animacion","funko","simpsons", 0 ));
 
 console.log(arregloJuguetes);
 // funcion de bienvenida, retorna un codigo de error 
@@ -134,8 +136,65 @@ const buscaCoincidencia = (fun,arr) =>{
 // const comprados = resultado.map((element) => element.nombre);
 // console.log(comprados);
 
+
+//find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
+// objeto = arregloJuguetes.find((el) => el.id === prod)
+// console.log(objeto);
+
+// console.log(menu())
+// permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
+let comprados;
+function compra_general() {
+    // let entrarMenu = bienvenido();
+    // console.log(entrarMenu);  //viendo que todo vaya bien
+    // if (entrarMenu == true) {
+        // if (confirm("si desea continuar debe abrir la consola.")) {
+
+            //bucle while, no crei necesario el uso de otro bucle mas  
+            do{
+                prod = Number(prompt(menu()));
+                if (prod.id > 17 || prod.id <= 0 ) {
+                    alert("ingrese un valor numerico entre 1 / 9.");
+                    continue;
+                } else {
+                    if (confirm("confirma la compra?")) {
+                         //find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
+                        objeto = arregloJuguetes.find((el) => el.id === prod)
+                        console.log(objeto);
+                        //console.log("precio de " + juguete_nombre(prod) + " :" + " $" + juguete_precio(prod));
+                        console.log("\n-------------\nProducto: " + objeto.id, objeto.nombre + "\nPrecio base: $" + objeto.precio + "\nMeno Descuento %" + objeto.descuento + ": $" + objeto.precioConDescuento() + "\n+IVA %14: " + objeto.precioTotalMasIVA());
+                        sumaSinIva += objeto.precioConDescuento();
+                        sumadorTotal += objeto.precioTotalMasIVA();
+                        
+                        comprados += objeto;
+
+                        if (confirm("seguir comprando???")) {
+                            continue;
+                        } else {
+                            return comprados;
+                        }
+                    } else {
+                        console.log("rata inmunda");
+                        break
+                    }
+                } 
+            }while(confirm("ver menu?"));
+
+            console.log("\n++-------------------------------++\n");
+            console.log("Carrito sin iva es de: $" + sumaSinIva);
+            console.log("Carrito + iva: " + sumadorTotal);
+        // } else {
+        //     console.log("Chau !!! podes seguir viendo la pagina.");
+        // }
+    // } else {
+    //     console.log("ERROR " + 404)
+    // }
+}
+
 confirm("asegurese de tener abierta la consola, sino no podra ver nada de lo que sucede!!!! \n");
 let opcion = 7;
+let carritoActual;
+
 while (opcion != 0) {
     opcion = menuPrincipal();
     switch (opcion) {
@@ -158,6 +217,8 @@ while (opcion != 0) {
             break;
         case 3:
             console.log("eligio "+opcion);
+            const carritoActual = compra_general();
+            console.log(carritoActual);    
             break;
         case 4:
             console.log("eligio "+opcion);
@@ -166,7 +227,11 @@ while (opcion != 0) {
             console.log("eligio "+opcion);
             break; 
         case 6:
-            console.log("eligio "+opcion);
+            console.log("eligio " + opcion);
+            break;
+        case 7:
+            console.log("eligio " + opcion);
+            obtenerRegalo(regalo,suerte);
             break;
         case 0:
             console.log("saliendo del menu");
@@ -176,88 +241,37 @@ while (opcion != 0) {
             break;
     }
 }
-//find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
-// objeto = arregloJuguetes.find((el) => el.id === prod)
-// console.log(objeto);
 
-// console.log(menu())
-// permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
-
-// function compra_general() {
-//     let entrarMenu = bienvenido();
-//     console.log(entrarMenu);  //viendo que todo vaya bien
-//     if (entrarMenu == true) {
-//         if (confirm("si desea continuar debe abrir la consola.")) {
-
-//             //bucle while, no crei necesario el uso de otro bucle mas  
-//             do{
-//                 prod = Number(prompt(menu()));
-            
-//                 if (prod.id <= 9 && prod.id > 0) {
-//                     if (confirm("confirma la compra?")) {
-                         //find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
-//                         objeto = arregloJuguetes.find((el) => el.id === prod)
-//                         console.log(objeto);
-//                         //console.log("precio de " + juguete_nombre(prod) + " :" + " $" + juguete_precio(prod));
-//                         console.log("\n-------------\nProducto: " + objeto.id, objeto.nombre + "\nPrecio base: $" + objeto.precio + "\nMeno Descuento %" + objeto.descuento + ": $" + objeto.precioConDescuento() + "\n+IVA %14: " + objeto.precioTotalMasIVA());
-//                         sumaSinIva += objeto.precioConDescuento();
-//                         sumadorTotal += objeto.precioTotalMasIVA();
-
-//                         if (confirm("seguir comprando???")) {
-//                             continue;
-//                         } else {
-//                             break;
-//                         }
-//                     } else {
-//                         console.log("rata inmunda");
-//                         break
-//                     }
-//                 } else {
-//                     alert("ingrese un valor numerico entre 1 / 9.");
-//                     continue;
-//                 }
-//             }while(confirm("ver menu?"));
-
-//             console.log("\n++-------------------------------++\n");
-//             console.log("Carrito sin iva es de: $" + sumaSinIva);
-//             console.log("Carrito + iva: " + sumadorTotal);
-//         } else {
-//             console.log("Chau !!! podes seguir viendo la pagina.");
-//         }
-//     } else {
-//         console.log("ERROR " + 404)
-//     }
-// }
 
 // //FUNCION PARA RECIBIR UN REGALO ALEATORIO
-// function regalo() { //genera un numero random
-//     let max = 1;
-//     let min = 8;
-//     return Math.round(Math.random() * (max - min) + min);
-// }
-// function suerte(){
-//     let max = 1;
-//     let min = 100;
-//     suerte1 = Math.round(Math.random() * (max - min) + min); 
-//     (suerte1 === 32 || suerte1 === 72 || suerte1 <= 30) ? ret=true : ret=false ;
-//     console.log(suerte1) 
-//     return ret;
-// }
+function regalo() { //genera un numero random
+    let max = 1;
+    let min = 8;
+    return Math.round(Math.random() * (max - min) + min);
+}
+function suerte(){
+    let max = 1;
+    let min = 100;
+    suerte1 = Math.round(Math.random() * (max - min) + min); 
+    (suerte1 === 32 || suerte1 === 72 || suerte1 <= 30) ? ret=true : ret=false ;
+    console.log(suerte1) 
+    return ret;
+}
 
-// // funcion de orden superior 
-// function obtenerRegalo(func1,func2) {
-//     let a = confirm("desea probar su suerte:")
-//     let objeto=arregloJuguetes.find((el) =>  el.id === func1());
+// funcion de orden superior 
+function obtenerRegalo(func1,func2) {
+    let a = confirm("desea probar su suerte:")
+    let objeto=arregloJuguetes.find((el) =>  el.id === func1());
 
-//     if (a) {
-//         (func2() == true) 
-//         ?  console.log("¡¡¡Ganaste !!! \nfunko: ",objeto.nombre,", marca: ",objeto.marca)
-//         : console.log("¡¡¡ Mala suerte, no ganaste !!!")
+    if (a) {
+        (func2() == true) 
+        ?  console.log("¡¡¡Ganaste !!! \nfunko: ",objeto.nombre,", marca: ",objeto.marca)
+        : console.log("¡¡¡ Mala suerte, no ganaste !!!")
         
-//     }else{
-//         console.log("chau !!!");
-//     }
-// }
+    }else{
+        console.log("chau !!!");
+    }
+}
 
 /* NOTA: siento que estoy usando muchas veces el if, cual seria la forma correcta de reducir el codigo, probe con encadenamiento opcional, pero nose si es correcto su uso.
 */
