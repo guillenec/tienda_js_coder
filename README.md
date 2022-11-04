@@ -2,11 +2,11 @@
     <h1 align="center">eCommerce Funkoshop</h1>
     <p>
     Página para la segunda entrega del proyecto final "javascript- coderhouse"; Ahora comenzamos funciones, arreglos y objetos.
-    La idea es que abras la consol, si no sabes como apreta la tecla: F12 .</p>
+    La idea es que abras la consola, si no sabes como: apreta la tecla F12 .</p>
     <h3>Uso :</h3>
     <ul>
     <li>1) permite ver la lista de productos (array de objetos), los mismos coinciden con los de las imagenes usadas para las tarjetas.</li>
-    <li>2) permite buscar una palabra o frace, si coincide con el producto, funko; se lo muestra con un console.log. (a la hora de buscar te recomiendo hacerlo con palabras como terror | anime | animacion | pokemon | dragon ball.. etc)</li>
+    <li>2) permite buscar una palabra o frase, si coincide con el producto, funko; se lo muestra con un console.log. (a la hora de buscar te recomiendo hacerlo con palabras como terror | anime | animacion | pokemon | dragon ball.. etc).</li>
     </ul>
     <li></li>
 <div>
