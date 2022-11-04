@@ -1,7 +1,7 @@
 <div>
     <h1 align="center">eCommerce Funkoshop</h1>
     <p>
-    Página para la segunda entrega del proyecto final "javascript- coderhouse"; Ahora comenzamos funciones, arreglos y objetos.
+    Página para la segunda entrega del proyecto final "javascript- coderhouse"; Ahora comenzamos a usar funciones, arreglos y objetos.
     La idea es que abras la consola, si no sabes como: apreta la tecla F12 .</p>
     <h3>Uso :</h3>
     <ul>
