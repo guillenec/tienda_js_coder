@@ -122,6 +122,7 @@ const buscaCoincidencia = (fun,arr) =>{
         
     } else{
         console.log("error");
+        return redultado = false;
     }
 }
 
@@ -145,9 +146,13 @@ while (opcion != 0) {
         case 2:
             console.log("eligio "+opcion);
             const filtrados = buscaCoincidencia(verifica,arregloJuguetes);
-            console.log(filtrados);
-            for (const iterator of filtrados) {
-                console.log(`nombre ${iterator.nombre}  precio ${iterator.precio}`);
+            if (filtrados == false) {
+                console.log("disculpe, no hay coincidencia, pruebe con movie | anime | pokemon | bragon ball z, etc..")
+            } else{
+                console.log(filtrados);
+                for (const iterator of filtrados) {
+                    console.log(`nombre ${iterator.nombre}  precio ${iterator.precio}`);
+                }
             }
             break;
         case 3:
