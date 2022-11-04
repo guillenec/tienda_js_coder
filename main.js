@@ -1,4 +1,5 @@
-// DUDAS: debo declarar las variables que usio en el constructor, al comienzo del archivo ??? por las dudas lo hago con let... pero esto me genera dudas ya que sin declararlas al comienzom todo anda bien
+// DUDAS: debo declarar las variables que usio en el constructor, al comienzo del archivo ??? por las dudas lo hago con let... pero esto me genera dudas ya que sin declararlas al comienzom todo anda bien.
+// disculpe la cantidad de comentarios.. pero me ayudan a ir entendiendo lo que hago.. lo mismo con lo console.log
 
 //Declaracion de variables 
 //const funko1 = 500;
@@ -235,11 +236,12 @@ while (opcion != 0) {
         case 4:
             console.log("\n+---- "+opcion+") ver carrito ----+");
             carritoActual.forEach(element => {
-                console.log(element.nombre);
+                console.log(`Producto: ${element.nombre}, Precio: ${element.precio}, Precio+IVA: ${element.precioTotalMasIVA()}  \n`);
             });
             break;
         case 5:
-            console.log("eligio "+opcion);
+            console.log("+---- "+opcion+") eliminar product carrito ----+");
+            
             break; 
         case 6:
             console.log("eligio " + opcion);
