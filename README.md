@@ -1,13 +1,19 @@
 <div>
     <h1 align="center">eCommerce Funkoshop</h1>
     <p>
-    Página para la primera entrega del proyecto final "javascript- coderhouse"; En el mismo declarare variables , usare bucles, switch, condicionale, operadores, operadores ternarios, funciones generales y funciones flechas, se linkeara a una pagina básica realizada con html, scss y se comenzara ya con la organización de los directorios, etc.
-    se mostrara, interactuara con el usuario a travéz de alerts, confirm, console.log.. espero te resulte intuitivo su funcionamiento..</p>
+    Página para la segunda entrega del proyecto final "javascript- coderhouse"; Ahora comenzamos funciones, arreglos y objetos.
+    La idea es que abras la consol, si no sabes como apreta la tecla: F12 .</p>
+    <h3>Uso :</h3>
+    <ul>
+    <li>1) permite ver la lista de productos (array de objetos), los mismos coinciden con los de las imagenes usadas para las tarjetas.</li>
+    <li>2) permite buscar una palabra o frace, si coincide con el producto, funko; se lo muestra con un console.log. (a la hora de buscar te recomiendo hacerlo con palabras como terror | anime | animacion | pokemon | dragon ball.. etc)</li>
+    </ul>
+    <li></li>
 <div>
 <br>
 
 ## :pushpin: Vistazo a funkshop
-![screenshot of HTTRiRi website](https://res.cloudinary.com/dpiwmbsog/image/upload/v1666360744/imgs/haloween/funkoshop_index_i5kyg4.png)
+![screenshot of HTTRiRi website](https://res.cloudinary.com/dpiwmbsog/image/upload/v1667525059/imgs/haloween/proyecto_gtj7qi.png)
 
 <br>
 ## 👍 Espero te guste. 
