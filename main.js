@@ -15,6 +15,15 @@ let descuento = 0;
 let sumadorTotal = 0;
 let sumaSinIva = 0;
 
+/* declaracion de variables que usare: */
+const arregloJuguetes = [];
+let textoMenu = "";
+let resultado;
+let carritoActual = [];
+let comprados;
+//esto me permitira seguir comprando por mas que salga de la opcion 3
+let funkosComprado = carritoActual; 
+
 //constructor
 function funko(id, name, price, brand, genero, tipo, busca, discount){
     //variables o propiedades publicas del objeto, se ven o acceden fuera del documento 
@@ -67,7 +76,6 @@ const funko5 = new funko (5,"homer muumuu",  1021,  "pop", "animacion","funko","
 const funko6 = new funko (6,"neo", 1010, "pop", "movies","funko","ciencia ficcion", 0 )
 
 // //ARREGLO DE OBJETOS
-const arregloJuguetes = [];
 arregloJuguetes.push(funko1,funko2,funko3,funko4,funko5,funko6);
 
 
@@ -94,9 +102,8 @@ function bienvenido() {
     return sale;
 }
 
-let textoMenu = "";
-//funcion flecha permite mostrar por consola el menu
 
+//funcion flecha permite mostrar por consola el menu
 const menu = (texto, arreglo) => {
     let i = 0;
     console.log(texto+"\n");
@@ -117,7 +124,7 @@ const verifica = (arreglo, valorBuscar) => {
     return(arreglo.some((n) => n.nombre == valorBuscar || n.genero == valorBuscar || n.tipo == valorBuscar || n.busca == valorBuscar ));
 }
 
-let resultado;
+
 const buscaCoincidencia = (fun,arr) =>{
     let busca_object = prompt("buscador:");
     if (fun(arr, busca_object)) {
@@ -144,10 +151,7 @@ const buscaCoincidencia = (fun,arr) =>{
 
 // console.log(menu())
 // permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
-let carritoActual = [];
-let comprados;
-//esto me permitira seguir comprando por mas que salga de la opcion 3
-let funkosComprado = carritoActual; 
+
 
 function compra_general() {
     // let entrarMenu = bienvenido();
@@ -288,9 +292,10 @@ function suerte(){
     return ret;
 }
 
-// funcion de orden superior 
+// funcion de orden superior, llamamos a las 2 funciones de suerte  para poder generar o buscar un objeto aleatorio
 function obtenerRegalo(func1,func2) {
     let a = confirm("desea probar su suerte:")
+    //traemos el objeto que coincida con el numero aleatorio
     let objeto=arregloJuguetes.find((el) =>  el.id === func1());
 
     if (a) {
