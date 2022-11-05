@@ -2,7 +2,6 @@
 // disculpe la cantidad de comentarios.. pero me ayudan a ir entendiendo lo que hago.. lo mismo con lo console.log
 
 //Declaracion de variables 
-//const funko1 = 500;
 let id = 0;
 let nombre = "";
 let precio = "";
@@ -21,6 +20,11 @@ let textoMenu = "";
 let resultado;
 let carritoActual = [];
 let comprados;
+let retorno=0;
+let opcion = 7; //tambien puedo usar un .length
+let valorFinal=0;
+let nElimina;
+
 //esto me permitira seguir comprando por mas que salga de la opcion 3
 let funkosComprado = carritoActual; 
 
@@ -124,7 +128,7 @@ const verifica = (arreglo, valorBuscar) => {
     return(arreglo.some((n) => n.nombre == valorBuscar || n.genero == valorBuscar || n.tipo == valorBuscar || n.busca == valorBuscar ));
 }
 
-
+//Permite buscar una pañabra clave, utilizando una fuuncion que viene por parametro, la cual realiza  una validacion, si pasa con fid traemos el objeto coincidente.
 const buscaCoincidencia = (fun,arr) =>{
     let busca_object = prompt("buscador:");
     if (fun(arr, busca_object)) {
@@ -137,89 +141,52 @@ const buscaCoincidencia = (fun,arr) =>{
     }
 }
 
-// console.log(resultado);
-// console.log("--------- --------");
-// console.log(resultado[1]);1
-
 // const comprados = resultado.map((element) => element.nombre);
 // console.log(comprados);
 
 
-//find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
-// objeto = arregloJuguetes.find((el) => el.id === prod)
-// console.log(objeto);
-
-// console.log(menu())
-// permite usar todas las funcioes antes creadas, simulando un carrito basico de compra iterando a travez del prompt y mostrando las salidas por consola.
-
-
+//Permite mostrar por pantalla los objetos que vamos comprando y retorna la coleccion de todos los objetos comprados, 
 function compra_general() {
-    // let entrarMenu = bienvenido();
-    // console.log(entrarMenu);  //viendo que todo vaya bien
-    // if (entrarMenu == true) {
-        // if (confirm("si desea continuar debe abrir la consola.")) {
+    do {
+        prod = Number(prompt(menu("Todos los productos", arregloJuguetes)));
+        if (prod < 17 && prod > 0) {
+            if (confirm("confirma la compra?")) {
+                //find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
+                objeto = arregloJuguetes.find((el) => el.id === prod)
+                funkosComprado.push(objeto);
+                console.log(objeto);
+                console.log(funkosComprado)
+                //console.log("precio de " + juguete_nombre(prod) + " :" + " $" + juguete_precio(prod));
+                // console.log("\n-------------\nProducto: " + objeto.id, objeto.nombre + "\nPrecio base: $" + objeto.precio + "\nMeno Descuento %" + objeto.descuento + ": $" + objeto.precioConDescuento() + "\n+IVA %14: " + objeto.precioTotalMasIVA());
+                // sumaSinIva += objeto.precioConDescuento();
+                // sumadorTotal += objeto.precioTotalMasIVA();
 
-            //bucle while, no crei necesario el uso de otro bucle mas  
-            do{
-                prod = Number(prompt(menu("Todos los productos", arregloJuguetes)));
-                if (prod < 17 && prod > 0) {
-                    if (confirm("confirma la compra?")) {
-                        //find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
-                        objeto = arregloJuguetes.find((el) => el.id === prod)
-                        funkosComprado.push(objeto);
-                        console.log(objeto);
-                        console.log(funkosComprado)
-                        //console.log("precio de " + juguete_nombre(prod) + " :" + " $" + juguete_precio(prod));
-                        // console.log("\n-------------\nProducto: " + objeto.id, objeto.nombre + "\nPrecio base: $" + objeto.precio + "\nMeno Descuento %" + objeto.descuento + ": $" + objeto.precioConDescuento() + "\n+IVA %14: " + objeto.precioTotalMasIVA());
-                        // sumaSinIva += objeto.precioConDescuento();
-                        // sumadorTotal += objeto.precioTotalMasIVA();
-
-                        if (confirm("seguir comprando???")) {
-                            continue;
-                        } else {
-                            console.log("\n salto de linea por ERROR \n"); 
-                            }
-                    } else {
-                        console.log("rata inmunda");
-                        break
-                    }
-                    console.log("++---- DEPURANDO ----++")
-                    return(funkosComprado);
-                } else {
-                    alert("ingrese un valor numerico entre 1 / 9.");
+                if (confirm("seguir comprando???")) {
                     continue;
-                } 
-            }while(confirm("ver menu?"));
-
-            // console.log("\n++-------------------------------++\n");
-            // console.log("Carrito sin iva es de: $" + sumaSinIva);
-            // console.log("Carrito + iva: " + sumadorTotal);
-        // } else {
-        //     console.log("Chau !!! podes seguir viendo la pagina.");
-        // }
-    // } else {
-    //     console.log("ERROR " + 404)
-    // }
+                } else {
+                    console.log("\n salto de linea por ERROR \n");
+                }
+            } else {
+                console.log("rata inmunda");
+                break
+            }
+            console.log("++---- DEPURANDO ----++")
+            return (funkosComprado);
+        } else {
+            alert("ingrese un valor numerico entre 1 / 9.");
+            continue;
+        }
+    } while (confirm("ver menu?"));
 }
-let retorno=0;
+
 const precioFinal = (arreglo) =>{
     retorno = arreglo.reduce((acumula, elemento) => acumula + elemento.precioTotalMasIVA(), 0);
     return retorno;
 }
 
-confirm("asegurese de tener abierta la consola, sino no podra ver nada de lo que sucede!!!! \n");
-let opcion = 7;
 
-// 1) ver todos los funkos      
-// 2) buscar una coincidencia   
-// 3) comprar un producto       
-// 4) ver carrito               
-// 5) eliminar product carrito 
-// 6) precio total              
-// 7) probar suerte             
-// 0) salir  
-let valorFinal=0;
-let nElimina;
+//Algoritmo principal.. tambien puedo meterlo en una funcion principal y llamarlo al final, pero asi funciona, asi que lo dejo asi xD
+confirm("asegurese de tener abierta la consola, sino no podra ver nada de lo que sucede!!!! \n");
 
 while (opcion != 0) {
     opcion = menuPrincipal();
