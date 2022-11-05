@@ -97,10 +97,10 @@ function bienvenido() {
 let textoMenu = "";
 //funcion flecha permite mostrar por consola el menu
 
-const menu = (texto) => {
+const menu = (texto, arreglo) => {
     let i = 0;
     console.log(texto+"\n");
-    for (const iterador of arregloJuguetes) {
+    for (const iterador of arreglo) {
         i++;
         console.log(i+" => "+iterador.nombre+" $"+iterador.precio+", descuento "+iterador.descuento+"\n");
     }
@@ -148,6 +148,7 @@ let carritoActual = [];
 let comprados;
 //esto me permitira seguir comprando por mas que salga de la opcion 3
 let funkosComprado = carritoActual; 
+
 function compra_general() {
     // let entrarMenu = bienvenido();
     // console.log(entrarMenu);  //viendo que todo vaya bien
@@ -156,7 +157,7 @@ function compra_general() {
 
             //bucle while, no crei necesario el uso de otro bucle mas  
             do{
-                prod = Number(prompt(menu()));
+                prod = Number(prompt(menu("Todos los productos", arregloJuguetes)));
                 if (prod < 17 && prod > 0) {
                     if (confirm("confirma la compra?")) {
                         //find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
@@ -196,6 +197,11 @@ function compra_general() {
     //     console.log("ERROR " + 404)
     // }
 }
+let retorno=0;
+const precioFinal = (arreglo) =>{
+    retorno = arreglo.reduce((acumula, elemento) => acumula + elemento.precioTotalMasIVA(), 0);
+    return retorno;
+}
 
 confirm("asegurese de tener abierta la consola, sino no podra ver nada de lo que sucede!!!! \n");
 let opcion = 7;
@@ -208,14 +214,17 @@ let opcion = 7;
 // 6) precio total              
 // 7) probar suerte             
 // 0) salir  
+let valorFinal=0;
+let nElimina;
+
 while (opcion != 0) {
     opcion = menuPrincipal();
     switch (opcion) {
         case 1:
-            console.log("\n+---- "+opcion+") Mostrartodos los funkos ----+");
-            menu(textoP);
+            console.log("\n+---- "+opcion+") Mostrar 1todos los funkos ----+");
+            console.log(menu("Todos los productos", arregloJuguetes));
             break;
-        case 2:
+        case 2:2
             console.log("\n+---- "+opcion+") Buscar palabra clave ----+");
             const filtrados = buscaCoincidencia(verifica,arregloJuguetes);
             if (filtrados == false) {
@@ -241,10 +250,14 @@ while (opcion != 0) {
             break;
         case 5:
             console.log("+---- "+opcion+") eliminar product carrito ----+");
-            
+            nElimina = Number(prompt(menu("+---- elimine uno del carrito ----+",carritoActual)));
+            carritoActual.splice(nElimina,1);
+            console.log(carritoActual);
             break; 
         case 6:
-            console.log("eligio " + opcion);
+            console.log("+---- "+opcion+") precio final: ----+");
+            valorFinal=precioFinal(carritoActual);
+            console.log(`Valor final del carriit: ${valorFinal}`);
             break;
         case 7:
             console.log("eligio " + opcion);
