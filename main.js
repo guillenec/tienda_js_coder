@@ -130,7 +130,8 @@ const verifica = (arreglo, valorBuscar) => {
 
 //Permite buscar una pañabra clave, utilizando una fuuncion que viene por parametro, la cual realiza  una validacion, si pasa con fid traemos el objeto coincidente.
 const buscaCoincidencia = (fun,arr) =>{
-    let busca_object = prompt("buscador:").toLowerCase();
+    let busca_object = prompt("buscador:");
+    console.log("Depurando : ",busca_object);
     if (fun(arr, busca_object)) {
         //filter igual que filter pero retorna un nuevo array con los elementos que cumplan la condicion. sino array vacionn "" 
         return (resultado = arr.filter((m) => m.nombre == busca_object || m.genero == busca_object || m.tipo == busca_object || m.busca == busca_object ))
@@ -185,6 +186,7 @@ const precioFinal = (arreglo) =>{
 }
 
 let salir = true;
+let filtrados = false;
 //Algoritmo principal.. tambien puedo meterlo en una funcion principal y llamarlo al final, pero asi funciona, asi que lo dejo asi xD
 confirm("asegurese de tener abierta la consola, sino no podra ver nada de lo que sucede!!!! \n");
 
@@ -198,17 +200,19 @@ while (opcion != 0) {
         case 2:
             console.log("\n+---- "+opcion+") Buscar palabra clave ----+");
             do{
-                const filtrados = buscaCoincidencia(verifica,arregloJuguetes);
+                filtrados = buscaCoincidencia(verifica,arregloJuguetes);
+                console.log("#DEPURANDO 123: "+filtrados)
                 if (filtrados == false) {
                     console.log("disculpe, no hay coincidencia, pruebe con movies | anime | pokemon | bragon ball |siencia ficcion | terror etc..");
-                    continue;
+                    salir = false;
                 } else{
                     console.log(filtrados);
                     for (const iterator of filtrados) {
                         console.log(`nombre ${iterator.nombre}  precio ${iterator.precio}`);
                     }
                     salir = confirm("salir del buscador?")
-                    console.log(salir)
+                    console.log("#DEPURANDO: "+salir)
+                    if (salir == true) {alert("saliendo buscador!!!")}; 
                 }
             }while(salir == false);
             
