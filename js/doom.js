@@ -61,3 +61,8 @@ tarjetas[0].innerHTML = `<img src="https://res.cloudinary.com/dpiwmbsog/image/up
     <p>Funkos de Peliculas, series como House Of The Dragons o Mandalorian. </p>
 </div>`;
 
+
+function depura2 (val){
+    let dep = "\n---- Depurador => "
+    console.log(`${dep} ${texto} ---- \n`)
+}
