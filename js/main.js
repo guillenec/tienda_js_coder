@@ -51,7 +51,7 @@ let nElimina;
 let funkosComprado = carritoActual; 
 
 //constructor
-function funko(id, name, descripcion,price, genero, tipo, linkImg, discount){
+function funko(id, name, descripcion, price, discount, genero, tipo, linkImg1, linkImg2){
     //variables o propiedades publicas del objeto, se ven o acceden fuera del documento 
     this.id = id;
     this.nombre = name;
@@ -60,7 +60,9 @@ function funko(id, name, descripcion,price, genero, tipo, linkImg, discount){
     this.descuento = discount;
     this.genero = genero;
     this.tipo = tipo;
-    this.imagen = linkImg;
+    this.imagenA = linkImg1;
+    this.imagenB = linkImg2;
+
 
     // variable privada, solo se visualiza dentro del documento.
     let iva = 0.14;    
@@ -93,34 +95,34 @@ function funko(id, name, descripcion,price, genero, tipo, linkImg, discount){
 
 
 //primer instancia de la clase funko
-const funko1 = new funko (1,"michael myers","funko pop de la pelicula halloween",200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/halloween/hallowen_xsqe9a.png")
+const funko1 = new funko (1,"michael myers","funko pop de la pelicula halloween",200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/halloween/hallowen_xsqe9a.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102400/imgs/haloween/funkos/halloween/hallowen2_xhsuts.png")
 //Instancias de la clase funko
     // id | nombre | descripcion | precio | genero | tipo | imagen | descuento
 
-const funko2 = new funko (2,"chucky","funko de la pelicula chuky el muñeco malvado",1550, 10, "movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/halloween/chuki123_mh4o3b.png")
-const funko3 = new funko (3,"sam","funko descripcion genericas", 1200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/trick_r_treat_uv2gny.png")
-const funko4 = new funko (4,"yamcha y puar","funko dragon ball z yamcha y puar coleccion.", 1530, 10, "anime","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102390/imgs/haloween/funkos/dbz/yamcha2_ghsnru.png")
-const funko5 = new funko (5,"homer muumuu","funko de la coleccion simpsons, homero gordo esa mancha no se quita", 1021, 0, "animacion","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667541324/imgs/haloween/funkos/futurama/homero_gordo1_wm964f.png")
-const funko6 = new funko (6,"neo","funko coleccionable, pelicula matrix neo.", 1010, 0, "movies","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114965/imgs/haloween/funkos/pelis/neo2_emykux.png")
+const funko2 = new funko (2,"chucky","funko de la pelicula chuky el muñeco malvado",1550, 10, "movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/halloween/chuki123_mh4o3b.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102328/imgs/haloween/funkos/halloween/chuki1111_kiwwds.png")
+const funko3 = new funko (3,"sam","funko descripcion genericas", 1200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/trick_r_treat_uv2gny.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102303/imgs/haloween/funkos/halloween/trick_r_treat2_pg1j8x.png")
+const funko4 = new funko (4,"yamcha y puar","funko dragon ball z yamcha y puar coleccion.", 1530, 10, "anime","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102390/imgs/haloween/funkos/dbz/yamcha2_ghsnru.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102427/imgs/haloween/funkos/dbz/yamcha3_i8rjfz.png")
+const funko5 = new funko (5,"homer muumuu","funko de la coleccion simpsons, homero gordo esa mancha no se quita", 1021, 0, "animacion","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667541324/imgs/haloween/funkos/futurama/homero_gordo1_wm964f.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107301/imgs/haloween/funkos/futurama/homero_gordo2_nuixxt.png")
+const funko6 = new funko (6,"neo","funko coleccionable, pelicula matrix neo.", 1010, 0, "movies","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114965/imgs/haloween/funkos/pelis/neo2_emykux.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114967/imgs/haloween/funkos/pelis/neo_sxbrav.png")
 
 // //ARREGLO DE OBJETOS
 arregloJuguetes.push(funko1,funko2,funko3,funko4,funko5,funko6);
 
 
 // lo anterior puedo simplificarlo haciendo 
-arregloJuguetes.push(new funko(7,"pennywise","funko pop de lapelicula it funko generico",1220, 0, "movies","destacados","terror"));
-arregloJuguetes.push(new funko(8,"t-8000","funko de la pelicula terminator, terminator abuelo t-8000",1150, 0, "movies","destacados","ciencia ficcion"));
-arregloJuguetes.push(new funko(9,"charizard","funko coleccion pokemon, pokemon inicial. serie rojo.",1200, 0, "anime","destacados","pokemon"));
-arregloJuguetes.push(new funko(10,"daemon targaryen","funko coleccion house of dragons, game of throne.",1500, 0, "serie","destacados","game of throne"));
-arregloJuguetes.push(new funko(11,"otto","funko de la coleccion simpsons, otto escuchandomusica",1300, 0,  "animacion","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/otto_sixm1m.png"));
-arregloJuguetes.push(new funko(12,"duffman","funko de la coleccion simpsons, hombre duff, barry.",1300, 0, "animacion","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110729/imgs/haloween/funkos/futurama/duffman3_u7e3i5.png"));
+arregloJuguetes.push(new funko(7,"pennywise","funko pop de lapelicula it funko generico",1220, 0, "movies","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102295/imgs/haloween/funkos/halloween/it2222_mc4bmq.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102347/imgs/haloween/funkos/halloween/it_hxwkid.png"));
+arregloJuguetes.push(new funko(8,"t-8000","funko de la pelicula terminator, terminator abuelo t-8000",1150, 0, "movies","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/pelis/terminator1_uwdmzk.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102398/imgs/haloween/funkos/pelis/terminator3_cp80xa.png"));
+arregloJuguetes.push(new funko(9,"charizard","funko coleccion pokemon, pokemon inicial. serie rojo.",1200, 0, "anime","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/pokemon/charizard_wodreh.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102410/imgs/haloween/funkos/pokemon/charizard2_mxjcgr.png"));
+arregloJuguetes.push(new funko(10,"daemon targaryen","funko coleccion house of dragons, game of throne.",1500, 0, "serie","destacados",""));
+arregloJuguetes.push(new funko(11,"otto","funko de la coleccion simpsons, otto escuchandomusica",1300, 0,  "animacion","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/otto_sixm1m.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107309/imgs/haloween/funkos/futurama/otto2_ii1k0u.png"));
+arregloJuguetes.push(new funko(12,"duffman","funko de la coleccion simpsons, hombre duff, barry.",1300, 0, "animacion","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110729/imgs/haloween/funkos/futurama/duffman3_u7e3i5.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110730/imgs/haloween/funkos/futurama/duffman_j4rand.png"));
 
-arregloJuguetes.push(new funko(13,"thresh","figura de accion articulada de la coleccion league of legends, campeones league of legends",1550, 5, "games","figura","league of legends" ));
-arregloJuguetes.push(new funko(14,"yasuo","figura de accion articulada de la coleccion league of legends, campeones league of legends",1550, 5, "games","figura","league of legends" ));
-arregloJuguetes.push(new funko(15,"zed","figura de accion articulada de la coleccion league of legends, campeones league of legends",1500, 5, "games","figura","league of legends" ));
-arregloJuguetes.push(new funko(16,"ashe","figura de accion articulada de la coleccion league of legends, campeones league of legends",1550, 5, "games","figura","league of legends" ));
-arregloJuguetes.push(new funko(17,"wukong","figura de accion articulada de la coleccion league of legends, campeones league of legends",1400, 5, "games","figura","league of legends" ));
-arregloJuguetes.push(new funko(18,"darius","figura de accion articulada de la coleccion league of legends, campeones league of legends",1500, 5, "games","figura","league of legends" ));
+arregloJuguetes.push(new funko(13,"thresh","figura de accion articulada de la coleccion league of legends, campeones league of legends",1550, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102344/imgs/haloween/funkos/league/tresh1_lmbstr.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102367/imgs/haloween/funkos/league/tresh2_sqcvu7.png" ));
+arregloJuguetes.push(new funko(14,"yasuo","figura de accion articulada de la coleccion league of legends, campeones league of legends",1550, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102334/imgs/haloween/funkos/league/yasuo1_wwewgv.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/league/yasuo2_ko8dma.png" ));
+arregloJuguetes.push(new funko(15,"zed","figura de accion articulada de la coleccion league of legends, campeones league of legends",1500, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102322/imgs/haloween/funkos/league/zed1_tnzdjt.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102362/imgs/haloween/funkos/league/zed2_sbz4ly.png"));
+arregloJuguetes.push(new funko(16,"ashe","figura de accion articulada de la coleccion league of legends, campeones league of legends",1550, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102339/imgs/haloween/funkos/league/ashe1_muh6cy.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102357/imgs/haloween/funkos/league/ashe2_alshkk.png"));
+arregloJuguetes.push(new funko(17,"wukong","figura de accion articulada de la coleccion league of legends, campeones league of legends",1400, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102290/imgs/haloween/funkos/league/wukong1_wq0zmd.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102351/imgs/haloween/funkos/league/wukong2_gaknnf.png"));
+arregloJuguetes.push(new funko(18,"darius","figura de accion articulada de la coleccion league of legends, campeones league of legends",1500, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102413/imgs/haloween/funkos/league/darius1_f7unlq.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102329/imgs/haloween/funkos/league/darius2_btafqi.png"));
 
 
 console.log(arregloJuguetes);
