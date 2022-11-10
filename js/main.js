@@ -1,7 +1,7 @@
 
-depura("usamos console")
+// depura("usamos console")
 
-console.dir(document.body);
+// console.dir(document.body);
 
 // // Acceder a los nodos: formas 3
 
@@ -124,8 +124,58 @@ arregloJuguetes.push(new funko(16,"ashe","figura de accion articulada de la cole
 arregloJuguetes.push(new funko(17,"wukong","figura de accion articulada de la coleccion league of legends, campeones league of legends",1400, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102290/imgs/haloween/funkos/league/wukong1_wq0zmd.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102351/imgs/haloween/funkos/league/wukong2_gaknnf.png"));
 arregloJuguetes.push(new funko(18,"darius","figura de accion articulada de la coleccion league of legends, campeones league of legends",1500, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102413/imgs/haloween/funkos/league/darius1_f7unlq.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102329/imgs/haloween/funkos/league/darius2_btafqi.png"));
 
+//console.log(arregloJuguetes);
+const depura = (texto) =>{
+    let dep = "\n---- Depurador => "
+    console.log(`${dep} ${texto} ---- \n`)
+}
+//console.dir(document.body);
+console.log(document.body);
+let tarjetas_destacadas = document.getElementById("destacados");
+console.log(tarjetas_destacadas);
 
-console.log(arregloJuguetes);
+//Generamos array con las tarjetas que necesitamos
+// let funkosDestacados = [];
+// for (const iterador of arregloJuguetes) {
+//     if (iterador.tipo == "destacados") { 
+//         funkosDestacados.push(iterador);
+//     } 
+// }
+//filto destacados
+const funkosDestacados = arregloJuguetes.filter((el) => el.tipo.includes("destacados"));
+depura("filtrados");
+console.log(funkosDestacados)
+
+// console.log(funkosDestacados)
+// objeto = arregloJuguetes.find((el) => el.id === prod)
+// funkosComprado.push(objeto);
+const par = (val) =>{ //la usare para las posiciones
+    return (val % 2) == 0; 
+}
+
+let tarjeta; //guardara la estructura de todas las tarjetas destacadas
+const genera_tarjetaDestacada = (array) => {
+    let posicion; 
+    for (let i = 0; i < array.length; i++) {
+        par(i) ? posicion = "left" : posicion = "right";
+        tarjeta += `<section class="targeta target1 ${posicion}">
+        <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
+        <div class="textos_target">
+            <h2>${array[i].nombre}</h2>
+            <h3>${array[i].precio}</h3>
+        </div>
+        </section>`
+    }
+    return tarjeta;
+}
+let tarjetaDestacada = genera_tarjetaDestacada(funkosDestacados);
+console.log(tarjetaDestacada);
+//console.log(tarjetas);
+
+let contenedorTarjetasDestacadas = document.querySelector("#destacados")
+contenedorTarjetasDestacadas.innerHTML = tarjetaDestacada;
+
+
 // funcion de bienvenida, retorna un codigo de error 
 // function bienvenido() {
 //     let ingresar = prompt("deseas ver mi web? si / no").toLowerCase();
