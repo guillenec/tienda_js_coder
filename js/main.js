@@ -153,18 +153,18 @@ const par = (val) =>{ //la usare para las posiciones
     return (val % 2) == 0; 
 }
 
-let tarjeta; //guardara la estructura de todas las tarjetas destacadas
+let tarjeta= " "; //guardara la estructura de todas las tarjetas destacadas
 const genera_tarjetaDestacada = (array) => {
     let posicion; 
     for (let i = 0; i < array.length; i++) {
         par(i) ? posicion = "left" : posicion = "right";
-        tarjeta += `<section class="targeta target1 ${posicion}">
+        tarjeta += `<section class="targeta targeta${i+1} ${posicion}">
         <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
         <div class="textos_target">
             <h2>${array[i].nombre}</h2>
             <h3>${array[i].precio}</h3>
         </div>
-        </section>`
+        </section>\n`;
     }
     return tarjeta;
 }
