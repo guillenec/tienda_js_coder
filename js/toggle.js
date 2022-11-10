@@ -8,6 +8,7 @@ nav_menu.addEventListener("click", () => {
 })
 
 window.addEventListener('click', e =>{
+    //contains : Si el elemento contiene el className, el método devuelve true. De lo contrario, vuelve false.
     if(menu.classList.contains('active') && e.target != menu && e.target != nav_menu){
         nav_menu.classList.toggle('active');
     }
