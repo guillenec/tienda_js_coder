@@ -76,6 +76,15 @@ function funko(id, name, descripcion, price, discount, genero, tipo, linkImg1, l
     this.precioTotalMasIVA = function(){
         return (this.precioConDescuento() + this.precioConDescuento()  * iva);
     }
+    this.describe_tipos = function(){
+        if ( this.genero == "movies" ) {
+            return "En esta seccion enconraras funkos relacionados con peliculas, ya sean de terror, siencia ficcion, y demas."
+        }else if ( this.genero == "tv y series" ){
+            return "Funkos relacionados con animaciones y series de tv... Los simpsons, futurama, series como mandalorian o game of throne."
+        }else if(this.genero == "anime"){
+            return "Anime , y cultura japonesa , asia y oriente... mangas y manwhas. Como pokemon, Dragon Ball, Naruto, shinigamis, Pakas, etc."
+        }
+    }
 }
 
 // const menuPrincipal = () => {
@@ -95,28 +104,30 @@ function funko(id, name, descripcion, price, discount, genero, tipo, linkImg1, l
 
 
 //primer instancia de la clase funko
-const funko1 = new funko (1,"michael myers","funko pop de la pelicula halloween",200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/halloween/hallowen_xsqe9a.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102400/imgs/haloween/funkos/halloween/hallowen2_xhsuts.png")
-//Instancias de la clase funko
-    // id | nombre | descripcion | precio | genero | tipo | imagen | descuento
+// id | nombre | descripcion | precio | genero | tipo | imagen | descuento
 
+//Banner
+const funko1 = new funko (1,"michael myers","funko pop de la pelicula halloween",200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/halloween/hallowen_xsqe9a.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102400/imgs/haloween/funkos/halloween/hallowen2_xhsuts.png")
 const funko2 = new funko (2,"chucky","funko de la pelicula chuky el muñeco malvado",1550, 10, "movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/halloween/chuki123_mh4o3b.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102328/imgs/haloween/funkos/halloween/chuki1111_kiwwds.png")
 const funko3 = new funko (3,"sam","funko descripcion genericas", 1200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/trick_r_treat_uv2gny.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102303/imgs/haloween/funkos/halloween/trick_r_treat2_pg1j8x.png")
-const funko4 = new funko (4,"yamcha y puar","funko dragon ball z yamcha y puar coleccion.", 1530, 10, "anime","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102390/imgs/haloween/funkos/dbz/yamcha2_ghsnru.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102427/imgs/haloween/funkos/dbz/yamcha3_i8rjfz.png")
-const funko5 = new funko (5,"homer muumuu","funko de la coleccion simpsons, homero gordo esa mancha no se quita", 1021, 0, "animacion","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667541324/imgs/haloween/funkos/futurama/homero_gordo1_wm964f.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107301/imgs/haloween/funkos/futurama/homero_gordo2_nuixxt.png")
-const funko6 = new funko (6,"neo","funko coleccionable, pelicula matrix neo.", 1010, 0, "movies","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114965/imgs/haloween/funkos/pelis/neo2_emykux.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114967/imgs/haloween/funkos/pelis/neo_sxbrav.png")
 
-// //ARREGLO DE OBJETOS
+//Categoria
+const funko4 = new funko (4,"yamcha y puar","funko dragon ball z yamcha y puar coleccion.", 1530, 10, "anime","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102390/imgs/haloween/funkos/dbz/yamcha2_ghsnru.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102427/imgs/haloween/funkos/dbz/yamcha3_i8rjfz.png")
+const funko5 = new funko (5,"homer muumuu","funko de la coleccion simpsons, homero gordo esa mancha no se quita", 1021, 0, "tv y series","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667541324/imgs/haloween/funkos/futurama/homero_gordo1_wm964f.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107301/imgs/haloween/funkos/futurama/homero_gordo2_nuixxt.png")
+const funko6 = new funko (6,"john wick","funko coleccionable, john wick + perro.", 1010, 0, "movies","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102369/imgs/haloween/funkos/pelis/jon_week3_axwmnn.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102405/imgs/haloween/funkos/pelis/jon_week_n4kpmi.png")
+
+//ARREGLO DE OBJETOS
 arregloJuguetes.push(funko1,funko2,funko3,funko4,funko5,funko6);
 
-
-// lo anterior puedo simplificarlo haciendo 
+//Destacados
 arregloJuguetes.push(new funko(7,"pennywise","funko pop de lapelicula it funko generico",1220, 0, "movies","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102295/imgs/haloween/funkos/halloween/it2222_mc4bmq.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102347/imgs/haloween/funkos/halloween/it_hxwkid.png"));
 arregloJuguetes.push(new funko(8,"t-8000","funko de la pelicula terminator, terminator abuelo t-8000",1150, 0, "movies","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/pelis/terminator1_uwdmzk.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102398/imgs/haloween/funkos/pelis/terminator3_cp80xa.png"));
 arregloJuguetes.push(new funko(9,"charizard","funko coleccion pokemon, pokemon inicial. serie rojo.",1200, 0, "anime","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/pokemon/charizard_wodreh.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102410/imgs/haloween/funkos/pokemon/charizard2_mxjcgr.png"));
-arregloJuguetes.push(new funko(10,"daemon targaryen","funko coleccion house of dragons, game of throne.",1500, 0, "serie","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112418/imgs/haloween/funkos/houseOfDragons/daemon_targaryen2_ynzag1.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102376/imgs/haloween/funkos/houseOfDragons/daemon_targaryen_ktydpy.png"));
-arregloJuguetes.push(new funko(11,"otto","funko de la coleccion simpsons, otto escuchandomusica",1300, 0,  "animacion","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/otto_sixm1m.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107309/imgs/haloween/funkos/futurama/otto2_ii1k0u.png"));
-arregloJuguetes.push(new funko(12,"duffman","funko de la coleccion simpsons, hombre duff, barry.",1300, 0, "animacion","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110729/imgs/haloween/funkos/futurama/duffman3_u7e3i5.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110730/imgs/haloween/funkos/futurama/duffman_j4rand.png"));
+arregloJuguetes.push(new funko(10,"daemon targaryen","funko coleccion house of dragons, game of throne.",1500, 0, "tv y serie","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112418/imgs/haloween/funkos/houseOfDragons/daemon_targaryen2_ynzag1.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102376/imgs/haloween/funkos/houseOfDragons/daemon_targaryen_ktydpy.png"));
+arregloJuguetes.push(new funko(11,"otto","funko de la coleccion simpsons, otto escuchandomusica",1300, 0,  "tv y series","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/otto_sixm1m.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107309/imgs/haloween/funkos/futurama/otto2_ii1k0u.png"));
+arregloJuguetes.push(new funko(12,"duffman","funko de la coleccion simpsons, hombre duff, barry.",1300, 0, "tv y serie","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110729/imgs/haloween/funkos/futurama/duffman3_u7e3i5.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110730/imgs/haloween/funkos/futurama/duffman_j4rand.png"));
 
+//figura
 arregloJuguetes.push(new funko(13,"thresh","figura de accion articulada de la coleccion league of legends, campeones league of legends",1550, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102344/imgs/haloween/funkos/league/tresh1_lmbstr.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102367/imgs/haloween/funkos/league/tresh2_sqcvu7.png" ));
 arregloJuguetes.push(new funko(14,"yasuo","figura de accion articulada de la coleccion league of legends, campeones league of legends",1550, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102334/imgs/haloween/funkos/league/yasuo1_wwewgv.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/league/yasuo2_ko8dma.png" ));
 arregloJuguetes.push(new funko(15,"zed","figura de accion articulada de la coleccion league of legends, campeones league of legends",1500, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102322/imgs/haloween/funkos/league/zed1_tnzdjt.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102362/imgs/haloween/funkos/league/zed2_sbz4ly.png"));
@@ -124,56 +135,95 @@ arregloJuguetes.push(new funko(16,"ashe","figura de accion articulada de la cole
 arregloJuguetes.push(new funko(17,"wukong","figura de accion articulada de la coleccion league of legends, campeones league of legends",1400, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102290/imgs/haloween/funkos/league/wukong1_wq0zmd.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102351/imgs/haloween/funkos/league/wukong2_gaknnf.png"));
 arregloJuguetes.push(new funko(18,"darius","figura de accion articulada de la coleccion league of legends, campeones league of legends",1500, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102413/imgs/haloween/funkos/league/darius1_f7unlq.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102329/imgs/haloween/funkos/league/darius2_btafqi.png"));
 
-//console.log(arregloJuguetes);
+//Depurador, solo para ver donde voy entrando y donde no
 const depura = (texto) =>{
     let dep = "\n---- Depurador => "
     console.log(`${dep} ${texto} ---- \n`)
 }
-//console.dir(document.body);
+//para tener la extructura a mano
 console.log(document.body);
-let tarjetas_destacadas = document.getElementById("destacados");
-console.log(tarjetas_destacadas);
 
-//Generamos array con las tarjetas que necesitamos
-// let funkosDestacados = [];
-// for (const iterador of arregloJuguetes) {
-//     if (iterador.tipo == "destacados") { 
-//         funkosDestacados.push(iterador);
-//     } 
-// }
-//filto destacados
+// let tarjetas_destacadas = document.getElementById("destacados");
+// console.log(tarjetas_destacadas);
+
+//filtramos con filter y nos devuelve un array con los coincidentes: filtamos objetos por:
+//Banner
+const funkosBanner = arregloJuguetes.filter((el) => el.tipo.includes("banner"));
+//Categorias
+const funkosCategoria = arregloJuguetes.filter((el) => el.tipo.includes("categoria"));
+//Destacados
 const funkosDestacados = arregloJuguetes.filter((el) => el.tipo.includes("destacados"));
-depura("filtrados");
-console.log(funkosDestacados)
+//Figuras
+const funkosFiguras = arregloJuguetes.filter((el) => el.tipo.includes("figura"));
 
-// console.log(funkosDestacados)
-// objeto = arregloJuguetes.find((el) => el.id === prod)
-// funkosComprado.push(objeto);
+depura("filtrados");
+console.log(funkosBanner)
+console.log(funkosDestacados)
+console.log(funkosCategoria)
+console.log(funkosFiguras)
+
 const par = (val) =>{ //la usare para las posiciones
     return (val % 2) == 0; 
 }
-
-let tarjeta= " "; //guardara la estructura de todas las tarjetas destacadas
-const genera_tarjetaDestacada = (array) => {
-    let posicion; 
-    for (let i = 0; i < array.length; i++) {
-        par(i) ? posicion = "left" : posicion = "right";
-        tarjeta += `<section class="targeta target${i+1} ${posicion}">
-        <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
-        <div class="textos_target">
-            <h2>${array[i].nombre}</h2>
-            <h3>${array[i].precio}</h3>
-        </div>
-        </section>\n`;
-    }
-    return tarjeta;
+const left_right = (i) =>{
+    par(i) ? posicion = "left" : posicion = "right";
+    return posicion;
 }
-let tarjetaDestacada = genera_tarjetaDestacada(funkosDestacados);
-console.log(tarjetaDestacada);
-//console.log(tarjetas);
 
-let contenedorTarjetasDestacadas = document.querySelector("#destacados")
-contenedorTarjetasDestacadas.innerHTML = tarjetaDestacada;
+//Funcion que genera targetas para la seccion Destacados
+let tarjeta= " "; //guardara la estructura de todas las tarjetas destacadas
+let tarjeta1= " ";
+const generaTarjetas = (array,buscador) => {
+    let posicion; 
+    if (buscador == "categoria") {
+        j = 0; //contador
+        array.forEach(element => {
+            posicion = left_right(j);
+            console.log(posicion);
+            tarjeta1 += `<section class="targeta_simple ${posicion} ">
+                    <img src="${element.imagenA}" alt="${element.descripcion}">
+                    <div class="textos_target"> 
+                        <a class="title_targ">${element.genero}</a>
+                        <p>${element.describe_tipos()}</p>
+                    </div>                  
+                </section>`;
+                j += 1;
+            })
+            return tarjeta1;
+    }else if (buscador == "banner"){
+
+    }else if (buscador == "destacados"){
+        for (let i = 0; i < array.length; i++) {
+            par(i) ? posicion = "left" : posicion = "right";
+            tarjeta += `<section class="targeta target${i+1} ${posicion}">
+            <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
+            <div class="textos_target">
+                <h2>${array[i].nombre}</h2>
+                <h3>${array[i].precio}</h3>
+            </div>
+            </section>\n`;
+        }
+        return tarjeta;
+
+    }else if (buscador == "figura"){
+
+    }
+    
+}
+//llamamos a la funcion Genera Tarjeta Destacados, asigno a la variable targetaDestacada
+let tDestacadas = generaTarjetas(funkosDestacados,"destacados");
+//console.log(tDestacadas);
+
+let tCategorias = generaTarjetas(funkosCategoria,"categoria");
+console.log(tCategorias)
+//Accedo a el elemento cuyo id = #destacados y lo guardamos en contenedorTarjetasDestacadas
+let contDestacadas = document.querySelector("#destacados")
+let contCategorias = document.querySelector("#top_prod")
+
+//creamos una nueva estructura de etiquetas y contenido en el elemento anterior.
+contDestacadas.innerHTML = tDestacadas;
+contCategorias.innerHTML = tCategorias;
+
 
 
 // funcion de bienvenida, retorna un codigo de error 
