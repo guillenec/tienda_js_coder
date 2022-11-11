@@ -171,8 +171,9 @@ const left_right = (i) =>{
 }
 
 //Funcion que genera targetas para la seccion Destacados
-let tarjeta= " "; //guardara la estructura de todas las tarjetas destacadas
-let tarjeta1= " ";
+let tarjeta = " "; //guardara la estructura de todas las tarjetas destacadas
+let tarjeta1 = " ";
+let trajeta3 = " ";
 const generaTarjetas = (array,buscador) => {
     let posicion; 
     if (buscador == "categoria") {
@@ -186,7 +187,7 @@ const generaTarjetas = (array,buscador) => {
                         <a class="title_targ">${element.genero}</a>
                         <p>${element.describe_tipos()}</p>
                     </div>                  
-                </section>`;
+                </section>\n`;
                 j += 1;
             })
             return tarjeta1;
@@ -206,23 +207,40 @@ const generaTarjetas = (array,buscador) => {
         return tarjeta;
 
     }else if (buscador == "figura"){
-
+        for (let i = 0; i < array.length; i++) {
+            trajeta3 += `<section class="tarjeta_fig fig${i+1} ">
+            <div class="textos_fig">
+                <h2>${array[i].nombre}</h2>
+                <h3>$${array[i].precioTotalMasIVA()}</h3>
+            </div>
+            <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
+            <a href="#" class="carrito"><ion-icon name="cart-outline"></ion-icon></a>
+        </section>\n`;
+        }
+        return trajeta3;
     }
     
 }
 //llamamos a la funcion Genera Tarjeta Destacados, asigno a la variable targetaDestacada
 let tDestacadas = generaTarjetas(funkosDestacados,"destacados");
 //console.log(tDestacadas);
-
 let tCategorias = generaTarjetas(funkosCategoria,"categoria");
-console.log(tCategorias)
+//console.log(tCategorias)
+let tFiguras = generaTarjetas(funkosFiguras,"figura")
+
+depura("figuras");
+console.log(tFiguras);
+
+
 //Accedo a el elemento cuyo id = #destacados y lo guardamos en contenedorTarjetasDestacadas
 let contDestacadas = document.querySelector("#destacados")
 let contCategorias = document.querySelector("#top_prod")
+let contFiguras = document.querySelector(".cont_figuras")
 
 //creamos una nueva estructura de etiquetas y contenido en el elemento anterior.
 contDestacadas.innerHTML = tDestacadas;
 contCategorias.innerHTML = tCategorias;
+contFiguras.innerHTML = tFiguras;
 
 
 
