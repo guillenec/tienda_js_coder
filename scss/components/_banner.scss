@@ -44,7 +44,7 @@
 
                 .titulo{
                     width: 100%;
-                    font-family: $font_body;
+                    font-family: $titulo1;
                     font-size: $font_grande;
                     font-weight: 900;
                     text-transform: uppercase;
@@ -57,7 +57,7 @@
                 }
                 .precio{
                     width: 100%;
-                    font-family: $font_body;
+                    font-family: $titulo1;
                     font-size: $font_mediana;
                     margin: 0;
                     padding: 0;
@@ -67,14 +67,16 @@
                 }
                 .textos{
                     width: 100%;
-                    font-family: $color_titulo3;
+                    font-family: $parrafo1;
                     font-size: $font_normal;
-                    color: #fff;
+                    color:$color_titulo3;
+                    font-weight: 700;
                     margin: 0;
                     padding: 0;
                 }
                 a{
                     display: block;
+                    font-family: $parrafo1;
                     text-decoration: none;
                     width: 110px;
                     background: $bg_color_naranja;
