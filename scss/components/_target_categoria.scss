@@ -21,17 +21,18 @@
         border-radius: 10px;
         border: 1px solid rgba( 255, 255, 255, 0.18 );
 
-        @include caja_flex(row, wrap, center, flex-start, center);
+        @include caja_flex(row, wrap, center, space-between, center);
         
         @include tablets(){
-            @include caja_flex(column, wrap, flex-start, flex-start, center);
+            height: 800px;
+            @include caja_flex(column, wrap, flex-start, space-between, center);
         }
 
         .targeta_simple{
             position: relative;
-            width: 33.33%;
+            width: 32%;
             height: 100%;
-            @include caja_flex(column, wrap, center, center, center);
+            @include caja_flex(column, wrap, center, flex-end, center);
 
             img{
                 width: 100%;
@@ -42,7 +43,7 @@
             
             .textos_target{
                 width: 100%;
-                height: 20%;
+                height: 30%;
                 gap: 10px 0;
                 @include caja_flex(row, wrap, center, center, center);
                 
@@ -50,6 +51,8 @@
                     font-family: $titulo1;
                     position: absolute;
                     top: 0;
+                    height: 10%;
+                    @include align_mid_grid()
                 }
                 p,a{
                     text-align: center;
@@ -70,7 +73,7 @@
 
             @include tablets(){
                 width: 100%;
-                height:33.33%;
+                height:32%;
                 img{
                     width: 40%;
                     height: 100%
