@@ -1,91 +1,100 @@
-.categorias{
+.categorias {
     width: 100%;
     height: auto;
     margin-top: 150px;
-    @include tablets(){
+
+    @include tablets() {
         height: auto;
     }
 
-    h2{
+    h2 {
         @include titulosh2(2.2rem);
     }
-    .cont_categorias{
+
+    .cont_categorias {
         margin-top: 100px;
         width: 100%;
         height: 620px;
-        
-        background: rgba( 255, 222, 98, 0.7 );
-        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-        backdrop-filter: blur( 1.5px );
-        -webkit-backdrop-filter: blur( 1.5px );
+
+        background: rgba(255, 222, 98, 0.7);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+        backdrop-filter: blur(1.5px);
+        -webkit-backdrop-filter: blur(1.5px);
         border-radius: 10px;
-        border: 1px solid rgba( 255, 255, 255, 0.18 );
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        padding: 8px;
 
         @include caja_flex(row, wrap, center, space-between, center);
-        
-        @include tablets(){
+
+        @include tablets() {
             height: 800px;
             @include caja_flex(column, wrap, flex-start, space-between, center);
         }
 
-        .targeta_simple{
+        .targeta_simple {
             position: relative;
             width: 32%;
             height: 100%;
             @include caja_flex(column, wrap, center, flex-end, center);
+            border: solid thin $hover1;
+            border-radius: 10px;
 
-            img{
+            img {
                 width: 100%;
                 height: 60%;
                 object-fit: contain;
             }
 
-            .textos_target{
+            .textos_target {
                 width: 100%;
                 height: 30%;
                 gap: 10px 0;
                 @include caja_flex(row, wrap, center, center, center);
-                
-                a{
+
+                a {
                     font-family: $titulo1;
                     position: absolute;
                     top: 0;
                     height: 10%;
-                    @include align_mid_grid()
+                    @include align_mid_grid();
+                    @include titulosh2(1.8rem);
+                    font-weight: 700;
                 }
-                p,a{
+
+                p,
+                a {
                     text-align: center;
                     width: 90%;
                     text-decoration: none;
-
-                    &.title_targ{
-                        font-size: $font_h2;
-                        font-weight: $bold;
-                        color: $color_titulo2;
-                    }
                 }
 
-                p{
+                p {
+                    @include titulosh2(1rem);
+                    font-family: $parrafo1;
                     color: $color_titulo3;
+                    font-weight: 400;
                 }
             }
 
-            @include tablets(){
+            @include tablets() {
                 width: 100%;
-                height:32%;
-                img{
+                height: 32%;
+
+                img {
                     width: 40%;
                     height: 100%
                 }
-                .textos_target{
+
+                .textos_target {
                     width: 60%;
                     height: 100%;
                     gap: 10px 0;
 
-                    a{
+                    a {
                         position: relative;
                     }
                 }
+
                 @include left_right();
 
             }

@@ -107,13 +107,13 @@ function funko(id, name, descripcion, price, discount, genero, tipo, linkImg1, l
 // id | nombre | descripcion | precio | genero | tipo | imagen | descuento
 
 //Banner
-const funko1 = new funko (1,"michael myers","funko pop de la pelicula halloween",200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/halloween/hallowen_xsqe9a.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102400/imgs/haloween/funkos/halloween/hallowen2_xhsuts.png")
-const funko2 = new funko (2,"chucky","funko de la pelicula chuky el muñeco malvado",1550, 10, "movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/halloween/chuki123_mh4o3b.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102328/imgs/haloween/funkos/halloween/chuki1111_kiwwds.png")
-const funko3 = new funko (3,"sam","funko descripcion genericas", 1200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/trick_r_treat_uv2gny.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102303/imgs/haloween/funkos/halloween/trick_r_treat2_pg1j8x.png")
+const funko1 = new funko (1,"michael myers","funko pop de la serie de peliculas Halloween, del género slasher. Aparece por primera vez en Halloween (1978). ",200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/halloween/hallowen_xsqe9a.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102400/imgs/haloween/funkos/halloween/hallowen2_xhsuts.png")
+const funko2 = new funko (2,"chucky","funko de la pelicula chuky el muñeco malvado. Es un muñeco Good Guy que fue poseído por medio de magia vudú por el asesino en serie Charles Lee Ray",1550, 10, "movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/halloween/chuki123_mh4o3b.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102328/imgs/haloween/funkos/halloween/chuki1111_kiwwds.png")
+const funko3 = new funko (3,"sam","funko de la pelicula Trick 'r Treat criatura demoniaca parecida a una calabaza que actua como ejecutor de las reglas y tradiciones de Hallowen.", 1200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/trick_r_treat_uv2gny.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102303/imgs/haloween/funkos/halloween/trick_r_treat2_pg1j8x.png")
 
 //Categoria
 const funko4 = new funko (4,"yamcha y puar","funko dragon ball z yamcha y puar coleccion.", 1530, 10, "anime","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102390/imgs/haloween/funkos/dbz/yamcha2_ghsnru.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102427/imgs/haloween/funkos/dbz/yamcha3_i8rjfz.png")
-const funko5 = new funko (5,"homer muumuu","funko de la coleccion simpsons, homero gordo esa mancha no se quita", 1021, 0, "tv y series","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667541324/imgs/haloween/funkos/futurama/homero_gordo1_wm964f.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107301/imgs/haloween/funkos/futurama/homero_gordo2_nuixxt.png")
+const funko5 = new funko (5,"homer muumuu","funko de la coleccion simpsons, homero gordo esa mancha no se quita", 1021, 0, "tv y series","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1668210035/imgs/haloween/funkos/futurama/homero_gordo1_fgykwd.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107301/imgs/haloween/funkos/futurama/homero_gordo2_nuixxt.png")
 const funko6 = new funko (6,"john wick","funko coleccionable, john wick + perro.", 1010, 0, "movies","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102369/imgs/haloween/funkos/pelis/jon_week3_axwmnn.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102405/imgs/haloween/funkos/pelis/jon_week_n4kpmi.png")
 
 //ARREGLO DE OBJETOS
@@ -174,6 +174,7 @@ const left_right = (i) =>{
 let tarjeta = " "; //guardara la estructura de todas las tarjetas destacadas
 let tarjeta1 = " ";
 let trajeta3 = " ";
+let tarjeta4 = " ";
 const generaTarjetas = (array,buscador) => {
     let posicion; 
     if (buscador == "categoria") {
@@ -190,8 +191,25 @@ const generaTarjetas = (array,buscador) => {
                 </section>\n`;
                 j += 1;
             })
-            return tarjeta1;
-    }else if (buscador == "banner"){
+        return tarjeta1;
+    } else if (buscador == "banner") {
+        for (let i = 0; i < array.length; i++) {
+
+        tarjeta4 += 
+        `<section class="art_princial swiper-slide">
+            <div class="caja left">
+                <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
+            </div>
+            <div class="caja right">
+                <h2 class="titulo">#${array[i],id} ${array[i].nombre}</h2>
+                <h3 class="precio">$${array[i].precio}</h3>
+                <p class="textos">${array[i].descripcion}</p>
+                <a href="">reservalo</a>
+                <span class="descuento">${array[i].descuento}%</span>
+            </div>
+        </section>\n`
+        }
+        return tarjeta4;
 
     }else if (buscador == "destacados"){
         for (let i = 0; i < array.length; i++) {
@@ -200,7 +218,7 @@ const generaTarjetas = (array,buscador) => {
             <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
             <div class="textos_target">
                 <h2>${array[i].nombre}</h2>
-                <h3>${array[i].precio}</h3>
+                <h3>$${array[i].precio}</h3>
             </div>
             </section>\n`;
         }
@@ -226,22 +244,25 @@ let tDestacadas = generaTarjetas(funkosDestacados,"destacados");
 //console.log(tDestacadas);
 let tCategorias = generaTarjetas(funkosCategoria,"categoria");
 //console.log(tCategorias)
-let tFiguras = generaTarjetas(funkosFiguras,"figura")
+let tFiguras = generaTarjetas(funkosFiguras,"figura");
+let tBanner = generaTarjetas(funkosBanner,"banner")
+
 
 depura("figuras");
-console.log(tFiguras);
+console.log(tBanner);
 
 
 //Accedo a el elemento cuyo id = #destacados y lo guardamos en contenedorTarjetasDestacadas
 let contDestacadas = document.querySelector("#destacados")
 let contCategorias = document.querySelector("#top_prod")
 let contFiguras = document.querySelector(".cont_figuras")
+let contBanner = document.querySelector(".envoltura_art")
 
 //creamos una nueva estructura de etiquetas y contenido en el elemento anterior.
 contDestacadas.innerHTML = tDestacadas;
 contCategorias.innerHTML = tCategorias;
 contFiguras.innerHTML = tFiguras;
-
+contBanner.innerHTML = tBanner;
 
 
 // funcion de bienvenida, retorna un codigo de error 

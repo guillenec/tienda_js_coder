@@ -118,7 +118,7 @@ para movil y tablets  horizontal
     }
     @include movile(){
         //font-size: 1.3rem;
-        font-size: $valor - $valor * 0.40;
+        font-size: $valor - $valor * 0.30;
     }
 }
 @mixin textosGen(){

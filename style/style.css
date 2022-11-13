@@ -136,45 +136,51 @@ header {
       header .nav .menu img {
         display: none; }
       @media screen and (max-width: 992px) {
-        header .nav .menu .list {
-          display: none; }
-        header .nav .menu.active {
-          margin-top: 0px;
+        header .nav .menu {
           width: 100%;
-          height: auto; }
-          header .nav .menu.active .list {
-            display: block;
+          height: 0;
+          transition: .9s; }
+          header .nav .menu .list {
+            display: none; }
+          header .nav .menu.active {
+            margin-top: 0px;
             width: 100%;
-            height: auto;
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            align-content: center;
-            justify-content: flex-end;
-            align-items: center;
-            background: #fff; }
-            header .nav .menu.active .list .item a {
-              position: relative;
+            transition: .7s;
+            overflow: hidden;
+            height: auto; }
+            header .nav .menu.active .list {
+              display: block;
+              width: 100%;
+              height: auto;
+              list-style: none;
               display: flex;
-              flex-direction: row;
+              flex-direction: column;
               flex-wrap: wrap;
               align-content: center;
-              justify-content: center;
+              justify-content: flex-end;
               align-items: center;
-              transition: .5s; }
-              header .nav .menu.active .list .item a:hover::before {
-                content: "";
-                position: absolute;
-                width: 8px;
-                height: 8px;
-                bottom: 5px;
-                background: #FF7C5F;
-                border-radius: 10%;
-                width: 100px;
-                transition: width 2s; }
-                header .nav .menu.active .list .item a:hover::before else {
-                  top: b; } }
+              background: #fff; }
+              header .nav .menu.active .list .item a {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                transition: .5s; }
+                header .nav .menu.active .list .item a:hover::before {
+                  content: "";
+                  position: absolute;
+                  width: 8px;
+                  height: 8px;
+                  bottom: 5px;
+                  background: #FF7C5F;
+                  border-radius: 10%;
+                  width: 100px;
+                  transition: width 2s; }
+                  header .nav .menu.active .list .item a:hover::before else {
+                    top: b; } }
     header .nav .toggle {
       display: none; }
       @media screen and (max-width: 992px) {
@@ -229,7 +235,8 @@ header {
   --swiper-theme-color: #FF7C5F; }
   .banner .envoltura_art {
     width: 100%;
-    height: 100%; }
+    height: 100%;
+    gap: 20px 0; }
     .banner .envoltura_art .art_princial {
       margin-top: 50px;
       width: 100%;
@@ -244,7 +251,7 @@ header {
         width: 50%;
         height: 100%;
         overflow: hidden;
-        gap: 10px;
+        gap: 20px 0;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
@@ -257,6 +264,7 @@ header {
           .banner .envoltura_art .art_princial .caja {
             width: 98%;
             margin: auto;
+            gap: 15px 0;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -273,8 +281,7 @@ header {
               flex-wrap: nowrap;
               align-content: flex-start;
               justify-content: center;
-              align-items: flex-start;
-              gap: 10px; } }
+              align-items: flex-start; } }
         .banner .envoltura_art .art_princial .caja .titulo {
           width: 100%;
           font-family: "Poppins", sans-serif;
@@ -349,7 +356,8 @@ header {
             .banner .envoltura_art .art_princial .caja img {
               height: 100%;
               width: auto; } }
-  .banner .swiper-button-next, .banner .swiper-button-prev {
+  .banner .swiper-button-next,
+  .banner .swiper-button-prev {
     position: absolute;
     top: 50%; }
 
@@ -377,7 +385,7 @@ header {
         font-size: 1.65rem; } }
     @media screen and (max-width: 576px) {
       .categorias h2 {
-        font-size: 1.32rem; } }
+        font-size: 1.54rem; } }
   .categorias .cont_categorias {
     margin-top: 100px;
     width: 100%;
@@ -388,6 +396,7 @@ header {
     -webkit-backdrop-filter: blur(1.5px);
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 8px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -412,7 +421,9 @@ header {
       flex-wrap: wrap;
       align-content: center;
       justify-content: flex-end;
-      align-items: center; }
+      align-items: center;
+      border: solid thin tomato;
+      border-radius: 10px; }
       .categorias .cont_categorias .targeta_simple img {
         width: 100%;
         height: 60%;
@@ -433,17 +444,51 @@ header {
           top: 0;
           height: 10%;
           display: grid;
-          place-content: center; }
-        .categorias .cont_categorias .targeta_simple .textos_target p, .categorias .cont_categorias .targeta_simple .textos_target a {
+          place-content: center;
+          width: 100%;
+          height: auto;
+          text-transform: capitalize;
+          display: grid;
+          place-content: center;
+          font-family: "Poppins", sans-serif;
+          color: #FF7C5F;
+          font-size: 1.8rem;
+          font-weight: 700; }
+          @media screen and (max-width: 992px) {
+            .categorias .cont_categorias .targeta_simple .textos_target a {
+              font-size: 1.62rem; } }
+          @media screen and (max-width: 768px) {
+            .categorias .cont_categorias .targeta_simple .textos_target a {
+              font-size: 1.35rem; } }
+          @media screen and (max-width: 576px) {
+            .categorias .cont_categorias .targeta_simple .textos_target a {
+              font-size: 1.26rem; } }
+        .categorias .cont_categorias .targeta_simple .textos_target p,
+        .categorias .cont_categorias .targeta_simple .textos_target a {
           text-align: center;
           width: 90%;
           text-decoration: none; }
-          .categorias .cont_categorias .targeta_simple .textos_target p.title_targ, .categorias .cont_categorias .targeta_simple .textos_target a.title_targ {
-            font-size: 1.5rem;
-            font-weight: 900;
-            color: #FF7C5F; }
         .categorias .cont_categorias .targeta_simple .textos_target p {
-          color: #107263; }
+          width: 100%;
+          height: auto;
+          text-transform: capitalize;
+          display: grid;
+          place-content: center;
+          font-family: "Poppins", sans-serif;
+          color: #FF7C5F;
+          font-size: 1rem;
+          font-family: "Sintony", sans-serif;
+          color: #107263;
+          font-weight: 400; }
+          @media screen and (max-width: 992px) {
+            .categorias .cont_categorias .targeta_simple .textos_target p {
+              font-size: 0.9rem; } }
+          @media screen and (max-width: 768px) {
+            .categorias .cont_categorias .targeta_simple .textos_target p {
+              font-size: 0.75rem; } }
+          @media screen and (max-width: 576px) {
+            .categorias .cont_categorias .targeta_simple .textos_target p {
+              font-size: 0.7rem; } }
       @media screen and (max-width: 768px) {
         .categorias .cont_categorias .targeta_simple {
           width: 100%;
@@ -496,7 +541,7 @@ header {
         font-size: 1.65rem; } }
     @media screen and (max-width: 576px) {
       .destacados h2 {
-        font-size: 1.32rem; } }
+        font-size: 1.54rem; } }
   .destacados .cont_destacados {
     margin-top: 100px;
     width: 100%;
@@ -636,7 +681,7 @@ header {
         font-size: 1.65rem; } }
     @media screen and (max-width: 576px) {
       .figuras_accion h2 {
-        font-size: 1.32rem; } }
+        font-size: 1.54rem; } }
   .figuras_accion .cont_figuras {
     margin-top: 50px;
     height: 800px;

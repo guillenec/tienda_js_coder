@@ -3,14 +3,15 @@ const menu = document.querySelector(".menu");
 
 
 nav_menu.addEventListener("click", () => {
-    nav_menu.classList.toggle("active");
+    nav_menu.classList.toggle("active"); 
     menu.classList.toggle("active");
+    
 })
 
 window.addEventListener('click', e =>{
     //contains : Si el elemento contiene el className, el método devuelve true. De lo contrario, vuelve false.
-    if(menu.classList.contains('active') && e.target != menu && e.target != nav_menu){
-        nav_menu.classList.toggle('active');
+    if(menu.classList.contains('active') && e.target != menu ){
+       
     }
 }) 
 

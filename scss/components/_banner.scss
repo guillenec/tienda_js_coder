@@ -1,4 +1,4 @@
-.banner{
+.banner {
     top: 0;
     width: 100%;
     height: 600px;
@@ -6,43 +6,46 @@
     .envoltura_art {
         width: 100%;
         height: 100%;
+        gap: 20px 0;
 
-        .art_princial{
+        .art_princial {
             margin-top: 50px;
             width: 100%;
             height: calc(100% - 50px);
             @include caja_flex(row, wrap, center, flex-start, center);
 
-            .caja{
+            .caja {
                 width: 50%;
                 height: 100%;
                 overflow: hidden;
-                gap: 10px;
+                gap: 20px 0;
 
                 @include caja_flex(row, wrap, center, flex-start, center);
 
-                &.left{
+                &.left {
                     height: 90%;
                 }
-                @include tablets(){
-                width: 98%;
-                margin: auto;
-                
-                &.left{
-                    height: 40%;
-                }
-                &.right{
-                    height: 60%;
-                    display: flex;
-                    @include caja_flex(column, nowrap,flex-start, center,flex-start);
-                    gap: 10px;
 
+                @include tablets() {
+                    width: 98%;
+                    margin: auto;
+                    gap: 15px 0;
+
+                    &.left {
+                        height: 40%;
+                    }
+
+                    &.right {
+                        height: 60%;
+                        display: flex;
+                        @include caja_flex(column, nowrap, flex-start, center, flex-start);
+
+                    }
+
+                    @include caja_flex(row, wrap, center, flex-start, center);
                 }
 
-                @include caja_flex(row, wrap, center, flex-start, center);
-                }
-
-                .titulo{
+                .titulo {
                     width: 100%;
                     font-family: $titulo1;
                     font-size: $font_grande;
@@ -51,30 +54,34 @@
                     margin: 0;
                     padding: 0;
 
-                    @include tablets(){
+                    @include tablets() {
                         font-size: $font_mediana;
                     }
                 }
-                .precio{
+
+                .precio {
                     width: 100%;
                     font-family: $titulo1;
                     font-size: $font_mediana;
                     margin: 0;
                     padding: 0;
-                    @include tablets(){
+
+                    @include tablets() {
                         font-size: $font_h2;
                     }
                 }
-                .textos{
+
+                .textos {
                     width: 100%;
                     font-family: $parrafo1;
                     font-size: $font_normal;
-                    color:$color_titulo3;
+                    color: $color_titulo3;
                     font-weight: 700;
                     margin: 0;
                     padding: 0;
                 }
-                a{
+
+                a {
                     display: block;
                     font-family: $parrafo1;
                     text-decoration: none;
@@ -88,23 +95,24 @@
                     border-radius: 10px;
                     font-size: $font_a;
                     transition: $transition_gen;
-                    
-                    &:hover{
+
+                    &:hover {
                         background: $color_titulo1;
                         color: $color_titulo4;
                     }
 
                     @include align_mid_grid();
-                    @include tablets(){
+
+                    @include tablets() {
                         font-size: $font_small;
                     }
-                        
+
                 }
-                
-                .descuento{
-                    @include caja_absoluta(55px, 55px, 0 ,t);
+
+                .descuento {
+                    @include caja_absoluta(55px, 55px, 0, t);
                     left: 1px;
-                    background:$color_titulo1;
+                    background: $color_titulo1;
                     color: $color_titulo4;
                     font-size: 1.4rem;
                     font-weight: 600;
@@ -112,23 +120,27 @@
                     place-content: center;
                     border-radius: 0 10px 0 10px;
                 }
-                img{
+
+                img {
                     width: 100%;
                     height: 100%;
                     object-fit: scale-down;
                     margin: auto;
-                
-                    @include tablets(){
+
+                    @include tablets() {
                         height: 100%;
-                        width:auto;
+                        width: auto;
                     }
                 }
-            }       
+            }
         }
     }
+
     --swiper-navigation-size:20px;
     --swiper-theme-color: #{$color_titulo2};
-    .swiper-button-next, .swiper-button-prev {
+
+    .swiper-button-next,
+    .swiper-button-prev {
         position: absolute;
         top: 50%;
     }
