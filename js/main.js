@@ -201,7 +201,7 @@ const generaTarjetas = (array,buscador) => {
                 <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
             </div>
             <div class="caja right">
-                <h2 class="titulo">#${array[i],id} ${array[i].nombre}</h2>
+                <h2 class="titulo">#${array[i].id} ${array[i].nombre}</h2>
                 <h3 class="precio">$${array[i].precio}</h3>
                 <p class="textos">${array[i].descripcion}</p>
                 <a href="">reservalo</a>
