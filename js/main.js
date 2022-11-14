@@ -215,10 +215,34 @@ const generaTarjetas = (array,buscador) => {
         for (let i = 0; i < array.length; i++) {
             par(i) ? posicion = "left" : posicion = "right";
             tarjeta += `<section class="targeta target${i+1} ${posicion}">
-            <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
+            <div class="producto_imagen">
+                <a href="#" >
+                    <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
+                    <span class="productoAdicional">
+                        <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
+                    </span>
+                </a>
+                <div class="botones_func">
+                    <div><a title="eliminar">
+                        <span>
+                            <ion-icon name="sync-outline"></ion-icon>
+                        </span>
+                    </a></div>
+                    <div><a title="agrandar">
+                        <span>
+                            <ion-icon name="search-outline"></ion-icon>
+                        </span>
+                    </a></div>
+                    <div><a title="gustar">
+                        <span>
+                            <ion-icon name="heart-outline"></ion-icon>
+                        </span>
+                    </a></div>
+                </div>
+            </div>
             <div class="textos_target">
-                <h2>${array[i].nombre}</h2>
-                <h3>$${array[i].precio}</h3>
+                <h2><a href="#">${array[i].nombre}</a></h2>
+                <h3>$${array[i].precio}&nbsp;$</h3>
             </div>
             </section>\n`;
         }
