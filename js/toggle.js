@@ -1,17 +1,17 @@
-const nav_menu = document.querySelector(".toggle");
-const menu = document.querySelector(".menu");
+let toggle = document.querySelector(".toggle");
+let toggle_parte = document.querySelector(".parte_toggle");
+let nav = document.querySelector(".nav");
+let menu = document.querySelector(".menu")
 
-
-nav_menu.addEventListener("click", () => {
-    nav_menu.classList.toggle("active"); 
-    menu.classList.toggle("active");
-    
-})
+toggle.onclick = function(){
+    nav.classList.toggle('active');
+    console.log(nav)
+}
 
 window.addEventListener('click', e =>{
     //contains : Si el elemento contiene el className, el método devuelve true. De lo contrario, vuelve false.
-    if(menu.classList.contains('active') && e.target != menu ){
-
+    if(nav.classList.contains('active') && e.target != nav && e.target != toggle ){
+        nav.classList.toggle('active');
     }
 }) 
 

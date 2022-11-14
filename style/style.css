@@ -52,11 +52,11 @@ header, main, footer {
       width: 100%;
       max-width: auto; } }
 
-header {
+.header {
   position: sticky;
   background: #fff;
   z-index: 2; }
-  header .nav {
+  .header .nav {
     position: relative;
     top: 2px;
     width: 100%;
@@ -67,7 +67,7 @@ header {
     align-content: flex-start;
     justify-content: space-between;
     align-items: center; }
-    header .nav .logo {
+    .header .nav .logo {
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -85,13 +85,13 @@ header {
       color: #FF7C5F;
       font-weight: 800;
       font-size: 1.1rem; }
-      header .nav .logo img {
+      .header .nav .logo img {
         height: 2rem;
         width: auto; }
-    header .nav .menu {
+    .header .nav .menu {
       width: calc(100% - 160px);
       height: 100%; }
-      header .nav .menu .list {
+      .header .nav .menu .list {
         list-style: none;
         display: flex;
         flex-direction: row;
@@ -101,9 +101,9 @@ header {
         align-items: center;
         width: 100%;
         height: 100%; }
-        header .nav .menu .list .item {
+        .header .nav .menu .list .item {
           list-style: none; }
-          header .nav .menu .list .item a {
+          .header .nav .menu .list .item a {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
@@ -124,7 +124,7 @@ header {
             padding: 10px;
             cursor: pointer;
             transition: .5s; }
-            header .nav .menu .list .item a:hover::before {
+            .header .nav .menu .list .item a:hover::before {
               content: "";
               position: absolute;
               width: 8px;
@@ -132,60 +132,14 @@ header {
               bottom: 5px;
               background: #FF7C5F;
               border-radius: 50%; }
-              header .nav .menu .list .item a:hover::before else {
+              .header .nav .menu .list .item a:hover::before else {
                 top: b; }
-      header .nav .menu img {
+      .header .nav .menu img {
         display: none; }
-      @media screen and (max-width: 992px) {
-        header .nav .menu {
-          width: 100%;
-          height: 0;
-          transition: .9s; }
-          header .nav .menu .list {
-            display: none; }
-          header .nav .menu.active {
-            margin-top: 0px;
-            width: 100%;
-            transition: .7s;
-            overflow: hidden;
-            height: auto; }
-            header .nav .menu.active .list {
-              display: block;
-              width: 100%;
-              height: auto;
-              list-style: none;
-              display: flex;
-              flex-direction: column;
-              flex-wrap: wrap;
-              align-content: center;
-              justify-content: flex-end;
-              align-items: center;
-              background: #fff; }
-              header .nav .menu.active .list .item a {
-                position: relative;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                align-content: center;
-                justify-content: center;
-                align-items: center;
-                transition: .5s; }
-                header .nav .menu.active .list .item a:hover::before {
-                  content: "";
-                  position: absolute;
-                  width: 8px;
-                  height: 8px;
-                  bottom: 5px;
-                  background: #FF7C5F;
-                  border-radius: 10%;
-                  width: 100px;
-                  transition: width 2s; }
-                  header .nav .menu.active .list .item a:hover::before else {
-                    top: b; } }
-    header .nav .toggle {
+    .header .nav .toggle {
       display: none; }
       @media screen and (max-width: 992px) {
-        header .nav .toggle {
+        .header .nav .toggle {
           display: block;
           position: absolute;
           top: 0;
@@ -195,27 +149,94 @@ header {
           transition: all .4s ease-in-out;
           display: grid;
           place-content: center; }
-          header .nav .toggle span {
+          .header .nav .toggle span {
             display: block;
             width: 30px;
             height: 3px;
             border-radius: 100px;
             background: #3F3F3F;
             transition: all .4s ease-in-out; }
-            header .nav .toggle span:not(:last-child) {
+            .header .nav .toggle span:not(:last-child) {
               margin-bottom: 7px; } }
-      header .nav .toggle.active {
-        transition-delay: .8s; }
-        header .nav .toggle.active span:nth-child(2) {
-          width: 0; }
-        header .nav .toggle.active span:nth-child(1), header .nav .toggle.active span:nth-child(1) {
-          transition-delay: .4s; }
-        header .nav .toggle.active span:nth-child(1) {
-          rotate: 45deg;
-          transform: translate(7px, 7px); }
-        header .nav .toggle.active span:nth-child(3) {
-          rotate: -45deg;
-          transform: translate(7px, -7px); }
+    @media screen and (max-width: 992px) {
+      .header .nav {
+        height: 60px;
+        transition: all .5s ease-in-out;
+        overflow: hidden; }
+        .header .nav .logo {
+          background: #444;
+          height: 60px;
+          width: 200px; }
+        .header .nav .toggle {
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 60px;
+          height: 60px;
+          transition: all .4s ease-in-out;
+          display: grid;
+          place-content: center; }
+        .header .nav .menu {
+          position: absolute;
+          top: 60px;
+          width: 100%;
+          height: auto; }
+          .header .nav .menu .list {
+            display: none; }
+        .header .nav.active {
+          height: 320px;
+          transition: .5s;
+          background-color: aquamarine; }
+          .header .nav.active .toggle {
+            transition-delay: .5s; }
+            .header .nav.active .toggle span:nth-child(2) {
+              width: 0; }
+            .header .nav.active .toggle span:nth-child(1), .header .nav.active .toggle span:nth-child(1) {
+              transition-delay: .4s; }
+            .header .nav.active .toggle span:nth-child(1) {
+              rotate: 45deg;
+              transform: translate(7px, 7px); }
+            .header .nav.active .toggle span:nth-child(3) {
+              rotate: -45deg;
+              transform: translate(7px, -7px); }
+          .header .nav.active .menu {
+            position: absolute;
+            margin-top: 0px;
+            width: 100%;
+            height: 500px; }
+            .header .nav.active .menu .list {
+              display: block;
+              width: 100%;
+              height: auto;
+              list-style: none;
+              display: flex;
+              flex-direction: column;
+              flex-wrap: wrap;
+              align-content: center;
+              justify-content: flex-end;
+              align-items: center; }
+              .header .nav.active .menu .list .item a {
+                position: relative;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-content: center;
+                justify-content: center;
+                align-items: center;
+                transition: .5s; }
+                .header .nav.active .menu .list .item a:hover::before {
+                  content: "";
+                  position: absolute;
+                  width: 8px;
+                  height: 8px;
+                  bottom: 5px;
+                  background: #FF7C5F;
+                  border-radius: 10%;
+                  width: 100px;
+                  transition: width 2s; }
+                  .header .nav.active .menu .list .item a:hover::before else {
+                    top: b; } }
 
 .main {
   margin-top: 0;
