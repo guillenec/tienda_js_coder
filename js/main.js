@@ -120,12 +120,12 @@ const funko6 = new funko (6,"john wick","funko coleccionable, john wick + perro.
 arregloJuguetes.push(funko1,funko2,funko3,funko4,funko5,funko6);
 
 //Destacados
-arregloJuguetes.push(new funko(7,"pennywise","funko pop de lapelicula it funko generico",1220, 0, "movies","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102295/imgs/haloween/funkos/halloween/it2222_mc4bmq.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102347/imgs/haloween/funkos/halloween/it_hxwkid.png"));
-arregloJuguetes.push(new funko(8,"t-8000","funko de la pelicula terminator, terminator abuelo t-8000",1150, 0, "movies","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/pelis/terminator1_uwdmzk.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102398/imgs/haloween/funkos/pelis/terminator3_cp80xa.png"));
-arregloJuguetes.push(new funko(9,"charizard","funko coleccion pokemon, pokemon inicial. serie rojo.",1200, 0, "anime","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/pokemon/charizard_wodreh.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102410/imgs/haloween/funkos/pokemon/charizard2_mxjcgr.png"));
+arregloJuguetes.push(new funko(7,"pennywise","funko pop de lapelicula it funko generico",1220, 0, "movies","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102295/imgs/haloween/funkos/halloween/it2222_mc4bmq.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102340/imgs/haloween/funkos/halloween/it3_xdclx3.png"));
+arregloJuguetes.push(new funko(8,"t-8000","funko de la pelicula terminator, terminator abuelo t-8000",1150, 0, "movies","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/pelis/terminator1_uwdmzk.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102385/imgs/haloween/funkos/pelis/terminator4_t8viae.png"));
+arregloJuguetes.push(new funko(9,"charizard","funko coleccion pokemon, pokemon inicial. serie rojo.",1200, 0, "anime","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/pokemon/charizard_wodreh.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1668456314/imgs/haloween/funkos/pokemon/charizard0_n5svia.png"));
 arregloJuguetes.push(new funko(10,"daemon targaryen","funko coleccion house of dragons, game of throne.",1500, 0, "tv y serie","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112418/imgs/haloween/funkos/houseOfDragons/daemon_targaryen2_ynzag1.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102376/imgs/haloween/funkos/houseOfDragons/daemon_targaryen_ktydpy.png"));
-arregloJuguetes.push(new funko(11,"otto","funko de la coleccion simpsons, otto escuchandomusica",1300, 0,  "tv y series","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/otto_sixm1m.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107309/imgs/haloween/funkos/futurama/otto2_ii1k0u.png"));
-arregloJuguetes.push(new funko(12,"duffman","funko de la coleccion simpsons, hombre duff, barry.",1300, 0, "tv y serie","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110729/imgs/haloween/funkos/futurama/duffman3_u7e3i5.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110730/imgs/haloween/funkos/futurama/duffman_j4rand.png"));
+arregloJuguetes.push(new funko(11,"otto","funko de la coleccion simpsons, otto escuchandomusica",1300, 0,  "tv y series","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/otto_sixm1m.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107309/imgs/haloween/funkos/futurama/otto3_qs2obj.png"));
+arregloJuguetes.push(new funko(12,"duffman","funko de la coleccion simpsons, hombre duff, barry.",1300, 0, "tv y serie","destacados","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110729/imgs/haloween/funkos/futurama/duffman3_u7e3i5.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1668456636/imgs/haloween/funkos/futurama/duffman0_ghsthp.png"));
 
 //figura
 arregloJuguetes.push(new funko(13,"thresh","figura de accion articulada de la coleccion league of legends, campeones league of legends",1550, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102344/imgs/haloween/funkos/league/tresh1_lmbstr.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102367/imgs/haloween/funkos/league/tresh2_sqcvu7.png" ));
@@ -214,36 +214,37 @@ const generaTarjetas = (array,buscador) => {
     }else if (buscador == "destacados"){
         for (let i = 0; i < array.length; i++) {
             par(i) ? posicion = "left" : posicion = "right";
-            tarjeta += `<section class="targeta target${i+1} ${posicion}">
-            <div class="producto_imagen">
-                <a href="#" >
-                    <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
-                    <span class="productoAdicional">
-                        <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
-                    </span>
-                </a>
-                <div class="botones_func">
-                    <div><a title="eliminar">
-                        <span>
-                            <ion-icon name="sync-outline"></ion-icon>
+            tarjeta += 
+            `<section class="tarjeta tarjeta${i+1} ${posicion}">
+                <div class="producto_imagen">
+                    <a class="cont_img" href="#" >
+                        <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
+                        <span class="productoAdicional">
+                            <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
                         </span>
-                    </a></div>
-                    <div><a title="agrandar">
-                        <span>
-                            <ion-icon name="search-outline"></ion-icon>
-                        </span>
-                    </a></div>
-                    <div><a title="gustar">
-                        <span>
-                            <ion-icon name="heart-outline"></ion-icon>
-                        </span>
-                    </a></div>
+                    </a>
+                    <div class="botones_func">
+                        <div><a title="eliminar">
+                            <span>
+                                <ion-icon name="sync-outline"></ion-icon>
+                            </span>
+                        </a></div>
+                        <div><a title="agrandar">
+                            <span>
+                                <ion-icon name="search-outline"></ion-icon>
+                            </span>
+                        </a></div>
+                        <div><a title="gustar">
+                            <span>
+                                <ion-icon name="heart-outline"></ion-icon>
+                            </span>
+                        </a></div>
+                    </div>
                 </div>
-            </div>
-            <div class="textos_target">
-                <h2><a href="#">${array[i].nombre}</a></h2>
-                <h3>$${array[i].precio}&nbsp;$</h3>
-            </div>
+                <div class="textos_tarjeta">
+                    <h2><a href="#">${array[i].nombre}</a></h2>
+                    <h3>$${array[i].precio}&nbsp;$</h3>
+                </div>
             </section>\n`;
         }
         return tarjeta;
@@ -287,6 +288,22 @@ contDestacadas.innerHTML = tDestacadas;
 contCategorias.innerHTML = tCategorias;
 contFiguras.innerHTML = tFiguras;
 contBanner.innerHTML = tBanner;
+
+/* Creacion de elemento para el titulo de la seccion Destacados */
+let tituloDestacados = document.querySelector(".titDest")
+let nuevoTitulo = document.createElement("span") //crea elemento nuevo
+
+nuevoTitulo.innerHTML = "funkos destacados"
+
+tituloDestacados.append(nuevoTitulo) //añadimos el elemento como hijo de .titDes
+
+/* Remover Elemento */
+//nuevotitulo.remove() //remove() permite eliminar un elemento  o varios 
+// elemento= document.getElementsByClassName("li")
+// elemento[0].remove
+
+
+
 
 
 // funcion de bienvenida, retorna un codigo de error 
