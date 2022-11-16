@@ -217,29 +217,21 @@ const generaTarjetas = (array,buscador) => {
             tarjeta += 
             `<section class="tarjeta tarjeta${i+1} ${posicion}">
                 <div class="producto_imagen">
-                    <a class="cont_img" href="#" >
+                    <section class="cont_img">
                         <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
-                        <span class="productoAdicional">
-                            <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
-                        </span>
-                    </a>
-                    <div class="botones_func">
-                        <div><a title="eliminar">
-                            <span>
-                                <ion-icon name="sync-outline"></ion-icon>
-                            </span>
-                        </a></div>
-                        <div><a title="agrandar">
-                            <span>
-                                <ion-icon name="search-outline"></ion-icon>
-                            </span>
-                        </a></div>
-                        <div><a title="gustar">
-                            <span>
+                        <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
+                        <div class="botones_func">
+                            <a title="rotar" class="rotar"> 
+                                <ion-icon name="sync-outline"></ion-icon> 
+                            </a>
+                            <a class="zoom" title="agrandar"> 
+                                <ion-icon name="search-outline"></ion-icon> 
+                            </a>
+                            <a class="añadirCar" title="gustar"> 
                                 <ion-icon name="heart-outline"></ion-icon>
-                            </span>
-                        </a></div>
-                    </div>
+                            </a>
+                        </div>
+                    </section>
                 </div>
                 <div class="textos_tarjeta">
                     <h2><a href="#">${array[i].nombre}</a></h2>
@@ -304,16 +296,24 @@ tituloDestacados.append(nuevoTitulo); //añadimos el elemento como hijo de .titD
 
 /* Permite cambiar automaticamente la clase de la tarjeta si la tocamos */
 tarjetaDestacada1 = document.querySelectorAll(".tarjeta");
-console.log(tarjetaDestacada1)
+productoImg = document.querySelectorAll(".rotar");
+console.log(productoImg);
+console.log(tarjetaDestacada1);
 
-tarjetaDestacada1.forEach(element => {
-    console.log(element) //DEPURA
-    element.addEventListener('mouseover', () =>{
-        element.classList.toggle('rotar');
-        console.log(element) //DEPURA
+// tarjetaDestacada1.forEach(element => {
+//     console.log(element) //DEPURA
+//     element.addEventListener('mouseover', () =>{
+//         element.classList.toggle('rotar');
+//         console.log(element) //DEPURA
+//     })
+// });
+
+for (let i = 0; i < tarjetaDestacada1.length; i++) {
+    productoImg[i].addEventListener('click', () =>{
+        tarjetaDestacada1[i].classList.toggle('rotar');
+        console.log(tarjetaDestacada1) //DEPURA
     })
-});
-
+}
 
 
 

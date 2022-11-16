@@ -79,32 +79,120 @@
                 
                 .cont_img{
                     display: block;
+                    position: relative;
                     width: 100%;
                     height: 100%;
+                    overflow: hidden;
+                    transition: .7s;
 
                     .imgPrimaria{
                         @extend.cont_img;
                         object-fit: contain;
+                        transition: .9s;
                     }
-                    .productoAdicional{
+                    .imgSecundaria{
+                        @extend.cont_img;
+                        object-fit: contain;
                         display: none;
+                        transition: .9s;
+                    }
+
+                    .botones_func{
+                        position: absolute;
+                        bottom: 0;
+                        right: -50px;
+                        width: 40px;
+                        height: auto;
+                        border: solid thin #ff6347;
+                        
+                        background: rgba( 255, 255, 255, 0.9 );
+                        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                        backdrop-filter: blur( 1px );
+
+                        border-radius: 10px;
+                        @include caja_flex(column,wrap,center,center,center);
+                        gap: 5px 0;
+                        overflow: hidden;
+                        //BAckground
+                        
+                        transition: .7s;
+
+
+                        a{
+                            position: relative;
+                            width: 40px;
+                            height: 40px;
+                            text-decoration: none;
+                            @include align_mid_grid();
+                            cursor: pointer;
+                            transition: .7s;
+    
+                            ion-icon{
+                                color: tomato;
+                                font-size: 1.4rem;
+                            }
+                        }
+                    }
+
+                    &:hover{
+                        .botones_func{
+                            bottom: 0;
+                            right: 0px;
+                            transition: .7s;
+                            
+                            a:hover{
+                                background: rgba( 255, 99, 71, 0.75 );
+                                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                                backdrop-filter: blur( 3px );
+                                -webkit-backdrop-filter: blur( 3px );
+        
+                                ion-icon{
+                                    color: #fff;
+                                    font-size: 1.4rem;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                
+            }
+            
+            &.rotar{
+                .producto_imagen{
+                    .cont_img{
+                        .imgPrimaria{
+                            opacity: 0;
+                            transition: .5s;
+                            display: none;
+                            transition: .9s;
+                        }
+                        .imgSecundaria{
+                            display: block;
+                            opacity: 1;
+                            transition: .7;
+                            transition: .9s;
+                        }
                     }
                 }
             }
-            
+
             .textos_tarjeta{
                 width: 100%;
                 height: 30%;
                 text-align: center;
 
                 h2{
-                    display: inline;
                     font-size: $font_h2;
                     color: $color_titulo4;
+                    a{
+                        text-decoration: none;
+                        @extend h2;
+                    }
                 }
                 h3{
                     font-size:$font_h3;
-                    color: $color_titulo4;
+                    color: $color_titulo2;
                 }
             }
             @include movile(){

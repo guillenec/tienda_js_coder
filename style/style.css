@@ -391,7 +391,7 @@ header, main, footer {
   @media screen and (max-width: 768px) {
     .categorias {
       height: auto; } }
-  .categorias h2 {
+  .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a {
     width: 100%;
     height: auto;
     text-transform: capitalize;
@@ -401,13 +401,13 @@ header, main, footer {
     color: #FF7C5F;
     font-size: 2.2rem; }
     @media screen and (max-width: 992px) {
-      .categorias h2 {
+      .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a {
         font-size: 1.98rem; } }
     @media screen and (max-width: 768px) {
-      .categorias h2 {
+      .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a {
         font-size: 1.65rem; } }
     @media screen and (max-width: 576px) {
-      .categorias h2 {
+      .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a {
         font-size: 1.54rem; } }
   .categorias .cont_categorias {
     margin-top: 100px;
@@ -547,7 +547,7 @@ header, main, footer {
   @media screen and (max-width: 992px) {
     .destacados {
       width: 90%; } }
-  .destacados h2 {
+  .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
     width: 100%;
     height: auto;
     text-transform: capitalize;
@@ -557,13 +557,13 @@ header, main, footer {
     color: #FF7C5F;
     font-size: 2.2rem; }
     @media screen and (max-width: 992px) {
-      .destacados h2 {
+      .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
         font-size: 1.98rem; } }
     @media screen and (max-width: 768px) {
-      .destacados h2 {
+      .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
         font-size: 1.65rem; } }
     @media screen and (max-width: 576px) {
-      .destacados h2 {
+      .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
         font-size: 1.54rem; } }
   .destacados .cont_destacados {
     margin-top: 100px;
@@ -644,25 +644,86 @@ header, main, footer {
         width: 100%;
         height: 70%;
         position: relative; }
-        .destacados .cont_destacados .tarjeta .producto_imagen .cont_img, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria {
+        .destacados .cont_destacados .tarjeta .producto_imagen .cont_img, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria {
           display: block;
+          position: relative;
           width: 100%;
-          height: 100%; }
+          height: 100%;
+          overflow: hidden;
+          transition: .7s; }
           .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria {
-            object-fit: contain; }
-          .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .productoAdicional {
-            display: none; }
+            object-fit: contain;
+            transition: .9s; }
+          .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria {
+            object-fit: contain;
+            display: none;
+            transition: .9s; }
+          .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .botones_func {
+            position: absolute;
+            bottom: 0;
+            right: -50px;
+            width: 40px;
+            height: auto;
+            border: solid thin #ff6347;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(1px);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center;
+            gap: 5px 0;
+            overflow: hidden;
+            transition: .7s; }
+            .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .botones_func a {
+              position: relative;
+              width: 40px;
+              height: 40px;
+              text-decoration: none;
+              display: grid;
+              place-content: center;
+              cursor: pointer;
+              transition: .7s; }
+              .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .botones_func a ion-icon {
+                color: tomato;
+                font-size: 1.4rem; }
+          .destacados .cont_destacados .tarjeta .producto_imagen .cont_img:hover .botones_func, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria:hover .botones_func, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria:hover .botones_func {
+            bottom: 0;
+            right: 0px;
+            transition: .7s; }
+            .destacados .cont_destacados .tarjeta .producto_imagen .cont_img:hover .botones_func a:hover, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria:hover .botones_func a:hover, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria:hover .botones_func a:hover {
+              background: rgba(255, 99, 71, 0.75);
+              box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+              backdrop-filter: blur(3px);
+              -webkit-backdrop-filter: blur(3px); }
+              .destacados .cont_destacados .tarjeta .producto_imagen .cont_img:hover .botones_func a:hover ion-icon, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria:hover .botones_func a:hover ion-icon, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria:hover .botones_func a:hover ion-icon {
+                color: #fff;
+                font-size: 1.4rem; }
+      .destacados .cont_destacados .tarjeta.rotar .producto_imagen .cont_img .imgPrimaria {
+        opacity: 0;
+        transition: .5s;
+        display: none;
+        transition: .9s; }
+      .destacados .cont_destacados .tarjeta.rotar .producto_imagen .cont_img .imgSecundaria {
+        display: block;
+        opacity: 1;
+        transition: .7;
+        transition: .9s; }
       .destacados .cont_destacados .tarjeta .textos_tarjeta {
         width: 100%;
         height: 30%;
         text-align: center; }
-        .destacados .cont_destacados .tarjeta .textos_tarjeta h2 {
-          display: inline;
+        .destacados .cont_destacados .tarjeta .textos_tarjeta h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
           font-size: 1.5rem;
           color: #FFDE62; }
+          .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
+            text-decoration: none; }
         .destacados .cont_destacados .tarjeta .textos_tarjeta h3 {
           font-size: 1rem;
-          color: #FFDE62; }
+          color: #FF7C5F; }
       @media screen and (max-width: 576px) {
         .destacados .cont_destacados .tarjeta {
           width: 90%;
@@ -695,7 +756,7 @@ header, main, footer {
   width: 100%;
   height: auto;
   margin: 150px auto 0 auto; }
-  .figuras_accion h2 {
+  .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a {
     width: 100%;
     height: auto;
     text-transform: capitalize;
@@ -705,13 +766,13 @@ header, main, footer {
     color: #FF7C5F;
     font-size: 2.2rem; }
     @media screen and (max-width: 992px) {
-      .figuras_accion h2 {
+      .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a {
         font-size: 1.98rem; } }
     @media screen and (max-width: 768px) {
-      .figuras_accion h2 {
+      .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a {
         font-size: 1.65rem; } }
     @media screen and (max-width: 576px) {
-      .figuras_accion h2 {
+      .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a {
         font-size: 1.54rem; } }
   .figuras_accion .cont_figuras {
     margin-top: 50px;
@@ -749,7 +810,7 @@ header, main, footer {
         align-content: center;
         justify-content: space-around;
         align-items: center; }
-        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2,
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a,
         .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h3 {
           width: 100%;
           color: #333;
