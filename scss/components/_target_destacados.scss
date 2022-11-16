@@ -72,6 +72,9 @@
 
             @include caja_flex(column, wrap, center, space-around, center);
 
+            transition:.7s ease-in-out;
+
+
             .producto_imagen{
                 width: 100%;
                 height: 70%;
@@ -86,15 +89,18 @@
                     transition: .7s;
 
                     .imgPrimaria{
+                        display: block;
                         @extend.cont_img;
                         object-fit: contain;
-                        transition: .9s;
+                        opacity: 1;
+                        transition:.9s ease-in-out;
                     }
                     .imgSecundaria{
                         @extend.cont_img;
                         object-fit: contain;
+                        opacity: 0;
                         display: none;
-                        transition: .9s;
+                        transition:.9s ease-in-out;
                     }
 
                     .botones_func{
@@ -159,19 +165,17 @@
             }
             
             &.rotar{
+                background: #333;
+
                 .producto_imagen{
                     .cont_img{
                         .imgPrimaria{
                             opacity: 0;
-                            transition: .5s;
                             display: none;
-                            transition: .9s;
                         }
                         .imgSecundaria{
                             display: block;
                             opacity: 1;
-                            transition: .7;
-                            transition: .9s;
                         }
                     }
                 }

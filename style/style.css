@@ -639,7 +639,8 @@ header, main, footer {
       flex-wrap: wrap;
       align-content: center;
       justify-content: space-around;
-      align-items: center; }
+      align-items: center;
+      transition: .7s ease-in-out; }
       .destacados .cont_destacados .tarjeta .producto_imagen {
         width: 100%;
         height: 70%;
@@ -652,12 +653,15 @@ header, main, footer {
           overflow: hidden;
           transition: .7s; }
           .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria {
+            display: block;
             object-fit: contain;
-            transition: .9s; }
+            opacity: 1;
+            transition: .9s ease-in-out; }
           .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria {
             object-fit: contain;
+            opacity: 0;
             display: none;
-            transition: .9s; }
+            transition: .9s ease-in-out; }
           .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .botones_func {
             position: absolute;
             bottom: 0;
@@ -702,16 +706,14 @@ header, main, footer {
               .destacados .cont_destacados .tarjeta .producto_imagen .cont_img:hover .botones_func a:hover ion-icon, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria:hover .botones_func a:hover ion-icon, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria:hover .botones_func a:hover ion-icon {
                 color: #fff;
                 font-size: 1.4rem; }
-      .destacados .cont_destacados .tarjeta.rotar .producto_imagen .cont_img .imgPrimaria {
-        opacity: 0;
-        transition: .5s;
-        display: none;
-        transition: .9s; }
-      .destacados .cont_destacados .tarjeta.rotar .producto_imagen .cont_img .imgSecundaria {
-        display: block;
-        opacity: 1;
-        transition: .7;
-        transition: .9s; }
+      .destacados .cont_destacados .tarjeta.rotar {
+        background: #333; }
+        .destacados .cont_destacados .tarjeta.rotar .producto_imagen .cont_img .imgPrimaria {
+          opacity: 0;
+          display: none; }
+        .destacados .cont_destacados .tarjeta.rotar .producto_imagen .cont_img .imgSecundaria {
+          display: block;
+          opacity: 1; }
       .destacados .cont_destacados .tarjeta .textos_tarjeta {
         width: 100%;
         height: 30%;

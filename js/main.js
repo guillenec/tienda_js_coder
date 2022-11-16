@@ -297,16 +297,11 @@ tituloDestacados.append(nuevoTitulo); //añadimos el elemento como hijo de .titD
 /* Permite cambiar automaticamente la clase de la tarjeta si la tocamos */
 tarjetaDestacada1 = document.querySelectorAll(".tarjeta");
 productoImg = document.querySelectorAll(".rotar");
+contieneImg1 = document.querySelectorAll(".imgPrimaria");
+contieneImg2 = document.querySelectorAll(".imgSecundaria");
+
 console.log(productoImg);
 console.log(tarjetaDestacada1);
-
-// tarjetaDestacada1.forEach(element => {
-//     console.log(element) //DEPURA
-//     element.addEventListener('mouseover', () =>{
-//         element.classList.toggle('rotar');
-//         console.log(element) //DEPURA
-//     })
-// });
 
 for (let i = 0; i < tarjetaDestacada1.length; i++) {
     productoImg[i].addEventListener('click', () =>{
@@ -315,6 +310,15 @@ for (let i = 0; i < tarjetaDestacada1.length; i++) {
     })
 }
 
+for (let i = 0; i < tarjetaDestacada1.length; i++) {
+    contieneImg1[i].addEventListener('mouseover', e =>{
+        tarjetaDestacada1[i].classList.toggle('rotar');
+        
+        contieneImg2[i].onmouseout = () => tarjetaDestacada1[i].classList.toggle('rotar');
+        
+        console.log(tarjetaDestacada1) //DEPURA
+    })
+}
 
 
 
