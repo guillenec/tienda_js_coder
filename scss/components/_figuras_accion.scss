@@ -2,6 +2,7 @@
     width: 100%;
     height: auto;
     @include margin_principal();
+    // scroll-snap-align: start;
 
     h2{
         @include titulosh2(2.2rem);

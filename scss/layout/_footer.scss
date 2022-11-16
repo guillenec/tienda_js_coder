@@ -4,4 +4,6 @@
     height: 300px;
     background: $color_titulo4;
     @include margin_principal();
+    //scroll-snap-align: start;
+
 }

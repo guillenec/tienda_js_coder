@@ -295,12 +295,29 @@ let nuevoTitulo = document.createElement("span") //crea elemento nuevo
 
 nuevoTitulo.innerHTML = "funkos destacados"
 
-tituloDestacados.append(nuevoTitulo) //añadimos el elemento como hijo de .titDes
-
+tituloDestacados.append(nuevoTitulo); //añadimos el elemento como hijo de .titDes
 /* Remover Elemento */
 //nuevotitulo.remove() //remove() permite eliminar un elemento  o varios 
 // elemento= document.getElementsByClassName("li")
 // elemento[0].remove
+
+
+/* Permite cambiar automaticamente la clase de la tarjeta si la tocamos */
+tarjetaDestacada1 = document.querySelectorAll(".tarjeta");
+console.log(tarjetaDestacada1)
+
+tarjetaDestacada1.forEach(element => {
+    console.log(element) //DEPURA
+    element.addEventListener('mouseover', () =>{
+        element.classList.toggle('rotar');
+        console.log(element) //DEPURA
+    })
+});
+
+
+
+
+
 
 
 
