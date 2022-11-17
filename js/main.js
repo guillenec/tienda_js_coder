@@ -194,9 +194,7 @@ const generaTarjetas = (array,buscador) => {
         return tarjeta1;
     } else if (buscador == "banner") {
         for (let i = 0; i < array.length; i++) {
-
-        tarjeta4 += 
-        `<section class="art_princial swiper-slide">
+        tarjeta4 += `<section class="art_princial swiper-slide">
             <div class="caja left">
                 <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
             </div>
@@ -309,19 +307,17 @@ for (let i = 0; i < tarjetaDestacada1.length; i++) {
         console.log(tarjetaDestacada1) //DEPURA
     })
 }
-
+// classList.add : permite añadir una clase
+// classList.remove : permite remover una clase
 for (let i = 0; i < tarjetaDestacada1.length; i++) {
     contieneImg1[i].addEventListener('mouseover', e =>{
-        tarjetaDestacada1[i].classList.toggle('rotar');
+        tarjetaDestacada1[i].classList.add('rotar');
         
-        contieneImg2[i].onmouseout = () => tarjetaDestacada1[i].classList.toggle('rotar');
+        contieneImg2[i].onmouseout = () => tarjetaDestacada1[i].classList.remove('rotar');
         
         console.log(tarjetaDestacada1) //DEPURA
     })
 }
-
-
-
 
 
 

@@ -1,0 +1,124 @@
+.modalContainer{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+
+    background: rgba( 255, 255, 255, 0.7 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 3.5px );
+    -webkit-backdrop-filter: blur( 3.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    transform: translate(0, 0);
+    z-index: 2;
+    @include align_mid_flex();
+
+    .modal{
+        position: relative;
+        width: 80%;
+        height: 80%;
+        background: rgb(255, 99, 71);
+        padding: 1rem;
+
+        .superior{
+            display: flex;
+            width: 100%;
+            height: 70%;
+            gap: 10px;
+
+            .izq{
+                max-width: 50%;
+                min-width: 48%;
+                @include align_mid_flex();
+                gap: 10px;
+
+                img{
+                    width: 70%;
+                    height: auto;
+                }
+            }
+            .der{
+                max-width: 50%;
+                min-width: 48%;
+                @include caja_flex(column,wrap,flex-start,space-evenly,flex-start);
+                gap: 10px;
+
+                .pagos {
+                    width: 100% ;
+                    height: auto;
+                    padding: 10px;
+                }
+            }
+        }
+        .inferior{
+            width: 100;
+            height: 30%;
+            background: rgba(255, 255, 255, 0.329);
+            @include caja_flex(row,wrap,flex-start,space-between,flex-start);
+            gap: 10px;
+            padding: 10px;
+
+            .redes{
+                width: auto;
+                height: auto;
+                @include caja_flex(row,wrap,flex-start,flex-start,flex-start);
+                max-width: 35%;
+                gap: 5px 5px;
+                
+                a{
+                    width: 40px;
+                    height: 40px;
+                    @include align_mid_flex();
+                    text-decoration: none;
+                    color: $color_titulo1;
+
+                    ion-icon{
+                        font-size: 20px;
+                    }
+                }
+            }
+            .palabras_clave{
+                @extend .redes;
+                max-width: 65%;
+                gap: 10px;
+
+                a{
+                    width: auto;
+                    background: tomato;
+                    padding: 8px;
+                    border-radius: 5px;
+                    color: $color_titulo1;
+                    text-transform: capitalize;
+                    font-family: $titulo1;
+                    font-weight: 600;
+                }
+            }
+
+            @include tablets() {
+                @include caja_flex(column-reverse, wrap, flex-start, flex-end, flex-start);
+
+                .redes {
+                    width: 100%;
+                    @include caja_flex(row, wrap, flex-start, flex-end, flex-start);
+                    max-width: 100%;
+                }
+            
+                .palabras_clave {
+                    width: 100%;
+                    @include caja_flex(row, wrap, flex-start, flex-start, flex-start);
+                    max-width: 100%;
+                }
+            }
+        }
+        .cerrar{
+            position: absolute;
+            top: 0;
+            right: 0;
+            font-size: 2em;
+        }
+        
+    }
+}

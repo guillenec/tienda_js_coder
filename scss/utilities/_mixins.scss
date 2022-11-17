@@ -98,7 +98,11 @@ para movil y tablets  horizontal
     display: grid;
     place-content: center;
 }
-
+@mixin align_mid_flex(){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @mixin titulosh2($valor){
     width: 100%;
     height: auto;

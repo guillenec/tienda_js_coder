@@ -66,3 +66,35 @@ function depura2 (val){
     let dep = "\n---- Depurador => "
     console.log(`${dep} ${texto} ---- \n`)
 }
+
+//sacado del principal
+//EVENTOS DE TECLADO PROBANDO EN EL FFOOTER
+depura("teclado")
+let input1 = document.querySelector('.footer #nombre');
+let input2 = document.querySelector('.footer #edad');
+
+console.log(input1)
+console.log(input2)
+
+//cuando se suelta la teca
+input1.onkeyup = () => {console.log("Key Up")}
+
+//cuando se presiona la tecla
+input2.onkeydown = () => {console.log("Key Down")}
+
+//se activa cuando detecta un cambio
+input1.onchange = () => {console.log("On change")}
+
+//cada vez que tipeamos
+input1.addEventListener('input',() => {
+    console.log(input1.value)
+})
+
+//submit cuando el formulario se envia
+let miForm = document.querySelector("#formulario");
+miForm.addEventListener('submit', validacion);
+
+function validacion(e){
+    e.preventDefault();
+    console.log("Formulario Enviado")
+}
