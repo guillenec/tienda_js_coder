@@ -18,18 +18,26 @@ for (let index = 0; index < modalAbrir.length; index++) {
     modalAbrir[index].addEventListener('click', e => {
         e.preventDefault();
         console.log("entre")
-        modalContainer[0].style.opacity = "1";
-        modalContainer[0].style.visibility = "visible";
+        modalContainer[0].classList.add('ocultar');
         modal[0].classList.toggle("close");
     })
 }
+modalCerrar[0].addEventListener('click',() =>{ 
+    modal[0].classList.toggle("close")
+    
+    setTimeout(function(){ //pasados 7 seg se ejecuta 
+        modalContainer[0].classList.remove('ocultar')
+    },500);
+});
 
-modalCerrar[0].addEventListener('click',() =>{
-            modal[0].classList.toggle("close"); 
-            setTimeout(function(){
-                modalContainer[0].style.opacity = "0";
-                modalContainer[0].style.visibility = "hidden";
-        },700);
-    })   
+// for (let index = 0; index < modalAbrir.length; index++) {
+// modalCerrar[0].addEventListener('click',() =>{
+//             modal[0].classList.toggle("close"); 
+//             setTimeout(function(){
+//                 modalContainer[0].style.opacity = "0";
+//                 modalContainer[0].style.visibility = "hidden";
+//         },700);
+//     })   
+// }
 
     

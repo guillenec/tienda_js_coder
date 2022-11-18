@@ -14,11 +14,16 @@
 
     transform: translate(0, 0);
     @include align_mid_flex();
-    z-index: 2;
+    z-index: 0;
     opacity: 0;
     visibility: hidden; //me permite esconder el elemento
     //Luego desde js con visibile y opaciti1 lo muestro
 
+    &.ocultar{
+        z-index: 2;
+        opacity: 1;
+        visibility: visible; 
+    }
     .modal{
         position: relative;
         width: 80%;
