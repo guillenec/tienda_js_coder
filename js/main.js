@@ -219,13 +219,13 @@ const generaTarjetas = (array,buscador) => {
                         <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
                         <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
                         <div class="botones_func">
-                            <a title="rotar" class="rotar"> 
+                            <a href="#" title="rotar" class="rotar"> 
                                 <ion-icon name="sync-outline"></ion-icon> 
                             </a>
-                            <a class="zoom" title="agrandar"> 
+                            <a href="#" class="zoom" title="agrandar"> 
                                 <ion-icon name="search-outline"></ion-icon> 
                             </a>
-                            <a class="añadirCar" title="gustar"> 
+                            <a href="#" class="añadirCar" title="gustar"> 
                                 <ion-icon name="heart-outline"></ion-icon>
                             </a>
                         </div>
@@ -302,7 +302,8 @@ console.log(productoImg);
 console.log(tarjetaDestacada1);
 
 for (let i = 0; i < tarjetaDestacada1.length; i++) {
-    productoImg[i].addEventListener('click', () =>{
+    productoImg[i].addEventListener('click', e =>{
+        e.preventDefault();
         tarjetaDestacada1[i].classList.toggle('rotar');
         console.log(tarjetaDestacada1) //DEPURA
     })
@@ -311,10 +312,8 @@ for (let i = 0; i < tarjetaDestacada1.length; i++) {
 // classList.remove : permite remover una clase
 for (let i = 0; i < tarjetaDestacada1.length; i++) {
     contieneImg1[i].addEventListener('mouseover', e =>{
-        tarjetaDestacada1[i].classList.add('rotar');
-        
+        tarjetaDestacada1[i].classList.add('rotar');       
         contieneImg2[i].onmouseout = () => tarjetaDestacada1[i].classList.remove('rotar');
-        
         console.log(tarjetaDestacada1) //DEPURA
     })
 }

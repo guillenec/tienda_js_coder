@@ -914,16 +914,22 @@ header, main, footer {
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   transform: translate(0, 0);
-  z-index: 2;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  z-index: 2;
+  opacity: 0;
+  visibility: hidden; }
   .modalContainer .modal {
     position: relative;
     width: 80%;
     height: 80%;
     background: tomato;
-    padding: 1rem; }
+    padding: 1rem;
+    transition: transform .9s;
+    transform: translateY(0%); }
+    .modalContainer .modal.close {
+      transform: translateY(-200%); }
     .modalContainer .modal .superior {
       display: flex;
       width: 100%;
@@ -1028,7 +1034,8 @@ header, main, footer {
       position: absolute;
       top: 0;
       right: 0;
-      font-size: 2em; }
+      font-size: 2em;
+      cursor: pointer; }
 
 /*
 $sm: 576px;

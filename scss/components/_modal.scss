@@ -13,8 +13,11 @@
     border: 1px solid rgba( 255, 255, 255, 0.18 );
 
     transform: translate(0, 0);
-    z-index: 2;
     @include align_mid_flex();
+    z-index: 2;
+    opacity: 0;
+    visibility: hidden; //me permite esconder el elemento
+    //Luego desde js con visibile y opaciti1 lo muestro
 
     .modal{
         position: relative;
@@ -22,6 +25,12 @@
         height: 80%;
         background: rgb(255, 99, 71);
         padding: 1rem;
+        transition: transform .9s;
+        transform: translateY(0%);
+
+        &.close{
+            transform: translateY(-200%);
+        }
 
         .superior{
             display: flex;
@@ -118,6 +127,7 @@
             top: 0;
             right: 0;
             font-size: 2em;
+            cursor: pointer;
         }
         
     }
