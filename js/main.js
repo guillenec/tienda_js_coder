@@ -170,6 +170,63 @@ const left_right = (i) =>{
     return posicion;
 }
 
+//Generamos un modal para cada tarjeta
+const generaModales = (array, j) =>{
+    console.log("entre a GENERA MODAL")
+    let precio;
+    let descuento;
+    //Nose si es lo mejor pero creamos un modal por cada elemento
+    (array[j].precioConDescuento() > 0) ? (precio = array[j].precioConDescuento(), descuento="sin descuento") : (precio = array[j].precio , descuento = "descuento de " );
+    console.log("entre")
+
+    let textomod = `\n
+    <section class="modalContainer" data-id="${array[j].id}">
+        <section class="modal close ${array[j].id}">
+            <div class="superior">
+                <div class="izq">
+                    <img src="${array[j].imagenB}" alt="${array[j].descripcion}">
+                </div>
+                <div class="der">
+                    <h1>${array[j].nombre}</h1>
+                    <h2>$${precio}</h2>
+                    <p>descuento de %${descuento} + iva de %14.</p>
+                    <p>O 3 cuotas sin interes de $${array[j].precioTotalMasIVA() / 3} con: </p>
+                    <img class="pagos" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/468X60.jpg" title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago"/>
+                    <p><strong>${array[j].descripcion}</strong></p>
+                    <form action="" id="compra_fun">
+                        <label for="cantidad"> cantidad</label>
+                        <input type="number" name="cantidad" id="cantidad">
+                        <input type="submit" value="añadir carrito">
+                        <a href="#compra_fun" class="gustar"><ion-icon name="heart-outline"></ion-icon></a>
+                        <a href="#compra_fun" class="rotar"><ion-icon name="sync-outline"></ion-icon></a>
+                        <span id="hay_producto">
+                            <ion-icon name="checkmark-outline"></ion-icon>&nbsp;En Stock
+                        </span>
+                    </form>
+                </div>
+            </div>
+            <div class="inferior">
+                <div class="redes" id="redes">
+                    <a href="#redes"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                    <a href="#redes"><ion-icon name="logo-instagram"></ion-icon></a>
+                    <a href="#redes"><ion-icon name="logo-facebook"></ion-icon></a>
+                    <a href="#redes"><ion-icon name="mail-outline"></ion-icon></a>
+                </div>
+                <div class="palabras_clave" id="palClav">
+                    <a href="palClav">tv y series</a>
+                    <a href="palClav">simpsons</a>
+                    <a href="palClav">duff</a>
+                    <a href="palClav">animacion</a>
+                </div>
+            </div>
+            <a class="cerrar"><ion-icon name="close-outline"></ion-icon></a>
+        </section>  
+    </section> \n`;   
+        console.log("saliendo !!!!!!!! !!!!!! ")
+
+    return textomod;
+}
+
 //Funcion que genera targetas para la seccion Destacados
 let tarjeta = " "; //guardara la estructura de todas las tarjetas destacadas
 let tarjeta1 = " ";
@@ -213,19 +270,19 @@ const generaTarjetas = (array,buscador) => {
         for (let i = 0; i < array.length; i++) {
             par(i) ? posicion = "left" : posicion = "right";
             tarjeta += 
-            `<section class="tarjeta tarjeta${i+1} ${posicion}">
+            `<section class="tarjeta tarjeta${i+1} ${posicion}" data-id="${array[i].id}">
                 <div class="producto_imagen">
                     <section class="cont_img">
                         <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
                         <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
                         <div class="botones_func" data-id=${array[i].id}>
-                            <a href="#" title="rotar" class="rotar"> 
+                            <a href="#" title="rotar" class="rotar" data-id=${array[i].id}> 
                                 <ion-icon name="sync-outline"></ion-icon> 
                             </a>
-                            <a href="#" class="zoom" title="agrandar"> 
+                            <a href="#" class="zoom" title="agrandar" data-id=${array[i].id}> 
                                 <ion-icon name="search-outline"></ion-icon> 
                             </a>
-                            <a href="#" class="añadirCar" title="gustar"> 
+                            <a href="#" class="añadirCar" title="gustar" data-id=${array[i].id}> 
                                 <ion-icon name="heart-outline"></ion-icon>
                             </a>
                         </div>
@@ -236,7 +293,10 @@ const generaTarjetas = (array,buscador) => {
                     <h3>$${array[i].precio}&nbsp;$</h3>
                     <span class"identificador">${array[i].id}</span>
                 </div>
-            </section>\n`;
+            </section>
+            ${generaModales(array,i)}
+            \n`;
+            
         }
         return tarjeta;
 
