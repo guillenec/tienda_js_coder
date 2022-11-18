@@ -218,7 +218,7 @@ const generaTarjetas = (array,buscador) => {
                     <section class="cont_img">
                         <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
                         <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
-                        <div class="botones_func">
+                        <div class="botones_func" data-id=${array[i].id}>
                             <a href="#" title="rotar" class="rotar"> 
                                 <ion-icon name="sync-outline"></ion-icon> 
                             </a>
@@ -234,6 +234,7 @@ const generaTarjetas = (array,buscador) => {
                 <div class="textos_tarjeta">
                     <h2><a href="#">${array[i].nombre}</a></h2>
                     <h3>$${array[i].precio}&nbsp;$</h3>
+                    <span class"identificador">${array[i].id}</span>
                 </div>
             </section>\n`;
         }
