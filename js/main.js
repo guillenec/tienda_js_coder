@@ -275,14 +275,14 @@ const generaTarjetas = (array,buscador) => {
                     <section class="cont_img">
                         <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
                         <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
-                        <div class="botones_func" data-id=${array[i].id}>
-                            <a href="#" title="rotar" class="rotar" data-id=${array[i].id}> 
+                        <div class="botones_func" data-id="${array[i].id}">
+                            <a href="#" title="rotar" class="rotar" data-id="${array[i].id}"> 
                                 <ion-icon name="sync-outline"></ion-icon> 
                             </a>
-                            <a href="#" class="zoom" title="agrandar" data-id=${array[i].id}> 
+                            <a href="#" class="zoom" title="agrandar" data-id="${array[i].id}"> 
                                 <ion-icon name="search-outline"></ion-icon> 
                             </a>
-                            <a href="#" class="añadirCar" title="gustar" data-id=${array[i].id}> 
+                            <a href="#" class="añadirCar" title="gustar" data-id="${array[i].id}"> 
                                 <ion-icon name="heart-outline"></ion-icon>
                             </a>
                         </div>
@@ -295,8 +295,7 @@ const generaTarjetas = (array,buscador) => {
                 </div>
             </section>
             ${generaModales(array,i)}
-            \n`;
-            
+            \n`;   
         }
         return tarjeta;
 
@@ -355,10 +354,11 @@ tituloDestacados.append(nuevoTitulo); //añadimos el elemento como hijo de .titD
 
 /* Permite cambiar automaticamente la clase de la tarjeta si la tocamos */
 tarjetaDestacada1 = document.querySelectorAll(".tarjeta");
-productoImg = document.querySelectorAll(".rotar");
+productoImg = document.querySelectorAll(".producto_imagen");
 contieneImg1 = document.querySelectorAll(".imgPrimaria");
 contieneImg2 = document.querySelectorAll(".imgSecundaria");
 
+depura("PRODUCTO IMAGEN ---------")
 console.log(productoImg);
 console.log(tarjetaDestacada1);
 
@@ -366,7 +366,8 @@ for (let i = 0; i < tarjetaDestacada1.length; i++) {
     productoImg[i].addEventListener('click', e =>{
         e.preventDefault();
         tarjetaDestacada1[i].classList.toggle('rotar');
-        console.log(tarjetaDestacada1) //DEPURA
+        console.log(tarjetaDestacada1); //DEPURA
+        console.log(i);
     })
 }
 // classList.add : permite añadir una clase
