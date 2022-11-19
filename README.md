@@ -13,7 +13,7 @@
 <br>
 
 ## :pushpin: Vistazo a funkshop
-![screenshot of HTTRiRi website](https://res.cloudinary.com/dpiwmbsog/image/upload/v1667525059/imgs/haloween/proyecto_gtj7qi.png)
+![screenshot of HTTRiRi website](./img/miniatura_Funkoshop.png)
 
 <br>
 ## 👍 Espero te guste. 
