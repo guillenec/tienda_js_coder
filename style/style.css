@@ -250,6 +250,69 @@ header, main, footer {
   background: #FFDE62;
   margin: 150px auto 0 auto; }
 
+.carrito {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  overflow: hidden;
+  z-index: 10; }
+  .carrito .contiene_icons_car {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+    height: auto;
+    background: tomato;
+    cursor: pointer;
+    padding: 5px 5px 5px 0; }
+    .carrito .contiene_icons_car a {
+      width: 35px;
+      height: 30px;
+      display: block;
+      text-align: center;
+      display: grid;
+      place-content: center;
+      text-decoration: none; }
+      .carrito .contiene_icons_car a ion-icon {
+        font-size: 1.2rem;
+        vertical-align: middle;
+        text-align: center;
+        color: #FFDE62; }
+    .carrito .contiene_icons_car span {
+      display: grid;
+      place-content: center;
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      color: #107263;
+      font-size: 1.2rem;
+      vertical-align: middle;
+      text-align: center; }
+
+.subir {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  overflow: hidden;
+  z-index: 10;
+  border: 2px solid tomato;
+  border-radius: 100%;
+  padding: 5px; }
+  .subir a {
+    display: block;
+    background: tomato;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: grid;
+    place-content: center; }
+    .subir a ion-icon {
+      font-size: 1.3rem; }
+
 .banner {
   top: 0;
   width: 100%;
@@ -928,6 +991,7 @@ header, main, footer {
     position: relative;
     width: 80%;
     height: 80%;
+    min-height: 600px;
     background: tomato;
     padding: 1rem;
     transition: transform .9s;
@@ -958,11 +1022,97 @@ header, main, footer {
         align-content: flex-start;
         justify-content: space-evenly;
         align-items: flex-start;
-        gap: 10px; }
+        gap: 0px; }
+        .modalContainer .modal .superior .der h1 {
+          font-size: 2rem;
+          font-family: "Poppins", sans-serif;
+          font-weight: 600; }
+        .modalContainer .modal .superior .der h2, .modalContainer .modal .superior .der .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .modalContainer .modal .superior .der a {
+          font-size: 1.4rem;
+          color: #107263;
+          text-align: left;
+          font-family: "Sintony", sans-serif;
+          font-weight: 600;
+          justify-content: start; }
+        .modalContainer .modal .superior .der p {
+          font-family: "Sintony", sans-serif;
+          color: #3F3F3F;
+          font-weight: 700;
+          font-size: 1rem; }
+          .modalContainer .modal .superior .der p strong {
+            font-family: "Sintony", sans-serif;
+            color: #3F3F3F;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #107263; }
         .modalContainer .modal .superior .der .pagos {
           width: 100%;
           height: auto;
-          padding: 10px; }
+          padding: 0px; }
+        .modalContainer .modal .superior .der form {
+          width: 100%;
+          height: auto;
+          padding: 0px 0;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-content: flex-start;
+          justify-content: space-evenly;
+          align-items: flex-start;
+          gap: 10px; }
+          .modalContainer .modal .superior .der form .form_top {
+            display: flex;
+            flex-direction: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: flex-start;
+            align-items: center;
+            height: 35px;
+            gap: 0 10px; }
+            .modalContainer .modal .superior .der form .form_top label {
+              font-family: "Sintony", sans-serif;
+              color: #3F3F3F;
+              font-weight: 700;
+              font-size: 1rem; }
+            .modalContainer .modal .superior .der form .form_top .cantidad {
+              display: block;
+              height: 100%;
+              font-family: "Sintony", sans-serif;
+              color: #3F3F3F;
+              font-weight: 700;
+              font-size: 1rem;
+              width: 50px; }
+          .modalContainer .modal .superior .der form .form_mid {
+            display: flex;
+            flex-direction: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: flex-start;
+            align-items: center;
+            height: 35px;
+            gap: 0 10px; }
+            .modalContainer .modal .superior .der form .form_mid .aniadeCarrito {
+              display: block;
+              width: 150px;
+              height: 100%;
+              font-family: "Sintony", sans-serif;
+              color: #3F3F3F;
+              font-weight: 700;
+              font-size: 1rem;
+              padding: 5px;
+              color: #3F3F3F; }
+            .modalContainer .modal .superior .der form .form_mid .gustar,
+            .modalContainer .modal .superior .der form .form_mid .rotar {
+              display: block;
+              width: 35px;
+              height: 100%;
+              text-decoration: none;
+              display: grid;
+              place-content: center; }
+              .modalContainer .modal .superior .der form .form_mid .gustar ion-icon,
+              .modalContainer .modal .superior .der form .form_mid .rotar ion-icon {
+                color: #fff;
+                font-size: 1.6rem; }
     .modalContainer .modal .inferior {
       width: 100;
       height: 30%;

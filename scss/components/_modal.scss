@@ -4,20 +4,20 @@
     height: 100vh;
     top: 0;
     left: 0;
-
     background: rgba( 255, 255, 255, 0.7 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 3.5px );
     -webkit-backdrop-filter: blur( 3.5px );
     border-radius: 10px;
     border: 1px solid rgba( 255, 255, 255, 0.18 );
-
     transform: translate(0, 0);
+
     @include align_mid_flex();
     z-index: 0;
     opacity: 0;
     visibility: hidden; //me permite esconder el elemento
     //Luego desde js con visibile y opaciti1 lo muestro
+
 
     &.ocultar{
         z-index: 2;
@@ -28,6 +28,7 @@
         position: relative;
         width: 80%;
         height: 80%;
+        min-height: 600px;
         background: rgb(255, 99, 71);
         padding: 1rem;
         transition: transform .9s;
@@ -58,12 +59,98 @@
                 max-width: 50%;
                 min-width: 48%;
                 @include caja_flex(column,wrap,flex-start,space-evenly,flex-start);
-                gap: 10px;
-
+                gap: 0px;
+                
+                h1 {
+                    font-size: 2rem;
+                    font-family: $titulo1;
+                    font-weight: 600;
+                }
+                h2{
+                    font-size: 1.4rem;
+                    color: $color_titulo3;
+                    text-align: left;
+                    font-family: $parrafo1;
+                    font-weight: 600;
+                    justify-content: start
+                }
+                p{
+                    font-family: $parrafo1;
+                    color: $color_titulo1;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    
+                    strong{
+                        font-family: $parrafo1;
+                        color: $color_titulo1;
+                        font-weight: 700;
+                        font-size: 1rem;
+                        color: $color_titulo3;
+                    }
+                }
                 .pagos {
                     width: 100% ;
                     height: auto;
-                    padding: 10px;
+                    padding: 0px;
+                }
+                form{
+                    width: 100%;
+                    height: auto;
+                    padding: 0px 0;
+                    @include caja_flex(column,wrap,flex-start,space-evenly,flex-start);
+                    gap: 10px;
+                    .form_top{
+                        @include caja_flex(flex,wrap,center,flex-start,center);
+                        height: 35px;
+                        gap: 0 10px;
+
+                        label{
+                            font-family: $parrafo1;
+                            color: $color_titulo1;
+                            font-weight: 700;
+                            font-size: 1rem;
+                        }
+                        .cantidad{
+                            display: block;
+                            height: 100%;
+                            font-family: $parrafo1;
+                            color: $color_titulo1;
+                            font-weight: 700;
+                            font-size: 1rem;
+                            width: 50px;
+                        }
+                    }
+                    .form_mid{
+                        @include caja_flex(flex,wrap,center,flex-start,center);
+                        height: 35px;
+                        gap: 0 10px;
+                        .aniadeCarrito{
+                            display: block;
+                            width: 150px;
+                            height: 100%;
+                            font-family: $parrafo1;
+                            color: $color_titulo1;
+                            font-weight: 700;
+                            font-size: 1rem;
+                            padding: 5px;
+                            color: $color_titulo1;
+                        }
+                        .gustar,
+                        .rotar{
+                            display: block;
+                            width: 35px;
+                            height: 100%;
+                            text-decoration: none;
+
+                            @include align_mid_grid();
+
+                            ion-icon{
+                                color: $color_titulo5;
+                                font-size: 1.6rem;
+                            }
+                        }
+                    }
+                    
                 }
             }
         }

@@ -7,3 +7,70 @@
     //scroll-snap-align: start;
 
 }
+.carrito{
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    overflow: hidden;
+    z-index: 10;
+
+    .contiene_icons_car{
+        @include caja_flex(row, wrap, center, flex-start, center);
+        width: auto;
+        height: auto;
+        background: tomato;
+        cursor: pointer;
+        padding: 5px 5px 5px 0;
+
+        a{
+            width: 35px;
+            height: 30px;
+            display: block;
+            text-align: center;
+            @include align_mid_grid();
+            text-decoration: none;
+
+            ion-icon{
+                font-size: 1.2rem;
+                vertical-align: middle;
+                text-align: center;
+                color: $color_titulo4;
+            }
+        }
+        span{
+            @include align_mid_grid();
+            width: 30px;
+            height: 30px;
+            background: #fff;
+            color: $color_titulo3;
+            font-size: 1.2rem;
+            vertical-align: middle;
+            text-align: center;
+        }
+    }
+}
+
+.subir{
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    overflow: hidden;
+    z-index: 10;
+    border: 2px solid tomato;
+    border-radius: 100%;
+    padding: 5px;
+    
+    a{  
+        display: block;
+        background: tomato;
+        color: $color_titulo5;
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        @include align_mid_grid();
+
+        ion-icon{
+            font-size: 1.3rem;
+        }
+    }
+}

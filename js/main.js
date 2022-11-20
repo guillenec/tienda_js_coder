@@ -1,29 +1,3 @@
-
-// depura("usamos console")
-
-// console.dir(document.body);
-
-// // Acceder a los nodos: formas 3
-
-// getElementById()  //acceso al elemento por ID
-// getElementByClassName() //"" Ppor SU Clase
-// getElementByTagName()  //"" por ael nombre del elemento ej: div, img, section...
-
-// //uso ej: <div id="app" class="cajitas"> 
-// let div = document.getElementById("app"); 
-
-// let div2 = document.getElementsByClassName("cajitas") //accedemos al conjunti de elementos que tengas esa clase.. retorna un array con las coincidencias..
-
-// let div3 = document.getElementsByTagName("div") //accedemos a un conjunto de elementos por nombre de etiqueta como identificador.
-
-// //InnerText: accedemos y modifica contenido textual.
-
-
-
-// DUDAS: debo declarar las variables que usio en el constructor, al comienzo del archivo ??? por las dudas lo hago con let... pero esto me genera dudas ya que sin declararlas al comienzom todo anda bien.
-// disculpe la cantidad de comentarios.. pero me ayudan a ir entendiendo lo que hago.. lo mismo con lo console.log
-
-
 /* declaracion de variables que usare: */
 let textoMenu = "";
 let resultado;
@@ -43,7 +17,7 @@ const depura = (texto) =>{
     let dep = "\n---- Depurador => "
     console.log(`${dep} ${texto} ---- \n`)
 }
-//filtramos con filter y nos devuelve un array con los coincidentes: filtamos objetos por:
+//filtamos objetos por:
 //Banner
 const funkosBanner = arregloJuguetes.filter((el) => el.tipo.includes("banner"));
 //Categorias
@@ -63,20 +37,19 @@ console.log(funkosFiguras)
 const par = (val) =>{ //la usare para las posiciones
     return (val % 2) == 0; 
 }
-
 /* si es par retorna left sino right, para las posiciones de las tarjetas*/
 const left_right = (i) =>{
     par(i) ? posicion = "left" : posicion = "right";
     return posicion;
 }
 
-//Genera un modal para cada tarjeta
+//+ ---- Genera un modal para cada tarjeta -----+
 const generaModales = (array, j) =>{
     console.log("entre a GENERA MODAL")
     let precio;
     let descuento;
     //Nose si es lo mejor pero creamos un modal por cada elemento
-    (array[j].precioConDescuento() > 0) ? (precio = array[j].precioConDescuento(), descuento="sin descuento") : (precio = array[j].precio , descuento = "descuento de " );
+    (array[j].precioConDescuento() > 0) ? (precio = array[j].precio, descuento=`${array[j].descuento}`) : (precio = array[j].precio , descuento=`${array[j].descuento}`);
     console.log("entre")
 
     let textomod = `\n
@@ -89,16 +62,20 @@ const generaModales = (array, j) =>{
                 <div class="der">
                     <h1>${array[j].nombre}</h1>
                     <h2>$${precio}</h2>
-                    <p>descuento de %${descuento} + iva de %14.</p>
-                    <p>O 3 cuotas sin interes de $${array[j].precioTotalMasIVA() / 3} con: </p>
+                    <p>descuento de %${descuento} + iva de %4.</p>
+                    <p>3 cuotas sin interes de $${array[j].precioTotalMasIVA() / 3} con: </p>
                     <img class="pagos" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/468X60.jpg" title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago"/>
                     <p><strong>${array[j].descripcion}</strong></p>
                     <form action="" id="compra_fun">
-                        <label for="cantidad"> cantidad</label>
-                        <input type="number" name="cantidad" id="cantidad">
-                        <input type="submit" value="añadir carrito">
-                        <a href="#compra_fun" class="gustar"><ion-icon name="heart-outline"></ion-icon></a>
-                        <a href="#compra_fun" class="rotar"><ion-icon name="sync-outline"></ion-icon></a>
+                        <div class="form_top">
+                            <label for="cantidad"> cantidad</label>
+                            <input class="cantidad" type="number" name="cantidad" id="cantidad">
+                        </div>
+                        <div class="form_mid">
+                            <input class="aniadeCarrito" type="submit" value="añadir carrito">
+                            <a href="#compra_fun" class="gustar"><ion-icon name="heart-outline"></ion-icon></a>
+                            <a href="#compra_fun" class="rotar"><ion-icon name="sync-outline"></ion-icon></a>
+                        </div>
                         <span id="hay_producto">
                             <ion-icon name="checkmark-outline"></ion-icon>&nbsp;En Stock
                         </span>
@@ -113,10 +90,12 @@ const generaModales = (array, j) =>{
                     <a href="#redes"><ion-icon name="mail-outline"></ion-icon></a>
                 </div>
                 <div class="palabras_clave" id="palClav">
-                    <a href="palClav">tv y series</a>
-                    <a href="palClav">simpsons</a>
-                    <a href="palClav">duff</a>
-                    <a href="palClav">animacion</a>
+                    <a href="palClav">${array[j].nombre}</a>
+                    <a href="palClav">${array[j].genero}</a>
+                    <a href="palClav">${array[j].tipo}</a>
+                    <a href="palClav">${array[j].clave1}</a>
+                    <a href="palClav">${array[j].clave2}</a>
+                    <a href="palClav">${array[j].clave3}</a>
                 </div>
             </div>
             <a class="cerrar"><ion-icon name="close-outline"></ion-icon></a>
@@ -128,100 +107,110 @@ const generaModales = (array, j) =>{
 }
 
 //Funcion que genera targetas para la seccion Destacados
-let tarjeta = " "; //guardara la estructura de todas las tarjetas destacadas
-let tarjeta1 = " ";
-let trajeta3 = " ";
-let tarjeta4 = " ";
+
 const generaTarjetas = (array,buscador) => {
     let posicion; 
+    let tarjeta = " "; //guardara la estructura de todas las tarjetas destacadas
+    let tarjeta1 = " ";
+    let trajeta3 = " ";
+    let tarjeta4 = " ";
     if (buscador == "categoria") {
         j = 0; //contador
         array.forEach(element => {
-            posicion = left_right(j);
-            console.log(posicion);
-            tarjeta1 += `<section class="targeta_simple ${posicion} ">
-                    <img src="${element.imagenA}" alt="${element.descripcion}">
-                    <div class="textos_target"> 
-                        <a class="title_targ">${element.genero}</a>
-                        <p>${element.describe_tipos()}</p>
-                    </div>                  
-                </section>\n`;
+            if (element.stock != 0) {
+                posicion = left_right(j);
+                console.log(posicion);
+                tarjeta1 += `<section class="targeta_simple ${posicion} ">
+                        <img src="${element.imagenA}" alt="${element.descripcion}">
+                        <div class="textos_target"> 
+                            <a class="title_targ">${element.genero}</a>
+                            <p>${element.describe_tipos()}</p>
+                        </div>                  
+                    </section>\n`;
                 j += 1;
-            })
+            }
+        })
         return tarjeta1;
     } else if (buscador == "banner") {
         for (let i = 0; i < array.length; i++) {
-        tarjeta4 += `<section class="art_princial swiper-slide">
-            <div class="caja left">
-                <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
-            </div>
-            <div class="caja right">
-                <h2 class="titulo">#${array[i].id} ${array[i].nombre}</h2>
-                <h3 class="precio">$${array[i].precio}</h3>
-                <p class="textos">${array[i].descripcion}</p>
-                <a href="">reservalo</a>
-                <span class="descuento">${array[i].descuento}%</span>
-            </div>
-        </section>\n`
+            if (array[i].stock != 0) {
+                tarjeta4 += `<section class="art_princial swiper-slide">
+                <div class="caja left">
+                    <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
+                </div>
+                <div class="caja right">
+                    <h2 class="titulo">#${array[i].id} ${array[i].nombre}</h2>
+                    <h3 class="precio">$${array[i].precio}</h3>
+                    <p class="textos">${array[i].descripcion}</p>
+                    <a href="">reservalo</a>
+                    <span class="descuento">${array[i].descuento}%</span>
+                </div>
+            </section>\n`
+            }
         }
         return tarjeta4;
 
     }else if (buscador == "destacados"){
         for (let i = 0; i < array.length; i++) {
-            par(i) ? posicion = "left" : posicion = "right";
-            tarjeta += 
-            `<section class="tarjeta tarjeta${i+1} ${posicion}" data-id="${array[i].id}">
-                <div class="producto_imagen">
-                    <section class="cont_img">
-                        <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
-                        <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
-                        <div class="botones_func" data-id="${array[i].id}">
-                            <a href="#" title="rotar" class="rotar" data-id="${array[i].id}"> 
-                                <ion-icon name="sync-outline"></ion-icon> 
-                            </a>
-                            <a href="#" class="zoom" title="agrandar" data-id="${array[i].id}"> 
-                                <ion-icon name="search-outline"></ion-icon> 
-                            </a>
-                            <a href="#" class="añadirCar" title="gustar" data-id="${array[i].id}"> 
-                                <ion-icon name="heart-outline"></ion-icon>
-                            </a>
-                        </div>
-                    </section>
-                </div>
-                <div class="textos_tarjeta">
-                    <h2><a href="#">${array[i].nombre}</a></h2>
-                    <h3>$${array[i].precio}&nbsp;$</h3>
-                    <span class"identificador">${array[i].id}</span>
-                </div>
-            </section>
-            ${generaModales(array,i)}
-            \n`;   
+            if ( array[i].stock != 0 ) {
+                par(i) ? posicion = "left" : posicion = "right";
+                tarjeta += 
+                `<section class="tarjeta tarjeta${i+1} ${posicion}" data-id="${array[i].id}">
+                    <div class="producto_imagen">
+                        <section class="cont_img">
+                            <img class="imgPrimaria" src="${array[i].imagenB}" alt="${array[i].descripcion}">
+                            <img class="imgSecundaria" src="${array[i].imagenA}" alt="${array[i].descripcion}">
+                            <div class="botones_func" data-id="${array[i].id}">
+                                <a href="#" title="rotar" class="rotar" data-id="${array[i].id}"> 
+                                    <ion-icon name="sync-outline"></ion-icon> 
+                                </a>
+                                <a href="#" class="zoom" title="agrandar" data-id="${array[i].id}"> 
+                                    <ion-icon name="search-outline"></ion-icon> 
+                                </a>
+                                <a href="#" class="añadirCar" title="gustar" data-id="${array[i].id}"> 
+                                    <ion-icon name="heart-outline"></ion-icon>
+                                </a>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="textos_tarjeta">
+                        <h2><a href="#">${array[i].nombre}</a></h2>
+                        <h3>$${array[i].precio}&nbsp;$</h3>
+                        <span class"identificador">${array[i].id}</span>
+                    </div>
+                </section>
+                ${generaModales(array,i)}
+                \n`;   
+            }       
         }
         return tarjeta;
 
     }else if (buscador == "figura"){
+        let j = 0;
         for (let i = 0; i < array.length; i++) {
-            trajeta3 += `<section class="tarjeta_fig fig${i+1} ">
+            if ( array[i].stock != 0 ) {
+                j++;
+                trajeta3 += `<section class="tarjeta_fig fig${j} ">
             <div class="textos_fig">
                 <h2>${array[i].nombre}</h2>
                 <h3>$${array[i].precioTotalMasIVA()}</h3>
             </div>
             <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
             <a href="#" class="carrito"><ion-icon name="cart-outline"></ion-icon></a>
-        </section>\n`;
+            </section>\n`;
+            }
+            
         }
         return trajeta3;
     }
     
 }
-//llamamos a la funcion Genera Tarjeta Destacados, asigno a la variable targetaDestacada
-let tDestacadas = generaTarjetas(funkosDestacados,"destacados");
-//console.log(tDestacadas);
+
+//asigno a la variabole las tarjetas en formato texto html ,de acuerdo a la seccion a la que van a pertenecer
+let tDestacadas = generaTarjetas(funkosDestacados,"destacados"); //tDestacados contendra todos los onjetos funcos que poseen tipo destacados.
 let tCategorias = generaTarjetas(funkosCategoria,"categoria");
-//console.log(tCategorias)
 let tFiguras = generaTarjetas(funkosFiguras,"figura");
 let tBanner = generaTarjetas(funkosBanner,"banner")
-
 
 //Accedo a el elemento cuyo id = #destacados y lo guardamos en contenedorTarjetasDestacadas
 let contDestacadas = document.querySelector("#destacados")
@@ -255,26 +244,29 @@ depura("PRODUCTO IMAGEN ---------")
 console.log(productoImg);
 console.log(tarjetaDestacada1);
 
-for (let i = 0; i < tarjetaDestacada1.length; i++) {
-    productoImg[i].addEventListener('click', e =>{
-        e.preventDefault();
-        tarjetaDestacada1[i].classList.toggle('rotar');
-        console.log(tarjetaDestacada1); //DEPURA
-        console.log(i);
-    })
+const rotarTarjeta = () =>{
+    for (let i = 0; i < tarjetaDestacada1.length; i++) {
+        productoImg[i].addEventListener('click', e =>{
+            e.preventDefault();
+            tarjetaDestacada1[i].classList.toggle('rotar');
+            console.log(tarjetaDestacada1); //DEPURA
+            console.log(i);
+        })
+    }
+    // classList.add : permite añadir una clase
+    // classList.remove : permite remover una clase
+    for (let i = 0; i < tarjetaDestacada1.length; i++) {
+        contieneImg1[i].addEventListener('mouseover', e =>{
+            tarjetaDestacada1[i].classList.add('rotar');       
+            contieneImg2[i].onmouseout = () => tarjetaDestacada1[i].classList.remove('rotar');
+            console.log(tarjetaDestacada1) //DEPURA
+        })
+    }
 }
-// classList.add : permite añadir una clase
-// classList.remove : permite remover una clase
-for (let i = 0; i < tarjetaDestacada1.length; i++) {
-    contieneImg1[i].addEventListener('mouseover', e =>{
-        tarjetaDestacada1[i].classList.add('rotar');       
-        contieneImg2[i].onmouseout = () => tarjetaDestacada1[i].classList.remove('rotar');
-        console.log(tarjetaDestacada1) //DEPURA
-    })
-}
+rotarTarjeta();
 
 
-
+funkod_stok = [];
 
 
 // funcion de bienvenida, retorna un codigo de error 
