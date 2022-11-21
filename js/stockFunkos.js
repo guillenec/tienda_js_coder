@@ -21,27 +21,27 @@ function funko(id, name, stock, descripcion, price, discount, genero, tipo, link
     this.clave2 = clave2;
     this.clave3 = clave3;
 
-    // variable privada, solo se visualiza dentro del documento.
-    let iva = 0.04;    
+    // // variable privada, solo se visualiza dentro del documento.
+    // let iva = 0.04;    
     
-    //metodos, son funciones que seaplican a un objeto, las acciones que puede hacer el objeto
-    let descuentoReal = this.descuento * 0.01;
-    this.precioConDescuento = function(){
-        return (this.precio - this.precio * descuentoReal); 
-    }
+    // //metodos, son funciones que seaplican a un objeto, las acciones que puede hacer el objeto
+    // let descuentoReal = this.descuento * 0.01;
+    // this.precioConDescuento = function(){
+    //     return (this.precio - this.precio * descuentoReal); 
+    // }
     
-    this.precioTotalMasIVA = function(){
-        return (this.precioConDescuento() + this.precioConDescuento()  * iva);
-    }
-    this.describe_tipos = function(){
-        if ( this.genero == "movies" ) {
-            return "En esta seccion enconraras funkos relacionados con peliculas, ya sean de terror, siencia ficcion, y demas."
-        }else if ( this.genero == "tv y series" ){
-            return "Funkos relacionados con animaciones y series de tv... Los simpsons, futurama, series como mandalorian o game of throne."
-        }else if(this.genero == "anime"){
-            return "Anime , y cultura japonesa , asia y oriente... mangas y manwhas. Como pokemon, Dragon Ball, Naruto, shinigamis, Pakas, etc."
-        }
-    }
+    // this.precioTotalMasIVA = function(){
+    //     return (this.precioConDescuento() + this.precioConDescuento()  * iva);
+    // }
+    // this.describe_tipos = function(){
+    //     if ( this.genero == "movies" ) {
+    //         return "En esta seccion enconraras funkos relacionados con peliculas, ya sean de terror, siencia ficcion, y demas."
+    //     }else if ( this.genero == "tv y series" ){
+    //         return "Funkos relacionados con animaciones y series de tv... Los simpsons, futurama, series como mandalorian o game of throne."
+    //     }else if(this.genero == "anime"){
+    //         return "Anime , y cultura japonesa , asia y oriente... mangas y manwhas. Como pokemon, Dragon Ball, Naruto, shinigamis, Pakas, etc."
+    //     }
+    // }
 }
 
 //Banner
@@ -112,23 +112,52 @@ arregloJuguetes.push(new funko(20,"piltober coleccion",7,"figura de accion artic
 //     ]
 
 
-//     function precioConDescuento(){
-//         return (this.precio - this.precio * descuentoReal); 
-//     }
+/* ---- Calculo Precio real ---- */
+ // variable privada, solo se visualiza dentro del documento.
+let iva = 0.04;
 
-//     function precioTotalMasIVA(){
-//         return (this.precioConDescuento() + this.precioConDescuento()  * iva);
-//     }
+const descuentoReal = (array, i) => {
+    return Number(Number(array[i].descuento) * 0.01);
+}
 
-//     function describe_tipos(){
-//         if ( this.genero == "movies" ) {
-//             return "En esta seccion enconraras funkos relacionados con peliculas, ya sean de terror, siencia ficcion, y demas."
-//         }else if ( this.genero == "tv y series" ){
-//             return "Funkos relacionados con animaciones y series de tv... Los simpsons, futurama, series como mandalorian o game of throne."
-//         }else if(this.genero == "anime"){
-//             return "Anime , y cultura japonesa , asia y oriente... mangas y manwhas. Como pokemon, Dragon Ball, Naruto, shinigamis, Pakas, etc."
-//         }
-//     }
+ //Para recorrido con for
+const precioConDescuento = (array, p) => {
+    return (Number(array[p].precio) - Number(array[p].precio) * descuentoReal(array, p));
+}
 
+const precioTotalMasIVA = (array2, j) => {
+    return Number(precioConDescuento(array2, j) + precioConDescuento(array2, j) * iva);
+}
 
-//min: 00:55:14
+const describe_tipos = (array3, i) => {
+    if (array3[i].genero == "movies") {
+        return "En esta seccion enconraras funkos relacionados con peliculas, ya sean de terror, siencia ficcion, y demas."
+    } else if (array3[i].genero == "tv y series") {
+        return "Funkos relacionados con animaciones y series de tv... Los simpsons, futurama, series como mandalorian o game of throne."
+    } else if (array3[i].genero == "anime") {
+        return "Anime , y cultura japonesa , asia y oriente... mangas y manwhas. Como pokemon, Dragon Ball, Naruto, shinigamis, Pakas, etc."
+    }
+}
+
+//Para recorrido con foreach
+const descuentoReal2 = (element) => {
+    return Number(element.descuento) * 0.01;
+}
+const precioConDescuento2 = (element) => {
+    return (Number(element.precio) - Number(element.precio) * descuentoReal2(element));
+}
+
+const precioTotalMasIVA2 = (element) => {
+    return Number(precioConDescuento2(element) + precioConDescuento2(element) * iva);
+}
+
+const describe_tipos2 = (element) => {
+    if (element.genero == "movies") {
+        return "En esta seccion enconraras funkos relacionados con peliculas, ya sean de terror, siencia ficcion, y demas."
+    } else if (element.genero == "tv y series") {
+        return "Funkos relacionados con animaciones y series de tv... Los simpsons, futurama, series como mandalorian o game of throne."
+    } else if (element.genero == "anime") {
+        return "Anime , y cultura japonesa , asia y oriente... mangas y manwhas. Como pokemon, Dragon Ball, Naruto, shinigamis, Pakas, etc."
+    }
+}
+/* ---- fin calculo precio real ---- */

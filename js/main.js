@@ -10,7 +10,12 @@ let nElimina;
 
 //esto me permitira seguir comprando por mas que salga de la opcion 3
 let funkosComprado = carritoActual; 
-const carrito = [];
+let carrito = [];
+
+const carritoLStorage = JSON.parse(localStorage.getItem('carritoFunkos'));
+if (carritoLStorage != null) {
+    carrito = carritoLStorage;
+}
 
 /* Funciones */
 //Depurador, solo para ver donde voy entrando y donde no
@@ -44,13 +49,15 @@ const left_right = (i) =>{
     return posicion;
 }
 
+
+
 //+ ---- Genera un modal para cada tarjeta -----+
 const generaModales = (array, j) =>{
     // console.log("entre a GENERA MODAL")
     let precio;
     let descuento;
     //Nose si es lo mejor pero creamos un modal por cada elemento
-    (array[j].precioConDescuento() > 0) ? (precio = array[j].precioTotalMasIVA().toFixed(2), descuento=`${array[j].descuento}`) : (precio = array[j].precioTotalMasIVA().toFixed(2), descuento=`${array[j].descuento}`);
+    (precioConDescuento(array,j) > 0) ? (precio = precioTotalMasIVA(array,j).toFixed(2), descuento=`${array[j].descuento}`) : (precio = precioTotalMasIVA(array,j).toFixed(2), descuento=`${array[j].descuento}`);
     // console.log("entre")
 
     let textomod = `\n
@@ -64,7 +71,7 @@ const generaModales = (array, j) =>{
                     <h1>${array[j].nombre}</h1>
                     <h2>$${precio}</h2>
                     <p>descuento de %${descuento} + iva de %4.</p>
-                    <p>3 cuotas sin interes de $${(array[j].precioTotalMasIVA() / 3).toFixed(2)} con: </p>
+                    <p>3 cuotas sin interes de $${(precioTotalMasIVA(array,j) / 3).toFixed(2)} con: </p>
                     <img class="pagos" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/468X60.jpg" title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago"/>
                     <p><strong>${array[j].descripcion}</strong></p>
                     <form action="" id="compra_fun">
@@ -125,7 +132,7 @@ const generaTarjetas = (array,buscador) => {
                         <img src="${element.imagenA}" alt="${element.descripcion}">
                         <div class="textos_target"> 
                             <a class="title_targ">${element.genero}</a>
-                            <p>${element.describe_tipos()}</p>
+                            <p>${describe_tipos2(element)}</p>
                         </div>                  
                     </section>\n`;
                 j += 1;
@@ -174,7 +181,7 @@ const generaTarjetas = (array,buscador) => {
                     </div>
                     <div class="textos_tarjeta">
                         <h2><a href="#">#${array[i].id} ${array[i].nombre}</a></h2>
-                        <h3>$${array[i].precioTotalMasIVA().toFixed(2)}&nbsp;$</h3>
+                        <h3>$${precioTotalMasIVA(array,i).toFixed(2)}&nbsp;$</h3>
                         <span class"identificador"></span>
                     </div>
                 </section>
@@ -192,7 +199,7 @@ const generaTarjetas = (array,buscador) => {
                 trajeta3 += `<section class="tarjeta_fig fig${j} ">
             <div class="textos_fig">
                 <h2>${array[i].nombre}</h2>
-                <h3>$${array[i].precioTotalMasIVA()}</h3>
+                <h3>$${precioTotalMasIVA(array,i)}</h3>
             </div>
             <div class="contImg">
                 <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
@@ -309,7 +316,7 @@ const renderElementosCar = () =>{
         div.className = "elemento";
         div.innerHTML = `
         \n<p class="nombre">${element.nombre}</p>
-            <p class="precio">precio $${element.precioTotalMasIVA().toFixed(2)}</p>
+            <p class="precio">precio $${precioTotalMasIVA2(element).toFixed(2)}</p>
             <a class="delete" href="#"><ion-icon name="trash-outline"></ion-icon></a>\n`;
     
         contenedorCarrito.append(div);
@@ -330,22 +337,29 @@ const renderCantidad = () =>{
 
 //calcula el precio total del carrito
 const renderPrecioTotalCar = () =>{
-    let = total = carrito.reduce((acum, producto) => acum += producto.precioTotalMasIVA(), 0)
+    let = total = carrito.reduce((acum, producto) => acum += precioTotalMasIVA2(producto), 0)
     precioCarrito.innerHTML = total.toFixed(2);
     // precioCarrito.innerHTML = carrito.reduce((acum, producto) => acum += producto.precioTotalMasIVA(), 0);
 }
 
 //Permite cargar el local storage
 const localST = () =>{
-    const carritoJSON = JSON.stringify(carrito);
-    console.log(carritoJSON);
+    // //Transformp arreglo a JSON
+    // const carritoJSON = JSON.stringify(carrito);
+    // // console.log(carritoJSON);
+    // //seteo el arreglo transformado a string al local storage
+    // localStorage.setItem('carritoFunkos',carritoJSON);
 
-    localStorage.setItem('carritoFunkos',carritoJSON);
+    localStorage.setItem('carritoFunkos', JSON.stringify(carrito));
 
-    const productosJSON = localStorage.getItem('carritoFunkos');
-    const productos = JSON.parse(productosJSON);
+    // //Recupero el string desde el local storage,
+    // const productosJSON = localStorage.getItem('carritoFunkos');
+    // // lo transformo y guardo como array en una variable productos.
+    // const productos = JSON.parse(productosJSON);
 
-    // console.log(productosJSON)
+    const productos = JSON.parse(localStorage.getItem('carritoFunkos'));
+
+    //console.log(productosJSON)
     console.log(productos);
     console.log("\n\n")
 }
@@ -386,6 +400,7 @@ const abreCierraCar = () => {
 }
 abreCierraCar();
 
+console.log(arregloJuguetes)
 
 
  //LOCAL STORAGE
