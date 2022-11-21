@@ -315,14 +315,32 @@ const renderElementosCar = () =>{
     contenedorCarrito.innerHTML = ''; //forma basica de evitar la acumulacion en el array
     carrito.forEach(element => {
         const div = document.createElement('div');
+        div.id = "funk" + element.id;
         div.className = "elemento";
         div.innerHTML = `
         \n<p class="nombre">${element.nombre}</p>
             <p class="precio">precio $${precioTotalMasIVA2(element).toFixed(2)}</p>
-            <a class="delete ${element.id}" data-id="${element.id}" href="#"><ion-icon name="trash-outline"></ion-icon></a>\n`;
+            \n`;
     
-        contenedorCarrito.append(div);
+        const borraF = document.createElement('a');
+        borraF.className ="delete"
+        borraF.innerHTML = `\n
+        <ion-icon name="trash-outline"></ion-icon>\n`;
 
+        borraF.addEventListener('click',()=>{
+            let index = carrito.indexOf(element);
+            carrito.splice(index, 1)
+            console.log(index)
+
+            contenedorCarrito.querySelector("#funk" + element.id).remove();
+            //Cada vez que borro debo actualizar el carrito
+            localStorage.setItem('carritoFunkos',JSON.stringify(carrito));
+            renderPrecioTotalCar();
+            renderCantidad();
+        })
+
+        div.append(borraF)
+        contenedorCarrito.append(div);
     });
 }
 
@@ -416,189 +434,6 @@ btnLimpiar.addEventListener('click',e => {
     precioCarrito.innerHTML=0;
 })
 
-
- //LOCAL STORAGE
-// carrito.forEach(element => {
-//     console.log(element);
-// });
-
-// const carritoJSON = JSON.stringify(carrito);
-// console.log(carritoJSON);
-
-// localStorage.setItem('productos',carritoJSON);
-
-// const productosJSON = localStorage.getItem('productos');
-// const productos = JSON.parse(productosJSON);
-
-// //console.log(productosJSON)
-// console.log(productos);
-
-
-//funcion que busca un tipo especifico de dato
-// for (const iterator of arregloJuguetes) {
-//     console.log(iterator);
-// }
-
-
-//some me devolvera true o false si encuentra una referencia, asi que me sirve para hacer un filtro previo:
-// const verifica = (arreglo, valorBuscar) => {
-//     return(arreglo.some((n) => n.nombre == valorBuscar || n.genero == valorBuscar || n.tipo == valorBuscar || n.busca == valorBuscar ));
-// }
-
-// //Permite buscar una pañabra clave, utilizando una fuuncion que viene por parametro, la cual realiza  una validacion, si pasa con fid traemos el objeto coincidente.
-// const buscaCoincidencia = (fun,arr) =>{
-//     let busca_object = prompt("buscador:");
-//     console.log("Depurando : ",busca_object);
-//     if (fun(arr, busca_object)) {
-//         //filter igual que filter pero retorna un nuevo array con los elementos que cumplan la condicion. sino array vacionn "" 
-//         return (resultado = arr.filter((m) => m.nombre == busca_object || m.genero == busca_object || m.tipo == busca_object || m.busca == busca_object ))
-        
-//     } else{
-//         console.log("error");
-//         return redultado = false;
-//     }
-// }
-
-// const comprados = resultado.map((element) => element.nombre);
-// console.log(comprados);
-
-
-//Permite mostrar por pantalla los objetos que vamos comprando y retorna la coleccion de todos los objetos comprados, 
-// function compra_general() {
-//     do {
-//         prod = Number(prompt(menu("Todos los productos", arregloJuguetes)));
-//         if (prod <= 17 && prod > 0) {
-//             if (confirm("confirma la compra?")) {
-//                 //find me permite retornar el 1° elemento del array que cumpla con la condicion, si no hay coincidencia undefined
-//                 objeto = arregloJuguetes.find((el) => el.id === prod)
-//                 funkosComprado.push(objeto);
-//                 console.log(objeto);
-//                 console.log(funkosComprado)
-//                 //console.log("precio de " + juguete_nombre(prod) + " :" + " $" + juguete_precio(prod));
-//                 // console.log("\n-------------\nProducto: " + objeto.id, objeto.nombre + "\nPrecio base: $" + objeto.precio + "\nMeno Descuento %" + objeto.descuento + ": $" + objeto.precioConDescuento() + "\n+IVA %14: " + objeto.precioTotalMasIVA());
-//                 // sumaSinIva += objeto.precioConDescuento();
-//                 // sumadorTotal += objeto.precioTotalMasIVA();
-
-//                 if (confirm("seguir comprando???")) {
-//                     continue;
-//                 } else {
-//                     console.log("\n salto de linea por ERROR \n");
-//                 }
-//             } else {
-//                 console.log("rata inmunda");
-//                 break
-//             }
-//             console.log("++---- DEPURANDO ----++")
-//             return (funkosComprado);
-//         } else {
-//             alert("ingrese un valor numerico entre 1 / 17.");
-//             continue;
-//         }
-//     } while (confirm("ver menu?"));
-// }
-
-// const precioFinal = (arreglo) =>{
-//     retorno = arreglo.reduce((acumula, elemento) => acumula + elemento.precioTotalMasIVA(), 0);
-//     return retorno;
-// }
-
-// let salir = true;
-// let filtrados = false;
-// //Algoritmo principal.. tambien puedo meterlo en una funcion principal y llamarlo al final, pero asi funciona, asi que lo dejo asi xD
-// confirm("asegurese de tener abierta la consola, sino no podra ver nada de lo que sucede!!!! \n");
-
-// while (opcion != 0) {
-//     opcion = menuPrincipal();
-//     switch (opcion) {
-//         case 1:
-//             console.log("\n+---- "+opcion+") Mostrar 1todos los funkos ----+");
-//             console.log(menu("Todos los productos", arregloJuguetes));
-//             break;
-//         case 2:
-//             console.log("\n+---- "+opcion+") Buscar palabra clave ----+");
-//             do{
-//                 filtrados = buscaCoincidencia(verifica,arregloJuguetes);
-//                 console.log("#DEPURANDO 123: "+filtrados)
-//                 if (filtrados == false) {
-//                     console.log("disculpe, no hay coincidencia, pruebe con movies | anime | pokemon | bragon ball |siencia ficcion | terror etc..");
-//                     salir = false;
-//                 } else{
-//                     console.log(filtrados);
-//                     for (const iterator of filtrados) {
-//                         console.log(`nombre ${iterator.nombre}  precio ${iterator.precio}`);
-//                     }
-//                     salir = confirm("salir del buscador?")
-//                     console.log("#DEPURANDO: "+salir)
-//                     if (salir == true) {alert("saliendo buscador!!!")}; 
-//                 }
-//             }while(salir == false);
-            
-//             break;
-//         case 3:
-//             console.log("\n+---- "+opcion+") realizar compra ----+");
-//             carritoActual = compra_general();
-//             console.log(carritoActual);
-//             console.log("\n++---- DEPURANDO 2 ----++\n")
-//             break;
-//         case 4:
-//             console.log("\n+---- "+opcion+") ver carrito ----+");
-//             carritoActual.forEach(element => {
-//                 console.log(`Producto: ${element.nombre}, Precio: ${element.precio}, Precio+IVA: ${element.precioTotalMasIVA()}  \n`);
-//             });
-//             break;
-//         case 5:
-//             console.log("+---- "+opcion+") eliminar product carrito ----+");
-//             nElimina = Number(prompt(menu("+---- elimine uno del carrito ----+",carritoActual)));
-//             carritoActual.splice(nElimina,1);
-//             console.log(carritoActual);
-//             break; 
-//         case 6:
-//             console.log("+---- "+opcion+") precio final: ----+");
-//             valorFinal=precioFinal(carritoActual);
-//             console.log(`Valor final del carriit: ${valorFinal}`);
-//             break;
-//         case 7:
-//             console.log("eligio " + opcion);
-//             obtenerRegalo(regalo,suerte);
-//             break;
-//         case 0:
-//             console.log("saliendo del menu");
-//             break;
-//         default:
-//             console.log("valor ingresado es incorrecto. seleccione opcion entre 0 y 6.")
-//             break;
-//     }
-// }
-
-
-// //FUNCION PARA RECIBIR UN REGALO ALEATORIO
-// function regalo() { //genera un numero random
-//     let max = 1;
-//     let min = 8;
-//     return Math.round(Math.random() * (max - min) + min);
-// }
-// function suerte(){
-//     let max = 1;
-//     let min = 100;
-//     suerte1 = Math.round(Math.random() * (max - min) + min); 
-//     (suerte1 === 32 || suerte1 === 72 || suerte1 <= 30) ? ret=true : ret=false ;
-//     console.log(suerte1) 
-//     return ret;
-// }
-
-// // funcion de orden superior, llamamos a las 2 funciones de suerte  para poder generar o buscar un objeto aleatorio
-// function obtenerRegalo(func1,func2) {
-//     let a = confirm("desea probar su suerte:")
-//     //traemos el objeto que coincida con el numero aleatorio
-//     let objeto=arregloJuguetes.find((el) =>  el.id === func1());
-
-//     if (a) {
-//         (func2() == true) 
-//         ?  console.log("¡¡¡Ganaste !!! \nfunko: ",objeto.nombre,", marca: ",objeto.marca)
-//         : console.log("¡¡¡ Mala suerte, no ganaste !!!")
-        
-//     }else{
-//         console.log("chau !!!");
-//     }
-// }
+console.log("carrito",carrito);
+console.log("contenedor car",contenedorCarrito)
 
