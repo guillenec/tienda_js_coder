@@ -293,6 +293,7 @@ const agregarCarrito = (id) =>{
     const producto = arregloJuguetes.find((item) => item.id == id);
     carrito.push(producto);
     renderCar();
+
 }
 //Partes del contenedor Carrito
 let contenedorCarrito = document.querySelector('.carritoReal .aniadido');
@@ -309,6 +310,7 @@ const renderCar = () => {
     // });
 }
 
+
 const renderElementosCar = () =>{
     contenedorCarrito.innerHTML = ''; //forma basica de evitar la acumulacion en el array
     carrito.forEach(element => {
@@ -317,9 +319,10 @@ const renderElementosCar = () =>{
         div.innerHTML = `
         \n<p class="nombre">${element.nombre}</p>
             <p class="precio">precio $${precioTotalMasIVA2(element).toFixed(2)}</p>
-            <a class="delete" href="#"><ion-icon name="trash-outline"></ion-icon></a>\n`;
+            <a class="delete ${element.id}" data-id="${element.id}" href="#"><ion-icon name="trash-outline"></ion-icon></a>\n`;
     
         contenedorCarrito.append(div);
+
     });
 }
 
@@ -400,7 +403,18 @@ const abreCierraCar = () => {
 }
 abreCierraCar();
 
-console.log(arregloJuguetes)
+const btnLimpiar = document.querySelector('.vacia a')
+console.log(btnLimpiar)
+
+btnLimpiar.addEventListener('click',e => {
+    e.preventDefault();
+    console.log("eliminando todo")
+    carrito.length = 0;
+    localStorage.setItem('carritoFunkos',JSON.stringify(carrito));
+    contenedorCarrito.innerHTML= '';
+    contadorProductos.innerHTML= 0;
+    precioCarrito.innerHTML=0;
+})
 
 
  //LOCAL STORAGE
