@@ -74,3 +74,136 @@
         }
     }
 }
+
+.carritoReal{
+    position: fixed;
+    background: tomato;
+    width: 450px;
+    height: auto;
+    top: 65px;
+    right: 20px;
+    padding: 15px;
+    overflow: hidden;
+
+    @include caja_flex(column,wrap,flex-start,flex-start,flex-start);
+    gap:10px;
+    transform: translate(33vw, 79vh);
+    z-index: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .7s;
+
+    &.ocultar{
+        z-index: 1;
+        opacity: 1;
+        visibility: visible; 
+        transform: translate(0, 0);
+    }
+    
+    h2{
+        color: $color_titulo4;
+        font-family: texto;
+        text-transform: capitalize; 
+        @include align_mid_grid();
+        pad: 2px; 
+    }
+    .aniadido{
+        width: 100%;
+        height: auto;
+        @include caja_flex(column,wrap,flex-start,flex-start,flex-start);
+        gap: 10px;
+
+        .elemento{
+            background: $color_titulo4;
+            min-width: 100%;
+            width: auto;
+            height: 50px;
+            padding: 0 5px 0 5px;
+            @include caja_flex(row,wrap,center,space-between,center);
+            gap:10px;
+    
+            font-family: $parrafo1;
+            text-transform: capitalize;
+            color: $color_titulo3;
+            text-decoration: none;
+            font-size: 1rem;
+    
+            a{
+                display: block;
+                height: 90%;
+                width: 40px;
+                text-decoration: none;
+                @include align_mid_grid();
+                text-decoration: none;
+                color: $color_titulo6;
+                border-radius: 100%;
+                
+                &:hover{
+                    cursor: pointer;
+                    background: $color_titulo6;
+                    color: $color_titulo5;
+                    transition: .7s;
+                }
+            }
+        }
+    }
+    p{   
+        @include align_mid_flex();
+        padding: 2px;
+        height: 50px;
+        font-family: $parrafo1;
+        text-transform: capitalize;
+        color: $color_titulo3;
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 700;
+
+        .total{        
+            font-weight: 700;
+        }
+    }
+    .vacia{
+        position: relative;
+        height: 50px;
+        background-color: $color_titulo4;
+
+        a{
+            display: block;
+            height: 100%;
+            padding: 15px;
+            text-decoration: none;
+            font-family: $parrafo1;
+            text-transform: capitalize;
+            color: $color_titulo6;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 700;
+
+            @include align_mid_grid();
+            &:hover{
+                cursor: pointer;
+                background: $color_titulo6;
+                color: $color_titulo5;
+                transition: .7s;
+            }
+        }
+    }
+    .close{
+        position: absolute;
+        display: block;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        text-decoration: none;
+        padding: 5px;
+        border-radius: 100%;
+        transition: .7s;
+        @include align_mid_flex();
+
+        &:hover{
+            color: $color_titulo6;
+            background: $color_titulo4;
+        }
+    }
+}

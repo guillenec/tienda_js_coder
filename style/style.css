@@ -313,6 +313,136 @@ header, main, footer {
     .subir a ion-icon {
       font-size: 1.3rem; }
 
+.carritoReal {
+  position: fixed;
+  background: tomato;
+  width: 450px;
+  height: auto;
+  top: 65px;
+  right: 20px;
+  padding: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  transform: translate(33vw, 79vh);
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: .7s; }
+  .carritoReal.ocultar {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0); }
+  .carritoReal h2, .carritoReal .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .carritoReal a {
+    color: #FFDE62;
+    font-family: texto;
+    text-transform: capitalize;
+    display: grid;
+    place-content: center;
+    pad: 2px; }
+  .carritoReal .aniadido {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px; }
+    .carritoReal .aniadido .elemento {
+      background: #FFDE62;
+      min-width: 100%;
+      width: auto;
+      height: 50px;
+      padding: 0 5px 0 5px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-family: "Sintony", sans-serif;
+      text-transform: capitalize;
+      color: #107263;
+      text-decoration: none;
+      font-size: 1rem; }
+      .carritoReal .aniadido .elemento a {
+        display: block;
+        height: 90%;
+        width: 40px;
+        text-decoration: none;
+        display: grid;
+        place-content: center;
+        text-decoration: none;
+        color: #e94a4a;
+        border-radius: 100%; }
+        .carritoReal .aniadido .elemento a:hover {
+          cursor: pointer;
+          background: #e94a4a;
+          color: #fff;
+          transition: .7s; }
+  .carritoReal p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    height: 50px;
+    font-family: "Sintony", sans-serif;
+    text-transform: capitalize;
+    color: #107263;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700; }
+    .carritoReal p .total {
+      font-weight: 700; }
+  .carritoReal .vacia {
+    position: relative;
+    height: 50px;
+    background-color: #FFDE62; }
+    .carritoReal .vacia a {
+      display: block;
+      height: 100%;
+      padding: 15px;
+      text-decoration: none;
+      font-family: "Sintony", sans-serif;
+      text-transform: capitalize;
+      color: #e94a4a;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      display: grid;
+      place-content: center; }
+      .carritoReal .vacia a:hover {
+        cursor: pointer;
+        background: #e94a4a;
+        color: #fff;
+        transition: .7s; }
+  .carritoReal .close {
+    position: absolute;
+    display: block;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 100%;
+    transition: .7s;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .carritoReal .close:hover {
+      color: #e94a4a;
+      background: #FFDE62; }
+
 .banner {
   top: 0;
   width: 100%;

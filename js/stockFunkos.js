@@ -78,9 +78,9 @@ arregloJuguetes.push(new funko(19,"jinx",4,"figura de accion articulada de la co
 arregloJuguetes.push(new funko(20,"piltober coleccion",7,"figura de accion articulada de la coleccion league of legends, campeones league of legends",7000, 25, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/league/pack_league_sdy03e.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102372/imgs/haloween/funkos/league/pack_league1_zr380s.png","","league of legends","riot games","video juego"));
 
 
-console.log("\n\n______________________ ARREGLO JUGUETES ______________________");
-console.log(arregloJuguetes);
-console.log("______________________ ARREGLO JUGUETES ______________________ \n\n");
+// console.log("\n\n______________________ ARREGLO JUGUETES ______________________");
+// console.log(arregloJuguetes);
+// console.log("______________________ ARREGLO JUGUETES ______________________ \n\n");
 
 /* +--- OTRA FORMA DE HACER LO MISMO ---+ */
 // id | nombre | descripcion | precio | descuento | genero | tipo | imagenA | imagenB | imagenC

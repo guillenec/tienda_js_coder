@@ -14,7 +14,7 @@ for (let index = 0; index < modalAbrir.length; index++) {
 }
 for (let index = 0; index < modalAbrir.length; index++) {
 
-modalCerrar[index].addEventListener('click',() =>{ 
+    modalCerrar[index].addEventListener('click',() =>{ 
     modal[index].classList.toggle("close")
     
     setTimeout(function(){ //pasados 7 seg se ejecuta 
@@ -32,3 +32,10 @@ modalCerrar[index].addEventListener('click',() =>{
 //         },700);
 //     })   
 // }
+
+
+/*
+<a href="#" class="añadirCar" title="gustar" data-id="${array[i].id}"> 
+        <ion-icon name="heart-outline"></ion-icon>
+</a>
+*/

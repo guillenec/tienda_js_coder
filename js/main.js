@@ -10,6 +10,7 @@ let nElimina;
 
 //esto me permitira seguir comprando por mas que salga de la opcion 3
 let funkosComprado = carritoActual; 
+const carrito = [];
 
 /* Funciones */
 //Depurador, solo para ver donde voy entrando y donde no
@@ -27,11 +28,11 @@ const funkosDestacados = arregloJuguetes.filter((el) => el.tipo.includes("destac
 //Figuras
 const funkosFiguras = arregloJuguetes.filter((el) => el.tipo.includes("figura"));
 
-depura("filtrados");
-console.log(funkosBanner)
-console.log(funkosDestacados)
-console.log(funkosCategoria)
-console.log(funkosFiguras)
+// depura("filtrados");
+// console.log(funkosBanner)
+// console.log(funkosDestacados)
+// console.log(funkosCategoria)
+// console.log(funkosFiguras)
 
 /* permite calcular par impar */
 const par = (val) =>{ //la usare para las posiciones
@@ -45,12 +46,12 @@ const left_right = (i) =>{
 
 //+ ---- Genera un modal para cada tarjeta -----+
 const generaModales = (array, j) =>{
-    console.log("entre a GENERA MODAL")
+    // console.log("entre a GENERA MODAL")
     let precio;
     let descuento;
     //Nose si es lo mejor pero creamos un modal por cada elemento
-    (array[j].precioConDescuento() > 0) ? (precio = array[j].precio, descuento=`${array[j].descuento}`) : (precio = array[j].precio , descuento=`${array[j].descuento}`);
-    console.log("entre")
+    (array[j].precioConDescuento() > 0) ? (precio = array[j].precioTotalMasIVA().toFixed(2), descuento=`${array[j].descuento}`) : (precio = array[j].precioTotalMasIVA().toFixed(2), descuento=`${array[j].descuento}`);
+    // console.log("entre")
 
     let textomod = `\n
     <section class="modalContainer" data-id="${array[j].id}">
@@ -63,7 +64,7 @@ const generaModales = (array, j) =>{
                     <h1>${array[j].nombre}</h1>
                     <h2>$${precio}</h2>
                     <p>descuento de %${descuento} + iva de %4.</p>
-                    <p>3 cuotas sin interes de $${array[j].precioTotalMasIVA() / 3} con: </p>
+                    <p>3 cuotas sin interes de $${(array[j].precioTotalMasIVA() / 3).toFixed(2)} con: </p>
                     <img class="pagos" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/468X60.jpg" title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago"/>
                     <p><strong>${array[j].descripcion}</strong></p>
                     <form action="" id="compra_fun">
@@ -101,7 +102,7 @@ const generaModales = (array, j) =>{
             <a class="cerrar"><ion-icon name="close-outline"></ion-icon></a>
         </section>  
     </section> \n`;   
-        console.log("saliendo !!!!!!!! !!!!!! ")
+        // console.log("saliendo !!!!!!!! !!!!!! ")
 
     return textomod;
 }
@@ -119,7 +120,7 @@ const generaTarjetas = (array,buscador) => {
         array.forEach(element => {
             if (element.stock != 0) {
                 posicion = left_right(j);
-                console.log(posicion);
+                // console.log(posicion);
                 tarjeta1 += `<section class="targeta_simple ${posicion} ">
                         <img src="${element.imagenA}" alt="${element.descripcion}">
                         <div class="textos_target"> 
@@ -167,15 +168,13 @@ const generaTarjetas = (array,buscador) => {
                                 <a href="#" class="zoom" title="agrandar" data-id="${array[i].id}"> 
                                     <ion-icon name="search-outline"></ion-icon> 
                                 </a>
-                                <a href="#" class="añadirCar" title="gustar" data-id="${array[i].id}"> 
-                                    <ion-icon name="heart-outline"></ion-icon>
-                                </a>
+                                
                             </div>
                         </section>
                     </div>
                     <div class="textos_tarjeta">
                         <h2><a href="#">${array[i].nombre}</a></h2>
-                        <h3>$${array[i].precio}&nbsp;$</h3>
+                        <h3>$${array[i].precioTotalMasIVA().toFixed(2)}&nbsp;$</h3>
                         <span class"identificador">${array[i].id}</span>
                     </div>
                 </section>
@@ -224,15 +223,31 @@ contCategorias.innerHTML = tCategorias;
 contFiguras.innerHTML = tFiguras;
 contBanner.innerHTML = tBanner;
 
+const creaBotonCar = (id,ele) =>{ 
+    let button = document.createElement('a');
+    button.className = "añadirCar";
+    button.innerHTML = `<ion-icon name="cart"></ion-icon>`;
+    
+    button.addEventListener('click', () => {
+    agregarCarrito(id);
+    }) 
+    ele.append(button);
+}
+//añadimos el boton para el carrito
+let botones_func = document.querySelectorAll('.botones_func');
+
+for (let index = 0; index < botones_func.length; index++) {
+    let identificador = Number(botones_func[index].getAttribute('data-id')); //para no perder de vista el arreglo principal
+    creaBotonCar(identificador,botones_func[index]);
+    console.log(identificador)
+}
+    
+
 /* Creacion de elemento para el titulo de la seccion Destacados */
 let tituloDestacados = document.querySelector(".titDest")
 let nuevoTitulo = document.createElement("span") //crea elemento nuevo
 nuevoTitulo.innerHTML = "funkos destacados"
 tituloDestacados.append(nuevoTitulo); //añadimos el elemento como hijo de .titDes
-/* Remover Elemento */
-//nuevotitulo.remove() //remove() permite eliminar un elemento  o varios 
-// elemento= document.getElementsByClassName("li")
-// elemento[0].remove
 
 /* Permite cambiar automaticamente la clase de la tarjeta si la tocamos */
 tarjetaDestacada1 = document.querySelectorAll(".tarjeta");
@@ -240,17 +255,13 @@ productoImg = document.querySelectorAll(".producto_imagen");
 contieneImg1 = document.querySelectorAll(".imgPrimaria");
 contieneImg2 = document.querySelectorAll(".imgSecundaria");
 
-depura("PRODUCTO IMAGEN ---------")
-console.log(productoImg);
-console.log(tarjetaDestacada1);
-
 const rotarTarjeta = () =>{
     for (let i = 0; i < tarjetaDestacada1.length; i++) {
         productoImg[i].addEventListener('click', e =>{
             e.preventDefault();
             tarjetaDestacada1[i].classList.toggle('rotar');
-            console.log(tarjetaDestacada1); //DEPURA
-            console.log(i);
+            // console.log(tarjetaDestacada1); //DEPURA
+            // console.log(i);
         })
     }
     // classList.add : permite añadir una clase
@@ -259,34 +270,85 @@ const rotarTarjeta = () =>{
         contieneImg1[i].addEventListener('mouseover', e =>{
             tarjetaDestacada1[i].classList.add('rotar');       
             contieneImg2[i].onmouseout = () => tarjetaDestacada1[i].classList.remove('rotar');
-            console.log(tarjetaDestacada1) //DEPURA
+            // console.log(tarjetaDestacada1) //DEPURA
         })
     }
 }
 rotarTarjeta();
 
 
-funkod_stok = [];
+//AGREGAR AL CARRITO
+depura("AÑADIIMOS AL CARRITO --")
+const agregarCarrito = (id) =>{
+    const producto = arregloJuguetes.find((item) => item.id == id);
+    carrito.push(producto)
+    console.log(producto)
+    console.log(carrito)
 
+    renderCar();
+}
 
-// funcion de bienvenida, retorna un codigo de error 
-// function bienvenido() {
-//     let ingresar = prompt("deseas ver mi web? si / no").toLowerCase();
-//     (ingresar === "si" && (ingresar != "" && ingresar != null))
-//         ? (alert("bienvenido!!!"), (sale = true)) : (alert("adios!!!"), (sale = false));
-//     return sale;
+depura("AÑADIIMOS AL CARRITO --")
+let contenedorCarrito = document.querySelector('.carritoReal .aniadido');
+let contadorProductos = document.querySelector('.contiene_icons_car .contador');
+let precioCarrito = document.querySelector('.carritoReal .total');
+
+const renderCar = () => {
+    renderElementosCar();
+    renderCantidad(); //actualizamos el contador de productos
+    renderPrecioTotalCar()
+}
+
+const renderElementosCar = () =>{
+    contenedorCarrito.innerHTML = ''; //forma basica de evitar la acumulacion en el array
+    carrito.forEach(element => {
+        const div = document.createElement('div');
+        div.className = "elemento";
+        div.innerHTML = `
+        \n<p class="nombre">nmbre: ${element.nombre}</p>
+            <p class="precio">precio $${element.precioTotalMasIVA().toFixed(2)}</p>
+            <a class="delete" href="#"><ion-icon name="trash-outline"></ion-icon></a>\n`;
+    
+        contenedorCarrito.append(div);
+    });
+}
+const renderCantidad = () =>{
+    contadorProductos.innerHTML = carrito.length;
+}
+// const renderPrecioTotalCar = () =>{
+//     let = total = 0;
+//     carrito.forEach(element => {
+//         total += element.precioTotalMasIVA();
+//     });
+//     precioCarrito.innerHTML = total.toFixed(2);
 // }
+const renderPrecioTotalCar = () =>{
+    let = total = carrito.reduce((acum, producto) => acum += producto.precioTotalMasIVA(), 0)
+    precioCarrito.innerHTML = total.toFixed(2);
+
+    // precioCarrito.innerHTML = carrito.reduce((acum, producto) => acum += producto.precioTotalMasIVA(), 0);
+}
+
+let abrirCarrito = document.querySelector('.carrito a');
+console.log(abrirCarrito)
+let carritoMo = document.querySelector('.carritoReal');
+let carritoClose = document.querySelector('.carritoReal .close');
+
+console.log(abrirCarrito)
+abrirCarrito.addEventListener('click', e =>{
+    e.preventDefault();
+    carritoMo.classList.toggle('ocultar');
+
+    if(carritoMo.classList.contains('ocultar')){
+        console.log("holas")
+        carritoClose.addEventListener('click',() =>{
+            carritoMo.classList.remove('ocultar');
+        })
+    }
+})
 
 
-//funcion flecha permite mostrar por consola el menu
-// const menu = (texto, arreglo) => {
-//     let i = 0;
-//     console.log(texto+"\n");
-//     for (const iterador of arreglo) {
-//         i++;
-//         console.log(i+" => "+iterador.nombre+" $"+iterador.precio+", descuento "+iterador.descuento+"\n");
-//     }
-// }
+
 
 //funcion que busca un tipo especifico de dato
 // for (const iterator of arregloJuguetes) {
