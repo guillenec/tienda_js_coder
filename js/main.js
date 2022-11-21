@@ -173,9 +173,9 @@ const generaTarjetas = (array,buscador) => {
                         </section>
                     </div>
                     <div class="textos_tarjeta">
-                        <h2><a href="#">${array[i].nombre}</a></h2>
+                        <h2><a href="#">#${array[i].id} ${array[i].nombre}</a></h2>
                         <h3>$${array[i].precioTotalMasIVA().toFixed(2)}&nbsp;$</h3>
-                        <span class"identificador">${array[i].id}</span>
+                        <span class"identificador"></span>
                     </div>
                 </section>
                 ${generaModales(array,i)}
@@ -194,7 +194,9 @@ const generaTarjetas = (array,buscador) => {
                 <h2>${array[i].nombre}</h2>
                 <h3>$${array[i].precioTotalMasIVA()}</h3>
             </div>
-            <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
+            <div class="contImg">
+                <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
+            </div>
             <a href="#" class="carrito"><ion-icon name="cart-outline"></ion-icon></a>
             </section>\n`;
             }
@@ -278,17 +280,14 @@ rotarTarjeta();
 
 
 //AGREGAR AL CARRITO
+
 depura("AÑADIIMOS AL CARRITO --")
 const agregarCarrito = (id) =>{
     const producto = arregloJuguetes.find((item) => item.id == id);
-    carrito.push(producto)
-    console.log(producto)
-    console.log(carrito)
-
+    carrito.push(producto);
     renderCar();
 }
-
-depura("AÑADIIMOS AL CARRITO --")
+//Partes del contenedor Carrito
 let contenedorCarrito = document.querySelector('.carritoReal .aniadido');
 let contadorProductos = document.querySelector('.contiene_icons_car .contador');
 let precioCarrito = document.querySelector('.carritoReal .total');
@@ -296,7 +295,11 @@ let precioCarrito = document.querySelector('.carritoReal .total');
 const renderCar = () => {
     renderElementosCar();
     renderCantidad(); //actualizamos el contador de productos
-    renderPrecioTotalCar()
+    renderPrecioTotalCar();
+    localST();
+    // carrito.forEach(element => {
+    //     console.log(element);
+    // });
 }
 
 const renderElementosCar = () =>{
@@ -305,13 +308,15 @@ const renderElementosCar = () =>{
         const div = document.createElement('div');
         div.className = "elemento";
         div.innerHTML = `
-        \n<p class="nombre">nmbre: ${element.nombre}</p>
+        \n<p class="nombre">${element.nombre}</p>
             <p class="precio">precio $${element.precioTotalMasIVA().toFixed(2)}</p>
             <a class="delete" href="#"><ion-icon name="trash-outline"></ion-icon></a>\n`;
     
         contenedorCarrito.append(div);
     });
 }
+
+// calcula la cantidad de productos en el carrito
 const renderCantidad = () =>{
     contadorProductos.innerHTML = carrito.length;
 }
@@ -322,32 +327,82 @@ const renderCantidad = () =>{
 //     });
 //     precioCarrito.innerHTML = total.toFixed(2);
 // }
+
+//calcula el precio total del carrito
 const renderPrecioTotalCar = () =>{
     let = total = carrito.reduce((acum, producto) => acum += producto.precioTotalMasIVA(), 0)
     precioCarrito.innerHTML = total.toFixed(2);
-
     // precioCarrito.innerHTML = carrito.reduce((acum, producto) => acum += producto.precioTotalMasIVA(), 0);
 }
 
+//Permite cargar el local storage
+const localST = () =>{
+    const carritoJSON = JSON.stringify(carrito);
+    console.log(carritoJSON);
+
+    localStorage.setItem('carritoFunkos',carritoJSON);
+
+    const productosJSON = localStorage.getItem('carritoFunkos');
+    const productos = JSON.parse(productosJSON);
+
+    // console.log(productosJSON)
+    console.log(productos);
+    console.log("\n\n")
+}
+
+
+/* para abreCierraCar() */
 let abrirCarrito = document.querySelector('.carrito a');
-console.log(abrirCarrito)
 let carritoMo = document.querySelector('.carritoReal');
 let carritoClose = document.querySelector('.carritoReal .close');
-
-console.log(abrirCarrito)
-abrirCarrito.addEventListener('click', e =>{
-    e.preventDefault();
-    carritoMo.classList.toggle('ocultar');
-
-    if(carritoMo.classList.contains('ocultar')){
-        console.log("holas")
-        carritoClose.addEventListener('click',() =>{
+//permite abrir y cerrar el modal delcarrito de compras
+const abreCierraCar = () => {
+    abrirCarrito.addEventListener('click', e =>{
+        e.preventDefault();
+        if(carritoMo.classList.contains('ocultar')){
             carritoMo.classList.remove('ocultar');
-        })
-    }
-})
+            setTimeout(function(){ 
+                carritoMo.classList.remove('bloq');
+                carritoMo.classList.add('none');
+            console.log(carritoMo.className);
+            },600);
+        }else if (carritoMo.classList.contains('none')){
+                carritoMo.classList.remove('none');
+                carritoMo.classList.add('bloq');
+            setTimeout(function(){ 
+                carritoMo.classList.add('ocultar');
+            },600);
+        }
+    
+    })
+    
+    carritoClose.addEventListener('click',() =>{
+        carritoMo.classList.remove('ocultar');
+        setTimeout(function(){ 
+            carritoMo.classList.remove('bloq');
+            carritoMo.classList.add('none');
+        },700); 
+    })
+}
+abreCierraCar();
 
 
+
+ //LOCAL STORAGE
+// carrito.forEach(element => {
+//     console.log(element);
+// });
+
+// const carritoJSON = JSON.stringify(carrito);
+// console.log(carritoJSON);
+
+// localStorage.setItem('productos',carritoJSON);
+
+// const productosJSON = localStorage.getItem('productos');
+// const productos = JSON.parse(productosJSON);
+
+// //console.log(productosJSON)
+// console.log(productos);
 
 
 //funcion que busca un tipo especifico de dato

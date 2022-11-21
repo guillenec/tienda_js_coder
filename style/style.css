@@ -38,20 +38,16 @@ header, main, footer {
   height: auto; }
   @media screen and (max-width: 1200px) {
     header, main, footer {
-      width: 80%;
-      max-width: auto; } }
+      width: 80%; } }
   @media screen and (max-width: 992px) {
     header, main, footer {
-      width: 90%;
-      max-width: auto; } }
+      width: 90%; } }
   @media screen and (max-width: 768px) {
     header, main, footer {
-      width: 98%;
-      max-width: auto; } }
+      width: 98%; } }
   @media screen and (max-width: 576px) {
     header, main, footer {
-      width: 100%;
-      max-width: auto; } }
+      width: 100%; } }
 
 .header {
   position: sticky;
@@ -249,199 +245,6 @@ header, main, footer {
   height: 300px;
   background: #FFDE62;
   margin: 150px auto 0 auto; }
-
-.carrito {
-  position: fixed;
-  bottom: 70px;
-  right: 20px;
-  overflow: hidden;
-  z-index: 10; }
-  .carrito .contiene_icons_car {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: center;
-    width: auto;
-    height: auto;
-    background: tomato;
-    cursor: pointer;
-    padding: 5px 5px 5px 0; }
-    .carrito .contiene_icons_car a {
-      width: 35px;
-      height: 30px;
-      display: block;
-      text-align: center;
-      display: grid;
-      place-content: center;
-      text-decoration: none; }
-      .carrito .contiene_icons_car a ion-icon {
-        font-size: 1.2rem;
-        vertical-align: middle;
-        text-align: center;
-        color: #FFDE62; }
-    .carrito .contiene_icons_car span {
-      display: grid;
-      place-content: center;
-      width: 30px;
-      height: 30px;
-      background: #fff;
-      color: #107263;
-      font-size: 1.2rem;
-      vertical-align: middle;
-      text-align: center; }
-
-.subir {
-  position: fixed;
-  bottom: 20px;
-  right: 30px;
-  overflow: hidden;
-  z-index: 10;
-  border: 2px solid tomato;
-  border-radius: 100%;
-  padding: 5px; }
-  .subir a {
-    display: block;
-    background: tomato;
-    color: #fff;
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    display: grid;
-    place-content: center; }
-    .subir a ion-icon {
-      font-size: 1.3rem; }
-
-.carritoReal {
-  position: fixed;
-  background: tomato;
-  width: 450px;
-  height: auto;
-  top: 65px;
-  right: 20px;
-  padding: 15px;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: flex-start;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 10px;
-  transform: translate(33vw, 79vh);
-  z-index: 0;
-  opacity: 0;
-  visibility: hidden;
-  transition: .7s; }
-  .carritoReal.ocultar {
-    z-index: 1;
-    opacity: 1;
-    visibility: visible;
-    transform: translate(0, 0); }
-  .carritoReal h2, .carritoReal .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .carritoReal a {
-    color: #FFDE62;
-    font-family: texto;
-    text-transform: capitalize;
-    display: grid;
-    place-content: center;
-    pad: 2px; }
-  .carritoReal .aniadido {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: flex-start;
-    align-items: flex-start;
-    gap: 10px; }
-    .carritoReal .aniadido .elemento {
-      background: #FFDE62;
-      min-width: 100%;
-      width: auto;
-      height: 50px;
-      padding: 0 5px 0 5px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      align-content: center;
-      justify-content: space-between;
-      align-items: center;
-      gap: 10px;
-      font-family: "Sintony", sans-serif;
-      text-transform: capitalize;
-      color: #107263;
-      text-decoration: none;
-      font-size: 1rem; }
-      .carritoReal .aniadido .elemento a {
-        display: block;
-        height: 90%;
-        width: 40px;
-        text-decoration: none;
-        display: grid;
-        place-content: center;
-        text-decoration: none;
-        color: #e94a4a;
-        border-radius: 100%; }
-        .carritoReal .aniadido .elemento a:hover {
-          cursor: pointer;
-          background: #e94a4a;
-          color: #fff;
-          transition: .7s; }
-  .carritoReal p {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2px;
-    height: 50px;
-    font-family: "Sintony", sans-serif;
-    text-transform: capitalize;
-    color: #107263;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: 700; }
-    .carritoReal p .total {
-      font-weight: 700; }
-  .carritoReal .vacia {
-    position: relative;
-    height: 50px;
-    background-color: #FFDE62; }
-    .carritoReal .vacia a {
-      display: block;
-      height: 100%;
-      padding: 15px;
-      text-decoration: none;
-      font-family: "Sintony", sans-serif;
-      text-transform: capitalize;
-      color: #e94a4a;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 700;
-      display: grid;
-      place-content: center; }
-      .carritoReal .vacia a:hover {
-        cursor: pointer;
-        background: #e94a4a;
-        color: #fff;
-        transition: .7s; }
-  .carritoReal .close {
-    position: absolute;
-    display: block;
-    top: 10px;
-    right: 10px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    text-decoration: none;
-    padding: 5px;
-    border-radius: 100%;
-    transition: .7s;
-    display: flex;
-    align-items: center;
-    justify-content: center; }
-    .carritoReal .close:hover {
-      color: #e94a4a;
-      background: #FFDE62; }
 
 .banner {
   top: 0;
@@ -971,11 +774,11 @@ header, main, footer {
         font-size: 1.54rem; } }
   .figuras_accion .cont_figuras {
     margin-top: 50px;
-    height: 800px;
+    height: 1000px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 25px 25px; }
+    gap: 30px 30px; }
     .figuras_accion .cont_figuras .fig1 {
       grid-area: 1 / 1 / 3 / 2; }
     .figuras_accion .cont_figuras .fig2 {
@@ -994,7 +797,7 @@ header, main, footer {
       box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
       backdrop-filter: blur(6px);
       -webkit-backdrop-filter: blur(6px);
-      border-radius: 10px;
+      border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.18); }
       .figuras_accion .cont_figuras .tarjeta_fig .textos_fig {
         width: 100%;
@@ -1003,49 +806,57 @@ header, main, footer {
         flex-direction: column;
         flex-wrap: wrap;
         align-content: center;
-        justify-content: space-around;
+        justify-content: center;
         align-items: center; }
-        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a,
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a {
+          width: 100%;
+          color: #FF7C5F;
+          font-size: 1.5rem; }
         .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h3 {
           width: 100%;
-          color: #333;
+          color: #107263;
           display: block;
-          padding-left: 10px; }
-      .figuras_accion .cont_figuras .tarjeta_fig img {
-        width: 90%;
-        height: 60%;
-        object-fit: contain; }
+          padding-left: 10px;
+          font-size: 1.2rem; }
+      .figuras_accion .cont_figuras .tarjeta_fig .contImg {
+        background: #FFDE62;
+        width: 100%;
+        height: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: center; }
+        .figuras_accion .cont_figuras .tarjeta_fig .contImg img {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          object-fit: contain; }
       .figuras_accion .cont_figuras .tarjeta_fig .carrito {
         position: absolute;
         top: 0;
-        right: 0;
+        left: 0;
         width: 40px;
         height: 40px;
-        background: #e0d6d6;
+        background: #3F3F3F;
+        color: #FFDE62;
         border-radius: 7px;
         display: grid;
         place-content: center;
         transition: .7s; }
         .figuras_accion .cont_figuras .tarjeta_fig .carrito ion-icon {
-          color: #333;
           font-size: 20px;
           font-weight: 600;
-          text-decoration: none;
-          transition: .7s; }
+          text-decoration: none; }
         .figuras_accion .cont_figuras .tarjeta_fig .carrito:hover {
-          background: tomato;
-          transition: .7s; }
-          .figuras_accion .cont_figuras .tarjeta_fig .carrito:hover ion-icon {
-            color: #fff;
-            transition: .7s; }
+          background: #FFDE62;
+          color: #3F3F3F; }
     @media screen and (max-width: 992px) {
       .figuras_accion .cont_figuras {
-        height: 1350px;
+        height: 1400px;
         display: grid;
         grid-auto-columns: 1fr;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
-        gap: 25px 25px; }
+        gap: 20px 20px; }
         .figuras_accion .cont_figuras .fig1 {
           grid-area: 1 / 1 / 3 / 2; }
         .figuras_accion .cont_figuras .fig2 {
@@ -1058,32 +869,17 @@ header, main, footer {
           grid-area: 5 / 1 / 7 / 2; }
         .figuras_accion .cont_figuras .fig6 {
           grid-area: 5 / 2 / 7 / 3; }
-        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig {
-          width: 100%;
-          height: 20%;
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-          align-content: center;
-          justify-content: space-around;
-          align-items: center; }
-        .figuras_accion .cont_figuras .tarjeta_fig img {
-          padding: 10px;
-          height: 70%;
-          width: auto;
-          object-fit: contain; } }
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a {
+          font-size: 1.3rem; }
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h3 {
+          font-size: 1.2rem; } }
     @media screen and (max-width: 576px) {
       .figuras_accion .cont_figuras {
-        height: 900px; }
-        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig {
-          width: 100%;
-          height: 30%;
-          display: flex;
-          flex-direction: column;
-          flex-wrap: wrap;
-          align-content: center;
-          justify-content: space-around;
-          align-items: center; }
+        height: 1000px; }
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a {
+          font-size: 1.2rem; }
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h3 {
+          font-size: 1.1rem; }
         .figuras_accion .cont_figuras .tarjeta_fig img {
           padding: 10px;
           height: 70%;
@@ -1094,10 +890,217 @@ header, main, footer {
       width: 98%;
       height: auto; } }
 
+.carrito {
+  position: fixed;
+  bottom: 70px;
+  left: 20px;
+  width: 80px;
+  height: auto;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: flex-end;
+  align-items: center; }
+  .carrito .contiene_icons_car {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 72px;
+    height: auto;
+    background: tomato;
+    cursor: pointer;
+    padding: 5px 5px 5px 0; }
+    .carrito .contiene_icons_car a {
+      width: 35px;
+      height: 30px;
+      display: block;
+      text-align: center;
+      display: grid;
+      place-content: center;
+      text-decoration: none; }
+      .carrito .contiene_icons_car a ion-icon {
+        font-size: 1.2rem;
+        vertical-align: middle;
+        text-align: center;
+        color: #FFDE62; }
+    .carrito .contiene_icons_car span {
+      display: grid;
+      place-content: center;
+      width: 30px;
+      height: 30px;
+      background: #fff;
+      color: #107263;
+      font-size: 1.2rem;
+      vertical-align: middle;
+      text-align: center; }
+
+.subir {
+  position: fixed;
+  width: 44px;
+  bottom: 20px;
+  left: 30px;
+  overflow: hidden;
+  z-index: 1;
+  border: 2px solid tomato;
+  border-radius: 100%;
+  padding: 5px; }
+  .subir a {
+    display: block;
+    background: tomato;
+    color: #fff;
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    display: grid;
+    place-content: center; }
+    .subir a ion-icon {
+      font-size: 1.3rem; }
+
+.carritoReal {
+  position: fixed;
+  background: tomato;
+  width: 400px;
+  height: auto;
+  top: 65px;
+  left: 20px;
+  padding: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  transform: translate(-30%, 150%);
+  z-index: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: .9s; }
+  .carritoReal.ocultar {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transform: translate(0, 0);
+    transition: .7s; }
+  .carritoReal.bloq {
+    display: flex; }
+  .carritoReal.none {
+    display: none; }
+  .carritoReal h2, .carritoReal .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .carritoReal a {
+    color: #FFDE62;
+    font-family: texto;
+    text-transform: capitalize;
+    display: grid;
+    place-content: center;
+    pad: 2px; }
+  .carritoReal .aniadido {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px; }
+    .carritoReal .aniadido .elemento {
+      background: #FFDE62;
+      min-width: 100%;
+      width: auto;
+      height: 50px;
+      padding: 0 5px 0 5px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-family: "Sintony", sans-serif;
+      text-transform: capitalize;
+      color: #107263;
+      text-decoration: none;
+      font-size: 1rem; }
+      .carritoReal .aniadido .elemento a {
+        display: block;
+        height: 90%;
+        width: 40px;
+        text-decoration: none;
+        display: grid;
+        place-content: center;
+        text-decoration: none;
+        color: #e94a4a;
+        border-radius: 100%; }
+        .carritoReal .aniadido .elemento a:hover {
+          cursor: pointer;
+          background: #e94a4a;
+          color: #fff;
+          transition: .7s; }
+  .carritoReal p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    height: 50px;
+    font-family: "Sintony", sans-serif;
+    text-transform: capitalize;
+    color: #107263;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700; }
+    .carritoReal p .total {
+      font-weight: 700; }
+  .carritoReal .vacia {
+    position: relative;
+    height: 50px;
+    background-color: #FFDE62; }
+    .carritoReal .vacia a {
+      display: block;
+      height: 100%;
+      padding: 15px;
+      text-decoration: none;
+      font-family: "Sintony", sans-serif;
+      text-transform: capitalize;
+      color: #e94a4a;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      display: grid;
+      place-content: center; }
+      .carritoReal .vacia a:hover {
+        cursor: pointer;
+        background: #e94a4a;
+        color: #fff;
+        transition: .7s; }
+  .carritoReal .close {
+    position: absolute;
+    display: block;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+    border-radius: 100%;
+    transition: .7s;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .carritoReal .close:hover {
+      color: #e94a4a;
+      background: #FFDE62; }
+
 .modalContainer {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
   background: rgba(255, 255, 255, 0.7);
@@ -1125,30 +1128,46 @@ header, main, footer {
     background: tomato;
     padding: 1rem;
     transition: transform .9s;
-    transform: translateY(0%); }
+    transform: translateY(0%);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: flex-start;
+    align-items: center; }
+    @media screen and (max-width: 768px) {
+      .modalContainer .modal {
+        width: 95%;
+        height: auto; } }
     .modalContainer .modal.close {
       transform: translateY(-200%); }
     .modalContainer .modal .superior {
       display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      height: 70%;
+      height: 80%;
       gap: 10px; }
       .modalContainer .modal .superior .izq {
-        max-width: 50%;
-        min-width: 48%;
+        width: 50%;
+        height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 10px; }
         .modalContainer .modal .superior .izq img {
-          width: 70%;
-          height: auto; }
+          width: 80%;
+          height: auto;
+          object-fit: contain; }
       .modalContainer .modal .superior .der {
-        max-width: 50%;
-        min-width: 48%;
+        width: 50%;
+        height: 100%;
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         align-content: flex-start;
         justify-content: space-evenly;
         align-items: flex-start;
@@ -1219,37 +1238,92 @@ header, main, footer {
             align-content: center;
             justify-content: flex-start;
             align-items: center;
-            height: 35px;
+            height: auto;
             gap: 0 10px; }
             .modalContainer .modal .superior .der form .form_mid .aniadeCarrito {
               display: block;
               width: 150px;
-              height: 100%;
+              height: 35px;
               font-family: "Sintony", sans-serif;
               color: #3F3F3F;
               font-weight: 700;
               font-size: 1rem;
               padding: 5px;
-              color: #3F3F3F; }
+              color: #3F3F3F;
+              border: none;
+              transition: .5s; }
+              .modalContainer .modal .superior .der form .form_mid .aniadeCarrito:hover {
+                background: #3F3F3F;
+                color: #FFDE62; }
             .modalContainer .modal .superior .der form .form_mid .gustar,
             .modalContainer .modal .superior .der form .form_mid .rotar {
               display: block;
               width: 35px;
-              height: 100%;
+              height: 35px;
               text-decoration: none;
+              font-size: 1.6rem;
+              color: #fff;
               display: grid;
-              place-content: center; }
-              .modalContainer .modal .superior .der form .form_mid .gustar ion-icon,
-              .modalContainer .modal .superior .der form .form_mid .rotar ion-icon {
-                color: #fff;
-                font-size: 1.6rem; }
+              place-content: center;
+              transition: .7s; }
+              .modalContainer .modal .superior .der form .form_mid .gustar:hover,
+              .modalContainer .modal .superior .der form .form_mid .rotar:hover {
+                background: #3F3F3F;
+                color: #FFDE62; }
+      @media screen and (max-width: 768px) {
+        .modalContainer .modal .superior {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          align-content: center;
+          justify-content: flex-start;
+          align-items: center; }
+          .modalContainer .modal .superior .izq {
+            width: 80%;
+            height: 40%; }
+            .modalContainer .modal .superior .izq img {
+              height: 100%; }
+          .modalContainer .modal .superior .der {
+            width: 100%;
+            height: 60%;
+            gap: 10px; }
+            .modalContainer .modal .superior .der h1 {
+              font-size: 1.3rem; }
+            .modalContainer .modal .superior .der h2, .modalContainer .modal .superior .der .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .modalContainer .modal .superior .der a {
+              font-size: 1.2rem; }
+            .modalContainer .modal .superior .der p {
+              font-size: .9rem; }
+              .modalContainer .modal .superior .der p strong {
+                font-size: .9rem; }
+            .modalContainer .modal .superior .der form {
+              gap: 5px; }
+              .modalContainer .modal .superior .der form .form_top {
+                height: auto;
+                gap: 0 10px; }
+                .modalContainer .modal .superior .der form .form_top label {
+                  font-size: .9rem; }
+                .modalContainer .modal .superior .der form .form_top .cantidad {
+                  font-size: .9rem; }
+              .modalContainer .modal .superior .der form .form_mid {
+                gap: 0 7px; }
+                .modalContainer .modal .superior .der form .form_mid .aniadeCarrito {
+                  width: 150px;
+                  height: auto;
+                  font-size: .9rem;
+                  padding: 5px;
+                  color: #3F3F3F; }
+                .modalContainer .modal .superior .der form .form_mid .gustar,
+                .modalContainer .modal .superior .der form .form_mid .rotar {
+                  width: 30px;
+                  height: 30px;
+                  font-size: 1.4rem; } }
     .modalContainer .modal .inferior {
-      width: 100;
-      height: 30%;
+      width: 100%;
+      height: 20%;
       background: rgba(255, 255, 255, 0.329);
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-content: flex-start;
       justify-content: space-between;
       align-items: flex-start;
@@ -1273,9 +1347,13 @@ header, main, footer {
           align-items: center;
           justify-content: center;
           text-decoration: none;
-          color: #3F3F3F; }
-          .modalContainer .modal .inferior .redes a ion-icon, .modalContainer .modal .inferior .palabras_clave a ion-icon {
-            font-size: 20px; }
+          color: #3F3F3F;
+          font-size: 20px;
+          border-radius: 100%;
+          transition: .7s; }
+          .modalContainer .modal .inferior .redes a:hover, .modalContainer .modal .inferior .palabras_clave a:hover {
+            color: #FFDE62;
+            background: #3F3F3F; }
       .modalContainer .modal .inferior .palabras_clave {
         max-width: 65%;
         gap: 10px; }
@@ -1287,36 +1365,58 @@ header, main, footer {
           color: #3F3F3F;
           text-transform: capitalize;
           font-family: "Poppins", sans-serif;
-          font-weight: 600; }
+          font-weight: 600;
+          border-radius: 0; }
       @media screen and (max-width: 768px) {
         .modalContainer .modal .inferior {
           display: flex;
-          flex-direction: column-reverse;
+          flex-direction: column;
           flex-wrap: wrap;
           align-content: flex-start;
-          justify-content: flex-end;
+          justify-content: space-between;
           align-items: flex-start; }
           .modalContainer .modal .inferior .redes, .modalContainer .modal .inferior .palabras_clave {
             width: 100%;
+            max-width: none;
+            height: auto;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            align-content: flex-start;
+            align-content: center;
             justify-content: flex-end;
-            align-items: flex-start;
-            max-width: 100%; }
+            align-items: center; }
+            .modalContainer .modal .inferior .redes a, .modalContainer .modal .inferior .palabras_clave a {
+              width: 30px;
+              height: 30px;
+              font-size: 20px; }
           .modalContainer .modal .inferior .palabras_clave {
-            width: 100%;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
-            align-content: flex-start;
+            align-content: center;
             justify-content: flex-start;
-            align-items: flex-start;
-            max-width: 100%; } }
+            align-items: center;
+            gap: 10px;
+            overflow: hidden; }
+            .modalContainer .modal .inferior .palabras_clave a {
+              width: auto;
+              background: tomato;
+              padding: 5px;
+              font-size: .9rem; } }
     .modalContainer .modal .cerrar {
       position: absolute;
-      top: 0;
-      right: 0;
+      top: 5px;
+      right: 5px;
       font-size: 2em;
-      cursor: pointer; }
+      padding: 5px;
+      cursor: pointer;
+      border-radius: 100%;
+      background: rgba(255, 255, 255, 0.329);
+      color: #3F3F3F;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .7s; }
+      .modalContainer .modal .cerrar:Hover {
+        background: #3F3F3F;
+        color: #FFDE62; }

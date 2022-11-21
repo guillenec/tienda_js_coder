@@ -1,15 +1,15 @@
-.modalContainer{
+.modalContainer {
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     top: 0;
     left: 0;
-    background: rgba( 255, 255, 255, 0.7 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 3.5px );
-    -webkit-backdrop-filter: blur( 3.5px );
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(3.5px);
+    -webkit-backdrop-filter: blur(3.5px);
     border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    border: 1px solid rgba(255, 255, 255, 0.18);
     transform: translate(0, 0);
 
     @include align_mid_flex();
@@ -19,12 +19,13 @@
     //Luego desde js con visibile y opaciti1 lo muestro
 
 
-    &.ocultar{
+    &.ocultar {
         z-index: 2;
         opacity: 1;
-        visibility: visible; 
+        visibility: visible;
     }
-    .modal{
+
+    .modal {
         position: relative;
         width: 80%;
         height: 80%;
@@ -33,40 +34,49 @@
         padding: 1rem;
         transition: transform .9s;
         transform: translateY(0%);
+        @include caja_flex(column, nowrap, flex-start, flex-start, center);
 
-        &.close{
+        @include tablets() {
+            width: 95%;
+            height: auto;
+        }
+
+        &.close {
             transform: translateY(-200%);
         }
 
-        .superior{
-            display: flex;
+        .superior {
+            @include caja_flex(row, nowrap, center, center, center);
             width: 100%;
-            height: 70%;
+            height: 80%;
             gap: 10px;
 
-            .izq{
-                max-width: 50%;
-                min-width: 48%;
+            .izq {
+                width: 50%;
+                height: 100%;
                 @include align_mid_flex();
                 gap: 10px;
 
-                img{
-                    width: 70%;
+                img {
+                    width: 80%;
                     height: auto;
+                    object-fit: contain;
                 }
             }
-            .der{
-                max-width: 50%;
-                min-width: 48%;
-                @include caja_flex(column,wrap,flex-start,space-evenly,flex-start);
+
+            .der {
+                width: 50%;
+                height: 100%;
+                @include caja_flex(column, nowrap, flex-start, space-evenly, flex-start);
                 gap: 0px;
-                
+
                 h1 {
                     font-size: 2rem;
                     font-family: $titulo1;
                     font-weight: 600;
                 }
-                h2{
+
+                h2 {
                     font-size: 1.4rem;
                     color: $color_titulo3;
                     text-align: left;
@@ -74,13 +84,14 @@
                     font-weight: 600;
                     justify-content: start
                 }
-                p{
+
+                p {
                     font-family: $parrafo1;
                     color: $color_titulo1;
                     font-weight: 700;
                     font-size: 1rem;
-                    
-                    strong{
+
+                    strong {
                         font-family: $parrafo1;
                         color: $color_titulo1;
                         font-weight: 700;
@@ -88,29 +99,33 @@
                         color: $color_titulo3;
                     }
                 }
+
                 .pagos {
-                    width: 100% ;
+                    width: 100%;
                     height: auto;
                     padding: 0px;
                 }
-                form{
+
+                form {
                     width: 100%;
                     height: auto;
                     padding: 0px 0;
-                    @include caja_flex(column,wrap,flex-start,space-evenly,flex-start);
+                    @include caja_flex(column, wrap, flex-start, space-evenly, flex-start);
                     gap: 10px;
-                    .form_top{
-                        @include caja_flex(flex,wrap,center,flex-start,center);
+
+                    .form_top {
+                        @include caja_flex(flex, wrap, center, flex-start, center);
                         height: 35px;
                         gap: 0 10px;
 
-                        label{
+                        label {
                             font-family: $parrafo1;
                             color: $color_titulo1;
                             font-weight: 700;
                             font-size: 1rem;
                         }
-                        .cantidad{
+
+                        .cantidad {
                             display: block;
                             height: 100%;
                             font-family: $parrafo1;
@@ -120,73 +135,166 @@
                             width: 50px;
                         }
                     }
-                    .form_mid{
-                        @include caja_flex(flex,wrap,center,flex-start,center);
-                        height: 35px;
+
+                    .form_mid {
+                        @include caja_flex(flex, wrap, center, flex-start, center);
+                        height: auto;
                         gap: 0 10px;
-                        .aniadeCarrito{
+
+                        .aniadeCarrito {
                             display: block;
                             width: 150px;
-                            height: 100%;
+                            height: 35px;
                             font-family: $parrafo1;
                             color: $color_titulo1;
                             font-weight: 700;
                             font-size: 1rem;
                             padding: 5px;
                             color: $color_titulo1;
+                            border: none;
+                            transition: .5s;
+
+                            &:hover {
+                                background: $color_titulo1;
+                                color: $color_titulo4;
+                            }
                         }
+
                         .gustar,
-                        .rotar{
+                        .rotar {
                             display: block;
                             width: 35px;
-                            height: 100%;
+                            height: 35px;
                             text-decoration: none;
-
+                            font-size: 1.6rem;
+                            color: $color_titulo5;
                             @include align_mid_grid();
+                            transition: .7s;
 
-                            ion-icon{
-                                color: $color_titulo5;
-                                font-size: 1.6rem;
+                            &:hover {
+                                background: $color_titulo1;
+                                color: $color_titulo4;
                             }
                         }
                     }
-                    
+
+                }
+            }
+
+            @include tablets() {
+                @include caja_flex(column, nowrap, center, flex-start, center);
+
+                .izq {
+                    width: 80%;
+                    height: 40%;
+
+                    img {
+                        height: 100%;
+                    }
+                }
+
+                .der {
+                    width: 100%;
+                    height: 60%;
+                    gap: 10px;
+
+
+                    h1 {
+                        font-size: 1.3rem;
+
+                    }
+
+                    h2 {
+                        font-size: 1.2rem;
+                    }
+
+                    p {
+                        font-size: .9rem;
+
+                        strong {
+                            font-size: .9rem;
+                        }
+                    }
+
+                    form {
+                        gap: 5px;
+
+                        .form_top {
+                            height: auto;
+                            gap: 0 10px;
+
+                            label {
+                                font-size: .9rem;
+                            }
+
+                            .cantidad {
+                                font-size: .9rem;
+                            }
+                        }
+
+                        .form_mid {
+                            gap: 0 7px;
+
+                            .aniadeCarrito {
+                                width: 150px;
+                                height: auto;
+                                font-size: .9rem;
+                                padding: 5px;
+                                color: $color_titulo1;
+                            }
+
+                            .gustar,
+                            .rotar {
+                                width: 30px;
+                                height: 30px;
+                                font-size: 1.4rem;
+                            }
+                        }
+
+                    }
                 }
             }
         }
-        .inferior{
-            width: 100;
-            height: 30%;
+
+        .inferior {
+            width: 100%;
+            height: 20%;
             background: rgba(255, 255, 255, 0.329);
-            @include caja_flex(row,wrap,flex-start,space-between,flex-start);
+            @include caja_flex(row, nowrap, flex-start, space-between, flex-start);
             gap: 10px;
             padding: 10px;
 
-            .redes{
+            .redes {
                 width: auto;
                 height: auto;
-                @include caja_flex(row,wrap,flex-start,flex-start,flex-start);
+                @include caja_flex(row, wrap, flex-start, flex-start, flex-start);
                 max-width: 35%;
                 gap: 5px 5px;
-                
-                a{
+
+                a {
                     width: 40px;
                     height: 40px;
                     @include align_mid_flex();
                     text-decoration: none;
                     color: $color_titulo1;
-
-                    ion-icon{
-                        font-size: 20px;
+                    font-size: 20px;
+                    border-radius: 100%;
+                    transition: .7s;
+                    
+                    &:hover{
+                        color: $color_titulo4;
+                        background: $color_titulo1;
                     }
+
                 }
             }
-            .palabras_clave{
+            
+            .palabras_clave {
                 @extend .redes;
                 max-width: 65%;
                 gap: 10px;
 
-                a{
+                a {
                     width: auto;
                     background: tomato;
                     padding: 8px;
@@ -195,32 +303,59 @@
                     text-transform: capitalize;
                     font-family: $titulo1;
                     font-weight: 600;
+                    border-radius: 0;
+
                 }
-            }
-
-            @include tablets() {
-                @include caja_flex(column-reverse, wrap, flex-start, flex-end, flex-start);
-
+            } 
+            @include tablets(){
+                @include caja_flex(column, wrap, flex-start, space-between, flex-start);
                 .redes {
                     width: 100%;
-                    @include caja_flex(row, wrap, flex-start, flex-end, flex-start);
-                    max-width: 100%;
+                    max-width: none;
+                    height: auto;
+                    @include caja_flex(row, wrap, center, flex-end, center);
+    
+                    a {
+                        width: 30px;
+                        height: 30px;
+                        font-size: 20px;
+                    }
                 }
-            
                 .palabras_clave {
-                    width: 100%;
-                    @include caja_flex(row, wrap, flex-start, flex-start, flex-start);
-                    max-width: 100%;
-                }
+                    @include caja_flex(row, wrap, center, flex-start, center);
+                    gap: 10px;
+                    overflow: hidden;
+    
+                    a {
+                        width: auto;
+                        background: tomato;
+                        padding: 5px;
+                        font-size: .9rem;
+                        
+                    }
+                } 
+
+            }   
+        }
+
+        .cerrar {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            font-size: 2em;
+            padding: 5px;
+            cursor: pointer;
+            border-radius: 100%;
+            background: rgba(255, 255, 255, 0.329);
+            color: $color_titulo1;
+            @include align_mid_flex();
+            transition: .7s;
+
+            &:Hover{
+                background:$color_titulo1;
+                color: $color_titulo4;
             }
         }
-        .cerrar{
-            position: absolute;
-            top: 0;
-            right: 0;
-            font-size: 2em;
-            cursor: pointer;
-        }
-        
+
     }
 }

@@ -45,6 +45,7 @@
     <script defer src="./js/stockFunkos.js"></script>
     <script defer src="./js/main.js"></script>
     <script defer src="./js/modalClose.js"></script>
+    <script defer src="./js/pruebaStorage.js"></script>
     <title>funkoshop | Inicio</title>
 </head>
 <body>
@@ -156,8 +157,34 @@
             </div>
         </section>
         <!-- #endregion figuras accion -->
-        
+        <!-- #region carrito -->
+        <div class="carrito">
+            <div class="contiene_icons_car">
+                <a href=""><ion-icon name="cart"></ion-icon></a>
+                <span class="contador">0</span>
+            </div>
+        </div>
+        <div class="subir">
+            <a href="#">
+                <ion-icon name="arrow-up-outline"></ion-icon>
+            </a>
+        </div>
+        <div class="carritoReal none">
+            <h2>Carrito</h2>
+            <div class="aniadido">
+                <div class="elemento">
+                    <p class="nombre">nmbre: </p>
+                    <p class="precio">precio $</p>
+                    <a class="delete" href="#"><ion-icon name="trash-outline"></ion-icon></a>
+                </div> 
+            </div>
+            <p>precio total $<strong class="total">0</strong></p>
+            <div class="vacia"><a href="">vaciar carrito</a></div>
+            <a class="close"><ion-icon name="close-outline"></ion-icon></a>
+        </div>
+        <!-- #endregion carrito-->
     </main>
+    
     <footer class="footer">
         <h1 align="center" bgcolor="#8a9bfc" border="1" >&lt;h1&gt;¡¡¡Hola Mundo 🖖!!!&lt;&#92;h1 &gt;&nbsp;&nbsp<img width="50px" height="50px" src="https://res.cloudinary.com/dpiwmbsog/image/upload/v1667461454/icons/pinguino03_cnrawx.gif" alt=""></h1>
     
@@ -173,30 +200,6 @@
         </form>
         
     </footer>
-    <div class="carrito">
-        <div class="contiene_icons_car">
-            <a href=""><ion-icon name="cart"></ion-icon></a>
-            <span class="contador">0</span>
-        </div>
-    </div>
-    <div class="subir">
-        <a href="#">
-            <ion-icon name="arrow-up-outline"></ion-icon>
-        </a>
-    </div>
-    <div class="carritoReal">
-        <h2>Carrito</h2>
-        <div class="aniadido">
-            <div class="elemento">
-                <p class="nombre">nmbre: </p>
-                <p class="precio">precio $</p>
-                <a class="delete" href="#"><ion-icon name="trash-outline"></ion-icon></a>
-            </div> 
-        </div>
-        <p>precio total $<strong class="total">0</strong></p>
-        <div class="vacia"><a href="">vaciar carrito</a></div>
-        <a class="close"><ion-icon name="close-outline"></ion-icon></a>
-    </div>
     <!-- iconos -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
