@@ -67,29 +67,43 @@
                 }
             }
             
-            .carrito{
+            .botones{
                 position: absolute;
                 top: 0;
                 left: 0;
-                width: 40px;
-                height: 40px;
-                background: $color_titulo1;
-                color: $color_titulo4;
-                border-radius: 7px;
-                @include align_mid_grid();
-                transition: .7s;
+                width: 100%;
+                height: auto;
+                background: tomato;
 
-                ion-icon{
-                    font-size: 20px;
-                    font-weight: 600;
-                    text-decoration: none;
-                }
+                @include caja_flex(row, wrap, center, flex-start, center);
+                gap: 5px;
 
-                &:hover{
-                    background: $color_titulo4;
-                    color: $color_titulo1;;
+                .zoom,
+                .carrito{
+                    position: relative;
+                    width: 40px;
+                    height: 40px;
+                    left: 0;
+                    top: 0;
+                    background: $color_titulo1;
+                    color: $color_titulo4;
+                    border-radius: 7px;
+                    @include align_mid_grid();
+                    transition: .7s;
+    
+                    ion-icon{
+                        font-size: 20px;
+                        font-weight: 600;
+                        text-decoration: none;
+                    }
+    
+                    &:hover{
+                        background: $color_titulo4;
+                        color: $color_titulo1;;
+                    }
                 }
             }
+            
 
         }
 

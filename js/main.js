@@ -196,8 +196,17 @@ const generaTarjetas = (array,buscador) => {
             <div class="contImg">
                 <img src="${array[i].imagenA}" alt="${array[i].descripcion}">
             </div>
-            <a href="#" class="carrito"><ion-icon name="cart-outline"></ion-icon></a>
-            </section>\n`;
+            <div class="botones" data-id="${array[i].id}">
+                <a href="#" class="carrito">
+                    <ion-icon name="cart-outline"></ion-icon>
+                </a>
+                <a href="#" class="zoom" title="agrandar" data-id="${array[i].id}"> 
+                    <ion-icon name="search-outline"></ion-icon> 
+                </a>
+            </div>
+            </section>
+            ${generaModales(array,i)}
+            \n`;
             }
             
         }

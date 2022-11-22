@@ -841,25 +841,42 @@ header, main, footer {
           height: 100%;
           padding: 10px;
           object-fit: contain; }
-      .figuras_accion .cont_figuras .tarjeta_fig .carrito {
+      .figuras_accion .cont_figuras .tarjeta_fig .botones {
         position: absolute;
         top: 0;
         left: 0;
-        width: 40px;
-        height: 40px;
-        background: #3F3F3F;
-        color: #FFDE62;
-        border-radius: 7px;
-        display: grid;
-        place-content: center;
-        transition: .7s; }
-        .figuras_accion .cont_figuras .tarjeta_fig .carrito ion-icon {
-          font-size: 20px;
-          font-weight: 600;
-          text-decoration: none; }
-        .figuras_accion .cont_figuras .tarjeta_fig .carrito:hover {
-          background: #FFDE62;
-          color: #3F3F3F; }
+        width: 100%;
+        height: auto;
+        background: tomato;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 5px; }
+        .figuras_accion .cont_figuras .tarjeta_fig .botones .zoom,
+        .figuras_accion .cont_figuras .tarjeta_fig .botones .carrito {
+          position: relative;
+          width: 40px;
+          height: 40px;
+          left: 0;
+          top: 0;
+          background: #3F3F3F;
+          color: #FFDE62;
+          border-radius: 7px;
+          display: grid;
+          place-content: center;
+          transition: .7s; }
+          .figuras_accion .cont_figuras .tarjeta_fig .botones .zoom ion-icon,
+          .figuras_accion .cont_figuras .tarjeta_fig .botones .carrito ion-icon {
+            font-size: 20px;
+            font-weight: 600;
+            text-decoration: none; }
+          .figuras_accion .cont_figuras .tarjeta_fig .botones .zoom:hover,
+          .figuras_accion .cont_figuras .tarjeta_fig .botones .carrito:hover {
+            background: #FFDE62;
+            color: #3F3F3F; }
     @media screen and (max-width: 992px) {
       .figuras_accion .cont_figuras {
         height: 1400px;
