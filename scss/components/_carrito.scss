@@ -8,6 +8,13 @@
     z-index: 1;
     @include caja_flex(row, wrap, center, flex-end, center);
 
+    @include tablets(){
+        left: 10px;
+    }
+    @include movile(){
+        left: 5px
+    }
+
     .contiene_icons_car{
         @include caja_flex(row, wrap, center, flex-start, center);
         width: 72px;
@@ -48,12 +55,19 @@
     position: fixed;
     width: 44px;
     bottom: 20px;
-    left: 30px;
+    left: 40px;
     overflow: hidden;
     z-index: 1;
     border: 2px solid tomato;
     border-radius: 100%;
     padding: 5px;
+
+    @include tablets(){
+        left: 30px;
+    }
+    @include movile(){
+        left: 24px
+    }
     
     a{  
         display: block;
@@ -78,7 +92,15 @@
     top: 65px;
     left: 20px;
     padding: 15px;
-    overflow: hidden;    
+    overflow: hidden;   
+    
+    @include tablets(){
+        width: 80%;
+        left: 10px;
+    }
+    @include movile(){
+        width: 95%;
+    }
 
     @include caja_flex(column,wrap,flex-start,flex-start,flex-start);
     gap:10px;

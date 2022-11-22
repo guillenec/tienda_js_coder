@@ -152,10 +152,13 @@
             &.active {
                 height: 320px;
                 transition: .5s;
-                background-color: aquamarine;
+                background-color: #444;
 
                 .toggle{
                     transition-delay: .5s;
+                    span{
+                        background: $color_titulo4;
+                    }
                     span{
                         &:nth-child(2){
                             width: 0;
@@ -190,6 +193,7 @@
                                 .item{
             
                                     a{
+                                        color: $color_titulo4; 
                                         position: relative;
                                         @include caja_flex(row, wrap, center, center, center);
                                         transition: .5s;

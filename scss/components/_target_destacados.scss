@@ -71,9 +71,7 @@
             border: 1px solid rgba( 255, 255, 255, 0.18 );
 
             @include caja_flex(column, wrap, center, space-around, center);
-
             transition:.7s ease-in-out;
-
 
             .producto_imagen{
                 width: 100%;
@@ -199,9 +197,12 @@
                     color: $color_titulo2;
                 }
             }
+
             @include movile(){
+                gap: 10px;
+
                 width: 90%;
-                height: 200px;
+                height: 300px;
                 @include left_right();
 
                 img{

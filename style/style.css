@@ -184,9 +184,11 @@ header, main, footer {
         .header .nav.active {
           height: 320px;
           transition: .5s;
-          background-color: aquamarine; }
+          background-color: #444; }
           .header .nav.active .toggle {
             transition-delay: .5s; }
+            .header .nav.active .toggle span {
+              background: #FFDE62; }
             .header .nav.active .toggle span:nth-child(2) {
               width: 0; }
             .header .nav.active .toggle span:nth-child(1), .header .nav.active .toggle span:nth-child(1) {
@@ -214,6 +216,7 @@ header, main, footer {
               justify-content: flex-end;
               align-items: center; }
               .header .nav.active .menu .list .item a {
+                color: #FFDE62;
                 position: relative;
                 display: flex;
                 flex-direction: row;
@@ -724,8 +727,9 @@ header, main, footer {
           color: #FF7C5F; }
       @media screen and (max-width: 576px) {
         .destacados .cont_destacados .tarjeta {
+          gap: 10px;
           width: 90%;
-          height: 200px; }
+          height: 300px; }
           .destacados .cont_destacados .tarjeta.left {
             display: flex;
             flex-direction: row-reverse;
@@ -904,6 +908,12 @@ header, main, footer {
   align-content: center;
   justify-content: flex-end;
   align-items: center; }
+  @media screen and (max-width: 768px) {
+    .carrito {
+      left: 10px; } }
+  @media screen and (max-width: 576px) {
+    .carrito {
+      left: 5px; } }
   .carrito .contiene_icons_car {
     display: flex;
     flex-direction: row;
@@ -944,12 +954,18 @@ header, main, footer {
   position: fixed;
   width: 44px;
   bottom: 20px;
-  left: 30px;
+  left: 40px;
   overflow: hidden;
   z-index: 1;
   border: 2px solid tomato;
   border-radius: 100%;
   padding: 5px; }
+  @media screen and (max-width: 768px) {
+    .subir {
+      left: 30px; } }
+  @media screen and (max-width: 576px) {
+    .subir {
+      left: 24px; } }
   .subir a {
     display: block;
     background: tomato;
@@ -983,6 +999,13 @@ header, main, footer {
   opacity: 0;
   visibility: hidden;
   transition: .9s; }
+  @media screen and (max-width: 768px) {
+    .carritoReal {
+      width: 80%;
+      left: 10px; } }
+  @media screen and (max-width: 576px) {
+    .carritoReal {
+      width: 95%; } }
   .carritoReal.ocultar {
     z-index: 1;
     opacity: 1;
