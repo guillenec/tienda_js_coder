@@ -33,11 +33,6 @@ const funkosDestacados = arregloJuguetes.filter((el) => el.tipo.includes("destac
 //Figuras
 const funkosFiguras = arregloJuguetes.filter((el) => el.tipo.includes("figura"));
 
-// depura("filtrados");
-// console.log(funkosBanner)
-// console.log(funkosDestacados)
-// console.log(funkosCategoria)
-// console.log(funkosFiguras)
 
 /* permite calcular par impar */
 const par = (val) =>{ //la usare para las posiciones
@@ -48,8 +43,6 @@ const left_right = (i) =>{
     par(i) ? posicion = "left" : posicion = "right";
     return posicion;
 }
-
-
 
 //+ ---- Genera un modal para cada tarjeta -----+
 const generaModales = (array, j) =>{
@@ -114,8 +107,7 @@ const generaModales = (array, j) =>{
     return textomod;
 }
 
-//Funcion que genera targetas para la seccion Destacados
-
+//Funcion que genera tarjetas para la seccion Destacados
 const generaTarjetas = (array,buscador) => {
     let posicion; 
     let tarjeta = " "; //guardara la estructura de todas las tarjetas destacadas
@@ -348,13 +340,6 @@ const renderElementosCar = () =>{
 const renderCantidad = () =>{
     contadorProductos.innerHTML = carrito.length;
 }
-// const renderPrecioTotalCar = () =>{
-//     let = total = 0;
-//     carrito.forEach(element => {
-//         total += element.precioTotalMasIVA();
-//     });
-//     precioCarrito.innerHTML = total.toFixed(2);
-// }
 
 //calcula el precio total del carrito
 const renderPrecioTotalCar = () =>{
@@ -422,7 +407,7 @@ const abreCierraCar = () => {
 abreCierraCar();
 
 const btnLimpiar = document.querySelector('.vacia a')
-console.log(btnLimpiar)
+// console.log(btnLimpiar)
 
 btnLimpiar.addEventListener('click',e => {
     e.preventDefault();
@@ -434,6 +419,6 @@ btnLimpiar.addEventListener('click',e => {
     precioCarrito.innerHTML=0;
 })
 
-console.log("carrito",carrito);
-console.log("contenedor car",contenedorCarrito)
+// console.log("carrito",carrito);
+// console.log("contenedor car",contenedorCarrito)
 
