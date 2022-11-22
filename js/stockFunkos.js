@@ -1,7 +1,7 @@
 //Declaracion de variables 
 const arregloJuguetes = [];
 
-// id | nombre | descripcion | precio | descuento | genero | tipo | imagenA | imagenB | imagenC
+// id | nombre | stock | descripcion | precio | descuento | genero | tipo | imagenA | imagenB | imagenC | clave1 | clave2 | clave3
 
 //constructor
 function funko(id, name, stock, descripcion, price, discount, genero, tipo, linkImg1, linkImg2, linkImg3, clave1, clave2, clave3 ){
@@ -77,6 +77,11 @@ arregloJuguetes.push(new funko(18,"darius",4,"figura de accion articulada de la 
 arregloJuguetes.push(new funko(19,"jinx",4,"figura de accion articulada de la coleccion league of legends, campeones league of legends",1500, 5, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102418/imgs/haloween/funkos/league/jinx1_yqmuzg.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102331/imgs/haloween/funkos/league/jinx2_xddwvd.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102380/imgs/haloween/funkos/league/jinx3_pkgifj.png","league of legends","riot games","video juego"));
 arregloJuguetes.push(new funko(20,"piltober coleccion",7,"figura de accion articulada de la coleccion league of legends, campeones league of legends",7000, 25, "games","figura","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/league/pack_league_sdy03e.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102372/imgs/haloween/funkos/league/pack_league1_zr380s.png","","league of legends","riot games","video juego"));
 
+
+/*---- AÑADIMOS MAS OBJETOS ----*/
+// id | nombre | stock | descripcion | precio | descuento | genero | tipo | imagenA | imagenB | imagenC | clave1 | clave2 | clave3
+// arregloJuguetes.push(new funko (21,"vegeta ss2",6,"funko dragon ball z vegueta supe sayan 2 coleccion.", 1700, 10, "anime","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102372/imgs/haloween/funkos/dbz/vegueta_ssj2_1_fmjez9.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/dbz/vegueta_ssj2_3_ai8w73.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102384/imgs/haloween/funkos/dbz/vegueta_ssj2_2_mc6xsn.png","dragon ball","animacion","serie tv"));
+// arregloJuguetes.push(new funko (22,"principe vegueta",20,"funko dragon ball z vegueta supe sayan 2 coleccion.", 1750, 10, "anime","categoria","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102372/imgs/haloween/funkos/dbz/vegueta_ssj2_1_fmjez9.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/dbz/vegueta_ssj2_3_ai8w73.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102384/imgs/haloween/funkos/dbz/vegueta_ssj2_2_mc6xsn.png","dragon ball","animacion","serie tv"));
 
 // console.log(arregloJuguetes);
 
