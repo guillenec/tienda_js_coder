@@ -15,7 +15,7 @@
     .cont_categorias {
         margin-top: 100px;
         width: 100%;
-        height: 620px;
+        height: 600px;
 
         background: rgba(255, 222, 98, 0.7);
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -27,9 +27,18 @@
 
         @include caja_flex(row, wrap, center, space-between, center);
 
+        @include notebook(){
+                height: 540px
+        }
+
         @include tablets() {
-            height: 800px;
             @include caja_flex(column, wrap, flex-start, space-between, center);
+            height: 800px;
+
+        }
+
+        @include movile(){
+            height: 830px;
         }
 
         .targeta_simple {
