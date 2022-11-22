@@ -12,6 +12,15 @@ let nElimina;
 let funkosComprado = carritoActual; 
 let carrito = [];
 
+/* Renderizar todo al recarrgar, asi no se pierde nada */
+document.body.onload = function(){
+}
+window.addEventListener('load',e =>{
+    renderElementosCar();
+    renderCantidad(); //actualizamos el contador de productos
+    renderPrecioTotalCar();
+})
+
 const carritoLStorage = JSON.parse(localStorage.getItem('carritoFunkos'));
 if (carritoLStorage != null) {
     carrito = carritoLStorage;
