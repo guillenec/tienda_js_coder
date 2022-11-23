@@ -3,7 +3,7 @@ let textoMenu = "";
 let resultado;
 let carritoActual = [];
 let comprados;
-let retorno=0;
+let retorno= 0;
 let opcion = 7; //tambien puedo usar un .length
 let valorFinal=0;
 let nElimina;
@@ -26,12 +26,7 @@ if (carritoLStorage != null) {
     carrito = carritoLStorage;
 }
 
-/* Funciones */
-//Depurador, solo para ver donde voy entrando y donde no
-const depura = (texto) =>{
-    let dep = "\n---- Depurador => "
-    console.log(`${dep} ${texto} ---- \n`)
-}
+
 //filtamos objetos por:
 //Banner
 const funkosBanner = arregloJuguetes.filter((el) => el.tipo.includes("banner"));
@@ -159,7 +154,7 @@ const generaTarjetas = (array,buscador) => {
         }
         return tarjeta4;
 
-    }else if (buscador == "destacados"){
+    } else if (buscador == "destacados"){
         for (let i = 0; i < array.length; i++) {
             if ( array[i].stock != 0 ) {
                 par(i) ? posicion = "left" : posicion = "right";
@@ -192,7 +187,7 @@ const generaTarjetas = (array,buscador) => {
         }
         return tarjeta;
 
-    }else if (buscador == "figura"){
+    } else if (buscador == "figura"){
         let j = 0;
         for (let i = 0; i < array.length; i++) {
             if ( array[i].stock != 0 ) {
@@ -220,8 +215,7 @@ const generaTarjetas = (array,buscador) => {
             
         }
         return trajeta3;
-    }
-    
+    }    
 }
 
 //asigno a la variabole las tarjetas en formato texto html ,de acuerdo a la seccion a la que van a pertenecer
