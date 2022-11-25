@@ -844,16 +844,16 @@ header, main, footer {
           object-fit: contain; }
       .figuras_accion .cont_figuras .tarjeta_fig .botones_func {
         position: absolute;
-        top: 0;
+        top: -40px;
         left: 0;
         width: 130px;
         height: auto;
-        background: tomato;
+        transition: .7s;
         display: flex;
         flex-direction: row;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         align-content: center;
-        justify-content: flex-start;
+        justify-content: center;
         align-items: center;
         gap: 0 5px; }
         .figuras_accion .cont_figuras .tarjeta_fig .botones_func a {
@@ -873,6 +873,9 @@ header, main, footer {
           .figuras_accion .cont_figuras .tarjeta_fig .botones_func a:hover {
             background: #FFDE62;
             color: #3F3F3F; }
+      .figuras_accion .cont_figuras .tarjeta_fig:hover .botones_func {
+        top: 1px;
+        transition: .7s; }
     @media screen and (max-width: 992px) {
       .figuras_accion .cont_figuras {
         height: 1400px;

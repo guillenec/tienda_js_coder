@@ -555,10 +555,10 @@ const agregaElementAlCarrito = (elemento) =>{
     carritoCompra.push(elemento);
     console.log(carritoCompra)
     //Devo actualizar toda la ventana carrito
-    // renderVentanaCarr();
-    renderPrecioTotalCarrito();
-    renderCantidad();
-    setCarritoStorage()
+    renderVentanaCarr();
+    // renderPrecioTotalCarrito();
+    // renderCantidad();
+    // setCarritoStorage()
     
 }
 
@@ -582,7 +582,7 @@ const renderElementoCarrito = () => {
         <p class="nombre">${element.nombre}</p>
         <p class="precio">precio $${precioTotalMasIVA(element).toFixed(2)}</p> \n`;
 
-        const botonBorrar = document.createAttribute('a');
+        const botonBorrar = document.createElement('a');
         botonBorrar.className = "delete";
         botonBorrar.innerHTML = `\n <ion-icon name="trash-outline"></ion-icon> \n`;
 
@@ -590,7 +590,7 @@ const renderElementoCarrito = () => {
         botonBorrar.addEventListener('click',() => {
             let index = carritoCompra.indexOf(element); //trae el indice del elemento en el car
             carritoCompra.splice(index,1); // elimina un elemento del carrito
-            ventanaCarrito.querySelector(`funk${element.id}`).remove();
+            ventanaCarrito.querySelector(`#funk${element.id}`).remove();
             localStorage.setItem('carritoStorage',JSON.stringify(carritoCompra));
 
             //cada vez añado o elimino elemento devo rendear la cantidad

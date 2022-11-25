@@ -69,13 +69,14 @@
             
             .botones_func{
                 position: absolute;
-                top: 0;
+                top: -40px;
                 left: 0;
                 width: 130px;
                 height: auto;
-                background: tomato;
+                transition: .7s;
 
-                @include caja_flex(row, wrap, center, flex-start, center);
+
+                @include caja_flex(row, nowrap, center, center, center);
                 gap: 0 5px;
 
                 a{
@@ -101,6 +102,12 @@
                 }
             }
             
+            &:hover{
+                .botones_func{
+                    top: 1px;
+                    transition: .7s;
+                }
+            }
 
         }
 
