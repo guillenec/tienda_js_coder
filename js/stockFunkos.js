@@ -138,9 +138,9 @@ arregloJuguetes.push(new funko(53,"bulbasaur","funko coleccion pokemon, pokemon 
 arregloJuguetes.push(new funko (54,"jason","funko pop de la serie de peliculas Halloween, jason voornees",0 ,200, 10,"movies","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102371/imgs/haloween/funkos/halloween/jason1_gbtbfh.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/jason123_tzrrar.png","","","halloween","terror","cine"));
 arregloJuguetes.push(new funko(55,"tornado","funko coleccion one punch man, tornado del infierno.",5 ,1200, 15, "anime","general","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190215/imgs/haloween/funkos/anime/tornado_sgvolg.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190218/imgs/haloween/funkos/anime/tornado2_vj3dh9.png","","","one punch man","anime","serie tv"));
 arregloJuguetes.push(new funko(56,"saitama","funko coleccion one punch man, saitama con traje de super heroe.",5 ,1200, 15, "anime","general","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190213/imgs/haloween/funkos/anime/saitama_super_eoluul.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190219/imgs/haloween/funkos/anime/saitama_super3_dqnmua.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190217/imgs/haloween/funkos/anime/saitama_super2_cy8dwh.png","","one punch man","anime","serie tv"));
-arregloJuguetes.push(new funko(57,"saitama","funko coleccion one punch man, saitama casual.",5 ,1200, 15, "anime","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190210/imgs/haloween/funkos/anime/saitama1_axklzx.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190214/imgs/haloween/funkos/anime/saitama4_mgp8ej.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190216/imgs/haloween/funkos/anime/saitama2_shyez1.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190211/imgs/haloween/funkos/anime/saitama3_xwkuf6.png","one punch man","anime","serie tv"));
+arregloJuguetes.push(new funko(57,"saitama","funko coleccion one punch man, saitama casual, camiseta oppai.",5 ,1200, 15, "anime","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190210/imgs/haloween/funkos/anime/saitama1_axklzx.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190214/imgs/haloween/funkos/anime/saitama4_mgp8ej.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190216/imgs/haloween/funkos/anime/saitama2_shyez1.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190211/imgs/haloween/funkos/anime/saitama3_xwkuf6.png","one punch man","anime","serie tv"));
 arregloJuguetes.push(new funko(59,"pickle rick 2","funko coleccion rick and morty pickle rick (wite laser).",5 ,1200, 15, "anime","general","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190209/imgs/haloween/funkos/anime/rick_radio1_mzvt80.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190214/imgs/haloween/funkos/anime/rick_radio3_fkh3x1.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190210/imgs/haloween/funkos/anime/rick_radio2_rsiham.png","","rick and morty","anime","serie tv"));
-arregloJuguetes.push(new funko(60,"tornado","funko coleccion one punch man, .",5 ,1200, 15, "anime","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190208/imgs/haloween/funkos/anime/rick1_dyobtl.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190207/imgs/haloween/funkos/anime/rick2_jdsgc5.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190207/imgs/haloween/funkos/anime/rick3_enljhm.png","","rick and morty","anime","serie tv"));
+arregloJuguetes.push(new funko(60,"tornado","funko coleccion rick and morty, pickle rick.",5 ,1200, 15, "anime","banner","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190208/imgs/haloween/funkos/anime/rick1_dyobtl.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190207/imgs/haloween/funkos/anime/rick2_jdsgc5.png","https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190207/imgs/haloween/funkos/anime/rick3_enljhm.png","","rick and morty","anime","serie tv"));
 
 //#endregion series de tv
 
@@ -184,39 +184,16 @@ arregloJuguetes.push(new funko(60,"tornado","funko coleccion one punch man, .",5
 //#region /* ---- Funciones para calcular Precio real ---- */
 let iva = 0.04;
 
-const descuentoReal = (array, i) => {
-    return Number(Number(array[i].descuento) * 0.01);
-}
-
- //Para recorrido con for
-const precioConDescuento = (array, p) => {
-    return (Number(array[p].precio) - Number(array[p].precio) * descuentoReal(array, p));
-}
-
-const precioTotalMasIVA = (array2, j) => {
-    return Number(precioConDescuento(array2, j) + precioConDescuento(array2, j) * iva);
-}
-
-const describe_tipos = (array3, i) => {
-    if (array3[i].genero == "movies") {
-        return "En esta seccion enconraras funkos relacionados con peliculas, ya sean de terror, siencia ficcion, y demas."
-    } else if (array3[i].genero == "tv y series") {
-        return "Funkos relacionados con animaciones y series de tv... Los simpsons, futurama, series como mandalorian o game of throne."
-    } else if (array3[i].genero == "anime") {
-        return "Anime , y cultura japonesa , asia y oriente... mangas y manwhas. Como pokemon, Dragon Ball, Naruto, shinigamis, Pakas, etc."
-    }
-}
-
 //Para recorrido con foreach
-const descuentoReal2 = (element) => {
+const descuentoReal = (element) => {
     return Number(element.descuento) * 0.01;
 }
-const precioConDescuento2 = (element) => {
-    return (Number(element.precio) - Number(element.precio) * descuentoReal2(element));
+const precioConDescuento = (element) => {
+    return (Number(element.precio) - Number(element.precio) * descuentoReal(element));
 }
 
-const precioTotalMasIVA2 = (element) => {
-    return Number(precioConDescuento2(element) + precioConDescuento2(element) * iva);
+const precioTotalMasIVA = (element) => {
+    return Number(precioConDescuento(element) + precioConDescuento(element) * iva);
 }
 
 const describe_tipos2 = (element) => {
@@ -236,80 +213,93 @@ const depura = (texto) =>{
     let dep = "\n---- Depurador => "
     console.log(`${dep} ${texto} ---- \n`)
 }
+//#endregion
 
+let precio;
+let descuento;
 const calculaPrecioFinal = (element) =>{
-    let precio;
-    let descuento;
     //Nose si es lo mejor pero creamos un modal por cada elemento
     (precioConDescuento(element) > 0) ? (precio = precioTotalMasIVA(element).toFixed(2), descuento=`${element.descuento}`) : (precio = precioTotalMasIVA(element).toFixed(2), descuento=`${element.descuento}`);
 }
 
 //Genera un nombre de clase HTML: rigt = par, left = inpar
 const claseLeftRight = (valor) => {
-    ((valor % 2) == 0) ? posicion == "left" : posicion = "right"; 
+    return ((valor % 2) == 0 ) ? "left" : "right"; 
 }
 
-const generaElementModal = (element) =>{
-    if (verificaSrock(element) != 0){
+const generaElementModal = (element, contenedor) =>{
+    const seccionMod = document.createElement('section');
+    seccionMod.className = "modalContainer";
+    seccionMod.id= `contModal${element.id}`;
 
-        calculaPrecioFinal(element);
-        
-        return modal = `\n
-        <section class="modalContainer" data-id="${element.id}">
-            <section class="modal close ${element.id}">
-                <div class="superior">
-                    <div class="izq">
-                        <img src="${element.imagenB}" alt="${element.descripcion}">
+    const modal = document.createElement('section');
+    modal.className = `modal close ${element.id}`;
+    modal.id= `modal${element.id}`;
+
+    calculaPrecioFinal(element);
+
+    modal.innerHTML = `\n
+        <div class="superior">
+            <div class="izq">
+                <img src="${element.imagenB}" alt="${element.descripcion}">
+            </div>
+            <div class="der">
+                <h1>${element.nombre}</h1>
+                <h2>$${precio}</h2>
+                <p>descuento de %${descuento} + iva de %4.</p>
+                <p>3 cuotas sin interes de $${(precioTotalMasIVA(element) / 3).toFixed(2)} con: </p>
+                <img class="pagos" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/468X60.jpg" title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago"/>
+                <p><strong>${element.descripcion}</strong></p>
+                <form action="" id="compra_fun">
+                    <div class="form_top">
+                        <label for="cantidad"> cantidad</label>
+                        <input class="cantidad" type="number" name="cantidad" id="cantidad">
                     </div>
-                    <div class="der">
-                        <h1>${element.nombre}</h1>
-                        <h2>$${precio}</h2>
-                        <p>descuento de %${descuento} + iva de %4.</p>
-                        <p>3 cuotas sin interes de $${(precioTotalMasIVA(element) / 3).toFixed(2)} con: </p>
-                        <img class="pagos" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/468X60.jpg" title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago"/>
-                        <p><strong>${element.descripcion}</strong></p>
-                        <form action="" id="compra_fun">
-                            <div class="form_top">
-                                <label for="cantidad"> cantidad</label>
-                                <input class="cantidad" type="number" name="cantidad" id="cantidad">
-                            </div>
-                            <div class="form_mid">
-                                <input class="aniadeCarrito" type="submit" value="añadir carrito">
-                                <a href="#compra_fun" class="gustar"><ion-icon name="heart-outline"></ion-icon></a>
-                                <a href="#compra_fun" class="rotar"><ion-icon name="sync-outline"></ion-icon></a>
-                            </div>
-                            <span id="hay_producto">
-                                <ion-icon name="checkmark-outline"></ion-icon>&nbsp;En Stock
-                            </span>
-                        </form>
+                    <div class="form_mid">
+                        <input class="aniadeCarrito" type="submit" value="añadir carrito">
+                        <a href="#compra_fun" class="gustar"><ion-icon name="heart-outline"></ion-icon></a>
+                        <a href="#compra_fun" class="rotar"><ion-icon name="sync-outline"></ion-icon></a>
                     </div>
-                </div>
-                <div class="inferior">
-                    <div class="redes" id="redes">
-                        <a href="#redes"><ion-icon name="logo-whatsapp"></ion-icon></a>
-                        <a href="#redes"><ion-icon name="logo-instagram"></ion-icon></a>
-                        <a href="#redes"><ion-icon name="logo-facebook"></ion-icon></a>
-                        <a href="#redes"><ion-icon name="mail-outline"></ion-icon></a>
-                    </div>
-                    <div class="palabras_clave" id="palClav">
-                        <a href="palClav">${element.nombre}</a>
-                        <a href="palClav">${element.genero}</a>
-                        <a href="palClav">${element.tipo}</a>
-                        <a href="palClav">${element.clave1}</a>
-                        <a href="palClav">${element.clave2}</a>
-                        <a href="palClav">${element.clave3}</a>
-                    </div>
-                </div>
-                <a class="cerrar"><ion-icon name="close-outline"></ion-icon></a>
-            </section>  
-        </section> \n`;
-    }   
+                    <span id="hay_producto">
+                        <ion-icon name="checkmark-outline"></ion-icon>&nbsp;En Stock
+                    </span>
+                </form>
+            </div>
+        </div>
+        <div class="inferior">
+            <div class="redes" id="redes">
+                <a href="#redes"><ion-icon name="logo-whatsapp"></ion-icon></a>
+                <a href="#redes"><ion-icon name="logo-instagram"></ion-icon></a>
+                <a href="#redes"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="#redes"><ion-icon name="mail-outline"></ion-icon></a>
+            </div>
+            <div class="palabras_clave" id="palClav">
+                <a href="palClav">${element.nombre}</a>
+                <a href="palClav">${element.genero}</a>
+                <a href="palClav">${element.tipo}</a>
+                <a href="palClav">${element.clave1}</a>
+                <a href="palClav">${element.clave2}</a>
+                <a href="palClav">${element.clave3}</a>
+            </div>
+        </div> \n`;
+
+    const cierraModal = document.createElement('a');
+    cierraModal.className = "cerrar";
+    cierraModal.id= `cierra${element.id}`;
+    cierraModal.innerHTML = `\n <ion-icon name="close-outline"></ion-icon> \n`;
+
+    modal.append(cierraModal);
+    seccionMod.append(modal);
+    contenedor.append(seccionMod);
+
+    return [seccionMod,modal,cierraModal]
 }
 
-const generaElementBanner = (element) =>{
-    if (verificaSrock(element) != 0){
-        return banner = `\n
-        <section class="art_princial swiper-slide">
+const generaElementBanner = (element,contenedor) =>{
+    const seccion = document.createElement('section');
+        seccion.className = "art_princial swiper-slide";
+        seccion.id= `banner${element.id}`;
+        seccion.innerHTML = `\n
             <div class="caja left">
                 <img src="${element.imagenA}" alt="${element.descripcion}">
             </div>
@@ -317,88 +307,85 @@ const generaElementBanner = (element) =>{
                 <h2 class="titulo">#${element.id} ${element.nombre}</h2>
                 <h3 class="precio">$${element.precio}</h3>
                 <p class="textos">${element.descripcion}</p>
-                <a href="">reservalo</a>
+                <a href="" id="reservar${element.id}">reservalo</a>
                 <span class="descuento">${element.descuento}%</span>
-            </div>
-        </section>
-        \n`;
-    }
+            </div> \n`;
+
+    contenedor.append(seccion);
+
+    let reservar = document.querySelector(`#reservar${element.id}`);
+    reservar.addEventListener('click', e => {
+        e.preventDefault();
+        agregaElementAlCarrito(element);
+    })   
 }
 
-const generaElementCategoria = (element,clasePosicion) =>{
-    if (verificaSrock(element) != 0){
-    return elementCategoria = `\n
-        <section class="targeta_simple ${clasePosicion} ">
+const generaElementCategoria = (element,contador,contenedor) =>{
+    const seccion = document.createElement('section');
+        seccion.className = `targeta_simple ${claseLeftRight(contador)}`;
+        console.log(claseLeftRight(contador));
+        seccion.id= `"categoria${element.id}"`;
+        seccion.innerHTML = `\n
             <img src="${element.imagenA}" alt="${element.descripcion}">
             <div class="textos_target"> 
                 <a class="title_targ">${element.genero}</a>
                 <p>${describe_tipos2(element)}</p>
-            </div>                  
-        </section>
+            </div>   
         \n`;
-    }
+    
+    contenedor.append(seccion);
 } 
 
-const generaElementDestacado = (element,contador,clasePosicion) =>{
-    if (verificaSrock(element) != 0){
-        return elementDestacado = `\n
-        <section class="tarjeta tarjeta${contador} ${clasePosicion}" data-id="${element.id}">
-            <div class="producto_imagen">
-                <section class="cont_img">
-                    <img class="imgPrimaria" src="${element.imagenB}" alt="${element.descripcion}">
-                    <img class="imgSecundaria" src="${element.imagenA}" alt="${element.descripcion}">
-                    <div class="botones_func" data-id="${element.id}">
-                        <a href="#" title="rotar" class="rotar" data-id="${element.id}"> 
-                            <ion-icon name="sync-outline"></ion-icon> 
-                        </a>
-                        <a href="#" class="zoom" title="agrandar" data-id="${element.id}"> 
-                            <ion-icon name="search-outline"></ion-icon> 
-                        </a>
-                    </div>
-                </section>
-            </div>
+const generaElementDestacado = (element,contador,contenedor) =>{
+    const seccion = document.createElement('section');
+        seccion.className = `tarjeta tarjeta${contador} ${claseLeftRight(contador)}`;
+        seccion.id= `destacado${element.id}`;
+        
+    const div = document.createElement('div');
+        div.className = "producto_imagen";
+        div.innerHTML = `\n
+            <section class="cont_img">
+                <img class="imgPrimaria" src="${element.imagenB}" alt="${element.descripcion}">
+                <img class="imgSecundaria" src="${element.imagenA}" alt="${element.descripcion}">
+            </section>\n`;
+
+        seccion.innerHTML =`\n
             <div class="textos_tarjeta">
                 <h2><a href="#">#${element.id} ${element.nombre}</a></h2>
                 <h3>$${precioTotalMasIVA(element).toFixed(2)}&nbsp;$</h3>
                 <span class"identificador"></span>
-            </div>
-        </section>
-        ${generaElementModal(element)}
-        \n`;  
-    }
+            </div> \n`;
+    
+    const constarrayRet = generaElementModal(element, contenedor);
+    // console.log(constarrayRet)
+    contenedorBotones(element, div, seccion, constarrayRet);
+    seccion.append(div);
+    contenedor.append(seccion);
 }
 
-const generaElementFigura = (element, contador) =>{
-    if (verificaSrock(element) != 0){
-        return elementFigura = `\n
-        <section class="tarjeta_fig fig${contador} ">
+const generaElementFigura = (element, contador, contenedor) => {
+    const seccion = document.createElement('section');
+        seccion.className = `tarjeta_fig fig${contador}`;
+        seccion.id= `figura${element.id}`;
+
+        seccion.innerHTML = `\n
             <div class="textos_fig">
                 <h2>${element.nombre}</h2>
                 <h3>$${precioTotalMasIVA(element)}</h3>
             </div>
             <div class="contImg">
                 <img src="${element.imagenA}" alt="${element.descripcion}">
-            </div>
-            <div class="botones" data-id="${element.id}">
-                <a href="#" class="carrito">
-                    <ion-icon name="cart-outline"></ion-icon>
-                </a>
-                <a href="#" class="zoom" title="agrandar" data-id="${element.id}"> 
-                    <ion-icon name="search-outline"></ion-icon> 
-                </a>
-            </div>
-        </section>
-        ${generaElementModal(element)}
-        \n`;
-    }
+            </div> \n`;
+            
+    const elementModal = generaElementModal(element, contenedor);
+        contenedorBotones(element,seccion, seccion, elementModal);
+    contenedor.append(seccion);
 }
-
-
 
 //recoremos el array y buscamos que exista el elemento con stock y me lo guarde en un nuevo arreglo.
 let productosEnStock = [];
 let productosAgotados = [];
-const verificaSrock = (array) =>{
+const verificaElSrock = (array) =>{
     array.forEach(element => {
         if (element.stock != 0) {
             productosEnStock.push(element); 
@@ -408,9 +395,294 @@ const verificaSrock = (array) =>{
     });
 }
 
-//Filtramos los productos por secciones (banners, categoria, destacados, figura o general).  
-//podemos filtrar aca el stock  de momento
-const productosBanner = arregloJuguetes.filter((el) => el.tipo.includes("banner") && el.stock > 0);
+//filtra productos por tipo y si hay stock del mismo
+const fitraProductosStock = (array,filtro) =>{
+    return array.filter((el) => el.tipo.includes(`${filtro}`) && el.stock > 0);
+}
+//filtra productos terminados
+const fitraProductosTerminados = (array) =>{
+    return array.filter((el) => el.stock <= 0);
+}
+
+//Productos ya filtrados con stock
+const productosBanner = fitraProductosStock(arregloJuguetes,"banner");
+const productosCategoria = fitraProductosStock(arregloJuguetes,"categoria");
+const productosDestacados = fitraProductosStock(arregloJuguetes,"destacados");
+const productosFiguras = fitraProductosStock(arregloJuguetes,"figura");
+const productosGenerales = fitraProductosStock(arregloJuguetes,"general");
+//Productos ya filtrados sin stock
+const productosTerminados = fitraProductosTerminados(arregloJuguetes);
 
 depura("---- PROD BANNERS ---------")
 console.log(productosBanner)
+console.log(productosCategoria)
+console.log(productosDestacados)
+console.log(productosFiguras)
+console.log(productosGenerales)
+console.log(productosTerminados)
+
+// Cargamos la seccion correspondiente con su respectivo elemento ( a la seccion banner enviamos los elementos baner, a categoria los elemento categoris...)
+const algo = () =>{
+    let i = 0;
+    array.forEach(element => {
+        i++;
+        if(i<=6){
+            generaElementDestacado = (element,i++, claseLeftRight(i++))
+        }
+    });
+}
+
+//accedo a contenedores donde guardaremos la estructura correspondiente
+const contenedorBanner = document.querySelector('.swiper-wrapper');
+const contenedorCategoria = document.querySelector('#top_prod')
+const contenedorDestacado = document.querySelector('#destacados')
+const contenedorFiguras = document.querySelector('.cont_figuras')
+
+//#region //cargan el contenedor con los elementos correspondientes
+const cargaEstructuraBanner = (array) => {
+    array.forEach(element => {
+        generaElementBanner(element,contenedorBanner);
+    });
+}
+
+const cargaEstructuraCategoria = (array) => {
+    let i = 0;
+    if (i<=3) {
+        array.forEach(element => {
+            generaElementCategoria(element,i,contenedorCategoria);
+            i++;
+        });
+    }
+}
+
+const cargaEstructuraDestacado = (array) => {
+    let i = 0;
+    array.forEach(element => {
+        if (i<=6) {
+            generaElementDestacado(element,i,contenedorDestacado);
+            i++;
+        }
+    });
+}
+
+const cargaEstructuraFigura = (array) => {
+    let i = 0
+    array.forEach(element => {
+        if (i<=6) {
+            generaElementFigura(element, i++,contenedorFiguras);
+        }
+    });
+}
+//#endregion
+
+//Genera botonera + sus eventos rotar, modal y sumar al carrito y cerrar modal
+const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
+    //Creamos La Botonera
+    const botonera = document.createElement('div');
+    botonera.className = "botones_func";
+    botonera.id = `${element.id}`;
+
+    const rotar =  document.createElement('a');
+        rotar.className = "rotar"
+        rotar.title= "rotar";
+        rotar.href= "#";
+        rotar.data=`${element.id}`;
+        rotar.innerHTML = `\n <ion-icon name="sync-outline"></ion-icon> \n`;
+
+    const zoom =  document.createElement('a');
+        zoom.className = "zoom"
+        zoom.title= "modal";
+        zoom.href= "#";
+        zoom.data=`${element.id}`;
+        zoom.innerHTML = `\n <ion-icon name="search-outline"></ion-icon> \n`;
+
+    const aniadeCar = document.createElement('a');
+        aniadeCar.className = "añadirCar";
+        aniadeCar.title= "carrito";
+        aniadeCar.href= "#";
+        aniadeCar.data=`${element.id}`;
+        aniadeCar.innerHTML = `\n <ion-icon name="cart"></ion-icon> \n`;
+
+        rotar.addEventListener('click', e => {
+            e.preventDefault();
+            rotarCaja.classList.toggle('rotar');
+        })
+    
+        // console.log(arrayModal[0])
+        // console.log(arrayModal[1])
+
+        // let contenedorModal = document.querySelector(`#contModal${element.id}`);
+        // console.log(contenedorModal);
+        // let modal = document.querySelector(`#modal${element.id}`);
+        zoom.addEventListener('click', e => {
+            e.preventDefault();
+            arrayModal[0].classList.add('ocultar');
+            arrayModal[1].classList.toggle('close');
+        })
+
+        arrayModal[2].addEventListener('click', e => {
+            arrayModal[1].classList.toggle('close');
+
+            setTimeout(function () { //pasados 7 seg se ejecuta 
+                arrayModal[0].classList.remove('ocultar')
+        }, 500);
+        })
+        aniadeCar.addEventListener('click', e => {
+            e.preventDefault();
+            agregaElementAlCarrito(element);
+        })
+
+    //appens    
+    botonera.append(rotar);
+    botonera.append(zoom);
+    botonera.append(aniadeCar);
+    cajaBotonera.append(botonera);
+} 
+
+//Render pagina principal
+const renderSeccionesPage = () => {
+    cargaEstructuraBanner(productosBanner);
+    cargaEstructuraCategoria(productosCategoria);
+    cargaEstructuraDestacado(productosDestacados);
+    cargaEstructuraFigura(productosFiguras);
+}
+
+renderSeccionesPage();
+
+//#region  //render de todos los elementos de la ventana carrito
+carritoCompra = []; //carrito principal
+const agregaElementAlCarrito = (elemento) =>{
+    carritoCompra.push(elemento);
+    console.log(carritoCompra)
+    //Devo actualizar toda la ventana carrito
+    // renderVentanaCarr();
+    renderPrecioTotalCarrito();
+    renderCantidad();
+    setCarritoStorage()
+    
+}
+
+//#region //Accedo a las partes de ventana emergente CarritoReal
+let contenedorPrincipalCar = document.querySelector('.carritoReal');
+let ventanaCarrito = document.querySelector('.carritoReal .aniadido');
+let contadorProductos = document.querySelector('.contiene_icons_car .contador');
+let precioCarrito = document.querySelector('.carritoReal .total');
+
+let abrirCarrito = document.querySelector('.carrito .abrirCar');
+let carritoClose = document.querySelector('.carritoReal .close');
+//#endregion
+
+const renderElementoCarrito = () => {
+    ventanaCarrito.innerHTML = ''; 
+    carritoCompra.forEach(element => {
+        const div = document.createElement('div');
+        div.id = `funk${element.id}`;
+        div.className = "elemento";
+        div.innerHTML = `\n 
+        <p class="nombre">${element.nombre}</p>
+        <p class="precio">precio $${precioTotalMasIVA(element).toFixed(2)}</p> \n`;
+
+        const botonBorrar = document.createAttribute('a');
+        botonBorrar.className = "delete";
+        botonBorrar.innerHTML = `\n <ion-icon name="trash-outline"></ion-icon> \n`;
+
+        //elimina 1 elemento del car
+        botonBorrar.addEventListener('click',() => {
+            let index = carritoCompra.indexOf(element); //trae el indice del elemento en el car
+            carritoCompra.splice(index,1); // elimina un elemento del carrito
+            ventanaCarrito.querySelector(`funk${element.id}`).remove();
+            localStorage.setItem('carritoStorage',JSON.stringify(carritoCompra));
+
+            //cada vez añado o elimino elemento devo rendear la cantidad
+            // renderPrecioTotalCarrito();
+            // renderCantidad();
+            // setCarritoStorage();
+        });
+
+        div.append(botonBorrar);
+        ventanaCarrito.append(div);
+    });
+}
+
+//Al hacer render de la ventana, debe actalizar todo, 1) el elemento, 2)la cantidad, 3) el precio total y 4)Storage
+
+const renderCantidad = () => {
+    contadorProductos.innerHTML = carritoCompra.length;
+}
+
+const renderPrecioTotalCarrito = () => {
+    precioCarrito.innerHTML =  `${(carritoCompra.reduce((acum, producto) => acum += precioTotalMasIVA(producto), 0)).toFixed(2)}`;
+}
+
+const setCarritoStorage = () => {
+    localStorage.setItem('carritoStorage', JSON.stringify(carritoCompra));
+    //const productos = JSON.parse(localStorage.getItem('carritoStorage'));
+}
+
+//#endregion
+const renderVentanaCarr = () => {
+    renderElementoCarrito();
+    renderPrecioTotalCarrito();
+    renderCantidad();
+    setCarritoStorage()
+}
+
+//Abrir y cerrar la ventana emergente carrito real
+const abreCierraVentanaCar = () => {
+    abrirCarrito.addEventListener('click', e =>{
+        e.preventDefault();
+        if (contenedorPrincipalCar.classList.contains('ocultar')) {
+            contenedorPrincipalCar.classList.remove('ocultar');
+            setTimeout(function () {
+                contenedorPrincipalCar.classList.remove('bloq');
+                contenedorPrincipalCar.classList.add('none');
+            }, 600);
+        } else if (contenedorPrincipalCar.classList.contains('none')) {
+            contenedorPrincipalCar.classList.remove('none');
+            contenedorPrincipalCar.classList.add('bloq');
+            setTimeout(function () {
+                contenedorPrincipalCar.classList.add('ocultar');
+            }, 600);
+        }
+    })
+
+    carritoClose.addEventListener('click',() =>{
+        contenedorPrincipalCar.classList.remove('ocultar');
+        setTimeout(function(){ 
+            contenedorPrincipalCar.classList.remove('bloq');
+            contenedorPrincipalCar.classList.add('none');
+        },700); 
+    })
+}
+abreCierraVentanaCar();
+
+const vaciarCarrito = () => {
+    const botonVaciarCar = document.querySelector('.vacia a');
+    botonVaciarCar.addEventListener('click', e => {
+        e.preventDefault();
+        carritoCompra.length = 0;
+        setCarritoStorage();
+
+        // renderVentanaCarr();
+        ventanaCarrito.innerHTML = '';
+        contadorProductos.innerHTML = 0;
+        precioCarrito.innerHTML = 0;
+
+        renderPrecioTotalCarrito();
+        renderCantidad();
+        setCarritoStorage()
+    });
+}
+
+window.addEventListener('load',e =>{
+    const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
+    if (carritoLStorage != null) {
+        carritoCompra = carritoLStorage;
+    }
+    renderPrecioTotalCarrito();
+    renderCantidad();
+    setCarritoStorage()
+})
+
+vaciarCarrito();
+

@@ -385,7 +385,7 @@ const localST = () =>{
 
 /* para abreCierraCar() */
 let abrirCarrito = document.querySelector('.carrito a');
-let carritoMo = document.querySelector('.carritoReal');
+let contenedorPrincipalCarcarritoMo = document.querySelector('.carritoReal');
 let carritoClose = document.querySelector('.carritoReal .close');
 //permite abrir y cerrar el modal delcarrito de compras
 const abreCierraCar = () => {

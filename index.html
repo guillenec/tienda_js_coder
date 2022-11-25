@@ -43,9 +43,16 @@
     <!-- <script defer src=""></script> --><!-- es igual que poniendo al final del body -->
     <!-- script para coderhouse -->
     <script defer src="./js/stockFunkos.js"></script>
-    <script defer src="./js/main.js"></script>
-    <script defer src="./js/modalClose.js"></script>
+    <!-- <script defer src="./js/main.js"></script> -->
+    <!-- <script defer src="./js/modalClose.js"></script> -->
     <script defer src="./js/pruebaStorage.js"></script>
+
+    <!-- Swiper blunde : para deslizamiento izq, der elementos -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <!-- necesario para el swiper -->
+    <script defer src="./js/swipper.js"></script>
+    <!--Para el toggle nav -->
+    <script defer src="./js/toggle.js"></script>
     <title>funkoshop | Inicio</title>
 </head>
 <body>
@@ -87,46 +94,6 @@
         <!-- #region banner -->
         <section class="banner swiper" id="banner">
             <section class="envoltura_art swiper-wrapper">
-                <!-- #region Articulos-->
-                <!-- Articulo1 -->
-                <section class="art_princial swiper-slide">
-                    <div class="caja left">
-                        <img src="https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/trick_r_treat_uv2gny.png" alt="dos fantasmas">
-                    </div>
-                    <div class="caja right">
-                        <h2 class="titulo">#1 sam</h2>
-                        <h3 class="precio">$1200</h3>
-                        <p class="textos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit recusandae alias quod perferendis odio eum ullam rem! </p>
-                        <a href="">reservalo</a>
-                        <span class="descuento">10%</span>
-                    </div>
-                </section>
-                <!-- Articulo2-->
-                <section class="art_princial swiper-slide">
-                    <div class="caja left">
-                        <img src="https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/halloween/hallowen_xsqe9a.png" alt="dos fantasmas">
-                    </div>
-                    <div class="caja right">                
-                        <h2 class="titulo">#2 michael myers</h2>
-                        <h3 class="precio">$2000</h3>
-                        <p class="textos">aqui traere una descripcion cargada en el objeto a futuro</a>
-                        <span class="descuento">10%</span>
-                    </div>
-                </section>
-                <!-- Articulo3 --> 
-                <section class="art_princial swiper-slide">
-                    <div class="caja left">
-                        <img src="https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/halloween/chuki123_mh4o3b.png" alt="dos fantasmas">
-                    </div>
-                    <div class="caja right">
-                        <h2 class="titulo">#3 chucky</h2>
-                        <h3 class="precio">$1550</h3>
-                        <p class="textos">Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit recusandae alias quod perferendis odio eum ullam rem! </p>
-                        <a href="">reservalo</a>
-                        <span class="descuento">10%</span>
-                    </div>
-                </section>
-                <!-- #endregion -->
             </section>
             <!-- Si necesitamos paginación -->
             <div class="swiper-pagination"></div>
@@ -145,7 +112,7 @@
         <!-- #endregion seccion categorias -->
         <!-- #region descuentos destacados -->
         <section class="destacados">
-            <h2 class="tituloSeccion titDest"></h2>
+            <h2 class="tituloSeccion titDest">funkos destacados</h2>
             <div class="cont_destacados" id="destacados">
             </div>
         </section>
@@ -160,7 +127,7 @@
         <!-- #region carrito -->
         <div class="carrito">
             <div class="contiene_icons_car">
-                <a href=""><ion-icon name="cart"></ion-icon></a>
+                <a class="abrirCar" href=""><ion-icon name="cart"></ion-icon></a>
                 <span class="contador">0</span>
             </div>
         </div>
@@ -188,12 +155,5 @@
     <!-- iconos -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-    <!-- Swiper blunde : para deslizamiento izq, der elementos -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <!-- necesario para el swiper -->
-    <script src="./js/swipper.js"></script>
-    <!--Para el toggle nav -->
-    <script src="./js/toggle.js"></script>
 </body>
 </html>
