@@ -667,10 +667,10 @@ const vaciarCarrito = () => {
         ventanaCarrito.innerHTML = '';
         contadorProductos.innerHTML = 0;
         precioCarrito.innerHTML = 0;
-
-        renderPrecioTotalCarrito();
-        renderCantidad();
-        setCarritoStorage()
+        renderVentanaCarr();
+        // renderPrecioTotalCarrito();
+        // renderCantidad();
+        // setCarritoStorage()
     });
 }
 
@@ -678,10 +678,10 @@ window.addEventListener('load',e =>{
     const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
     if (carritoLStorage != null) {
         carritoCompra = carritoLStorage;
+        renderVentanaCarr();
     }
-    renderPrecioTotalCarrito();
-    renderCantidad();
-    setCarritoStorage()
+    // renderVentanaCarr();
+    
 })
 
 vaciarCarrito();
