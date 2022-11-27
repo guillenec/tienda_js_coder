@@ -1171,6 +1171,27 @@ header, main, footer {
           background: #e94a4a;
           color: #fff;
           transition: .7s; }
+      .carritoReal .aniadido .elemento p {
+        display: block;
+        font-family: "Sintony", sans-serif;
+        text-transform: capitalize;
+        color: #107263;
+        font-weight: 700;
+        font-size: .9rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-between;
+        align-items: center; }
+        .carritoReal .aniadido .elemento p.nombre {
+          color: #107263;
+          display: flex;
+          gap: 0 10px; }
+          .carritoReal .aniadido .elemento p.nombre .numeroProd {
+            color: #e94a4a; }
+        .carritoReal .aniadido .elemento p.precio {
+          color: #107263; }
   .carritoReal p {
     display: flex;
     align-items: center;
@@ -1182,7 +1203,11 @@ header, main, footer {
     color: #107263;
     text-decoration: none;
     font-size: 1rem;
-    font-weight: 700; }
+    font-weight: 700;
+    gap: 0 10px; }
+    .carritoReal p strong {
+      color: #e94a4a;
+      font-size: 1rem; }
     .carritoReal p .total {
       font-weight: 700; }
   .carritoReal .vacia {

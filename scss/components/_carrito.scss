@@ -169,6 +169,28 @@
                     transition: .7s;
                 }
             }
+            p{
+                display: block;
+                font-family: $parrafo1;
+                text-transform: capitalize;
+                color: $color_titulo3;
+                font-weight: 700;
+                font-size: .9rem;
+                @include caja_flex(row,wrap,center,space-between,center);
+
+                &.nombre{
+                    color: $color_titulo3;
+                    display: flex;
+                    gap: 0 10px;
+                    .numeroProd{
+                        color: $color_titulo6;
+                    }
+                }
+                &.precio{
+                    color: $color_titulo3;
+                }
+
+            }
         }
     }
     p{   
@@ -181,7 +203,12 @@
         text-decoration: none;
         font-size: 1rem;
         font-weight: 700;
+        gap: 0 10px;
 
+        strong{
+            color: $color_titulo6;
+            font-size: 1rem;
+        }
         .total{        
             font-weight: 700;
         }

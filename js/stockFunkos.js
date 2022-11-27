@@ -550,11 +550,17 @@ const renderSeccionesPage = () => {
 renderSeccionesPage();
 
 //#region  //render de todos los elementos de la ventana carrito
-carritoCompra = []; //carrito principal
+let carritoCompra = []; //carrito principal
 const agregaElementAlCarrito = (elemento) =>{
     //carritoCompra.push(elemento);//añade al final
     carritoCompra.unshift(elemento);//añade al inicio
     console.log(carritoCompra)
+
+    
+    console.log("---------------")
+    // duplas.push(duplas)
+    // console.log("+++++ ++++++")
+    // console.log(duplas2)
     //Devo actualizar toda la ventana carrito
     renderVentanaCarr();
     // renderPrecioTotalCarrito();
@@ -572,15 +578,45 @@ let precioCarrito = document.querySelector('.carritoReal .total');
 let abrirCarrito = document.querySelector('.carrito .abrirCar');
 let carritoClose = document.querySelector('.carritoReal .close');
 //#endregion
+const cantDuplas = (elemento, array) =>{
+    let acum = 1;
+    array.forEach(repertidos => {
+        if (elemento.id === repertidos.id) {
+            console.log("se repite")
+            acum += 1;
+        }
+    });
+    return acum;
+}
 
 const renderElementoCarrito = () => {
     ventanaCarrito.innerHTML = ''; 
-    carritoCompra.forEach(element => {
+    //eliminamos los duplicados y sumamos los precios
+    const carritoSinDuplicados = carritoCompra.reduce((acum, valorActual) => {
+        const elementExistente = acum.find(element => element.id == valorActual.id);
+        if (elementExistente) {
+            return acum.map((element) => {
+                if(element.id == valorActual.id){
+                    return {
+                        ...element, 
+                        precio: element.precio + valorActual.precio
+                    }
+                }
+                return element;
+            });
+        }
+        return [...acum, valorActual];
+    },[]);
+    //carrito sin duplas
+
+    carritoSinDuplicados.forEach(element => {
+        console.log("--------- duplas ---------")
+
         const div = document.createElement('div');
         div.id = `funk${element.id}`;
         div.className = "elemento";
         div.innerHTML = `\n 
-        <p class="nombre">${element.nombre}</p>
+        <p class="nombre"><strong class="numeroProd">${(carritoCompra.filter((el) => el.id == element.id)).length}</strong>${element.nombre}</p>
         <p class="precio">precio $${precioTotalMasIVA(element).toFixed(2)}</p> \n`;
 
         const botonBorrar = document.createElement('a');
@@ -603,6 +639,7 @@ const renderElementoCarrito = () => {
 
         div.append(botonBorrar);
         ventanaCarrito.append(div);
+
     });
 }
 
@@ -685,24 +722,57 @@ window.addEventListener('load',e =>{
     // renderVentanaCarr();
     
 })
-
 vaciarCarrito();
 
-const carritoSinDuplicados = carritoCompra.reduce((acum, valorActual) => {
-    const elementExistente = acum.find(element => element.id == valorActual.id);
-    if (elementExistente) {
-        return acum.map((element) => {
-            if(element.id == valorActual.id){
-                return {
-                    ...element, 
-                    precio: element.precio + valorActual.precio
-                }
-            }
-            return element;
-        });
-    }
-    return [...acum, valorActual];
-},[]);
 
-console.log("---- carrito sin duplas  ----")
-console.log(carritoSinDuplicados)
+// const carritoSinDuplicados = carritoCompra.reduce((acum, valorActual) => {
+//     const elementExistente = acum.find(element => element.id == valorActual.id);
+//     if (elementExistente) {
+//         return acum.map((element) => {
+//             if(element.id == valorActual.id){
+//                 console.log("---- carrito sin duplas  ----")
+
+//                 console.log(element)
+//                 // return {
+//                 //     ...element, 
+//                 //     precio: element.precio + valorActual.precio
+//                 // }
+//             }
+//             return element;
+//         });
+//     }
+//     return [...acum, valorActual];
+// },[]);
+
+
+console.log("---- vuelvo a cargar el carrito si x las dudas  ----")
+const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
+    if (carritoLStorage != null) {
+        carritoCompra = carritoLStorage;
+        renderVentanaCarr();
+    }
+console.log(carritoCompra)
+
+// let duplas = []
+
+// const carritoSinDuplicados = carritoCompra.reduce((acum, valorActual) => {
+//     const elementExistente = acum.find(element => element.id == valorActual.id);
+//     if (elementExistente) {
+//         return acum.map((element) => {
+//             if(element.id == valorActual.id){
+//                 duplas.push(element);
+//                 console.log("duplas")
+//                 return {
+//                     ...element, 
+//                     precio: element.precio + valorActual.precio
+//                 }
+//             }
+//             return element;
+//         });
+//     }
+//     return [...acum, valorActual];
+// },[]);
+
+// console.log("---- carrito sin duplas  ----")
+// console.log(carritoSinDuplicados)
+// console.log(duplas)
