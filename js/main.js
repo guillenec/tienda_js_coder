@@ -26,7 +26,6 @@ if (carritoLStorage != null) {
     carrito = carritoLStorage;
 }
 
-
 //filtamos objetos por:
 //Banner
 const funkosBanner = arregloJuguetes.filter((el) => el.tipo.includes("banner"));

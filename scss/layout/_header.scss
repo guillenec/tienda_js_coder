@@ -11,25 +11,113 @@
         height: 60px;
         @include caja_flex(row, wrap, flex-start, space-between, center);
 
-        .logo{
-            @include caja_flex(row, wrap, center, space-around, center);
-            height: 100%;
-            width: 150px;
-            text-decoration: none;
-            @include fuentes($font_h3);
-            text-transform: capitalize;
-            color: $bg_color_naranja;
-            font-weight: 800;
-            font-size: 1.1rem;
+        .cajaA{
+            min-width: 190px;
+            height: 60px;
+            background: #444;
+            @include caja_flex(row, nowrap, flex-start, flex-start, center);
+            gap: 5px;
+            padding-right: 5px;
             
-            img{
-                height: 2rem;
-                width: auto;
+            .logo{
+                @include caja_flex(row, wrap, center, space-around, center);
+                height: 100%;
+                width: 150px;
+                text-decoration: none;
+                @include fuentes($font_h3);
+                text-transform: capitalize;
+                color: $bg_color_naranja;
+                font-weight: 800;
+                font-size: 1.1rem;
+                
+                img{
+                    height: 2rem;
+                    width: auto;
+                }
             }
+            .contieneBuscador{
+                width: auto;
+                height: 100%;
+                @include caja_flex(row, nowrap, center, flex-start, center);
+                transition: .7s;
+    
+                .row{
+                    height: 34px;
+                    width: auto;
+                    background: $color_titulo2;
+                    border-radius: 150px;
+                    border: 1px solid $colorBorde1;
+                    display: flex;
+    
+                    .search{
+                        background: transparent;
+                        color: #fff;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        font-family: $parrafo1;
+                        border: none;
+                        width: 0;
+                        padding: 0;
+                        outline: none;
+                        transition: .5s;
+                        
+                        &::placeholder{
+                            color: $color_titulo5;
+                            font-size: .9rem;
+                        }
+
+                    }
+                    .icon{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        background: $color_titulo5;
+                        border-radius: 50%;
+                        width: 28px;
+                        height: 28px;
+                        margin: 2px;
+                        ion-icon{
+                            position: absolute;
+                            color: $color_titulo2;
+                            transition: .7s;
+                            &.busca{
+                                opacity: 1;
+                            }
+                            &.busca2{
+                                opacity: 0;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        .search{
+                            width: 100px;
+                            padding-left: 15px;
+                                &:focus,
+                                &:not(:placeholder-shown){
+                                    padding-left: 15px;
+                                }
+                            }
+                            .icon{
+                                ion-icon{
+                                    &.busca{
+                                        opacity: 0;
+                                    }
+                                    &.busca2{
+                                        opacity: 1;
+                                    }
+                                }
+                            }
+                        } 
+                }   
+                
+            }
+
         }
 
         .menu{
-            width: calc(100% - 160px);
+            max-width: calc(100% - 190px);
+            width: auto;
             height: 100%;
             
             .list{
@@ -37,20 +125,20 @@
                 @include caja_flex(row, wrap, center, flex-end, center);
                 width: 100%;
                 height: 100%;
+                gap: 2px;
             
                     .item{
                             list-style: none;
 
                         a{
                             @include caja_flex(row, wrap, center, center, center);
-                            width: 110px;
+                            width: 105px;
                             @include fuentes($font_h3);
                             color: $color_titulo1; 
                             text-transform: capitalize;
                             text-decoration: none;
                             border: solid 2px transparent;
                             border-radius: 30px;
-                            margin-right: 5px;
                             padding: 10px;
                             cursor: pointer;
                             transition: .5s;
@@ -69,6 +157,10 @@
                             // &.active{
                                 
                             // }
+                            @include desktop(){
+                                width: 95px;
+                                font-size: 1rem;
+                            }
                             
                         }       
                         
@@ -139,9 +231,11 @@
             .menu{
                     position: absolute;
                     top: 60px;
-                    width: 100%;
+                    width: auto;
                     height: auto;
                 //a futuro cuando tenga la clase aciva de desplegara
+                    max-width: calc(100%);
+                    
                     .list{
                         display: none;
                     }
@@ -181,7 +275,7 @@
                         position: absolute;
                         margin-top: 0px;
                         width: 100%;
-                        height: 500px;
+                        height: auto;
 
                         .list{
                             display: block;

@@ -64,29 +64,99 @@ header, main, footer {
     align-content: flex-start;
     justify-content: space-between;
     align-items: center; }
-    .header .nav .logo {
+    .header .nav .cajaA {
+      min-width: 190px;
+      height: 60px;
+      background: #444;
       display: flex;
       flex-direction: row;
-      flex-wrap: wrap;
-      align-content: center;
-      justify-content: space-around;
+      flex-wrap: nowrap;
+      align-content: flex-start;
+      justify-content: flex-start;
       align-items: center;
-      height: 100%;
-      width: 150px;
-      text-decoration: none;
-      font-family: "Poppins", sans-serif;
-      font-size: 1rem;
-      font-weight: 500;
-      color: #ffff;
-      text-transform: capitalize;
-      color: #FF7C5F;
-      font-weight: 800;
-      font-size: 1.1rem; }
-      .header .nav .logo img {
-        height: 2rem;
-        width: auto; }
+      gap: 5px;
+      padding-right: 5px; }
+      .header .nav .cajaA .logo {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: center;
+        justify-content: space-around;
+        align-items: center;
+        height: 100%;
+        width: 150px;
+        text-decoration: none;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #ffff;
+        text-transform: capitalize;
+        color: #FF7C5F;
+        font-weight: 800;
+        font-size: 1.1rem; }
+        .header .nav .cajaA .logo img {
+          height: 2rem;
+          width: auto; }
+      .header .nav .cajaA .contieneBuscador {
+        width: auto;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+        transition: .7s; }
+        .header .nav .cajaA .contieneBuscador .row {
+          height: 34px;
+          width: auto;
+          background: #FF7C5F;
+          border-radius: 150px;
+          border: 1px solid #3b3b3b;
+          display: flex; }
+          .header .nav .cajaA .contieneBuscador .row .search {
+            background: transparent;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: "Sintony", sans-serif;
+            border: none;
+            width: 0;
+            padding: 0;
+            outline: none;
+            transition: .5s; }
+            .header .nav .cajaA .contieneBuscador .row .search::placeholder {
+              color: #fff;
+              font-size: .9rem; }
+          .header .nav .cajaA .contieneBuscador .row .icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #fff;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            margin: 2px; }
+            .header .nav .cajaA .contieneBuscador .row .icon ion-icon {
+              position: absolute;
+              color: #FF7C5F;
+              transition: .7s; }
+              .header .nav .cajaA .contieneBuscador .row .icon ion-icon.busca {
+                opacity: 1; }
+              .header .nav .cajaA .contieneBuscador .row .icon ion-icon.busca2 {
+                opacity: 0; }
+          .header .nav .cajaA .contieneBuscador .row:hover .search {
+            width: 100px;
+            padding-left: 15px; }
+            .header .nav .cajaA .contieneBuscador .row:hover .search:focus, .header .nav .cajaA .contieneBuscador .row:hover .search:not(:placeholder-shown) {
+              padding-left: 15px; }
+          .header .nav .cajaA .contieneBuscador .row:hover .icon ion-icon.busca {
+            opacity: 0; }
+          .header .nav .cajaA .contieneBuscador .row:hover .icon ion-icon.busca2 {
+            opacity: 1; }
     .header .nav .menu {
-      width: calc(100% - 160px);
+      max-width: calc(100% - 190px);
+      width: auto;
       height: 100%; }
       .header .nav .menu .list {
         list-style: none;
@@ -97,7 +167,8 @@ header, main, footer {
         justify-content: flex-end;
         align-items: center;
         width: 100%;
-        height: 100%; }
+        height: 100%;
+        gap: 2px; }
         .header .nav .menu .list .item {
           list-style: none; }
           .header .nav .menu .list .item a {
@@ -107,7 +178,7 @@ header, main, footer {
             align-content: center;
             justify-content: center;
             align-items: center;
-            width: 110px;
+            width: 105px;
             font-family: "Poppins", sans-serif;
             font-size: 1rem;
             font-weight: 500;
@@ -117,7 +188,6 @@ header, main, footer {
             text-decoration: none;
             border: solid 2px transparent;
             border-radius: 30px;
-            margin-right: 5px;
             padding: 10px;
             cursor: pointer;
             transition: .5s; }
@@ -131,6 +201,10 @@ header, main, footer {
               border-radius: 50%; }
               .header .nav .menu .list .item a:hover::before else {
                 top: b; }
+            @media screen and (max-width: 1200px) {
+              .header .nav .menu .list .item a {
+                width: 95px;
+                font-size: 1rem; } }
       .header .nav .menu img {
         display: none; }
     .header .nav .toggle {
@@ -177,8 +251,9 @@ header, main, footer {
         .header .nav .menu {
           position: absolute;
           top: 60px;
-          width: 100%;
-          height: auto; }
+          width: auto;
+          height: auto;
+          max-width: calc(100%); }
           .header .nav .menu .list {
             display: none; }
         .header .nav.active {
@@ -203,7 +278,7 @@ header, main, footer {
             position: absolute;
             margin-top: 0px;
             width: 100%;
-            height: 500px; }
+            height: auto; }
             .header .nav.active .menu .list {
               display: block;
               width: 100%;

@@ -552,7 +552,8 @@ renderSeccionesPage();
 //#region  //render de todos los elementos de la ventana carrito
 carritoCompra = []; //carrito principal
 const agregaElementAlCarrito = (elemento) =>{
-    carritoCompra.push(elemento);
+    //carritoCompra.push(elemento);//añade al final
+    carritoCompra.unshift(elemento);//añade al inicio
     console.log(carritoCompra)
     //Devo actualizar toda la ventana carrito
     renderVentanaCarr();
@@ -592,6 +593,7 @@ const renderElementoCarrito = () => {
             carritoCompra.splice(index,1); // elimina un elemento del carrito
             ventanaCarrito.querySelector(`#funk${element.id}`).remove();
             localStorage.setItem('carritoStorage',JSON.stringify(carritoCompra));
+            renderVentanaCarr();
 
             //cada vez añado o elimino elemento devo rendear la cantidad
             // renderPrecioTotalCarrito();
@@ -686,3 +688,21 @@ window.addEventListener('load',e =>{
 
 vaciarCarrito();
 
+const carritoSinDuplicados = carritoCompra.reduce((acum, valorActual) => {
+    const elementExistente = acum.find(element => element.id == valorActual.id);
+    if (elementExistente) {
+        return acum.map((element) => {
+            if(element.id == valorActual.id){
+                return {
+                    ...element, 
+                    precio: element.precio + valorActual.precio
+                }
+            }
+            return element;
+        });
+    }
+    return [...acum, valorActual];
+},[]);
+
+console.log("---- carrito sin duplas  ----")
+console.log(carritoSinDuplicados)
