@@ -72,6 +72,7 @@
 
             @include caja_flex(column, wrap, center, space-around, center);
             transition:.7s ease-in-out;
+            overflow: hidden;
 
             .producto_imagen{
                 width: 100%;
@@ -137,7 +138,14 @@
                             color: tomato;
                             font-size: 1.4rem;
                         }
+
+                        &.agotado{
+                            color: $color_titulo4;
+                            background: $color_titulo6;
+    
+                        }
                     }
+                    
                 }
                 &:hover{
                     .botones_func{
@@ -145,16 +153,30 @@
                         right: 0px;
                         transition: .7s;
                         
-                        a:hover{
-                            background: rgba( 255, 99, 71, 0.75 );
-                            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-                            backdrop-filter: blur( 3px );
-                            -webkit-backdrop-filter: blur( 3px );
-    
-                            ion-icon{
-                                color: #fff;
-                                font-size: 1.4rem;
+                        a.zoom, a.rotar, a.añadirCar{
+                            &:hover {
+                                background: rgba( 255, 99, 71, 0.75 );
+                                box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                                backdrop-filter: blur( 3px );
+                                -webkit-backdrop-filter: blur( 3px );
+        
+                                ion-icon{
+                                    color: #fff;
+                                    font-size: 1.4rem;
+                                }
                             }
+                        } 
+                        
+                        a.agotado{
+                            color: $color_titulo4;
+                            background: $color_titulo6;
+                            transition: 0;
+                        
+                            &:hover{
+                                color: $color_titulo4;
+                                background: $color_titulo6;
+                            }
+    
                         }
                     }
                 }
@@ -195,6 +217,39 @@
                 h3{
                     font-size:$font_h3;
                     color: $color_titulo2;
+                }
+            }
+
+            .agotado{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &::before{
+                    position: absolute;
+                    width: 190%;
+                    height: 40%;
+
+                    background: rgba( 233, 74, 74, 0.75 );
+                    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                    backdrop-filter: blur( 3.5px );
+                    -webkit-backdrop-filter: blur( 3.5px );
+                    border-radius: 10px;
+                    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+                    content: "agotado";
+                    font-weight: bold;
+                    color: $color_titulo5;
+                    font-size: 2rem;
+                    z-index: 1;
+                    transform: rotate(315deg);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-transform: capitalize;
                 }
             }
 

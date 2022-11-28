@@ -498,6 +498,7 @@ const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
 
     const aniadeCar = document.createElement('a');
         aniadeCar.className = "añadirCar";
+        aniadeCar.id = `aniadeElement${element.id}`;
         aniadeCar.title= "carrito";
         aniadeCar.href= "#";
         aniadeCar.data=`${element.id}`;
@@ -528,8 +529,15 @@ const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
         }, 500);
         })
         aniadeCar.addEventListener('click', e => {
-            e.preventDefault();
-            agregaElementAlCarrito(element);
+            if (aniadeCar.classList.contains('agotado')){
+                e.preventDefault();
+                console.log('se agoto todo');   
+                
+            }else{
+                e.preventDefault();
+                agregaElementAlCarrito(element);
+            }
+            
         })
 
     //appens    
@@ -578,20 +586,10 @@ let precioCarrito = document.querySelector('.carritoReal .total');
 let abrirCarrito = document.querySelector('.carrito .abrirCar');
 let carritoClose = document.querySelector('.carritoReal .close');
 //#endregion
-const cantDuplas = (elemento, array) =>{
-    let acum = 1;
-    array.forEach(repertidos => {
-        if (elemento.id === repertidos.id) {
-            console.log("se repite")
-            acum += 1;
-        }
-    });
-    return acum;
-}
 
 const renderElementoCarrito = () => {
     ventanaCarrito.innerHTML = ''; 
-    //eliminamos los duplicados y sumamos los precios
+    //nuevo arreglo sin duplicados y con la suma del precio echas
     const carritoSinDuplicados = carritoCompra.reduce((acum, valorActual) => {
         const elementExistente = acum.find(element => element.id == valorActual.id);
         if (elementExistente) {
@@ -599,7 +597,8 @@ const renderElementoCarrito = () => {
                 if(element.id == valorActual.id){
                     return {
                         ...element, 
-                        precio: element.precio + valorActual.precio
+                        precio: element.precio + valorActual.precio,
+                        stock: element.stock - 1
                     }
                 }
                 return element;
@@ -611,24 +610,26 @@ const renderElementoCarrito = () => {
 
     carritoSinDuplicados.forEach(element => {
         console.log("--------- duplas ---------")
+        console.log(element.stock);
+
 
         const div = document.createElement('div');
         div.id = `funk${element.id}`;
         div.className = "elemento";
         div.innerHTML = `\n 
-        <p class="nombre"><strong class="numeroProd">${(carritoCompra.filter((el) => el.id == element.id)).length}</strong>${element.nombre}</p>
-        <p class="precio">precio $${precioTotalMasIVA(element).toFixed(2)}</p> \n`;
+            <p class="nombre"><strong class="numeroProd">${(carritoCompra.filter((el) => el.id == element.id)).length}</strong>${element.nombre}</p>
+            <p class="precio">precio $${precioTotalMasIVA(element).toFixed(2)}</p> \n`;
 
         const botonBorrar = document.createElement('a');
         botonBorrar.className = "delete";
         botonBorrar.innerHTML = `\n <ion-icon name="trash-outline"></ion-icon> \n`;
 
         //elimina 1 elemento del car
-        botonBorrar.addEventListener('click',() => {
+        botonBorrar.addEventListener('click', () => {
             let index = carritoCompra.indexOf(element); //trae el indice del elemento en el car
-            carritoCompra.splice(index,1); // elimina un elemento del carrito
+            carritoCompra.splice(index, 1); // elimina un elemento del carrito
             ventanaCarrito.querySelector(`#funk${element.id}`).remove();
-            localStorage.setItem('carritoStorage',JSON.stringify(carritoCompra));
+            localStorage.setItem('carritoStorage', JSON.stringify(carritoCompra));
             renderVentanaCarr();
 
             //cada vez añado o elimino elemento devo rendear la cantidad
@@ -639,6 +640,31 @@ const renderElementoCarrito = () => {
 
         div.append(botonBorrar);
         ventanaCarrito.append(div);
+
+
+        if (element.stock === 0 ) {
+            // renderVentanaCarr();
+            producto = document.querySelector(`#destacado${element.id}`);
+            botonCar = document.querySelector(`#aniadeElement${element.id}`)
+            existeAgotado = document.querySelector(`#agotado${element.id}`)
+            // console.log(producto);
+            // console.log(botonCar)
+
+            console.log("stock agotado")
+            //alert("producto agotado") 
+            
+
+            if(!document.querySelector(`#agotado${element.id}`)){
+                const agotado = document.createElement('div');
+                agotado.id = `agotado${element.id}`;
+                agotado.className = "agotado";
+                producto.append(agotado);
+
+                botonCar.classList.remove('añadirCar');
+                botonCar.classList.add('agotado');
+            }
+
+        }
 
     });
 }
@@ -724,55 +750,13 @@ window.addEventListener('load',e =>{
 })
 vaciarCarrito();
 
-
-// const carritoSinDuplicados = carritoCompra.reduce((acum, valorActual) => {
-//     const elementExistente = acum.find(element => element.id == valorActual.id);
-//     if (elementExistente) {
-//         return acum.map((element) => {
-//             if(element.id == valorActual.id){
-//                 console.log("---- carrito sin duplas  ----")
-
-//                 console.log(element)
-//                 // return {
-//                 //     ...element, 
-//                 //     precio: element.precio + valorActual.precio
-//                 // }
-//             }
-//             return element;
-//         });
-//     }
-//     return [...acum, valorActual];
-// },[]);
-
-
 console.log("---- vuelvo a cargar el carrito si x las dudas  ----")
 const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
     if (carritoLStorage != null) {
         carritoCompra = carritoLStorage;
         renderVentanaCarr();
     }
-console.log(carritoCompra)
+console.log(carritoCompra);
 
-// let duplas = []
+//Buscar funko
 
-// const carritoSinDuplicados = carritoCompra.reduce((acum, valorActual) => {
-//     const elementExistente = acum.find(element => element.id == valorActual.id);
-//     if (elementExistente) {
-//         return acum.map((element) => {
-//             if(element.id == valorActual.id){
-//                 duplas.push(element);
-//                 console.log("duplas")
-//                 return {
-//                     ...element, 
-//                     precio: element.precio + valorActual.precio
-//                 }
-//             }
-//             return element;
-//         });
-//     }
-//     return [...acum, valorActual];
-// },[]);
-
-// console.log("---- carrito sin duplas  ----")
-// console.log(carritoSinDuplicados)
-// console.log(duplas)
