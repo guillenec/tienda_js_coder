@@ -626,10 +626,14 @@ const renderElementoCarrito = () => {
 
         //elimina 1 elemento del car
         botonBorrar.addEventListener('click', () => {
-            const index = carritoCompra.indexOf(element); //trae el indice del elemento en el car
+            // const index = carritoSinDuplicados.indexOf(element); //trae el indice del elemento en el car
+
+            const index2 = carritoCompra.findIndex( (el) => el.id == element.id );
             console.log("------ in -----")
-            console.log(index)
-            carritoCompra.splice(index,1); // elimina un elemento del carrito
+            console.log(index2)
+
+            carritoCompra.splice(index2,1); // elimina un elemento del carrito
+            // carritoSinDuplicados.splice(index,1)
             ventanaCarrito.querySelector(`#funk${element.id}`).remove();
             localStorage.setItem('carritoStorage', JSON.stringify(carritoCompra));
             renderVentanaCarr();
