@@ -73,6 +73,7 @@
             @include caja_flex(column, wrap, center, space-around, center);
             transition:.7s ease-in-out;
             overflow: hidden;
+            z-index: 1;
 
             .producto_imagen{
                 width: 100%;
@@ -220,23 +221,24 @@
                 }
             }
 
-            .agotado{
+            div.agotado{
                 position: absolute;
+                top: 0;
                 width: 100%;
-                height: 100%;
+                height: 30%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
 
                 &::before{
                     position: absolute;
-                    width: 190%;
+                    width: 120%;
                     height: 40%;
 
-                    background: rgba( 233, 74, 74, 0.75 );
+                    background: rgba( 255, 99, 71, 0.9 );
                     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-                    backdrop-filter: blur( 3.5px );
-                    -webkit-backdrop-filter: blur( 3.5px );
+                    backdrop-filter: blur( 0px );
+                    -webkit-backdrop-filter: blur( 0px );
                     border-radius: 10px;
                     border: 1px solid rgba( 255, 255, 255, 0.18 );
 
@@ -245,7 +247,7 @@
                     color: $color_titulo5;
                     font-size: 2rem;
                     z-index: 1;
-                    transform: rotate(315deg);
+                    transform: rotate(340deg);
                     display: flex;
                     justify-content: center;
                     align-items: center;

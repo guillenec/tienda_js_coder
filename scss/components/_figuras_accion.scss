@@ -99,9 +99,47 @@
                         background: $color_titulo4;
                         color: $color_titulo1;;
                     }
+                    &.agotado{
+                        color: $color_titulo4;
+                        background: $color_titulo6;
+
+                    }
                 }
             }
-            
+
+            div.agotado{
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 30%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &::before{
+                    position: absolute;
+                    width: 120%;
+                    height: 40%;
+
+                    background: rgba( 255, 99, 71, 0.9 );
+                    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                    backdrop-filter: blur( 0px );
+                    -webkit-backdrop-filter: blur( 0px );
+                    border-radius: 10px;
+                    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+                    content: "agotado";
+                    font-weight: bold;
+                    color: $color_titulo5;
+                    font-size: 2rem;
+                    z-index: 1;
+                    transform: rotate(340deg);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-transform: capitalize;
+                }
+            }
             &:hover{
                 .botones_func{
                     top: 1px;

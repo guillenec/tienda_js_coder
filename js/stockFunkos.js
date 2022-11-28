@@ -626,8 +626,10 @@ const renderElementoCarrito = () => {
 
         //elimina 1 elemento del car
         botonBorrar.addEventListener('click', () => {
-            let index = carritoCompra.indexOf(element); //trae el indice del elemento en el car
-            carritoCompra.splice(index, 1); // elimina un elemento del carrito
+            const index = carritoCompra.indexOf(element); //trae el indice del elemento en el car
+            console.log("------ in -----")
+            console.log(index)
+            carritoCompra.splice(index,1); // elimina un elemento del carrito
             ventanaCarrito.querySelector(`#funk${element.id}`).remove();
             localStorage.setItem('carritoStorage', JSON.stringify(carritoCompra));
             renderVentanaCarr();
@@ -644,24 +646,36 @@ const renderElementoCarrito = () => {
 
         if (element.stock === 0 ) {
             // renderVentanaCarr();
-            producto = document.querySelector(`#destacado${element.id}`);
+            productoDest = document.querySelector(`#destacado${element.id}`);
             botonCar = document.querySelector(`#aniadeElement${element.id}`)
             existeAgotado = document.querySelector(`#agotado${element.id}`)
             // console.log(producto);
             // console.log(botonCar)
+            productoFig = document.querySelector(`#figura${element.id}`);
+
 
             console.log("stock agotado")
             //alert("producto agotado") 
             
 
             if(!document.querySelector(`#agotado${element.id}`)){
+
                 const agotado = document.createElement('div');
                 agotado.id = `agotado${element.id}`;
                 agotado.className = "agotado";
-                producto.append(agotado);
+                // productoDest.append(agotado);
 
-                botonCar.classList.remove('añadirCar');
-                botonCar.classList.add('agotado');
+                if (element.tipo == 'destacados') {
+                    productoDest.append(agotado);
+                    botonCar.classList.remove('añadirCar');
+                    botonCar.classList.add('agotado');
+
+                }else if(element.tipo == 'figura'){
+                    productoFig.append(agotado);
+                    botonCar.classList.remove('añadirCar');
+                    botonCar.classList.add('agotado');
+                }
+                
             }
 
         }

@@ -526,7 +526,7 @@ header, main, footer {
       align-content: center;
       justify-content: flex-end;
       align-items: center;
-      border: solid thin tomato;
+      border: solid thin #ff6347;
       border-radius: 10px; }
       .categorias .cont_categorias .targeta_simple img {
         width: 100%;
@@ -722,7 +722,8 @@ header, main, footer {
       justify-content: space-around;
       align-items: center;
       transition: .7s ease-in-out;
-      overflow: hidden; }
+      overflow: hidden;
+      z-index: 1; }
       .destacados .cont_destacados .tarjeta .producto_imagen {
         width: 100%;
         height: 70%;
@@ -819,21 +820,22 @@ header, main, footer {
         .destacados .cont_destacados .tarjeta .textos_tarjeta h3 {
           font-size: 1rem;
           color: #FF7C5F; }
-      .destacados .cont_destacados .tarjeta .agotado {
+      .destacados .cont_destacados .tarjeta div.agotado {
         position: absolute;
+        top: 0;
         width: 100%;
-        height: 100%;
+        height: 30%;
         display: flex;
         justify-content: center;
         align-items: center; }
-        .destacados .cont_destacados .tarjeta .agotado::before {
+        .destacados .cont_destacados .tarjeta div.agotado::before {
           position: absolute;
-          width: 190%;
+          width: 120%;
           height: 40%;
-          background: rgba(233, 74, 74, 0.75);
+          background: rgba(255, 99, 71, 0.9);
           box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-          backdrop-filter: blur(3.5px);
-          -webkit-backdrop-filter: blur(3.5px);
+          backdrop-filter: blur(0px);
+          -webkit-backdrop-filter: blur(0px);
           border-radius: 10px;
           border: 1px solid rgba(255, 255, 255, 0.18);
           content: "agotado";
@@ -841,7 +843,7 @@ header, main, footer {
           color: #fff;
           font-size: 2rem;
           z-index: 1;
-          transform: rotate(315deg);
+          transform: rotate(340deg);
           display: flex;
           justify-content: center;
           align-items: center;
@@ -987,6 +989,37 @@ header, main, footer {
           .figuras_accion .cont_figuras .tarjeta_fig .botones_func a:hover {
             background: #FFDE62;
             color: #3F3F3F; }
+          .figuras_accion .cont_figuras .tarjeta_fig .botones_func a.agotado {
+            color: #FFDE62;
+            background: #e94a4a; }
+      .figuras_accion .cont_figuras .tarjeta_fig div.agotado {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .figuras_accion .cont_figuras .tarjeta_fig div.agotado::before {
+          position: absolute;
+          width: 120%;
+          height: 40%;
+          background: rgba(255, 99, 71, 0.9);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          backdrop-filter: blur(0px);
+          -webkit-backdrop-filter: blur(0px);
+          border-radius: 10px;
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          content: "agotado";
+          font-weight: bold;
+          color: #fff;
+          font-size: 2rem;
+          z-index: 1;
+          transform: rotate(340deg);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: capitalize; }
       .figuras_accion .cont_figuras .tarjeta_fig:hover .botones_func {
         top: 1px;
         transition: .7s; }
