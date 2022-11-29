@@ -1,7 +1,7 @@
 
 
 //generalizo lo basico
-header,main, footer{
+.header, .main, .footer{
     position: relative;
     top: 0;
     @include ancho_general;
