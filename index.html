@@ -53,6 +53,8 @@
     <script defer src="./js/swipper.js"></script>
     <!--Para el toggle nav -->
     <script defer src="./js/toggle.js"></script>
+    <script defer src="./js/faq.js"></script>
+
     <title>funkoshop | Inicio</title>
 </head>
 <body>
@@ -179,8 +181,84 @@
                 </a>
             </div>
         </section>
-        <section class="f_main"></section>
-        <section class="f_footer"></section>
+        <section class="f_main">
+            <section class="f_main_left">
+                <form action="" method="">
+                    <h2>Consultas</h2>
+                    <div class="content_inp"> 
+                        <input class="text_inp" type="text" name="nombre" id="mail" placeholder="Nombre">
+                        <label class="label" for="nombre">nombre</label>
+                    </div>
+                    <div class="content_inp">
+                        <input class="text_inp" type="email" name="email" id="mail" placeholder="@Mail">
+                        <label class="label" for="email">@mail</label>
+                    </div>
+                    <div class="content_inp">
+                    <textarea class="text_inp" name="consulta" id="consulta" placeholder="Consultanos"></textarea>
+                        <label class="label" for="consulta">consulta</label>
+                    </div>    
+                    <input class="enviar_form" type="submit" value="enviar">
+                </form>
+            </section>
+            <section class="f_main_right">
+                <div class="mapa">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1263.458996149996!2d-71.30957451952561!3d-41.13389604197415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x961a7b907b50d90b%3A0xfa53d8e07bd9784c!2sArea21%20BRC!5e0!3m2!1ses-419!2sar!4v1669789025549!5m2!1ses-419!2sar" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </section>
+        </section>
+        <section class="f_main_bottom">
+            <div class="caja_f_b">
+                <section class="cont_faq">
+                    <div class="icon">
+                        <a href="">
+                            <ion-icon name="shield-checkmark-outline"></ion-icon>
+                        </a>
+                    </div>
+                    <div class="textos">
+                        <h2><a href="">pagos 100% seguros</a></h2>
+                        <p>Envio de datos encriptados a travez de certificacion SSL.</p>
+                    </div>
+                </section>
+                <section class="cont_faq">
+                    <div class="icon">
+                        <a href="">
+                            <ion-icon name="wallet-outline"></ion-icon>
+                        </a>
+                    </div>
+                    <div class="textos">
+                        <h2><a href="">metodos de pagos</a></h2>
+                        <p>Aceptamos Mercadoo pago, PayPal, Tarjetas y Transferencias.</p>
+                    </div>
+                </section>
+                <section class="cont_faq">
+                    <div class="icon">
+                        <a href="">
+                            <ion-icon name="rocket-outline"></ion-icon>
+                        </a>
+                    </div>
+                    <div class="textos">
+                        <h2><a href="">entregas rapidas</a></h2>
+                        <p>entregas en 24hs en la mayoria de los articulos.</p>
+                    </div>
+                </section>
+                <section class="cont_faq">
+                    <div class="icon">
+                        <a href="">
+                            <ion-icon name="send-outline"></ion-icon>
+                        </a>
+                    </div>
+                    <div class="textos">
+                        <h2><a href="">envios gratis</a></h2>
+                        <p>gratis a partir de los $5000. o estando suscripto.</p>
+                    </div>
+                </section>
+            </div>
+        </section>
+        <section class="f_footer">
+            <section class="footer_bot">
+                <p>&#169; 2022, Todos los derechos reservados <strongg>funkoshop</strongg>
+            </section>
+        </section>
     </footer>
     <!-- iconos -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
