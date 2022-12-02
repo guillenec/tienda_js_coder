@@ -323,10 +323,31 @@ const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
         aniadeCar.addEventListener('click', e => {
             if (aniadeCar.classList.contains('agotado')){
                 e.preventDefault();
+                Toastify({
+                    text: "producto agotado!!!",
+                    gravity: "bottom",
+                    position: "right",
+                    duration: 3000,
+                    style: {
+                        background: "#e94a4a",
+                        color:`#fff`,
+                    }
+                }).showToast();
+
                 console.log('se agoto todo');   
                 
             }else{
                 e.preventDefault();
+                Toastify({
+                    text: "añadido al carrito",
+                    gravity: "bottom",
+                    position: "right",
+                    duration: 3000,
+                    style: {
+                        background: "#ff6347",
+                        color:`#fff`,
+                    }
+                }).showToast();
                 agregaElementAlCarrito(element);
             }
             
@@ -397,7 +418,6 @@ const renderElementoCarrito = () => {
         console.log("--------- duplas ---------")
         console.log(element.stock);
 
-
         const div = document.createElement('div');
         div.id = `funk${element.id}`;
         div.className = "elemento";
@@ -442,11 +462,9 @@ const renderElementoCarrito = () => {
             // console.log(botonCar)
             productoFig = document.querySelector(`#figura${element.id}`);
 
-
             console.log("stock agotado")
             //alert("producto agotado") 
             
-
             if(!document.querySelector(`#agotado${element.id}`)){
 
                 const agotado = document.createElement('div');
@@ -524,6 +542,21 @@ const abreCierraVentanaCar = () => {
 }
 abreCierraVentanaCar();
 
+let carritoFinal = [];
+const compraFinal = () => {
+    localStorage.setItem('carritoFinal', JSON.stringify(carritoCompra)); //para no perder los datos que compro
+    carritoCompra.length = 0;
+    setCarritoStorage();
+    ventanaCarrito.innerHTML = '';
+    contadorProductos.innerHTML = 0;
+    precioCarrito.innerHTML = 0;
+    renderVentanaCarr();
+    carritoFinal = JSON.parse(localStorage.getItem('carritoFinal')); //X si necesito despues seguir trabajando con lo que compro, se sobre escribira pero esta bien, ya que soloquiero que compre una vez.
+    console.log(carritoFinal)
+    window.location.reload()
+
+}
+
 const vaciarCarrito = () => {
     const botonVaciarCar = document.querySelector('.vacia .vaciarCar');
     botonVaciarCar.addEventListener('click', e => {
@@ -539,6 +572,8 @@ const vaciarCarrito = () => {
         // renderPrecioTotalCarrito();
         // renderCantidad();
         // setCarritoStorage()
+        window.location.reload()
+
     });
 }
 vaciarCarrito();
@@ -558,7 +593,8 @@ const compraRealizada = () => {
                 background:'#FFDE62',
                 color:'#ff6347',
                 timer: 1500
-            }) 
+            }) && compraFinal()
+
         :   Swal.fire({
                 position:'top-end',
                 icon: 'error',
