@@ -153,628 +153,71 @@ arregloJuguetes.push(new funko(60,"tornado","funko coleccion rick and morty, pic
 /* +--- OTRA FORMA DE HACER LO MISMO ---+ */
 // id | nombre | descripcion | precio | descuento | genero | tipo | imagenA | imagenB | imagenC
 
-// let StockFunkos = [
-//     {id:1, nombre:"michael myers", descripcion:"funko pop de la serie de peliculas Halloween, del género slasher. Aparece por primera vez en Halloween (1978).", precio:200, descuento:10, genero:"movies", tipo:"banner", imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/halloween/hallowen_xsqe9a.png", imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102400/imgs/haloween/funkos/halloween/hallowen2_xhsuts.png", imagenC:""},
-//     {id:2,nombre:"chucky",descripcion:"funko de la pelicula chuky el muñeco malvado. Es un muñeco Good Guy que fue poseído por medio de magia vudú por el asesino en serie Charles Lee Ray",precio:1550, descuento:10, genero:"movies",tipo:"banner",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/halloween/chuki123_mh4o3b.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102328/imgs/haloween/funkos/halloween/chuki1111_kiwwds.png",imagenC:""},
-
-//     {id:3,nombre:"sam",descripcion:"funko de la pelicula Trick 'r Treat criatura demoniaca parecida a una calabaza que actua como ejecutor de las reglas y tradiciones de Hallowen.", precio:1200, descuento:10,genero:"movies",tipo:"banner",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/trick_r_treat_uv2gny.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102303/imgs/haloween/funkos/halloween/trick_r_treat2_pg1j8x.png",imagenC:""},
-//     {id:4,nombre:"yamcha y puar",descripcion:"funko dragon ball z yamcha y puar coleccion.", precio:1530, descuento:10, genero:"anime",tipo:"categoria",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102390/imgs/haloween/funkos/dbz/yamcha2_ghsnru.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102427/imgs/haloween/funkos/dbz/yamcha3_i8rjfz.png",imagenC:""},
-//     {id:5,nombre:"homer muumuu",descripcion:"funko de la coleccion simpsons, homero gordo esa mancha no se quita",precio:1021, descuento:0, genero:"tv y series",tipo:"categoria",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1668210035/imgs/haloween/funkos/futurama/homero_gordo1_fgykwd.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107301/imgs/haloween/funkos/futurama/homero_gordo2_nuixxt.png",imagenC:""},
-    
-    
-//     {id:6,nombre:"john wick",descripcion:"funko coleccionable, john wick + perro.", precio:1010, descuento:0, genero:"movies",tipo:"categoria",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102369/imgs/haloween/funkos/pelis/jon_week3_axwmnn.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102405/imgs/haloween/funkos/pelis/jon_week_n4kpmi.png",imagenC:""},
-//     {id:7,nombre:"pennywise",descripcion:"funko pop de lapelicula it funko generico",precio:1220, descuento:11, genero:"movies",tipo:"destacados",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102295/imgs/haloween/funkos/halloween/it2222_mc4bmq.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102340/imgs/haloween/funkos/halloween/it3_xdclx3.png",imagenC:""},
-//     {id:8,nombre:"t-8000",descripcion:"funko de la pelicula terminator, terminator abuelo t-8000",precio:1150, descuento:0, genero:"movies",tipo:"destacados",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/pelis/terminator1_uwdmzk.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102385/imgs/haloween/funkos/pelis/terminator4_t8viae.png",imagenC:""},
-//     {id:9,nombre:"charizard",descripcion:"funko coleccion pokemon, pokemon inicial. serie rojo.",precio:1200, descuento:0, genero:"anime",tipo:"destacados",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/pokemon/charizard_wodreh.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1668456314/imgs/haloween/funkos/pokemon/charizard0_n5svia.png",imagenC:""},
-
-//     {id:10,nombre:"daemon targaryen",descripcion:"funko coleccion house of dragons, game of throne.",precio:1500, descuento:25, genero:"tv y serie",tipo:"destacados",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112418/imgs/haloween/funkos/houseOfDragons/daemon_targaryen2_ynzag1.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102376/imgs/haloween/funkos/houseOfDragons/daemon_targaryen_ktydpy.png",imagenC:""},
-//     {id:11,nombre:"otto",descripcion:"funko de la coleccion simpsons, otto escuchandomusica",precio:1300, descuento:15, genero:"tv y series",tipo:"destacados",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/otto_sixm1m.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107309/imgs/haloween/funkos/futurama/otto3_qs2obj.png",imagenC:""},
-//     {id:12,nombre:"duffman",descripcion:"funko de la coleccion simpsons, hombre duff, barry.",precio:1300, descuento:8, genero:"tv y serie",tipo:"destacados",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110729/imgs/haloween/funkos/futurama/duffman3_u7e3i5.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1668456636/imgs/haloween/funkos/futurama/duffman0_ghsthp.png",imagenC:""},
-    
-//     {id:13,nombre:"thresh",descripcion:"figura de accion articulada de la coleccion league of legends, campeones league of legends",precio:1550, descuento:5, genero:"games",tipo:"figura",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102344/imgs/haloween/funkos/league/tresh1_lmbstr.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102367/imgs/haloween/funkos/league/tresh2_sqcvu7.png",imagenC:""},
-//     {id:14,nombre:"yasuo",descripcion:"figura de accion articulada de la coleccion league of legends, campeones league of legends",precio:1550, descuento:5, genero:"games",tipo:"figura",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102334/imgs/haloween/funkos/league/yasuo1_wwewgv.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/league/yasuo2_ko8dma.png",imagenC:"" },
-//     {id:15,nombre:"zed",descripcion:"figura de accion articulada de la coleccion league of legends, campeones league of legends",precio:1500, descuento:5, genero:"games",tipo:"figura",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102322/imgs/haloween/funkos/league/zed1_tnzdjt.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102362/imgs/haloween/funkos/league/zed2_sbz4ly.png",imagenC:""},
-//     {id:16,nombre:"ashe",descripcion:"figura de accion articulada de la coleccion league of legends, campeones league of legends",precio:1550, descuento:5, genero:"games",tipo:"figura",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102339/imgs/haloween/funkos/league/ashe1_muh6cy.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102357/imgs/haloween/funkos/league/ashe2_alshkk.png",imagenC:""},
-//     {id:17,nombre:"wukong",descripcion:"figura de accion articulada de la coleccion league of legends, campeones league of legends",precio:1400, descuento:5, genero:"games",tipo:"figura",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102290/imgs/haloween/funkos/league/wukong1_wq0zmd.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102351/imgs/haloween/funkos/league/wukong2_gaknnf.png",imagenC:""},
-//     {id:18,nombre:"darius",descripcion:"figura de accion articulada de la coleccion league of legends, campeones league of legends",precio:1500, descuento:5, genero:"games",tipo:"figura",imagenA:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102413/imgs/haloween/funkos/league/darius1_f7unlq.png",imagenB:"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102329/imgs/haloween/funkos/league/darius2_btafqi.png",imagenC:""},
-//     ]
-
-//#endregion  arreglo de objetos pero en formato JSON
-
-//#region /* ---- Funciones para calcular Precio real ---- */
-let iva = 0.04;
-
-//Para recorrido con foreach
-const descuentoReal = (element) => {
-    return Number(element.descuento) * 0.01;
-}
-const precioConDescuento = (element) => {
-    return (Number(element.precio) - Number(element.precio) * descuentoReal(element));
-}
-
-const precioTotalMasIVA = (element) => {
-    return Number(precioConDescuento(element) + precioConDescuento(element) * iva);
-}
-
-const describe_tipos2 = (element) => {
-    if (element.genero == "movies") {
-        return "En esta seccion enconraras funkos relacionados con peliculas, ya sean de terror, siencia ficcion, y demas."
-    } else if (element.genero == "tv y series") {
-        return "Funkos relacionados con animaciones y series de tv... Los simpsons, futurama, series como mandalorian o game of throne."
-    } else if (element.genero == "anime") {
-        return "Anime , y cultura japonesa , asia y oriente... mangas y manwhas. Como pokemon, Dragon Ball, Naruto, shinigamis, Pakas, etc."
-    }
-}
-/* ---- fin calculo precio real ---- */
-//#endregion /* ---- Calculo Precio real ---- */
-
-//#region /* Funcion Depurador*/
-const depura = (texto) =>{
-    let dep = "\n---- Depurador => "
-    console.log(`${dep} ${texto} ---- \n`)
-}
-//#endregion
-
-let precio;
-let descuento;
-const calculaPrecioFinal = (element) =>{
-    //Nose si es lo mejor pero creamos un modal por cada elemento
-    (precioConDescuento(element) > 0) ? (precio = precioTotalMasIVA(element).toFixed(2), descuento=`${element.descuento}`) : (precio = precioTotalMasIVA(element).toFixed(2), descuento=`${element.descuento}`);
-}
-
-//Genera un nombre de clase HTML: rigt = par, left = inpar
-const claseLeftRight = (valor) => {
-    return ((valor % 2) == 0 ) ? "left" : "right"; 
-}
-
-const generaElementModal = (element, contenedor) =>{
-    const seccionMod = document.createElement('section');
-    seccionMod.className = "modalContainer";
-    seccionMod.id= `contModal${element.id}`;
-
-    const modal = document.createElement('section');
-    modal.className = `modal close ${element.id}`;
-    modal.id= `modal${element.id}`;
-
-    calculaPrecioFinal(element);
-
-    modal.innerHTML = `\n
-        <div class="superior">
-            <div class="izq">
-                <img src="${element.imagenB}" alt="${element.descripcion}">
-            </div>
-            <div class="der">
-                <h1>${element.nombre}</h1>
-                <h2>$${precio}</h2>
-                <p>descuento de %${descuento} + iva de %4.</p>
-                <p>3 cuotas sin interes de $${(precioTotalMasIVA(element) / 3).toFixed(2)} con: </p>
-                <img class="pagos" src="https://imgmp.mlstatic.com/org-img/banners/ar/medios/online/468X60.jpg" title="Mercado Pago - Medios de pago" alt="Mercado Pago - Medios de pago"/>
-                <p><strong>${element.descripcion}</strong></p>
-                <form action="" id="compra_fun">
-                    <div class="form_top">
-                        <label for="cantidad"> cantidad</label>
-                        <input class="cantidad" type="number" name="cantidad" id="cantidad">
-                    </div>
-                    <div class="form_mid">
-                        <input class="aniadeCarrito" type="submit" value="añadir carrito">
-                        <a href="#compra_fun" class="gustar"><ion-icon name="heart-outline"></ion-icon></a>
-                        <a href="#compra_fun" class="rotar"><ion-icon name="sync-outline"></ion-icon></a>
-                    </div>
-                    <span id="hay_producto">
-                        <ion-icon name="checkmark-outline"></ion-icon>&nbsp;En Stock
-                    </span>
-                </form>
-            </div>
-        </div>
-        <div class="inferior">
-            <div class="redes" id="redes">
-                <a href="#redes"><ion-icon name="logo-whatsapp"></ion-icon></a>
-                <a href="#redes"><ion-icon name="logo-instagram"></ion-icon></a>
-                <a href="#redes"><ion-icon name="logo-facebook"></ion-icon></a>
-                <a href="#redes"><ion-icon name="mail-outline"></ion-icon></a>
-            </div>
-            <div class="palabras_clave" id="palClav">
-                <a href="palClav">${element.nombre}</a>
-                <a href="palClav">${element.genero}</a>
-                <a href="palClav">${element.tipo}</a>
-                <a href="palClav">${element.clave1}</a>
-                <a href="palClav">${element.clave2}</a>
-                <a href="palClav">${element.clave3}</a>
-            </div>
-        </div> \n`;
-
-    const cierraModal = document.createElement('a');
-    cierraModal.className = "cerrar";
-    cierraModal.id= `cierra${element.id}`;
-    cierraModal.innerHTML = `\n <ion-icon name="close-outline"></ion-icon> \n`;
-
-    modal.append(cierraModal);
-    seccionMod.append(modal);
-    contenedor.append(seccionMod);
-
-    return [seccionMod,modal,cierraModal]
-}
-
-const generaElementBanner = (element,contenedor) =>{
-    const seccion = document.createElement('section');
-        seccion.className = "art_princial swiper-slide";
-        seccion.id= `banner${element.id}`;
-        seccion.innerHTML = `\n
-            <div class="caja left">
-                <img src="${element.imagenA}" alt="${element.descripcion}">
-            </div>
-            <div class="caja right">
-                <h2 class="titulo">#${element.id} ${element.nombre}</h2>
-                <h3 class="precio">$${element.precio}</h3>
-                <p class="textos">${element.descripcion}</p>
-                <a href="" id="reservar${element.id}">reservalo</a>
-                <span class="descuento">${element.descuento}%</span>
-            </div> \n`;
-
-    contenedor.append(seccion);
-
-    let reservar = document.querySelector(`#reservar${element.id}`);
-    reservar.addEventListener('click', e => {
-        e.preventDefault();
-        agregaElementAlCarrito(element);
-    })   
-}
-
-const generaElementCategoria = (element,contador,contenedor) =>{
-    const seccion = document.createElement('section');
-        seccion.className = `targeta_simple ${claseLeftRight(contador)}`;
-        console.log(claseLeftRight(contador));
-        seccion.id= `"categoria${element.id}"`;
-        seccion.innerHTML = `\n
-            <img src="${element.imagenA}" alt="${element.descripcion}">
-            <div class="textos_target"> 
-                <a class="title_targ">${element.genero}</a>
-                <p>${describe_tipos2(element)}</p>
-            </div>   
-        \n`;
-    
-    contenedor.append(seccion);
-} 
-
-const generaElementDestacado = (element,contador,contenedor) =>{
-    const seccion = document.createElement('section');
-        seccion.className = `tarjeta tarjeta${contador} ${claseLeftRight(contador)}`;
-        seccion.id= `destacado${element.id}`;
-        
-    const div = document.createElement('div');
-        div.className = "producto_imagen";
-        div.innerHTML = `\n
-            <section class="cont_img">
-                <img class="imgPrimaria" src="${element.imagenB}" alt="${element.descripcion}">
-                <img class="imgSecundaria" src="${element.imagenA}" alt="${element.descripcion}">
-            </section>\n`;
-
-        seccion.innerHTML =`\n
-            <div class="textos_tarjeta">
-                <h2><a href="#">#${element.id} ${element.nombre}</a></h2>
-                <h3>$${precioTotalMasIVA(element).toFixed(2)}&nbsp;$</h3>
-                <span class"identificador"></span>
-            </div> \n`;
-    
-    const constarrayRet = generaElementModal(element, contenedor);
-    // console.log(constarrayRet)
-    contenedorBotones(element, div, seccion, constarrayRet);
-    seccion.append(div);
-    contenedor.append(seccion);
-}
-
-const generaElementFigura = (element, contador, contenedor) => {
-    const seccion = document.createElement('section');
-        seccion.className = `tarjeta_fig fig${contador}`;
-        seccion.id= `figura${element.id}`;
-
-        seccion.innerHTML = `\n
-            <div class="textos_fig">
-                <h2>${element.nombre}</h2>
-                <h3>$${precioTotalMasIVA(element)}</h3>
-            </div>
-            <div class="contImg">
-                <img src="${element.imagenA}" alt="${element.descripcion}">
-            </div> \n`;
-            
-    const elementModal = generaElementModal(element, contenedor);
-        contenedorBotones(element,seccion, seccion, elementModal);
-    contenedor.append(seccion);
-}
-
-//recoremos el array y buscamos que exista el elemento con stock y me lo guarde en un nuevo arreglo.
-let productosEnStock = [];
-let productosAgotados = [];
-const verificaElSrock = (array) =>{
-    array.forEach(element => {
-        if (element.stock != 0) {
-            productosEnStock.push(element); 
-        }else{
-            productosAgotados.push(element); 
-        }
-    });
-}
-
-//filtra productos por tipo y si hay stock del mismo
-const fitraProductosStock = (array,filtro) =>{
-    return array.filter((el) => el.tipo.includes(`${filtro}`) && el.stock > 0);
-}
-//filtra productos terminados
-const fitraProductosTerminados = (array) =>{
-    return array.filter((el) => el.stock <= 0);
-}
-
-//Productos ya filtrados con stock
-const productosBanner = fitraProductosStock(arregloJuguetes,"banner");
-const productosCategoria = fitraProductosStock(arregloJuguetes,"categoria");
-const productosDestacados = fitraProductosStock(arregloJuguetes,"destacados");
-const productosFiguras = fitraProductosStock(arregloJuguetes,"figura");
-const productosGenerales = fitraProductosStock(arregloJuguetes,"general");
-//Productos ya filtrados sin stock
-const productosTerminados = fitraProductosTerminados(arregloJuguetes);
-
-depura("---- PROD BANNERS ---------")
-console.log(productosBanner)
-console.log(productosCategoria)
-console.log(productosDestacados)
-console.log(productosFiguras)
-console.log(productosGenerales)
-console.log(productosTerminados)
-
-// Cargamos la seccion correspondiente con su respectivo elemento ( a la seccion banner enviamos los elementos baner, a categoria los elemento categoris...)
-const algo = () =>{
-    let i = 0;
-    array.forEach(element => {
-        i++;
-        if(i<=6){
-            generaElementDestacado = (element,i++, claseLeftRight(i++))
-        }
-    });
-}
-
-//accedo a contenedores donde guardaremos la estructura correspondiente
-const contenedorBanner = document.querySelector('.swiper-wrapper');
-const contenedorCategoria = document.querySelector('#top_prod')
-const contenedorDestacado = document.querySelector('#destacados')
-const contenedorFiguras = document.querySelector('.cont_figuras')
-
-//#region //cargan el contenedor con los elementos correspondientes
-const cargaEstructuraBanner = (array) => {
-    array.forEach(element => {
-        generaElementBanner(element,contenedorBanner);
-    });
-}
-
-const cargaEstructuraCategoria = (array) => {
-    let i = 0;
-    if (i<=3) {
-        array.forEach(element => {
-            generaElementCategoria(element,i,contenedorCategoria);
-            i++;
-        });
-    }
-}
-
-const cargaEstructuraDestacado = (array) => {
-    let i = 0;
-    array.forEach(element => {
-        if (i<=6) {
-            generaElementDestacado(element,i,contenedorDestacado);
-            i++;
-        }
-    });
-}
-
-const cargaEstructuraFigura = (array) => {
-    let i = 0
-    array.forEach(element => {
-        if (i<=6) {
-            generaElementFigura(element, i++,contenedorFiguras);
-        }
-    });
-}
-//#endregion
-
-//Genera botonera + sus eventos rotar, modal y sumar al carrito y cerrar modal
-const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
-    //Creamos La Botonera
-    const botonera = document.createElement('div');
-    botonera.className = "botones_func";
-    botonera.id = `${element.id}`;
-
-    const rotar =  document.createElement('a');
-        rotar.className = "rotar"
-        rotar.title= "rotar";
-        rotar.href= "#";
-        rotar.data=`${element.id}`;
-        rotar.innerHTML = `\n <ion-icon name="sync-outline"></ion-icon> \n`;
-
-    const zoom =  document.createElement('a');
-        zoom.className = "zoom"
-        zoom.title= "modal";
-        zoom.href= "#";
-        zoom.data=`${element.id}`;
-        zoom.innerHTML = `\n <ion-icon name="search-outline"></ion-icon> \n`;
-
-    const aniadeCar = document.createElement('a');
-        aniadeCar.className = "añadirCar";
-        aniadeCar.id = `aniadeElement${element.id}`;
-        aniadeCar.title= "carrito";
-        aniadeCar.href= "#";
-        aniadeCar.data=`${element.id}`;
-        aniadeCar.innerHTML = `\n <ion-icon name="cart"></ion-icon> \n`;
-
-        rotar.addEventListener('click', e => {
-            e.preventDefault();
-            rotarCaja.classList.toggle('rotar');
-        })
-    
-        // console.log(arrayModal[0])
-        // console.log(arrayModal[1])
-
-        // let contenedorModal = document.querySelector(`#contModal${element.id}`);
-        // console.log(contenedorModal);
-        // let modal = document.querySelector(`#modal${element.id}`);
-        zoom.addEventListener('click', e => {
-            e.preventDefault();
-            arrayModal[0].classList.add('ocultar');
-            arrayModal[1].classList.toggle('close');
-        })
-
-        arrayModal[2].addEventListener('click', e => {
-            arrayModal[1].classList.toggle('close');
-
-            setTimeout(function () { //pasados 7 seg se ejecuta 
-                arrayModal[0].classList.remove('ocultar')
-        }, 500);
-        })
-        aniadeCar.addEventListener('click', e => {
-            if (aniadeCar.classList.contains('agotado')){
-                e.preventDefault();
-                console.log('se agoto todo');   
-                
-            }else{
-                e.preventDefault();
-                agregaElementAlCarrito(element);
-            }
-            
-        })
-
-    //appens    
-    botonera.append(rotar);
-    botonera.append(zoom);
-    botonera.append(aniadeCar);
-    cajaBotonera.append(botonera);
-} 
-
-//Render pagina principal
-const renderSeccionesPage = () => {
-    cargaEstructuraBanner(productosBanner);
-    cargaEstructuraCategoria(productosCategoria);
-    cargaEstructuraDestacado(productosDestacados);
-    cargaEstructuraFigura(productosFiguras);
-}
-
-renderSeccionesPage();
-
-//#region  //render de todos los elementos de la ventana carrito
-let carritoCompra = []; //carrito principal
-const agregaElementAlCarrito = (elemento) =>{
-    //carritoCompra.push(elemento);//añade al final
-    carritoCompra.unshift(elemento);//añade al inicio
-    console.log(carritoCompra)
-
-    
-    console.log("---------------")
-    // duplas.push(duplas)
-    // console.log("+++++ ++++++")
-    // console.log(duplas2)
-    //Devo actualizar toda la ventana carrito
-    renderVentanaCarr();
-    // renderPrecioTotalCarrito();
-    // renderCantidad();
-    // setCarritoStorage()
-    
-}
-
-//#region //Accedo a las partes de ventana emergente CarritoReal
-let contenedorPrincipalCar = document.querySelector('.carritoReal');
-let ventanaCarrito = document.querySelector('.carritoReal .aniadido');
-let contadorProductos = document.querySelector('.contiene_icons_car .contador');
-let precioCarrito = document.querySelector('.carritoReal .total');
-
-let abrirCarrito = document.querySelector('.carrito .abrirCar');
-let carritoClose = document.querySelector('.carritoReal .close');
-//#endregion
-
-const renderElementoCarrito = () => {
-    ventanaCarrito.innerHTML = ''; 
-    //nuevo arreglo sin duplicados y con la suma del precio echas
-    const carritoSinDuplicados = carritoCompra.reduce((acum, valorActual) => {
-        const elementExistente = acum.find(element => element.id == valorActual.id);
-        if (elementExistente) {
-            return acum.map((element) => {
-                if(element.id == valorActual.id){
-                    return {
-                        ...element, 
-                        precio: element.precio + valorActual.precio,
-                        stock: element.stock - 1
-                    }
-                }
-                return element;
-            });
-        }
-        return [...acum, valorActual];
-    },[]);
-    //carrito sin duplas
-
-    carritoSinDuplicados.forEach(element => {
-        console.log("--------- duplas ---------")
-        console.log(element.stock);
-
-
-        const div = document.createElement('div');
-        div.id = `funk${element.id}`;
-        div.className = "elemento";
-        div.innerHTML = `\n 
-            <p class="nombre"><strong class="numeroProd">${(carritoCompra.filter((el) => el.id == element.id)).length}</strong>${element.nombre}</p>
-            <p class="precio">precio $${precioTotalMasIVA(element).toFixed(2)}</p> \n`;
-
-        const botonBorrar = document.createElement('a');
-        botonBorrar.className = "delete";
-        botonBorrar.innerHTML = `\n <ion-icon name="trash-outline"></ion-icon> \n`;
-
-        //elimina 1 elemento del car
-        botonBorrar.addEventListener('click', () => {
-            // const index = carritoSinDuplicados.indexOf(element); //trae el indice del elemento en el car
-
-            const index2 = carritoCompra.findIndex( (el) => el.id == element.id );
-            console.log("------ in -----")
-            console.log(index2)
-
-            carritoCompra.splice(index2,1); // elimina un elemento del carrito
-            // carritoSinDuplicados.splice(index,1)
-            ventanaCarrito.querySelector(`#funk${element.id}`).remove();
-            localStorage.setItem('carritoStorage', JSON.stringify(carritoCompra));
-            renderVentanaCarr();
-
-            //cada vez añado o elimino elemento devo rendear la cantidad
-            // renderPrecioTotalCarrito();
-            // renderCantidad();
-            // setCarritoStorage();
-        });
-
-        div.append(botonBorrar);
-        ventanaCarrito.append(div);
-
-
-        if (element.stock === 0 ) {
-            // renderVentanaCarr();
-            productoDest = document.querySelector(`#destacado${element.id}`);
-            botonCar = document.querySelector(`#aniadeElement${element.id}`)
-            existeAgotado = document.querySelector(`#agotado${element.id}`)
-            // console.log(producto);
-            // console.log(botonCar)
-            productoFig = document.querySelector(`#figura${element.id}`);
-
-
-            console.log("stock agotado")
-            //alert("producto agotado") 
-            
-
-            if(!document.querySelector(`#agotado${element.id}`)){
-
-                const agotado = document.createElement('div');
-                agotado.id = `agotado${element.id}`;
-                agotado.className = "agotado";
-                // productoDest.append(agotado);
-
-                if (element.tipo == 'destacados') {
-                    productoDest.append(agotado);
-                    botonCar.classList.remove('añadirCar');
-                    botonCar.classList.add('agotado');
-
-                }else if(element.tipo == 'figura'){
-                    productoFig.append(agotado);
-                    botonCar.classList.remove('añadirCar');
-                    botonCar.classList.add('agotado');
-                }
-                
-            }
-
-        }
-
-    });
-}
-
-//Al hacer render de la ventana, debe actalizar todo, 1) el elemento, 2)la cantidad, 3) el precio total y 4)Storage
-
-const renderCantidad = () => {
-    contadorProductos.innerHTML = carritoCompra.length;
-}
-
-const renderPrecioTotalCarrito = () => {
-    precioCarrito.innerHTML =  `${(carritoCompra.reduce((acum, producto) => acum += precioTotalMasIVA(producto), 0)).toFixed(2)}`;
-}
-
-const setCarritoStorage = () => {
-    localStorage.setItem('carritoStorage', JSON.stringify(carritoCompra));
-    //const productos = JSON.parse(localStorage.getItem('carritoStorage'));
-}
+// console.log("probbando arr")
+// console.log(JSON.stringify(arregloJuguetes))
+
+
+// let StockFunkosJSON = [
+//     {"id":1,"nombre":"michael myers","descripcion":"funko pop de la serie de peliculas Halloween, del género slasher. Aparece por primera vez en Halloween (1978). ","stock":5,"precio":200,"descuento":10,"genero":"movies","tipo":"banner","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/halloween/hallowen_xsqe9a.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102400/imgs/haloween/funkos/halloween/hallowen2_xhsuts.png","imagenC":"","imagenD":"","clave1":"halloween","clave2":"terror","clave3":"cine"},
+//     {"id":2,"nombre":"chucky","descripcion":"funko de la pelicula chuky el muñeco malvado. Es un muñeco Good Guy que fue poseído por medio de magia vudú por el asesino en serie Charles Lee Ray","stock":6,"precio":1550,"descuento":10,"genero":"movies","tipo":"banner","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/halloween/chuki123_mh4o3b.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102328/imgs/haloween/funkos/halloween/chuki1111_kiwwds.png","imagenC":"","imagenD":"","clave1":"el muñeco maldito","clave2":"terror","clave3":"cine"},
+//     {"id":3,"nombre":"sam","descripcion":"funko de la pelicula Trick 'r Treat criatura demoniaca parecida a una calabaza que actua como ejecutor de las reglas y tradiciones de Hallowen.","stock":3,"precio":1200,"descuento":10,"genero":"movies","tipo":"banner","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/trick_r_treat_uv2gny.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102303/imgs/haloween/funkos/halloween/trick_r_treat2_pg1j8x.png","imagenC":"","imagenD":"Trick 'r Treat","clave1":"cine","clave2":"terror"},
+//     {"id":4,"nombre":"yamcha y puar","descripcion":"funko dragon ball z yamcha y puar coleccion.","stock":6,"precio":1530,"descuento":10,"genero":"anime","tipo":"categoria","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102390/imgs/haloween/funkos/dbz/yamcha2_ghsnru.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102427/imgs/haloween/funkos/dbz/yamcha3_i8rjfz.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102425/imgs/haloween/funkos/dbz/yamcha_asu5lu.png","imagenD":"","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":5,"nombre":"homer muumuu","descripcion":"funko de la coleccion simpsons, homero gordo esa mancha no se quita","stock":9,"precio":1021,"descuento":0,"genero":"tv y series","tipo":"categoria","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1668210035/imgs/haloween/funkos/futurama/homero_gordo1_fgykwd.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107301/imgs/haloween/funkos/futurama/homero_gordo2_nuixxt.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107300/imgs/haloween/funkos/futurama/homero_gordo3_yen6jt.png","imagenD":"","clave1":"los simpsons","clave2":"animacion","clave3":"serie tv"},
+//     {"id":6,"nombre":"john wick","descripcion":"funko coleccionable, john wick + perro.","stock":10,"precio":1010,"descuento":0,"genero":"movies","tipo":"categoria","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102369/imgs/haloween/funkos/pelis/jon_week3_axwmnn.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102405/imgs/haloween/funkos/pelis/jon_week_n4kpmi.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102398/imgs/haloween/funkos/pelis/jon_week2_fdi085.png","imagenD":"","clave1":"John Wick","clave2":"accion","clave3":"cine"},
+//     {"id":7,"nombre":"pennywise","descripcion":"funko pop de lapelicula it funko generico","stock":3,"precio":1220,"descuento":0,"genero":"movies","tipo":"destacados","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102295/imgs/haloween/funkos/halloween/it2222_mc4bmq.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102340/imgs/haloween/funkos/halloween/it3_xdclx3.png","imagenC":"","imagenD":"","clave1":"it","clave2":"cine","clave3":"terror"},
+//     {"id":8,"nombre":"t-8000","descripcion":"funko de la pelicula terminator, terminator abuelo t-8000","stock":6,"precio":1150,"descuento":20,"genero":"movies","tipo":"destacados","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/pelis/terminator1_uwdmzk.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102385/imgs/haloween/funkos/pelis/terminator4_t8viae.png","imagenC":"","imagenD":"","clave1":"terminator","clave2":"accion","clave3":"cine"},
+//     {"id":9,"nombre":"charizard","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"destacados","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/pokemon/charizard_wodreh.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1668456314/imgs/haloween/funkos/pokemon/charizard0_n5svia.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102410/imgs/haloween/funkos/pokemon/charizard2_mxjcgr.png","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":10,"nombre":"daemon targaryen","descripcion":"funko coleccion house of dragons, game of throne.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"destacados","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112418/imgs/haloween/funkos/houseOfDragons/daemon_targaryen2_ynzag1.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102376/imgs/haloween/funkos/houseOfDragons/daemon_targaryen_ktydpy.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112419/imgs/haloween/funkos/houseOfDragons/daemon_targaryen3_lmzalo.png","imagenD":"","clave1":"house of the dragon","clave2":"fantasia","clave3":"serie tv"},
+//     {"id":11,"nombre":"otto","descripcion":"funko de la coleccion simpsons, otto escuchandomusica","stock":8,"precio":1300,"descuento":5,"genero":"tv y series","tipo":"destacados","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/otto_sixm1m.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107309/imgs/haloween/funkos/futurama/otto3_qs2obj.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107309/imgs/haloween/funkos/futurama/otto2_ii1k0u.png","imagenD":"","clave1":"los simpsons","clave2":"animacion","clave3":"serie tv"},
+//     {"id":12,"nombre":"duffman","descripcion":"funko de la coleccion simpsons, hombre duff, barry.","stock":9,"precio":1300,"descuento":0,"genero":"tv y serie","tipo":"destacados","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110729/imgs/haloween/funkos/futurama/duffman3_u7e3i5.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1668456636/imgs/haloween/funkos/futurama/duffman0_ghsthp.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667110730/imgs/haloween/funkos/futurama/duffman_j4rand.png","imagenD":"","clave1":"los simpsons","clave2":"animacion","clave3":"serie tv"},
+//     {"id":13,"nombre":"thresh","descripcion":"figura de accion articulada de la coleccion league of legends, campeones league of legends","stock":5,"precio":1550,"descuento":5,"genero":"games","tipo":"figura","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102344/imgs/haloween/funkos/league/tresh1_lmbstr.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102367/imgs/haloween/funkos/league/tresh2_sqcvu7.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102414/imgs/haloween/funkos/league/tresh3_v4etom.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102356/imgs/haloween/funkos/league/tresh4_w9oh33.png","clave1":"league of legends","clave2":"riot games","clave3":"video juego"},
+//     {"id":14,"nombre":"yasuo","descripcion":"figura de accion articulada de la coleccion league of legends, campeones league of legends","stock":2,"precio":1550,"descuento":5,"genero":"games","tipo":"figura","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102334/imgs/haloween/funkos/league/yasuo1_wwewgv.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/league/yasuo2_ko8dma.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102296/imgs/haloween/funkos/league/yasuo4_u3vcht.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102281/imgs/haloween/funkos/league/yasuo3_vrgved.png","clave1":"league of legends","clave2":"riot games","clave3":"video juego"},
+//     {"id":15,"nombre":"zed","descripcion":"figura de accion articulada de la coleccion league of legends, campeones league of legends","stock":0,"precio":1500,"descuento":5,"genero":"games","tipo":"figura","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102322/imgs/haloween/funkos/league/zed1_tnzdjt.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102362/imgs/haloween/funkos/league/zed2_sbz4ly.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102395/imgs/haloween/funkos/league/zed3_zitil9.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102421/imgs/haloween/funkos/league/zed4_zjdptl.png","clave1":"league of legends","clave2":"riot games","clave3":"video juego"},
+//     {"id":16,"nombre":"ashe","descripcion":"figura de accion articulada de la coleccion league of legends, campeones league of legends","stock":0,"precio":1550,"descuento":5,"genero":"games","tipo":"figura","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102339/imgs/haloween/funkos/league/ashe1_muh6cy.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102357/imgs/haloween/funkos/league/ashe2_alshkk.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102421/imgs/haloween/funkos/league/ashe3_brqc2n.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102328/imgs/haloween/funkos/league/ashe4_lyejo3.png","clave1":"league of legends","clave2":"riot games","clave3":"video juego"},
+//     {"id":17,"nombre":"wukong","descripcion":"figura de accion articulada de la coleccion league of legends, campeones league of legends","stock":4,"precio":1400,"descuento":5,"genero":"games","tipo":"figura","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102290/imgs/haloween/funkos/league/wukong1_wq0zmd.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102351/imgs/haloween/funkos/league/wukong2_gaknnf.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102282/imgs/haloween/funkos/league/wukong3_uyeiac.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102319/imgs/haloween/funkos/league/wukong4_j7ikic.png","clave1":"league of legends","clave2":"riot games","clave3":"video juego"},
+//     {"id":18,"nombre":"darius","descripcion":"figura de accion articulada de la coleccion league of legends, campeones league of legends","stock":4,"precio":1500,"descuento":5,"genero":"games","tipo":"figura","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102413/imgs/haloween/funkos/league/darius1_f7unlq.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102329/imgs/haloween/funkos/league/darius2_btafqi.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102389/imgs/haloween/funkos/league/darius3_ljlyte.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102292/imgs/haloween/funkos/league/darius4_vnyazz.png","clave1":"league of legends","clave2":"riot games","clave3":"video juego"},
+//     {"id":19,"nombre":"jinx","descripcion":"figura de accion articulada de la coleccion league of legends, campeones league of legends","stock":4,"precio":1500,"descuento":5,"genero":"games","tipo":"figura","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102418/imgs/haloween/funkos/league/jinx1_yqmuzg.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102331/imgs/haloween/funkos/league/jinx2_xddwvd.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102380/imgs/haloween/funkos/league/jinx3_pkgifj.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102405/imgs/haloween/funkos/league/jinx4_xvlzmr.png","clave1":"league of legends","clave2":"riot games","clave3":"video juego"},
+//     {"id":20,"nombre":"piltober coleccion","descripcion":"figura de accion articulada de la coleccion league of legends, campeones league of legends","stock":7,"precio":7000,"descuento":25,"genero":"games","tipo":"figura","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102363/imgs/haloween/funkos/league/pack_league_sdy03e.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102372/imgs/haloween/funkos/league/pack_league1_zr380s.png","imagenC":"","imagenD":"","clave1":"league of legends","clave2":"riot games","clave3":"video juego"},
+//     {"id":21,"nombre":"vegeta ss2","descripcion":"funko dragon ball z vegueta supe sayan 2 coleccion.","stock":6,"precio":1700,"descuento":10,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102372/imgs/haloween/funkos/dbz/vegueta_ssj2_1_fmjez9.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102422/imgs/haloween/funkos/dbz/vegueta_ssj2_3_ai8w73.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102384/imgs/haloween/funkos/dbz/vegueta_ssj2_2_mc6xsn.png","imagenD":"","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":22,"nombre":"principe vegueta","descripcion":"funko dragon ball z vegueta principe coleccion.","stock":10,"precio":1750,"descuento":10,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102366/imgs/haloween/funkos/dbz/principe_vegueta2_u1teuy.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102413/imgs/haloween/funkos/dbz/principe_vegueta3_xruv8f.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102325/imgs/haloween/funkos/dbz/principe_vegueta_xypxkc.png","imagenD":"","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":23,"nombre":"magin vegueta","descripcion":"funko dragon ball z vegueta maginbo coleccion.","stock":5,"precio":1750,"descuento":5,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102383/imgs/haloween/funkos/dbz/vegueta_maginbu_fxxtsl.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102366/imgs/haloween/funkos/dbz/vegueta_maginbu3_q6dcj7.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102296/imgs/haloween/funkos/dbz/vegueta_maginbu2_u8upds.png","imagenD":"","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":24,"nombre":"maestro roshi","descripcion":"funko dragon ball z master roshi coleccion.","stock":5,"precio":1750,"descuento":5,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102328/imgs/haloween/funkos/dbz/roshi2_xs7nzl.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669161447/imgs/haloween/funkos/dbz/roshi3_rt7ekg.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/dbz/roshi_kannff.png","imagenD":"","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":25,"nombre":"whis","descripcion":"funko dragon ball z wish coleccion.","stock":5,"precio":1750,"descuento":5,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102329/imgs/haloween/funkos/dbz/wiss_gipo2o.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102366/imgs/haloween/funkos/dbz/wiss3_mm5ob9.png","imagenC":"","imagenD":"","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":26,"nombre":"kami","descripcion":"funko dragon ball z kami coleccion.","stock":5,"precio":1750,"descuento":5,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102391/imgs/haloween/funkos/dbz/kamisama_esryrm.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102321/imgs/haloween/funkos/dbz/kamisama2_qkqa7n.png","imagenC":"","imagenD":"","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":27,"nombre":"goku ssj","descripcion":"funko dragon ball goku super sayan coleccion.","stock":5,"precio":1750,"descuento":5,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102395/imgs/haloween/funkos/dbz/goku_ssj1_1_b0a9qp.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102313/imgs/haloween/funkos/dbz/goku_ssj1_4_dkk9sx.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102325/imgs/haloween/funkos/dbz/goku_ssj1_3_mj7rjw.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102294/imgs/haloween/funkos/dbz/goku_ssj1_2_v7tqnq.png","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":28,"nombre":"goku angel","descripcion":"funko dragon ball z goku angel ramen coleccion.","stock":5,"precio":1750,"descuento":5,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102391/imgs/haloween/funkos/dbz/goku_angel_arw4o9.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102306/imgs/haloween/funkos/dbz/goku_angel3_fgoxkj.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102309/imgs/haloween/funkos/dbz/goku_angel2_sf6eo6.png","imagenD":"","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":29,"nombre":"goku black","descripcion":"funko dragon ball z goku black ramen coleccion.","stock":5,"precio":1750,"descuento":5,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102281/imgs/haloween/funkos/dbz/black_goku_splp8u.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102310/imgs/haloween/funkos/dbz/black_goku3_ajhhst.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102312/imgs/haloween/funkos/dbz/black_goku2_stwrwr.png","imagenD":"","clave1":"dragon ball","clave2":"animacion","clave3":"serie tv"},
+//     {"id":30,"nombre":"zoidberg","descripcion":"funko de la coleccion futurama, doctor zoidberg.","stock":9,"precio":1300,"descuento":0,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102280/imgs/haloween/funkos/futurama/soisber1_odpaet.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102353/imgs/haloween/funkos/futurama/soisber2_orizg4.png","imagenC":"","imagenD":"","clave1":"futurama","clave2":"animacion","clave3":"serie tv"},
+//     {"id":31,"nombre":"roberto devil","descripcion":"funko de la coleccion futurama, roberto robot devil.","stock":9,"precio":1300,"descuento":0,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/futurama/roberto1_osc7ei.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102279/imgs/haloween/funkos/futurama/roberto2_mf93ow.png","imagenC":"","imagenD":"","clave1":"futurama","clave2":"animacion","clave3":"serie tv"},
+//     {"id":32,"nombre":"profesor farnsworth","descripcion":"funko de la coleccion futurama, profesor farnsworth sobrinito.","stock":9,"precio":1300,"descuento":0,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102280/imgs/haloween/funkos/futurama/profesor2_ybznx1.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102280/imgs/haloween/funkos/futurama/profesor1_i3sx82.png","imagenC":"","imagenD":"","clave1":"futurama","clave2":"animacion","clave3":"serie tv"},
+//     {"id":33,"nombre":"mr.burns feliz","descripcion":"funko de la coleccion los simpsons glowing mr.burns.","stock":9,"precio":1300,"descuento":0,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107303/imgs/haloween/funkos/futurama/mr_berns_feliz_yszwkk.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/mr_berns_feliz5_y0yafx.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/mr_berns_feliz4_bmzcq7.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/mr_berns_feliz3_bqzxpj.png","clave1":"los simpsons","clave2":"animacion","clave3":"serie tv"},
+//     {"id":34,"nombre":"homer in edges","descripcion":"funko de la coleccion los simpsons, homer in edges.","stock":9,"precio":1300,"descuento":0,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107302/imgs/haloween/funkos/futurama/homero_escondido_ojhn98.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107306/imgs/haloween/funkos/futurama/homero_escondido2_ic4gqs.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667107307/imgs/haloween/funkos/futurama/homero_escondido3_x6lbfl.png","imagenD":"","clave1":"los simpsons","clave2":"animacion","clave3":"serie tv"},
+//     {"id":35,"nombre":"fry","descripcion":"funko de la coleccion futurama, fry.","stock":9,"precio":1300,"descuento":0,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102359/imgs/haloween/funkos/futurama/frai1_ngdkhj.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102365/imgs/haloween/funkos/futurama/frai2_jwabzn.png","imagenC":"","imagenD":"","clave1":"futurama","clave2":"animacion","clave3":"serie tv"},
+//     {"id":36,"nombre":"bender","descripcion":"funko de la coleccion futurama, Bender rofriguez oro..","stock":9,"precio":1300,"descuento":0,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102371/imgs/haloween/funkos/futurama/bender2_wkdcc6.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102282/imgs/haloween/funkos/futurama/bender1_kkcpni.png","imagenC":"","imagenD":"","clave1":"futurama","clave2":"animacion","clave3":"serie tv"},
+//     {"id":37,"nombre":"pacemaker","descripcion":"funko coleccion serie pacemaker, pacemarker en boxers.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114290/imgs/haloween/funkos/pelis/peacemaker_boxer_sbdcrc.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114290/imgs/haloween/funkos/pelis/peacemaker_boxer2_csejem.png","imagenC":"","imagenD":"","clave1":"pacemaker","clave2":"accion","clave3":"dc comics"},
+//     {"id":38,"nombre":"pacemaker","descripcion":"funko coleccion serie pacemaker, pacemarker.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114290/imgs/haloween/funkos/pelis/peacemaker_qgcb6n.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114290/imgs/haloween/funkos/pelis/peacemaker2_i5qphc.png","imagenC":"","imagenD":"","clave1":"pacemaker","clave2":"accion","clave3":"dc comics"},
+//     {"id":39,"nombre":"vigilante","descripcion":"funko coleccion serie pacemaker.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114290/imgs/haloween/funkos/pelis/vigilante_hehwr4.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667114290/imgs/haloween/funkos/pelis/vigilante2_drcip7.png","imagenC":"","imagenD":"","clave1":"pacemaker","clave2":"accion","clave3":"dc comics"},
+//     {"id":40,"nombre":"mando","descripcion":"funko coleccion serie mandalorian, mando, jetpack.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667104983/imgs/haloween/funkos/pelis/mandalorian_loxs0n.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667104982/imgs/haloween/funkos/pelis/mandalorian_smlwmc.jpg","imagenC":"","imagenD":"","clave1":"mandalorian","clave2":"accion","clave3":"star wars"},
+//     {"id":40,"nombre":"rhaenyra targaryen","descripcion":"funko coleccion house of dragons, game of throne.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112420/imgs/haloween/funkos/houseOfDragons/rhaenyra_targaryen2_nyp6k5.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112421/imgs/haloween/funkos/houseOfDragons/rhaenyra_targaryen3_ofl7jk.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102375/imgs/haloween/funkos/houseOfDragons/rhaenyra_targaryen_azckwi.png","imagenD":"","clave1":"house of the dragon","clave2":"fantasia","clave3":"serie tv"},
+//     {"id":41,"nombre":"alicent hightower","descripcion":"funko coleccion house of dragons, game of throne.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112418/imgs/haloween/funkos/houseOfDragons/alicent_Hightower3_goqhsa.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102377/imgs/haloween/funkos/houseOfDragons/alicent_Hightower_vqpknd.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112421/imgs/haloween/funkos/houseOfDragons/alicent_Hightower2_bg0uvq.png","imagenD":"","clave1":"house of the dragon","clave2":"fantasia","clave3":"serie tv"},
+//     {"id":42,"nombre":"viserys targaryen","descripcion":"funko coleccion house of dragons, game of throne.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112418/imgs/haloween/funkos/houseOfDragons/rey_viserys_targaryen2_bnruhf.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102377/imgs/haloween/funkos/houseOfDragons/rey_viserys_targaryen_w8pe7z.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112420/imgs/haloween/funkos/houseOfDragons/rey_viserys_targaryen3_ffdcnl.png","imagenD":"","clave1":"house of the dragon","clave2":"fantasia","clave3":"serie tv"},
+//     {"id":43,"nombre":"corlys velaryon","descripcion":"funko coleccion house of dragons, game of throne.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112421/imgs/haloween/funkos/houseOfDragons/serpiente_marina2_y5lfhu.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102377/imgs/haloween/funkos/houseOfDragons/serpiente_marina_fozw6t.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112422/imgs/haloween/funkos/houseOfDragons/serpiente_marina3_ixoqav.png","imagenD":"","clave1":"house of the dragon","clave2":"fantasia","clave3":"serie tv"},
+//     {"id":44,"nombre":"syrax","descripcion":"funko coleccion house of dragons, game of throne.","stock":7,"precio":1500,"descuento":10,"genero":"tv y serie","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667111487/imgs/haloween/funkos/houseOfDragons/ViserionFigure2_h4xxjb.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102394/imgs/haloween/funkos/houseOfDragons/ViserionFigure_b6okoe.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667112422/imgs/haloween/funkos/houseOfDragons/ViserionFigure3_a8lvs6.png","imagenD":"","clave1":"house of the dragon","clave2":"fantasia","clave3":"serie tv"},
+//     {"id":45,"nombre":"squirtle","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102368/imgs/haloween/funkos/pokemon/squartle_tzsyp7.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102402/imgs/haloween/funkos/pokemon/squartle2_rbi8kn.png","imagenC":"","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":46,"nombre":"psyduck","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102356/imgs/haloween/funkos/pokemon/saidok_zabh0u.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102388/imgs/haloween/funkos/pokemon/saidok2_gsmqxh.png","imagenC":"","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":47,"nombre":"mewtwo","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102334/imgs/haloween/funkos/pokemon/mew_two2_r0gjql.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102282/imgs/haloween/funkos/pokemon/mew_two_x0fzzq.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102383/imgs/haloween/funkos/pokemon/mew_two3_o3n1mh.png","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":48,"nombre":"mew","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102367/imgs/haloween/funkos/pokemon/mew_grdc5l.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102401/imgs/haloween/funkos/pokemon/mew2_rmuuux.png","imagenC":"","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":49,"nombre":"jolteon","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102364/imgs/haloween/funkos/pokemon/jolteon_ivma8x.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102417/imgs/haloween/funkos/pokemon/jolteon2_des5nl.png","imagenC":"","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":50,"nombre":"flareon","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102366/imgs/haloween/funkos/pokemon/flareon_xly9ir.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102407/imgs/haloween/funkos/pokemon/flareon2_sc0c5r.png","imagenC":"","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":51,"nombre":"eevee","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102359/imgs/haloween/funkos/pokemon/eve_toymxi.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102410/imgs/haloween/funkos/pokemon/eve3_i6gcm4.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102383/imgs/haloween/funkos/pokemon/eve2_t0i9bc.png","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":52,"nombre":"charmander","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102360/imgs/haloween/funkos/pokemon/charmander3_qggiax.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102286/imgs/haloween/funkos/pokemon/charmander2_wcfjnp.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102402/imgs/haloween/funkos/pokemon/charmander_li1qs7.png","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":53,"nombre":"bulbasaur","descripcion":"funko coleccion pokemon, pokemon inicial. serie rojo.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102371/imgs/haloween/funkos/pokemon/bolbazor_xo0yja.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102370/imgs/haloween/funkos/pokemon/bolbasor2_jqfcud.png","imagenC":"","imagenD":"","clave1":"pokemon","clave2":"animacion","clave3":"serie tv"},
+//     {"id":54,"nombre":"jason","descripcion":"funko pop de la serie de peliculas Halloween, jason voornees","stock":0,"precio":200,"descuento":10,"genero":"movies","tipo":"banner","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102371/imgs/haloween/funkos/halloween/jason1_gbtbfh.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1667102426/imgs/haloween/funkos/halloween/jason123_tzrrar.png","imagenC":"","imagenD":"","clave1":"halloween","clave2":"terror","clave3":"cine"},
+//     {"id":55,"nombre":"tornado","descripcion":"funko coleccion one punch man, tornado del infierno.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190215/imgs/haloween/funkos/anime/tornado_sgvolg.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190218/imgs/haloween/funkos/anime/tornado2_vj3dh9.png","imagenC":"","imagenD":"","clave1":"one punch man","clave2":"anime","clave3":"serie tv"},
+//     {"id":56,"nombre":"saitama","descripcion":"funko coleccion one punch man, saitama con traje de super heroe.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190213/imgs/haloween/funkos/anime/saitama_super_eoluul.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190219/imgs/haloween/funkos/anime/saitama_super3_dqnmua.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190217/imgs/haloween/funkos/anime/saitama_super2_cy8dwh.png","imagenD":"","clave1":"one punch man","clave2":"anime","clave3":"serie tv"},
+//     {"id":57,"nombre":"saitama","descripcion":"funko coleccion one punch man, saitama casual, camiseta oppai.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"banner","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190210/imgs/haloween/funkos/anime/saitama1_axklzx.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190214/imgs/haloween/funkos/anime/saitama4_mgp8ej.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190216/imgs/haloween/funkos/anime/saitama2_shyez1.png","imagenD":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190211/imgs/haloween/funkos/anime/saitama3_xwkuf6.png","clave1":"one punch man","clave2":"anime","clave3":"serie tv"},
+//     {"id":59,"nombre":"pickle rick 2","descripcion":"funko coleccion rick and morty pickle rick (wite laser).","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"general","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190209/imgs/haloween/funkos/anime/rick_radio1_mzvt80.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190214/imgs/haloween/funkos/anime/rick_radio3_fkh3x1.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190210/imgs/haloween/funkos/anime/rick_radio2_rsiham.png","imagenD":"","clave1":"rick and morty","clave2":"anime","clave3":"serie tv"},
+//     {"id":60,"nombre":"tornado","descripcion":"funko coleccion rick and morty, pickle rick.","stock":5,"precio":1200,"descuento":15,"genero":"anime","tipo":"banner","imagenA":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190208/imgs/haloween/funkos/anime/rick1_dyobtl.png","imagenB":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190207/imgs/haloween/funkos/anime/rick2_jdsgc5.png","imagenC":"https://res.cloudinary.com/dpiwmbsog/image/upload/v1669190207/imgs/haloween/funkos/anime/rick3_enljhm.png","imagenD":"","clave1":"rick and morty","clave2":"anime","clave3":"serie tv"}
+// ];
 
 //#endregion
-const renderVentanaCarr = () => {
-    renderElementoCarrito();
-    renderPrecioTotalCarrito();
-    renderCantidad();
-    setCarritoStorage()
-}
-
-//Abrir y cerrar la ventana emergente carrito real
-const abreCierraVentanaCar = () => {
-    abrirCarrito.addEventListener('click', e =>{
-        e.preventDefault();
-        if (contenedorPrincipalCar.classList.contains('ocultar')) {
-            contenedorPrincipalCar.classList.remove('ocultar');
-            setTimeout(function () {
-                contenedorPrincipalCar.classList.remove('bloq');
-                contenedorPrincipalCar.classList.add('none');
-            }, 600);
-        } else if (contenedorPrincipalCar.classList.contains('none')) {
-            contenedorPrincipalCar.classList.remove('none');
-            contenedorPrincipalCar.classList.add('bloq');
-            setTimeout(function () {
-                contenedorPrincipalCar.classList.add('ocultar');
-            }, 600);
-        }
-    })
-
-    carritoClose.addEventListener('click',() =>{
-        contenedorPrincipalCar.classList.remove('ocultar');
-        setTimeout(function(){ 
-            contenedorPrincipalCar.classList.remove('bloq');
-            contenedorPrincipalCar.classList.add('none');
-        },700); 
-    })
-}
-abreCierraVentanaCar();
-
-const vaciarCarrito = () => {
-    const botonVaciarCar = document.querySelector('.vacia a');
-    botonVaciarCar.addEventListener('click', e => {
-        e.preventDefault();
-        carritoCompra.length = 0;
-        setCarritoStorage();
-
-        // renderVentanaCarr();
-        ventanaCarrito.innerHTML = '';
-        contadorProductos.innerHTML = 0;
-        precioCarrito.innerHTML = 0;
-        renderVentanaCarr();
-        // renderPrecioTotalCarrito();
-        // renderCantidad();
-        // setCarritoStorage()
-    });
-}
-
-window.addEventListener('load',e =>{
-    const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
-    if (carritoLStorage != null) {
-        carritoCompra = carritoLStorage;
-        renderVentanaCarr();
-    }
-    // renderVentanaCarr();
-    
-})
-vaciarCarrito();
-
-console.log("---- vuelvo a cargar el carrito si x las dudas  ----")
-const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
-    if (carritoLStorage != null) {
-        carritoCompra = carritoLStorage;
-        renderVentanaCarr();
-    }
-console.log(carritoCompra);
-
-//Buscar funko
-

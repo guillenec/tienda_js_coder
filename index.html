@@ -34,26 +34,31 @@
     <meta name=”twitter:creator” content=”@GuilleNec1”>
 
     <link rel="stylesheet" href="./style/style.css">
+    
     <!-- swiper -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
-    <!-- iconos -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- iconos page -->
     <link rel="shortcut icon" href="./img/icono_de_Prueba.png">   
-
-    <!-- <script defer src=""></script> --><!-- es igual que poniendo al final del body -->
-    <!-- script para coderhouse -->
-    <script defer src="./js/stockFunkos.js"></script>
-    <!-- <script defer src="./js/main.js"></script> -->
-    <!-- <script defer src="./js/modalClose.js"></script> -->
-    <script defer src="./js/pruebaStorage.js"></script>
-
-    <!-- Swiper blunde : para deslizamiento izq, der elementos -->
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <!-- necesario para el swiper -->
-    <script defer src="./js/swipper.js"></script>
-    <!--Para el toggle nav -->
+    
+    <!-- sweet alert -->
+    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!--Para el toggle nav -->    
     <script defer src="./js/toggle.js"></script>
+
+    <!-- main -->
+    <script defer src="./js/stockFunkos.js"></script>
+    <script defer src="./js/main.js"></script>
+
+    <!-- libreria js swiper Swiper blunde -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script defer src="./js/swipper.js"></script>
+
+    <!-- Seccion de ayuda, footer -->
+    <script defer src="./js/datos_Ayudas.js"></script>
     <script defer src="./js/faq.js"></script>
+    
+
 
     <title>funkoshop | Inicio</title>
 </head>
@@ -154,7 +159,10 @@
             <div class="aniadido">
             </div>
             <p>precio total $<strong class="total">0</strong></p>
-            <div class="vacia"><a href="">vaciar carrito</a></div>
+            <div class="vacia">
+                <a class="vaciarCar" href="">vaciar carrito</a>
+                <a href="" class="compraCar">compra</a>
+            </div>
             <a class="close"><ion-icon name="close-outline"></ion-icon></a>
         </div>
         <!-- #endregion carrito-->
@@ -208,50 +216,6 @@
         </section>
         <section class="f_main_bottom">
             <div class="caja_f_b">
-                <section class="cont_faq">
-                    <div class="icon">
-                        <a href="">
-                            <ion-icon name="shield-checkmark-outline"></ion-icon>
-                        </a>
-                    </div>
-                    <div class="textos">
-                        <h2><a href="">pagos 100% seguros</a></h2>
-                        <p>Envio de datos encriptados a travez de certificacion SSL.</p>
-                    </div>
-                </section>
-                <section class="cont_faq">
-                    <div class="icon">
-                        <a href="">
-                            <ion-icon name="wallet-outline"></ion-icon>
-                        </a>
-                    </div>
-                    <div class="textos">
-                        <h2><a href="">metodos de pagos</a></h2>
-                        <p>Aceptamos Mercadoo pago, PayPal, Tarjetas y Transferencias.</p>
-                    </div>
-                </section>
-                <section class="cont_faq">
-                    <div class="icon">
-                        <a href="">
-                            <ion-icon name="rocket-outline"></ion-icon>
-                        </a>
-                    </div>
-                    <div class="textos">
-                        <h2><a href="">entregas rapidas</a></h2>
-                        <p>entregas en 24hs en la mayoria de los articulos.</p>
-                    </div>
-                </section>
-                <section class="cont_faq">
-                    <div class="icon">
-                        <a href="">
-                            <ion-icon name="send-outline"></ion-icon>
-                        </a>
-                    </div>
-                    <div class="textos">
-                        <h2><a href="">envios gratis</a></h2>
-                        <p>gratis a partir de los $5000. o estando suscripto.</p>
-                    </div>
-                </section>
             </div>
         </section>
         <section class="f_footer">

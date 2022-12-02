@@ -10,11 +10,3 @@ toggleMen.addEventListener('click', e =>{
 })
 
 
-// window.addEventListener('click', e =>{
-//     //contains : Si el elemento contiene el classe ACTIVE, el método devuelve true. De lo contrario, vuelve false.
-//     if(nav.classList.contains('active') && e.target != nav && e.target != toggle ){
-//         nav.classList.toggle('active');
-//     }
-// }) 
-
-

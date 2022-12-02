@@ -214,16 +214,19 @@
     }
     .vacia{
         position: relative;
+        width: 100%;
         height: 50px;
-        background-color: $color_titulo4;
+        @include caja_flex(row,nowrap,center,space-between,center);
+
 
         a{
             display: block;
+            width: 145px;
             height: 100%;
-            padding: 15px;
             text-decoration: none;
             font-family: $parrafo1;
             text-transform: capitalize;
+            background-color: $color_titulo4;
             color: $color_titulo6;
             text-decoration: none;
             font-size: 1rem;
