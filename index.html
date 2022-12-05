@@ -54,16 +54,18 @@
     <script defer src="./js/stockFunkos.js"></script>
     <script defer src="./js/main.js"></script>
 
+    <!-- Seccion de ayuda, footer -->
+    <script defer src="./js/datos_Ayudas.js"></script>
+    <script defer src="./js/faq.js"></script>
+
+    <script defer src="./js/login.js"></script>
+
     <!-- libreria js swiper Swiper blunde -->
     <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script defer src="./js/swipper.js"></script>
 
-    <!-- Seccion de ayuda, footer -->
-    <script defer src="./js/datos_Ayudas.js"></script>
-    <script defer src="./js/faq.js"></script>
     
-
-
+    
     <title>funkoshop | Inicio</title>
 </head>
 <body>
@@ -94,13 +96,13 @@
                         <a href="#top_prod" class="limk">promos</a>
                     </li>
                     <li class="item">
-                        <a href="#destacados" class="limk">destacado</a>
+                        <a href="#destacados" class="limk">Destacado</a>
                     </li>
                     <li class="item">
-                        <a href="#support" class="limk">Support</a>
+                        <a href="#contacto" class="limk">Support</a>
                     </li>
                     <li class="item">
-                        <a href="#contacto" class="limk">Contacto</a>
+                        <a href="#" class="limk usuario_log">Usuario</a>
                     </li>
                 </ul>
             </div>
@@ -110,6 +112,49 @@
                 <span class="parteToggle"></span>
             </div>
         </nav>
+        <section class="seccionlogin">
+            <section class="form_GEN ingresarUser bloq">
+                <form action="" method="" id="ingresarUs">
+                    <h2>Ingresar</h2>
+                    <div class="content_inp"> 
+                        <input class="text_inp" type="text" name="nombre" id="mail" placeholder="Nombre" required>
+                        <label class="label" for="nombre">nombre</label>
+                    </div>
+                    <div class="content_inp">
+                        <input class="text_inp" type="password" name="pass" id="pass" placeholder="Contraseña" minlength="8" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2, 3}$" required>
+                        <label class="label" for="email">contraseña</label>
+                    </div>
+                    <div class="content_inp">   
+                    <input class="enviar_form" type="submit" value="ingresar">
+                    </div>
+                </form>
+                <a href="" class="registrarme" id="registro_sesion">registrarme</a>
+            </section>
+            <section class="form_GEN registrarUser none">
+                <form action="" method="" id="registroUs" enctype="multipart/form-data">
+                    <h2>Registrarme</h2>
+                    <div class="content_inp"> 
+                        <input class="text_inp" type="text" name="nombre" id="mail" placeholder="Nombre">
+                        <label class="label" for="nombre">nombre</label>
+                    </div>
+                    <div class="content_inp">
+                        <input class="text_inp" type="email" name="email" id="mail" placeholder="@Mail">
+                        <label class="label" for="email">@mail</label>
+                    </div>
+                    <div class="content_inp">
+                        <input class="text_inp" type="password" name="password" id="password" placeholder="Contraseña">
+                        <label class="label" for="password">Password</label>
+                    </div>
+                    <div class="content_inp subirImg">
+                        <input class="text_inp" type="file" accept="image/png,image/jpeg,image/gif" name="file" id="file">
+                        <label class="label" for="file">Img</label>
+                    </div>
+                    <input class="enviar_form" id="registrarme" type="submit" value="registrar">
+                </form>
+                <a href="" class="registrarme" id="login_sesion">inciar sesion</a>
+            </section>
+            <a href="#" class="closeForm" id="cerrarFormlogin"><ion-icon name="close-sharp"></ion-icon></a>
+        </section>
     </header>
     <!-- #endregion -->
     <main class="main">

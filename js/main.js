@@ -139,14 +139,17 @@ const generaElementBanner = (element,contenedor) =>{
 }
 
 const generaElementCategoria = (element,contador,contenedor) =>{
+    //Destructuracion
+    const { id, descripcion, genero, imagenA:img1, imagenB:img2, imagenC:img3 , imagenD:img4} = element;
+
     const seccion = document.createElement('section');
         seccion.className = `targeta_simple ${claseLeftRight(contador)}`;
         console.log(claseLeftRight(contador));
-        seccion.id= `"categoria${element.id}"`;
+        seccion.id= `"categoria${id}"`;
         seccion.innerHTML = `\n
-            <img src="${element.imagenA}" alt="${element.descripcion}">
+            <img src="${img1 || img2 ||img3 ||img4}" alt="${descripcion}">
             <div class="textos_target"> 
-                <a class="title_targ">${element.genero}</a>
+                <a class="title_targ">${genero}</a>
                 <p>${describe_tipos2(element)}</p>
             </div>   
         \n`;
@@ -333,7 +336,6 @@ const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
                         color:`#fff`,
                     }
                 }).showToast();
-
                 console.log('se agoto todo');   
                 
             }else{
@@ -552,8 +554,8 @@ const compraFinal = () => {
     precioCarrito.innerHTML = 0;
     renderVentanaCarr();
     carritoFinal = JSON.parse(localStorage.getItem('carritoFinal')); //X si necesito despues seguir trabajando con lo que compro, se sobre escribira pero esta bien, ya que soloquiero que compre una vez.
-    console.log(carritoFinal)
-    window.location.reload()
+    // console.log(carritoFinal)
+    window.location.reload() //recarga la ventana
 
 }
 
@@ -593,7 +595,7 @@ const compraRealizada = () => {
                 background:'#FFDE62',
                 color:'#ff6347',
                 timer: 1500
-            }) && compraFinal()
+            }) && setTimeout(function () { compraFinal() }, 3000)
 
         :   Swal.fire({
                 position:'top-end',

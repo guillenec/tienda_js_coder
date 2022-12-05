@@ -143,14 +143,24 @@
                             cursor: pointer;
                             transition: .5s;
 
+                            &::before{
+                                content: "";
+                                @include caja_absoluta(0px, 0px, 10px, b);
+                                border-radius: 5px;
+                                transition: .7s;
+                            }
+
                             &:hover{
                                 //background: $hover1;
                                 //color: aliceblue;
+                                transition: .7s;
+
                                 &::before{
                                     content: "";
-                                    @include caja_absoluta(8px, 8px, 5px, b);
+                                    @include caja_absoluta(9px, 9px, 10px, b);
                                     background:$color_titulo2;
-                                    border-radius: 50%;
+                                    border-radius: 5px;
+                                    transform: .7s                       
                                     
                                 }
                             }
@@ -312,6 +322,64 @@
                         }
                     
                 }
+            }
+        }
+        
+    }
+
+    .seccionlogin{
+        position: absolute;
+        background: $color_titulo1;
+        width: 500px;
+        height: 500px;
+        top: 65px;
+        right: 0;
+        padding: 10px;
+        @include caja_flex(row, wrap, flex-start, center, center );
+        overflow: hidden;
+        border-radius: 2px; 
+        z-index: 0;
+        opacity: 0;
+        visibility: hidden; 
+        transition: .7s;
+    
+        @include tablets(){
+            width: 500px;
+    
+        }
+        @include movile(){
+            width: 100%;
+        }
+    
+        &.mostrar{
+            z-index: 1;
+            opacity: 1;
+            visibility: visible; 
+            transform: translate(0, 0);
+            transition: .7s;
+        }
+        &.bloq{
+            display: flex;
+        }
+        &.none{
+            display: none;
+        }
+
+        .closeForm{
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            padding: 6px;
+            color: $color_titulo5;
+            border: solid 3px $color_titulo5;
+            border-radius: 50%;
+            @include align_mid_grid();
+            font-size: 1.3rem;
+            transition: .7s;
+    
+            &:hover{
+                color: $hover1;
+                border: solid 3px $hover1;
             }
         }
         

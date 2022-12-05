@@ -33,3 +33,4 @@ const tarjetasFAQ = [
 
 
 
+// const tarjetasFAQ = []
