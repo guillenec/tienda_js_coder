@@ -1,0 +1,254 @@
+.generales{
+    width: 100%;
+    height: auto;
+    @include margin_principal();
+
+    // scroll-snap-align: start;
+
+
+    @include notebook(){
+        width: 90%;
+    }
+    h2{
+        @include titulosh2(2.2rem);
+    }
+
+    .cont_general{
+        margin-top: 150px;
+        width: 100%;
+        height: auto;
+        @include caja_flex(row, wrap, flex-start, space-evenly, center );
+        gap: 15px;
+
+        @include notebook(){
+
+        }
+        @include movile(){
+
+        }
+        .tarjeta{
+            width: 270px;
+            height: 390px;
+            background: #333;
+            border: solid;
+            border-radius: 30px;
+            padding: 10px;
+            border: 0;
+
+            background: rgba( 63, 63, 63, 0.9 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 0px );
+            -webkit-backdrop-filter: blur( 0px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+            @include caja_flex(column, wrap, center, space-around, center);
+            transition:.7s ease-in-out;
+            overflow: hidden;
+            z-index: 1;
+
+            .producto_imagen{
+                width: 100%;
+                height: 70%;
+                position: relative;
+                overflow: hidden;
+                
+                .cont_img{
+                    display: block;
+                    position: relative;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+                    transition: .7s;
+
+                    .img1{
+                        display: block;
+                        @extend.cont_img;
+                        object-fit: contain;
+                        opacity: 1;
+                        transition:.9s ease-in-out;
+                    }
+                    .img2{
+                        @extend.cont_img;
+                        object-fit: contain;
+                        opacity: 0;
+                        display: none;
+                        transition:.9s ease-in-out;
+                    }
+                }
+
+                .botones_func{
+                    position: absolute;
+                    bottom: 0;
+                    right: -50px;
+                    width: 40px;
+                    height: auto;
+                    border: solid thin #ff6347;
+                    
+                    background: rgba( 255, 255, 255, 0.9 );
+                    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+                    backdrop-filter: blur( 1px );
+
+                    border-radius: 10px;
+                    @include caja_flex(column,wrap,center,center,center);
+                    gap: 5px 0;
+                    overflow: hidden;
+                    //BAckground
+                    
+                    transition: .7s;
+
+
+                    a{
+                        position: relative;
+                        width: 40px;
+                        height: 40px;
+                        text-decoration: none;
+                        @include align_mid_grid();
+                        cursor: pointer;
+                        transition: .7s;
+
+                        ion-icon{
+                            color: tomato;
+                            font-size: 1.4rem;
+                        }
+
+                        &.agotado{
+                            color: $color_titulo4;
+                            background: $color_titulo6;
+    
+                        }
+                    }
+                    
+                }
+                &:hover{
+                    .botones_func{
+                        bottom: 0;
+                        right: 0px;
+                        transition: .7s;
+                        
+                        a.zoom, a.rotar, a.añadirCar{
+                            &:hover {
+                                background: rgba( 255, 99, 71, 0.75 );
+                                box-shadow: 0 8px 32px 0 rgba(255, 222, 98, 0.35);
+                                backdrop-filter: blur( 3px );
+                                -webkit-backdrop-filter: blur( 3px );
+        
+                                ion-icon{
+                                    color: #fff;
+                                    font-size: 1.4rem;
+                                }
+                            }
+                        } 
+                        
+                        a.agotado{
+                            color: $color_titulo4;
+                            background: $color_titulo6;
+                            transition: 0;
+                        
+                            &:hover{
+                                color: $color_titulo4;
+                                background: $color_titulo6;
+                            }
+    
+                        }
+                    }
+                }
+
+                
+            }
+            
+            &.rotar{
+                background: #333;
+
+                .producto_imagen{
+                    .cont_img{
+                        .imgPrimaria{
+                            opacity: 0;
+                            display: none;
+                        }
+                        .imgSecundaria{
+                            display: block;
+                            opacity: 1;
+                        }
+                    }
+                }
+            }
+
+            .textos_tarjeta{
+                width: 100%;
+                height: 30%;
+                text-align: center;
+                overflow: hidden;
+
+                h2{
+                    width: 100%;
+                    font-size: $font_h2;
+                    color: $color_titulo4;
+                    a{
+                        text-decoration: none;
+                        @extend h2;
+                    }
+                }
+                h3{
+                    width: 100%;
+                    font-size:$font_h3;
+                    color: $color_titulo2;
+                }
+            }
+
+            div.agotado{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 30%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &::before{
+                    position: absolute;
+                    width: 120%;
+                    height: 40%;
+
+                    background: rgba( 255, 99, 71, 0.9 );
+                    box-shadow: 0 8px 32px 0 rgba(135, 93, 31, 0.37);
+                    backdrop-filter: blur( 0px );
+                    -webkit-backdrop-filter: blur( 0px );
+                    border-radius: 10px;
+                    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+                    content: "agotado";
+                    font-weight: bold;
+                    color: $color_titulo5;
+                    font-size: 2rem;
+                    z-index: 1;
+                    transform: rotate(340deg);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    text-transform: capitalize;
+                }
+            }
+
+            @include movile(){
+                gap: 10px;
+
+                width: 90%;
+                height: 300px;
+                @include left_right();
+
+                img{
+                    width: 40%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+                .textos_tarjet{
+                    width: 60%;
+                    height: 100%;
+                    @include align_mid_grid();
+                }
+            }
+        }
+
+    }
+}

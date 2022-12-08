@@ -33,13 +33,10 @@
     <meta name=”twitter:site” content=”@GuilleNec1”>
     <meta name=”twitter:creator” content=”@GuilleNec1”>
 
-    <link rel="stylesheet" href="./style/style.css">
-
-    <!-- swiper -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="../style/style.css">
 
     <!-- iconos page -->
-    <link rel="shortcut icon" href="./img/icono_de_Prueba.png">   
+    <link rel="shortcut icon" href="../img/icono_de_Prueba.png">   
     <!-- sweet alert -->
     <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -48,33 +45,30 @@
     <script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 
     <!--Para el toggle nav -->    
-    <script defer src="./js/toggle.js"></script>
-
-    <!-- main -->
-    <script defer src="./js/stockFunkos.js"></script>
-    <script defer src="./js/main.js"></script>
-
-    <!-- Seccion de ayuda, footer -->
-    <script defer src="./js/datos_Ayudas.js"></script>
-    <script defer src="./js/faq.js"></script>
-
-    <script defer src="./js/login.js"></script>
-
-    <!-- libreria js swiper Swiper blunde -->
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script defer src="./js/swipper.js"></script> 
-
-    <!-- <script src="./js/db_productosJSON.js"></script>
-    <script src="./js/main_db.js"></script> -->
+    <script defer src="../js/toggle.js"></script>
     
-    <title>funkoshop | Inicio</title>
+    <!-- main -->
+    <script src="../js/db_productosJSON.js"></script>
+    <script src="../js/funcionesGenericas.js"></script>
+    <script defer src="../js/stockFunkos.js"></script>
+    <script defer src="../js/main.js"></script>
+
+    <script src="../js/main_db.js"></script>
+    
+    <!-- Seccion de ayuda, footer -->
+    <script defer src="../js/datos_Ayudas.js"></script>
+    <script defer src="../js/faq.js"></script>
+
+    <script defer src="../js/login.js"></script>
+
+    <title>funkoshop | Busqueda</title>
 </head>
 <body>
     <!-- #region encabezado-->
     <header class="header" id="header">
         <nav class="nav container">
             <div class="cajaA">
-                <a href="#" class="logo">
+                <a href="../index.html" class="logo">
                     <img src="https://res.cloudinary.com/dpiwmbsog/image/upload/v1667461454/icons/pinguino03_cnrawx.gif" alt="calabaza de hallowen">
                     funkoshop
                 </a>
@@ -92,13 +86,10 @@
             <div class="menu" id="menu_navegacion">
                 <ul class="list">
                     <li class="item">
-                        <a class="active" href="#banner" class="limk">Home</a>
+                        <a  href="../index.html" class="limk">Home</a>
                     </li>
                     <li class="item">
-                        <a href="#top_prod" class="limk">categorias</a>
-                    </li>
-                    <li class="item">
-                        <a href="#destacados" class="limk">Destacado</a>
+                        <a class="active" href="#top_prod" class="limk">categorias</a>
                     </li>
                     <li class="item">
                         <a href="#contacto" class="limk">Support</a>
@@ -183,39 +174,13 @@
     </header>
     <!-- #endregion -->
     <main class="main">
-        <!-- #region banner -->
-        <section class="banner swiper" id="banner">
-            <section class="envoltura_art swiper-wrapper">
-            </section>
-            <!-- Si necesitamos paginación -->
-            <div class="swiper-pagination"></div>
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-
-        </section>
-        <!-- #endregion banner-->
-        <!-- #region seccion categorias -->
-        <section class="categorias">
-            <h2 class="tituloSeccion">Encontraras funkos de</h2>
-            <div class="cont_categorias" id="top_prod">
-            </div>
-        </section>
-        <!-- #endregion seccion categorias -->
         <!-- #region descuentos destacados -->
-        <section class="destacados">
-            <h2 class="tituloSeccion titDest">funkos destacados</h2>
-            <div class="cont_destacados" id="destacados">
+        <section class="generales">
+            <h2 class="tituloSeccion titDest">Todos nuestros productos</h2>
+            <div class="cont_general" id="contenedorGeneral">
             </div>
         </section>
         <!-- #endregion descuentos destacados -->
-        <!-- #region figuras accion -->
-        <section class="figuras_accion">
-            <h2 class="tituloSeccion">figuras destacadas</h2>
-            <div class="cont_figuras">  
-            </div>
-        </section>
-        <!-- #endregion figuras accion -->
         <!-- #region carrito -->
         <div class="carrito">
             <div class="contiene_icons_car">

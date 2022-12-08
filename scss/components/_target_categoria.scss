@@ -15,9 +15,9 @@
     .cont_categorias {
         margin-top: 100px;
         width: 100%;
-        height: 600px;
+        height: 620px;
 
-        background: rgba(255, 222, 98, 0.7);
+        background: $hover1;
         box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
         backdrop-filter: blur(1.5px);
         -webkit-backdrop-filter: blur(1.5px);
@@ -28,7 +28,7 @@
         @include caja_flex(row, wrap, center, space-between, center);
 
         @include notebook(){
-                height: 540px
+            height: 540px
         }
 
         @include tablets() {
@@ -44,7 +44,7 @@
         .targeta_simple {
             position: relative;
             width: 32%;
-            height: 100%;
+            height: calc(100% - 80px);
             @include caja_flex(column, wrap, center, flex-end, center);
             border: solid thin $hover1;
             border-radius: 10px;
@@ -61,18 +61,19 @@
                 gap: 10px 0;
                 @include caja_flex(row, wrap, center, center, center);
 
-                a {
-                    font-family: $titulo1;
+                .title_targ {
                     position: absolute;
                     top: 0;
                     height: 10%;
                     @include align_mid_grid();
                     @include titulosh2(1.8rem);
+                    font-family: $titulo1;
+                    color: $color_titulo5 ;
                     font-weight: 700;
                 }
 
                 p,
-                a {
+                .title_targ {
                     text-align: center;
                     width: 90%;
                     text-decoration: none;
@@ -108,6 +109,35 @@
                 @include left_right();
 
             }
+        }
+        .boton_todos{
+            width: 100%;
+            height: 80px;
+
+            @include caja_flex(row, wrap, center, center, center);
+
+            a{
+                display: block;
+                text-decoration: none;
+                font-family: $parrafo1;
+                background: $color_titulo1;
+                color: $color_titulo5;
+                border: solid 1px $color_titulo1;
+                font-weight: 700;
+                font-size: 1.2rem;
+                border-radius: 2px;
+                padding: 15px 30px;
+                text-transform: capitalize;
+                border-radius: 2px;
+                transition: .7s ease-in-out;
+
+                &:hover{
+                    background: $colorBorde1;
+                    color: $color_titulo4;
+                    border: solid 1px $color_titulo4;
+                }
+            }
+
         }
 
     }

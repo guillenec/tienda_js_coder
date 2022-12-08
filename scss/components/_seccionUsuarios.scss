@@ -1,0 +1,97 @@
+.usuarioID {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    @include caja_flex(column, nowrap, center, flex-start, center );
+    gap: 10px;
+
+    .us_log{
+        width: 100%;
+        height: 80px;
+        background: $color_titulo2;
+        border-radius: 2px;
+        @include caja_flex(row, nowrap, center, flex-start, center );
+        gap: 10px;
+
+        .logoUs{
+            height: 65px;
+            width: 65px;
+            border: solid 2px $hover1;
+            border-radius: 50%;
+            background: $colorBorde1;
+            margin-left: 5px;
+
+            img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+            }
+        }
+        .saludoUsuario{
+            width: calc(100% - 75px);
+
+            .saludo,.us_saludo{
+                font-family: $titulo1;
+                font-weight: 500;
+                color: $color_titulo1;
+            }
+            .puntosUs{
+                font-family: $titulo1;
+                font-weight: 500;
+                color: $color_titulo1;
+                .span_puntosUs{
+                    color:$color_titulo3;
+                }
+            }
+        }   
+    }
+    .us_cuerpo{
+        width: 100%;
+        height: 300px;
+        @include caja_flex(column, nowrap, center, space-evenly, flex-start );
+
+        a{
+            display: block;
+            text-decoration: none;
+            text-transform: capitalize;
+            font-family: $parrafo1;
+            font-weight: 600;
+            color: $color_titulo5;
+            padding-left: 20px;
+            font-size: 1.1rem;
+            @include caja_flex(row, wrap, center, flex-start, center );
+            gap: 10px;
+            transition: .7s;
+            
+            ion-icon{
+                font-size: 1.3rem;
+                color: $color_titulo5;
+                transition: .7s;
+            }
+
+            &:hover{
+                color: $color_titulo4;
+                ion-icon{
+                    color: $color_titulo2;
+                }
+            }
+        }
+    }
+
+
+    opacity: 1;
+    transition: .7s;
+
+    &.bloq{
+        display: flex;
+        opacity: 1;
+        transition: opacity .7s;
+    }
+    &.none{
+        opacity: 0;
+        transition: opacity .7s;
+        display: none;
+    }
+
+}

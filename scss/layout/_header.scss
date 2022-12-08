@@ -178,8 +178,54 @@
             }
 
 
-            img{
+            .li_usuarioActivo{
                 display: none;
+            }
+            &.userActivo{
+                #usuarioLog{
+                    display: none;
+                }
+                .li_usuarioActivo{
+                    position: relative;
+                    left: 0;
+                    @include caja_flex(row, nowrap, center, flex-start, center);
+                    gap: 0 5px;
+                    width: 110px;
+                    overflow: hidden;
+                    white-space: nowrap;
+
+                    @include fuentes($font_h3);
+                    color: $color_titulo1;
+                    text-transform: capitalize;
+                    text-decoration: none;
+                    border: solid 2px transparent;
+                    border-radius: 10px;
+                    padding: 0px;
+                    cursor: pointer;
+                    transition: .5s;
+
+
+
+                    .caja_img{
+                        position: relative;
+                        min-width: 40px;
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 50%;
+                        border: solid 2px $color_titulo2;
+                        overflow: hidden;
+                        background: $color_titulo1;
+                        @include align_mid_grid();
+
+                        .iconUs{     
+                            display: block;                   
+                            width: 98%;
+                            height: 98%;
+                            object-fit: contain;
+                        }
+                    }
+                    
+                }
             }
 
             
@@ -383,5 +429,44 @@
             }
         }
         
+    }
+    
+    .usuarioActivoMenu{
+        position: absolute;
+        background: $color_titulo1;
+        width: 500px;
+        height: 400px;
+        top: 65px;
+        right: 0;
+        padding: 10px;
+        @include caja_flex(row, wrap, flex-start, center, center );
+        overflow: hidden;
+        border-radius: 3px; 
+        z-index: 0;
+        opacity: 0;
+        visibility: hidden; 
+        transition: .7s;
+    
+        @include tablets(){
+            width: 500px;
+    
+        }
+        @include movile(){
+            width: 100%;
+        }
+
+        &.mostrar{
+            z-index: 1;
+            opacity: 1;
+            visibility: visible; 
+            transform: translate(0, 0);
+            transition: .7s;
+        }
+        &.bloq{
+            display: flex;
+        }
+        &.none{
+            display: none;
+        }
     }
 }

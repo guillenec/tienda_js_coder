@@ -1,8 +1,4 @@
 //#region /* Funcion Depurador*/
-const depura = (texto) =>{
-    let dep = "\n---- Depurador => "
-    console.log(`${dep} ${texto} ---- \n`)
-}
 //#endregion
 
 //#region /* ---- Funciones para calcular Precio real de los productos ---- */
@@ -246,6 +242,11 @@ const cargaEstructuraCategoria = (array) => {
             i++;
         });
     }
+    const seccion = document.createElement('section');
+    seccion.className = 'boton_todos';
+    seccion.ib = 'boton todos';
+    seccion.innerHTML = `\n<a href="./pages/busqueda.html">ver todos</a>\n`;
+    contenedorCategoria.append(seccion)
 }
 
 //cargan de datos la estructura de la seccion Destacados
@@ -370,7 +371,14 @@ const renderSeccionesPage = () => {
     cargaEstructuraFigura(productosFiguras);
 }
 
-renderSeccionesPage();
+
+if (contenedorBanner && contenedorCategoria && contenedorDestacado && contenedorFiguras) {
+    renderSeccionesPage();
+    console.log("+++++++++++ SI EXISTEN LOS DATOS +++++++++")
+}else{
+    console.log("---------- NO EXISTEN ESTOS DATOS -------------")
+}
+
 
 //#region  //render de todos los elementos de la ventana carrito
 let carritoCompra = []; //carrito principal
@@ -379,7 +387,7 @@ const agregaElementAlCarrito = (elemento) =>{
     carritoCompra.unshift(elemento);//añade al inicio
     console.log(carritoCompra)
     
-    console.log("---------------")
+    // console.log("---------------")
 
     renderVentanaCarr();
     
@@ -464,6 +472,8 @@ const renderElementoCarrito = () => {
             // console.log(botonCar)
             productoFig = document.querySelector(`#figura${element.id}`);
 
+            productoGeneral = document.querySelector(`#general${element.id}`);
+
             console.log("stock agotado")
             //alert("producto agotado") 
             
@@ -473,7 +483,14 @@ const renderElementoCarrito = () => {
                 agotado.id = `agotado${element.id}`;
                 agotado.className = "agotado";
                 // productoDest.append(agotado);
+                if (productoGeneral) {
+                    productoGeneral.append(agotado);
+                    botonCar.classList.remove('añadirCar');
+                    botonCar.classList.add('agotado');
+                }
+                else if(productoFig && productoDest ){
 
+                }
                 if (element.tipo == 'destacados') {
                     productoDest.append(agotado);
                     botonCar.classList.remove('añadirCar');
@@ -484,6 +501,13 @@ const renderElementoCarrito = () => {
                     botonCar.classList.remove('añadirCar');
                     botonCar.classList.add('agotado');
                 }
+                else if(element.tipo == 'general'){
+                    productoGeneral.append(agotado);
+                    botonCar.classList.remove('añadirCar');
+                    botonCar.classList.add('agotado');
+                }
+
+                
                 
             }
 

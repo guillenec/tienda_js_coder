@@ -219,8 +219,51 @@ para movil y tablets  horizontal
               .header .nav .menu .list .item a {
                 width: 95px;
                 font-size: 1rem; } }
-      .header .nav .menu img {
+      .header .nav .menu .li_usuarioActivo {
         display: none; }
+      .header .nav .menu.userActivo #usuarioLog {
+        display: none; }
+      .header .nav .menu.userActivo .li_usuarioActivo {
+        position: relative;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-content: center;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0 5px;
+        width: 110px;
+        overflow: hidden;
+        white-space: nowrap;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #ffff;
+        color: #3F3F3F;
+        text-transform: capitalize;
+        text-decoration: none;
+        border: solid 2px transparent;
+        border-radius: 10px;
+        padding: 0px;
+        cursor: pointer;
+        transition: .5s; }
+        .header .nav .menu.userActivo .li_usuarioActivo .caja_img {
+          position: relative;
+          min-width: 40px;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          border: solid 2px #FF7C5F;
+          overflow: hidden;
+          background: #3F3F3F;
+          display: grid;
+          place-content: center; }
+          .header .nav .menu.userActivo .li_usuarioActivo .caja_img .iconUs {
+            display: block;
+            width: 98%;
+            height: 98%;
+            object-fit: contain; }
     .header .nav .toggle {
       display: none; }
       @media screen and (max-width: 992px) {
@@ -377,6 +420,42 @@ para movil y tablets  horizontal
       .header .seccionlogin .closeForm:hover {
         color: #ff6347;
         border: solid 3px #ff6347; }
+  .header .usuarioActivoMenu {
+    position: absolute;
+    background: #3F3F3F;
+    width: 500px;
+    height: 400px;
+    top: 65px;
+    right: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 3px;
+    z-index: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: .7s; }
+    @media screen and (max-width: 768px) {
+      .header .usuarioActivoMenu {
+        width: 500px; } }
+    @media screen and (max-width: 576px) {
+      .header .usuarioActivoMenu {
+        width: 100%; } }
+    .header .usuarioActivoMenu.mostrar {
+      z-index: 1;
+      opacity: 1;
+      visibility: visible;
+      transform: translate(0, 0);
+      transition: .7s; }
+    .header .usuarioActivoMenu.bloq {
+      display: flex; }
+    .header .usuarioActivoMenu.none {
+      display: none; }
 
 .main {
   margin-top: 0;
@@ -501,7 +580,7 @@ para movil y tablets  horizontal
         flex-direction: column;
         flex-wrap: nowrap;
         gap: 5px; }
-        .footer .f_main .f_main_left form h2, .footer .f_main .f_main_left form .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .footer .f_main .f_main_left form a {
+        .footer .f_main .f_main_left form h2, .footer .f_main .f_main_left form .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .footer .f_main .f_main_left form a, .footer .f_main .f_main_left form .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .footer .f_main .f_main_left form a {
           font-family: "Poppins", sans-serif;
           color: #fff;
           display: flex;
@@ -650,12 +729,12 @@ para movil y tablets  horizontal
           align-items: center;
           gap: 10px;
           text-align: center; }
-          .footer .f_main_bottom .caja_f_b .cont_faq .textos h2, .footer .f_main_bottom .caja_f_b .cont_faq .textos .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .footer .f_main_bottom .caja_f_b .cont_faq .textos a {
+          .footer .f_main_bottom .caja_f_b .cont_faq .textos h2, .footer .f_main_bottom .caja_f_b .cont_faq .textos .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .footer .f_main_bottom .caja_f_b .cont_faq .textos a, .footer .f_main_bottom .caja_f_b .cont_faq .textos .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .footer .f_main_bottom .caja_f_b .cont_faq .textos a {
             font-family: "Poppins", sans-serif;
             font-size: 1rem;
             text-transform: capitalize;
             font-weight: 700; }
-            .footer .f_main_bottom .caja_f_b .cont_faq .textos h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .footer .f_main_bottom .caja_f_b .cont_faq .textos a a {
+            .footer .f_main_bottom .caja_f_b .cont_faq .textos h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .footer .f_main_bottom .caja_f_b .cont_faq .textos a a, .generales .cont_general .tarjeta .textos_tarjeta h2 .footer .f_main_bottom .caja_f_b .cont_faq .textos a a {
               text-decoration: none;
               color: #fff; }
           .footer .f_main_bottom .caja_f_b .cont_faq .textos p {
@@ -842,7 +921,7 @@ para movil y tablets  horizontal
     flex-direction: column;
     flex-wrap: nowrap;
     gap: 5px; }
-    .form_GEN form h2, .form_GEN form .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .form_GEN form a {
+    .form_GEN form h2, .form_GEN form .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .form_GEN form a, .form_GEN form .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .form_GEN form a {
       font-family: "Poppins", sans-serif;
       color: #fff;
       display: flex;
@@ -950,7 +1029,7 @@ para movil y tablets  horizontal
   @media screen and (max-width: 768px) {
     .categorias {
       height: auto; } }
-  .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a {
+  .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a, .categorias .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .categorias a {
     width: 100%;
     height: auto;
     text-transform: capitalize;
@@ -960,19 +1039,19 @@ para movil y tablets  horizontal
     color: #FF7C5F;
     font-size: 2.2rem; }
     @media screen and (max-width: 992px) {
-      .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a {
+      .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a, .categorias .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .categorias a {
         font-size: 1.98rem; } }
     @media screen and (max-width: 768px) {
-      .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a {
+      .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a, .categorias .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .categorias a {
         font-size: 1.65rem; } }
     @media screen and (max-width: 576px) {
-      .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a {
+      .categorias h2, .categorias .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .categorias a, .categorias .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .categorias a {
         font-size: 1.54rem; } }
   .categorias .cont_categorias {
     margin-top: 100px;
     width: 100%;
-    height: 600px;
-    background: rgba(255, 222, 98, 0.7);
+    height: 620px;
+    background: #ff6347;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
     backdrop-filter: blur(1.5px);
     -webkit-backdrop-filter: blur(1.5px);
@@ -1003,7 +1082,7 @@ para movil y tablets  horizontal
     .categorias .cont_categorias .targeta_simple {
       position: relative;
       width: 32%;
-      height: 100%;
+      height: calc(100% - 80px);
       display: flex;
       flex-direction: column;
       flex-wrap: wrap;
@@ -1026,8 +1105,7 @@ para movil y tablets  horizontal
         align-content: center;
         justify-content: center;
         align-items: center; }
-        .categorias .cont_categorias .targeta_simple .textos_target a {
-          font-family: "Poppins", sans-serif;
+        .categorias .cont_categorias .targeta_simple .textos_target .title_targ {
           position: absolute;
           top: 0;
           height: 10%;
@@ -1041,18 +1119,20 @@ para movil y tablets  horizontal
           font-family: "Poppins", sans-serif;
           color: #FF7C5F;
           font-size: 1.8rem;
+          font-family: "Poppins", sans-serif;
+          color: #fff;
           font-weight: 700; }
           @media screen and (max-width: 992px) {
-            .categorias .cont_categorias .targeta_simple .textos_target a {
+            .categorias .cont_categorias .targeta_simple .textos_target .title_targ {
               font-size: 1.62rem; } }
           @media screen and (max-width: 768px) {
-            .categorias .cont_categorias .targeta_simple .textos_target a {
+            .categorias .cont_categorias .targeta_simple .textos_target .title_targ {
               font-size: 1.35rem; } }
           @media screen and (max-width: 576px) {
-            .categorias .cont_categorias .targeta_simple .textos_target a {
+            .categorias .cont_categorias .targeta_simple .textos_target .title_targ {
               font-size: 1.26rem; } }
         .categorias .cont_categorias .targeta_simple .textos_target p,
-        .categorias .cont_categorias .targeta_simple .textos_target a {
+        .categorias .cont_categorias .targeta_simple .textos_target .title_targ {
           text-align: center;
           width: 90%;
           text-decoration: none; }
@@ -1104,6 +1184,33 @@ para movil y tablets  horizontal
             align-content: center;
             justify-content: center;
             align-items: center; } }
+    .categorias .cont_categorias .boton_todos {
+      width: 100%;
+      height: 80px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      align-items: center; }
+      .categorias .cont_categorias .boton_todos a {
+        display: block;
+        text-decoration: none;
+        font-family: "Sintony", sans-serif;
+        background: #3F3F3F;
+        color: #fff;
+        border: solid 1px #3F3F3F;
+        font-weight: 700;
+        font-size: 1.2rem;
+        border-radius: 2px;
+        padding: 15px 30px;
+        text-transform: capitalize;
+        border-radius: 2px;
+        transition: .7s ease-in-out; }
+        .categorias .cont_categorias .boton_todos a:hover {
+          background: #3b3b3b;
+          color: #FFDE62;
+          border: solid 1px #FFDE62; }
 
 .destacados {
   width: 100%;
@@ -1112,7 +1219,7 @@ para movil y tablets  horizontal
   @media screen and (max-width: 992px) {
     .destacados {
       width: 90%; } }
-  .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
+  .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .destacados a {
     width: 100%;
     height: auto;
     text-transform: capitalize;
@@ -1122,13 +1229,13 @@ para movil y tablets  horizontal
     color: #FF7C5F;
     font-size: 2.2rem; }
     @media screen and (max-width: 992px) {
-      .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
+      .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .destacados a {
         font-size: 1.98rem; } }
     @media screen and (max-width: 768px) {
-      .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
+      .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .destacados a {
         font-size: 1.65rem; } }
     @media screen and (max-width: 576px) {
-      .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a {
+      .destacados h2, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .destacados a {
         font-size: 1.54rem; } }
   .destacados .cont_destacados {
     margin-top: 100px;
@@ -1213,7 +1320,7 @@ para movil y tablets  horizontal
         height: 70%;
         position: relative;
         overflow: hidden; }
-        .destacados .cont_destacados .tarjeta .producto_imagen .cont_img, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria {
+        .destacados .cont_destacados .tarjeta .producto_imagen .cont_img, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .img1, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .img1, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .img2, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .img2 {
           display: block;
           position: relative;
           width: 100%;
@@ -1365,7 +1472,7 @@ para movil y tablets  horizontal
   width: 100%;
   height: auto;
   margin: 150px auto 0 auto; }
-  .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a {
+  .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a, .figuras_accion .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .figuras_accion a {
     width: 100%;
     height: auto;
     text-transform: capitalize;
@@ -1375,13 +1482,13 @@ para movil y tablets  horizontal
     color: #FF7C5F;
     font-size: 2.2rem; }
     @media screen and (max-width: 992px) {
-      .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a {
+      .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a, .figuras_accion .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .figuras_accion a {
         font-size: 1.98rem; } }
     @media screen and (max-width: 768px) {
-      .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a {
+      .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a, .figuras_accion .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .figuras_accion a {
         font-size: 1.65rem; } }
     @media screen and (max-width: 576px) {
-      .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a {
+      .figuras_accion h2, .figuras_accion .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion a, .figuras_accion .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .figuras_accion a {
         font-size: 1.54rem; } }
   .figuras_accion .cont_figuras {
     margin-top: 50px;
@@ -1420,7 +1527,7 @@ para movil y tablets  horizontal
         align-content: center;
         justify-content: center;
         align-items: center; }
-        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a {
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a {
           width: 100%;
           color: #FF7C5F;
           font-size: 1.5rem; }
@@ -1527,14 +1634,14 @@ para movil y tablets  horizontal
           grid-area: 5 / 1 / 7 / 2; }
         .figuras_accion .cont_figuras .fig5 {
           grid-area: 5 / 2 / 7 / 3; }
-        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a {
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a {
           font-size: 1.3rem; }
         .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h3 {
           font-size: 1.2rem; } }
     @media screen and (max-width: 576px) {
       .figuras_accion .cont_figuras {
         height: 1000px; }
-        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a {
+        .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h2, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a, .figuras_accion .cont_figuras .tarjeta_fig .textos_fig .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .figuras_accion .cont_figuras .tarjeta_fig .textos_fig a {
           font-size: 1.2rem; }
         .figuras_accion .cont_figuras .tarjeta_fig .textos_fig h3 {
           font-size: 1.1rem; }
@@ -1554,6 +1661,221 @@ para movil y tablets  horizontal
       padding: 10px; }
       .figuras_accion .cont_figuras {
         height: 850px; } }
+
+.generales {
+  width: 100%;
+  height: auto;
+  margin: 150px auto 0 auto; }
+  @media screen and (max-width: 992px) {
+    .generales {
+      width: 90%; } }
+  .generales h2, .generales .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .generales a, .generales .cont_general .tarjeta .textos_tarjeta h2 a {
+    width: 100%;
+    height: auto;
+    text-transform: capitalize;
+    display: grid;
+    place-content: center;
+    font-family: "Poppins", sans-serif;
+    color: #FF7C5F;
+    font-size: 2.2rem; }
+    @media screen and (max-width: 992px) {
+      .generales h2, .generales .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .generales a, .generales .cont_general .tarjeta .textos_tarjeta h2 a {
+        font-size: 1.98rem; } }
+    @media screen and (max-width: 768px) {
+      .generales h2, .generales .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .generales a, .generales .cont_general .tarjeta .textos_tarjeta h2 a {
+        font-size: 1.65rem; } }
+    @media screen and (max-width: 576px) {
+      .generales h2, .generales .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .generales a, .generales .cont_general .tarjeta .textos_tarjeta h2 a {
+        font-size: 1.54rem; } }
+  .generales .cont_general {
+    margin-top: 150px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 15px; }
+    .generales .cont_general .tarjeta {
+      width: 270px;
+      height: 390px;
+      background: #333;
+      border: solid;
+      border-radius: 30px;
+      padding: 10px;
+      border: 0;
+      background: rgba(63, 63, 63, 0.9);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(0px);
+      -webkit-backdrop-filter: blur(0px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: space-around;
+      align-items: center;
+      transition: .7s ease-in-out;
+      overflow: hidden;
+      z-index: 1; }
+      .generales .cont_general .tarjeta .producto_imagen {
+        width: 100%;
+        height: 70%;
+        position: relative;
+        overflow: hidden; }
+        .generales .cont_general .tarjeta .producto_imagen .cont_img, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .imgPrimaria, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .imgSecundaria, .generales .cont_general .tarjeta .producto_imagen .cont_img .img1, .generales .cont_general .tarjeta .producto_imagen .cont_img .img2 {
+          display: block;
+          position: relative;
+          width: 100%;
+          height: 100%;
+          overflow: hidden;
+          transition: .7s; }
+          .generales .cont_general .tarjeta .producto_imagen .cont_img .img1 {
+            display: block;
+            object-fit: contain;
+            opacity: 1;
+            transition: .9s ease-in-out; }
+          .generales .cont_general .tarjeta .producto_imagen .cont_img .img2 {
+            object-fit: contain;
+            opacity: 0;
+            display: none;
+            transition: .9s ease-in-out; }
+        .generales .cont_general .tarjeta .producto_imagen .botones_func {
+          position: absolute;
+          bottom: 0;
+          right: -50px;
+          width: 40px;
+          height: auto;
+          border: solid thin #ff6347;
+          background: rgba(255, 255, 255, 0.9);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          backdrop-filter: blur(1px);
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          align-content: center;
+          justify-content: center;
+          align-items: center;
+          gap: 5px 0;
+          overflow: hidden;
+          transition: .7s; }
+          .generales .cont_general .tarjeta .producto_imagen .botones_func a {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            text-decoration: none;
+            display: grid;
+            place-content: center;
+            cursor: pointer;
+            transition: .7s; }
+            .generales .cont_general .tarjeta .producto_imagen .botones_func a ion-icon {
+              color: tomato;
+              font-size: 1.4rem; }
+            .generales .cont_general .tarjeta .producto_imagen .botones_func a.agotado {
+              color: #FFDE62;
+              background: #e94a4a; }
+        .generales .cont_general .tarjeta .producto_imagen:hover .botones_func {
+          bottom: 0;
+          right: 0px;
+          transition: .7s; }
+          .generales .cont_general .tarjeta .producto_imagen:hover .botones_func a.zoom:hover, .generales .cont_general .tarjeta .producto_imagen:hover .botones_func a.rotar:hover, .generales .cont_general .tarjeta .producto_imagen:hover .botones_func a.añadirCar:hover {
+            background: rgba(255, 99, 71, 0.75);
+            box-shadow: 0 8px 32px 0 rgba(255, 222, 98, 0.35);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px); }
+            .generales .cont_general .tarjeta .producto_imagen:hover .botones_func a.zoom:hover ion-icon, .generales .cont_general .tarjeta .producto_imagen:hover .botones_func a.rotar:hover ion-icon, .generales .cont_general .tarjeta .producto_imagen:hover .botones_func a.añadirCar:hover ion-icon {
+              color: #fff;
+              font-size: 1.4rem; }
+          .generales .cont_general .tarjeta .producto_imagen:hover .botones_func a.agotado {
+            color: #FFDE62;
+            background: #e94a4a;
+            transition: 0; }
+            .generales .cont_general .tarjeta .producto_imagen:hover .botones_func a.agotado:hover {
+              color: #FFDE62;
+              background: #e94a4a; }
+      .generales .cont_general .tarjeta.rotar {
+        background: #333; }
+        .generales .cont_general .tarjeta.rotar .producto_imagen .cont_img .imgPrimaria {
+          opacity: 0;
+          display: none; }
+        .generales .cont_general .tarjeta.rotar .producto_imagen .cont_img .imgSecundaria {
+          display: block;
+          opacity: 1; }
+      .generales .cont_general .tarjeta .textos_tarjeta {
+        width: 100%;
+        height: 30%;
+        text-align: center;
+        overflow: hidden; }
+        .generales .cont_general .tarjeta .textos_tarjeta h2, .generales .cont_general .tarjeta .textos_tarjeta h2 a {
+          width: 100%;
+          font-size: 1.5rem;
+          color: #FFDE62; }
+          .generales .cont_general .tarjeta .textos_tarjeta h2 a {
+            text-decoration: none; }
+        .generales .cont_general .tarjeta .textos_tarjeta h3 {
+          width: 100%;
+          font-size: 1rem;
+          color: #FF7C5F; }
+      .generales .cont_general .tarjeta div.agotado {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 30%;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .generales .cont_general .tarjeta div.agotado::before {
+          position: absolute;
+          width: 120%;
+          height: 40%;
+          background: rgba(255, 99, 71, 0.9);
+          box-shadow: 0 8px 32px 0 rgba(135, 93, 31, 0.37);
+          backdrop-filter: blur(0px);
+          -webkit-backdrop-filter: blur(0px);
+          border-radius: 10px;
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          content: "agotado";
+          font-weight: bold;
+          color: #fff;
+          font-size: 2rem;
+          z-index: 1;
+          transform: rotate(340deg);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-transform: capitalize; }
+      @media screen and (max-width: 576px) {
+        .generales .cont_general .tarjeta {
+          gap: 10px;
+          width: 90%;
+          height: 300px; }
+          .generales .cont_general .tarjeta.left {
+            display: flex;
+            flex-direction: row-reverse;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center; }
+          .generales .cont_general .tarjeta.right {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            align-items: center; }
+          .generales .cont_general .tarjeta img {
+            width: 40%;
+            height: 100%;
+            object-fit: contain; }
+          .generales .cont_general .tarjeta .textos_tarjet {
+            width: 60%;
+            height: 100%;
+            display: grid;
+            place-content: center; } }
 
 .carrito {
   position: fixed;
@@ -1677,7 +1999,7 @@ para movil y tablets  horizontal
     display: flex; }
   .carritoReal.none {
     display: none; }
-  .carritoReal h2, .carritoReal .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .carritoReal a {
+  .carritoReal h2, .carritoReal .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .carritoReal a, .carritoReal .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .carritoReal a {
     color: #FFDE62;
     font-family: texto;
     text-transform: capitalize;
@@ -1814,6 +2136,98 @@ para movil y tablets  horizontal
       color: #e94a4a;
       background: #FFDE62; }
 
+.usuarioID {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  opacity: 1;
+  transition: .7s; }
+  .usuarioID .us_log {
+    width: 100%;
+    height: 80px;
+    background: #FF7C5F;
+    border-radius: 2px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 10px; }
+    .usuarioID .us_log .logoUs {
+      height: 65px;
+      width: 65px;
+      border: solid 2px #ff6347;
+      border-radius: 50%;
+      background: #3b3b3b;
+      margin-left: 5px; }
+      .usuarioID .us_log .logoUs img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; }
+    .usuarioID .us_log .saludoUsuario {
+      width: calc(100% - 75px); }
+      .usuarioID .us_log .saludoUsuario .saludo, .usuarioID .us_log .saludoUsuario .us_saludo {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: #3F3F3F; }
+      .usuarioID .us_log .saludoUsuario .puntosUs {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        color: #3F3F3F; }
+        .usuarioID .us_log .saludoUsuario .puntosUs .span_puntosUs {
+          color: #107263; }
+  .usuarioID .us_cuerpo {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-evenly;
+    align-items: flex-start; }
+    .usuarioID .us_cuerpo a {
+      display: block;
+      text-decoration: none;
+      text-transform: capitalize;
+      font-family: "Sintony", sans-serif;
+      font-weight: 600;
+      color: #fff;
+      padding-left: 20px;
+      font-size: 1.1rem;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 10px;
+      transition: .7s; }
+      .usuarioID .us_cuerpo a ion-icon {
+        font-size: 1.3rem;
+        color: #fff;
+        transition: .7s; }
+      .usuarioID .us_cuerpo a:hover {
+        color: #FFDE62; }
+        .usuarioID .us_cuerpo a:hover ion-icon {
+          color: #FF7C5F; }
+  .usuarioID.bloq {
+    display: flex;
+    opacity: 1;
+    transition: opacity .7s; }
+  .usuarioID.none {
+    opacity: 0;
+    transition: opacity .7s;
+    display: none; }
+
 .modalContainer {
   position: fixed;
   width: 100%;
@@ -1893,7 +2307,7 @@ para movil y tablets  horizontal
           font-size: 2rem;
           font-family: "Poppins", sans-serif;
           font-weight: 600; }
-        .modalContainer .modal .superior .der h2, .modalContainer .modal .superior .der .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .modalContainer .modal .superior .der a {
+        .modalContainer .modal .superior .der h2, .modalContainer .modal .superior .der .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .modalContainer .modal .superior .der a, .modalContainer .modal .superior .der .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .modalContainer .modal .superior .der a {
           font-size: 1.4rem;
           color: #107263;
           text-align: left;
@@ -2006,7 +2420,7 @@ para movil y tablets  horizontal
             gap: 10px; }
             .modalContainer .modal .superior .der h1 {
               font-size: 1.3rem; }
-            .modalContainer .modal .superior .der h2, .modalContainer .modal .superior .der .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .modalContainer .modal .superior .der a {
+            .modalContainer .modal .superior .der h2, .modalContainer .modal .superior .der .destacados .cont_destacados .tarjeta .textos_tarjeta h2 a, .destacados .cont_destacados .tarjeta .textos_tarjeta h2 .modalContainer .modal .superior .der a, .modalContainer .modal .superior .der .generales .cont_general .tarjeta .textos_tarjeta h2 a, .generales .cont_general .tarjeta .textos_tarjeta h2 .modalContainer .modal .superior .der a {
               font-size: 1.2rem; }
             .modalContainer .modal .superior .der p {
               font-size: .9rem; }
