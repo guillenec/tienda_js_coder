@@ -1,26 +1,48 @@
 //Tratare de hacer el buscador de productos 
-console.log(JSON.parse(localStorage.getItem('carritoStorage')))
-carritoCompra=JSON.parse(localStorage.getItem('carritoStorage'));
-console.log(carritoCompra)
+// console.log(JSON.parse(localStorage.getItem('carritoStorage')));
+// carritoCompra=JSON.parse(localStorage.getItem('carritoStorage'));
+// console.log(carritoCompra)
+let contador = 0;
 
-const simulaPedidaDatos = () => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(StockFunkosJSON)
-        }, 3000);
-    })
+async function pedirProds(){
+    const resp = await fetch('../js/db_stockJSON.js')
+    console.log("------ aweit ----- ")
+    const data = await resp.json();
+    data.forEach(element => {
+        console.log(element,contador);
+        generaElemenBusqueda(element,contador)
+        contador++
+    });
 }
+pedirProds()
 
-simulaPedidaDatos()
-    .then((respuesta)=>{
-        console.log("--- respuesta ---")
-        console.log(respuesta)
-        //la respuesta sera el array que traiga del server
-        let i = 0;
-        respuesta.forEach(element => {
-            generaElemenBusqueda(element)
-        });
-    })
+// const loader = document.querySelector('#loader');
+
+// const simulaPedidaDatos = () => {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             resolve(StockFunkosJSON)
+//         }, 3000);
+//     })
+// }
+
+// // loader.style.display = 'flex';
+
+// simulaPedidaDatos()
+//     .then((respuesta)=>{
+//         // loader.style.display = 'none';
+//         console.log("--- respuesta ---")
+//         console.log(respuesta)
+//         //la respuesta sera el array que traiga del server
+//         let i = 0;
+//         respuesta.forEach(element => {
+//             generaElemenBusqueda(element)
+//         });
+//     })
+//     .catch((err)=> { console.log(err) })
+//     .finally(() => {
+//         // loader.style.display = 'none';
+//     })
 
 //contenedor productos generaes
 

@@ -157,16 +157,25 @@
 
                                 &::before{
                                     content: "";
-                                    @include caja_absoluta(9px, 9px, 10px, b);
+                                    @include caja_absoluta(7px, 7px, 6px, b);
                                     background:$color_titulo2;
                                     border-radius: 5px;
-                                    transform: .7s                       
+                                    transition: .7s ease-in-out;                      
                                     
                                 }
-                            }
-                            // &.active{
                                 
-                            // }
+                            }
+                            &.active{
+                                color: tomato;
+                                &::before{
+                                    content: "";
+                                    @include caja_absoluta(7px, 7px, 6px, b);
+                                    background:$color_titulo2;
+                                    border-radius: 2px;
+                                    transition: agrandar ease-in 20s;
+                                }
+                            }
+                            
                             @include desktop(){
                                 width: 95px;
                                 font-size: 1rem;
@@ -203,8 +212,6 @@
                     padding: 0px;
                     cursor: pointer;
                     transition: .5s;
-
-
 
                     .caja_img{
                         position: relative;

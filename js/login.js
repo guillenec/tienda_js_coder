@@ -7,7 +7,7 @@ let userlogiado = [];
 const API_USER = 'https://jsonplaceholder.typicode.com';
 //.JSON() realiza el parseao de string a JSON
 fetch( `${API_USER}/users`)
-    .then((respuesta) => respuesta.json())
+    .then((resp) => resp.json())
     .then((usuarioAPI) =>{
         console.log("--- api ---")
         console.log(usuarioAPI)
@@ -18,9 +18,22 @@ fetch( `${API_USER}/users`)
     })
     .catch(err => console.error(err));
 
-    console.log("--- USERS 2 ---")
-    console.log(usuariosReducido)
+    // console.log("--- USERS 2 ---")
+    // console.log(usuariosReducido)
 
+// fetch('https://jsonplaceholder.typicode.com/posts/user', {
+//     method: 'POST',
+//     body: JSON.stringify({
+//         title: 'titulo guille',
+//         body: 'coderhouse guill',
+//         userId: 1,
+//     }),
+//     headers: {
+//         'Content-type': 'application/json; charset=UTF-8',
+//     },
+// })
+// .then((response) => response.json())
+// .then((json) => console.log(json,"----------- json --------"));
 
 function usuario(nombre,correo,password,img) {
     this.id = uniqueId('user');

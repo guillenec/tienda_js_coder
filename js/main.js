@@ -654,4 +654,13 @@ const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
 console.log(carritoCompra);
 
 //Buscar funko
+async function pedirProds(){
+    const resp = await fetch('../js/db_stockJSON.js')
+    console.log("------ aweit ----- ")
+    const data = await resp.json();
+    let contador = 0;
+    data.forEach(element => {
+        console.log(element,contador);
+    });
 
+}

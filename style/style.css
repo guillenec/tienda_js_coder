@@ -207,13 +207,26 @@ para movil y tablets  horizontal
               .header .nav .menu .list .item a:hover::before {
                 content: "";
                 position: absolute;
-                width: 9px;
-                height: 9px;
-                bottom: 10px;
+                width: 7px;
+                height: 7px;
+                bottom: 6px;
                 background: #FF7C5F;
                 border-radius: 5px;
-                transform: .7s; }
+                transition: .7s ease-in-out; }
                 .header .nav .menu .list .item a:hover::before else {
+                  top: b; }
+            .header .nav .menu .list .item a.active {
+              color: tomato; }
+              .header .nav .menu .list .item a.active::before {
+                content: "";
+                position: absolute;
+                width: 7px;
+                height: 7px;
+                bottom: 6px;
+                background: #FF7C5F;
+                border-radius: 2px;
+                transition: agrandar ease-in 20s; }
+                .header .nav .menu .list .item a.active::before else {
                   top: b; }
             @media screen and (max-width: 1200px) {
               .header .nav .menu .list .item a {
@@ -460,6 +473,19 @@ para movil y tablets  horizontal
 .main {
   margin-top: 0;
   height: auto; }
+  .main #loader {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    font-size: 3rem;
+    font-family: "Poppins", sans-serif;
+    color: #FF7C5F;
+    font-weight: 700px;
+    display: none;
+    align-items: center;
+    justify-content: center; }
 
 .footer {
   top: 0;
