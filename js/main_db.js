@@ -49,7 +49,8 @@ pedirProds()
 //genera productos generales
 const generaElemenBusqueda = (element,contador) =>{
     const contentElementGeneral = document.querySelector('#contenedorGeneral')
-    console.log(contentElementGeneral)
+    if (contentElementGeneral) {
+        console.log(contentElementGeneral)
 
     //Destructuracio
     const seccion = document.createElement('section');
@@ -78,5 +79,10 @@ const generaElemenBusqueda = (element,contador) =>{
     seccion.append(div);
 
     contentElementGeneral.append(seccion);
+
+    } else{
+        console.log("No existe el elemento TODOS LOS ELEMENTOS")
+    }
+    
 }
 

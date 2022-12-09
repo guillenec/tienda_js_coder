@@ -363,21 +363,21 @@ const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
     cajaBotonera.append(botonera);
 } 
 
-//Render pagina principal
-const renderSeccionesPage = () => {
-    cargaEstructuraBanner(productosBanner);
-    cargaEstructuraCategoria(productosCategoria);
-    cargaEstructuraDestacado(productosDestacados);
-    cargaEstructuraFigura(productosFiguras);
-}
+// //Render pagina principal
+// const renderSeccionesPage = () => {
+//     cargaEstructuraBanner(productosBanner);
+//     cargaEstructuraCategoria(productosCategoria);
+//     cargaEstructuraDestacado(productosDestacados);
+//     cargaEstructuraFigura(productosFiguras);
+// }
 
 
-if (contenedorBanner && contenedorCategoria && contenedorDestacado && contenedorFiguras) {
-    renderSeccionesPage();
-    console.log("+++++++++++ SI EXISTEN LOS DATOS +++++++++")
-}else{
-    console.log("---------- NO EXISTEN ESTOS DATOS -------------")
-}
+// if (contenedorBanner && contenedorCategoria && contenedorDestacado && contenedorFiguras) {
+//     renderSeccionesPage();
+//     console.log("+++++++++++ SI EXISTEN LOS DATOS +++++++++")
+// }else{
+//     console.log("---------- NO EXISTEN ESTOS DATOS -------------")
+// }
 
 
 //#region  //render de todos los elementos de la ventana carrito
@@ -635,6 +635,47 @@ const compraRealizada = () => {
 }
 compraRealizada()
 
+//Generamos la estructura base usando fetch
+let productosBanner1 = [];
+let productosCategoria1= [];
+let productosDestacados1 = [];
+let productosFiguras1 = [];
+
+async function pedirFunkos(){
+    const resp = await fetch('./js/db_stockJSON.js')
+    console.log("------ aweit ----- ")
+    const data = await resp.json();
+    data.forEach(element => {
+        console.log(element);
+        productosBanner1 = fitraProductosStock(arregloJuguetes,"banner");
+        productosCategoria1 = fitraProductosStock(arregloJuguetes,"categoria");
+        productosDestacados1 = fitraProductosStock(arregloJuguetes,"destacados");
+        productosFiguras1 = fitraProductosStock(arregloJuguetes,"figura");
+        //Productos ya filtrados sin stock
+    });
+        console.log("*************** uwu ************** ")
+        console.log(productosBanner1);
+        console.log(productosCategoria1);
+        console.log(productosDestacados1);
+        console.log(productosFiguras1);
+
+        const renderSeccionesPage = () => {
+            cargaEstructuraBanner(productosBanner1);
+            cargaEstructuraCategoria(productosCategoria1);
+            cargaEstructuraDestacado(productosDestacados1);
+            cargaEstructuraFigura(productosFiguras1);
+        }
+        
+        if (contenedorBanner && contenedorCategoria && contenedorDestacado && contenedorFiguras) {
+            renderSeccionesPage();
+            console.log("+++++++++++ SI EXISTEN LOS DATOS +++++++++")
+        }else{
+            console.log("---------- NO EXISTEN ESTOS DATOS -------------")
+        }
+
+}
+pedirFunkos()
+
 window.addEventListener('load',e =>{
     const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
     if (carritoLStorage != null) {
@@ -653,14 +694,3 @@ const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
     }
 console.log(carritoCompra);
 
-//Buscar funko
-async function pedirProds(){
-    const resp = await fetch('../js/db_stockJSON.js')
-    console.log("------ aweit ----- ")
-    const data = await resp.json();
-    let contador = 0;
-    data.forEach(element => {
-        console.log(element,contador);
-    });
-
-}
