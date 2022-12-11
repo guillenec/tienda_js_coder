@@ -17,6 +17,7 @@
     <li>todas las secciones dentro del main y el main del footer se generan desde un archivo Json, se usa fetch promesas y llamamos a las funciones que en entregas anteriores ya habíamos realizado.</li>
     </ul>
 <div>
+<p>Se que el modal no funciona para añadir productos y demas, si alcanzo lo dejare funcional, lo mismos con las tarjetas generales, para que los botones tengan alguna fioncionalidad mas que solo añadir al carrito.. la funcionalidad productos agotados de momento funciona en todos los elementos, pero nose si es la mejor manera.</p>
 <br>
 
 ## :pushpin: Vistazo a funkshop
