@@ -3,7 +3,7 @@
     <p> Página para la ultima entrega del proyecto final "JavaScript - coderhouse"; Ahora comenzamos a usar asincronía, promesas y con lo que ya veníamos trabajando, eventos arreglos JSON, objetos y storage.</p>
     <h3>Uso :</h3>
     <ul>
-    <li>1) menú hamburguesa), usando eventos clic y añadiendo una clase al <nav> se añadio un menú desplegable. si se chiquea fuera tambien se repliega el mismo.</li>
+    <li>1) menú hamburguesa, usando eventos clic y añadiendo una clase al <nav> se añadio un menú desplegable.</li>
     <li>2) todas las tarjetas se trae desde los arreglos de objetos, tanto las imágenes,los precios, los títulos y las descripciones. Tambien estructuras completas.</li>
     <li>3) Modal funcional, donde se mostrara el producto descripción del mismo y se podrá comprar o simularemos al menos eso. </li>
     <li>4) eventos clic para rotar las tarjetas( realmente no las roto, solo les cambio las clases y cambio la visibilidad de la img.)</li>
