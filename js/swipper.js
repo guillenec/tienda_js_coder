@@ -1,3 +1,5 @@
+setTimeout(() => {
+
 const swiper = new Swiper('.swiper', {
     // Optional parameters
     direction: 'horizontal',
@@ -5,7 +7,6 @@ const swiper = new Swiper('.swiper', {
     effect: 'slider',
     speed: 2000,
     initialSlider: 1,
-
     // If we need pagination
     autoplay: {
         delay:10000,
@@ -29,6 +30,26 @@ const swiper = new Swiper('.swiper', {
     },
 });
 
+//Swipper
+
+    const elementoSwipper = document.querySelector('.swiper-slide');
+    if (elementoSwipper) {
+        swiper.slideNext();
+    }else{
+        console.log('no anda el swipper')
+}
+}, 3000);
+
 
 // Now you can use all slider methods like
+// swiper.slideNext();
 
+
+// if (document.querySelector('.swiper')) {
+//     swiper.slideNext();
+// }else{
+//     console.log('no anda el swipper')
+// }
+
+// Now you can use all slider methods like
+;

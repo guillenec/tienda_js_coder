@@ -112,23 +112,21 @@ const generaElementModal = (element, contenedor) =>{
 const generaElementBanner = (element,contenedor) =>{
     const seccion = document.createElement('section');
         seccion.className = "art_princial swiper-slide";
-        seccion.innerHTML = `\n 
-        <div class="caja left">
-            <img src="${element.imagenA}" alt="${element.descripcion}">
-        </div>
-        \n`;
-
-        const div = document.createElement('div');
-        div.className = "caja right";
-        div.innerHTML = `\n 
-            <h2 class="titulo">#${element.id} ${element.nombre}</h2>
+    const div = document.createElement('div');
+        div.className ="caja left";
+        div.innerHTML = `\n <img src="${element.imagenA}" alt="${element.descripcion}"> \n`;
+        
+    const div2 = document.createElement('div');
+    div2.className ="caja right";
+    div2.innerHTML = `\n <h2 class="titulo">#${element.id} ${element.nombre}</h2>
             <h3 class="precio">$${element.precio}</h3>
             <p class="textos">${element.descripcion}</p>
             <a href="" id="reservar${element.id}">reservalo</a>
-            <span class="descuento">${element.descuento}%</span>
-        \n`;
+            <span class="descuento">${element.descuento}%</span>\n`;    
 
+    
     seccion.append(div)
+    seccion.append(div2)
     contenedor.append(seccion);
 
     let reservar = document.querySelector(`#reservar${element.id}`);
@@ -239,6 +237,7 @@ const cargaEstructuraBanner = (array) => {
             i++;
         });
     }
+
 }
 
 //cargan de datos la estructura de la seccion categorias
@@ -326,8 +325,8 @@ const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
         })
 
         arrayModal[2].addEventListener('click', e => {
+            e.preventDefault();
             arrayModal[1].classList.toggle('close');
-
             setTimeout(function () { //pasados 7 seg se ejecuta 
                 arrayModal[0].classList.remove('ocultar')
         }, 500);
@@ -433,8 +432,8 @@ const renderElementoCarrito = () => {
     //carrito sin duplas
 
     carritoSinDuplicados.forEach(element => {
-        console.log("--------- duplas ---------")
-        console.log(element.stock);
+        // console.log("--------- duplas ---------")
+        // console.log(element.stock);
 
         const div = document.createElement('div');
         div.id = `funk${element.id}`;
@@ -481,6 +480,8 @@ const renderElementoCarrito = () => {
             productoFig = document.querySelector(`#figura${element.id}`);
 
             productoGeneral = document.querySelector(`#general${element.id}`);
+
+            
 
             console.log("stock agotado")
             //alert("producto agotado") 
@@ -689,8 +690,9 @@ async function pedirFunkos(){
 }
 
 if(document.querySelector('#main_index')){
-    pedirFunkos()
+    pedirFunkos();
 }
+
 //si poseo datos en el storage carrito carrito == storage
 const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
     if (carritoLStorage != null) {
@@ -698,16 +700,6 @@ const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
         renderVentanaCarr();
     }
 // console.log(carritoCompra);
-
-//Swipper
-const swiper1 = document.querySelector('.swiper')
-if (swiper1) {
-    console.log("hasy swipper")
-    const swiperReal = document.querySelector('.swiper').swiper;
-    swiperReal.slideNext();
-}else{
-    console.log('no anda el swipper')
-}
 
 //permite cargar el carrito y renderisar la ventana al recargar la page
 window.addEventListener('load',e =>{
