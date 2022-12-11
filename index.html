@@ -35,8 +35,11 @@
 
     <link rel="stylesheet" href="./style/style.css">
 
-    <!-- swiper -->
+    <!-- swiper CSS-->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+    <!-- libreria JS swiper Swiper blunde -->
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script defer src="./js/swipper.js"></script> 
 
     <!-- iconos page -->
     <link rel="shortcut icon" href="./img/icono_de_Prueba.png">   
@@ -60,10 +63,6 @@
     <script defer src="./js/faq.js"></script>
 
     <script defer src="./js/login.js"></script>
-
-    <!-- libreria js swiper Swiper blunde -->
-    <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-    <script defer src="./js/swipper.js"></script> 
 
     <!-- <script src="./js/db_productosJSON.js"></script>
     <script src="./js/main_db.js"></script> -->
@@ -183,13 +182,14 @@
         </section>
     </header>
     <!-- #endregion -->
-    <main class="main">
+    <main class="main" id="main_index">
         <!-- #region banner -->
         <section class="banner swiper" id="banner">
             <section class="envoltura_art swiper-wrapper">
             </section>
             <!-- Si necesitamos paginación -->
             <div class="swiper-pagination"></div>
+
             <!-- If we need navigation buttons -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
@@ -304,6 +304,6 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <!-- cloudinary -->
     <!-- <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>   -->
-    
+
 </body>
 </html>

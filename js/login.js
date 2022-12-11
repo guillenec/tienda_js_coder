@@ -9,8 +9,8 @@ const API_USER = 'https://jsonplaceholder.typicode.com';
 fetch( `${API_USER}/users`)
     .then((resp) => resp.json())
     .then((usuarioAPI) =>{
-        console.log("--- api ---")
-        console.log(usuarioAPI)
+        // console.log("--- api ---")
+        // console.log(usuarioAPI)
         usuarioAPI.forEach(element => {
             const {id, name:nombre, email:correo, username:user } = element;
             usuariosReducido.push(new usuario(nombre,correo,"usuario123","https://res.cloudinary.com/dpiwmbsog/image/upload/v1670382861/icons/perfil_qkidvw.png"));
@@ -140,7 +140,7 @@ const procesaFormRegistro = (e) => {
 
     if(usuariosReducido.some((elem) => elem.correo == datos.email || elem.nombre == datos.nombre)){
         mjsToastify(`${datos.nombre} ya existe !!!`,'#ff6347','#e94a4a' );
-        console.log("el usuario ya existe objeto ya existe")
+        // console.log("el usuario ya existe objeto ya existe")
     }
     else{
         usuariosReducido.push(new usuario(datos.nombre, datos.email, datos.password, datos.foto));
@@ -149,18 +149,18 @@ const procesaFormRegistro = (e) => {
         usuariosReducido = JSON.parse(localStorage.getItem('usuariosPage'))
     
         menu_navegacion.classList.add('userActivo')
-        // usuarios.push(usuarioNueevo);
-        console.log("----- sseeegg -----")
-        console.log(usuariosReducido)
-        console.log(datos)
+        // // usuarios.push(usuarioNueevo);
+        // console.log("----- sseeegg -----")
+        // console.log(usuariosReducido)
+        // console.log(datos)
     }
 }
 const formRegistraUser = document.querySelector('#registroUs');
 formRegistraUser.addEventListener('submit', procesaFormRegistro)
 
 const verificaUsuarioLoguiado = (objeto) =>{
-    console.log(usuariosReducido)
-    console.log(objeto)
+    // console.log(usuariosReducido)
+    // console.log(objeto)
     return usuariosReducido.some((el) => el.nombre == objeto.nombre && el.password == objeto.password )
 };
 
@@ -179,8 +179,8 @@ usuarioLogiado();
 const elUsuarioLoginExiste = (objeto) =>{
 
     if (verificaUsuarioLoguiado(objeto)) {
-        console.log("---- loguiado correctamente ----");
-        console.log(objeto)
+        // console.log("---- loguiado correctamente ----");
+        // console.log(objeto)
         userlogiado = (usuariosReducido.find((el) => el.nombre == objeto.nombre && el.password == objeto.password))
         localStorage.setItem('usuariosLogiados',JSON.stringify(userlogiado))
 
@@ -288,7 +288,7 @@ window.addEventListener('load', e =>{
         usuariosReducido = storagrUsuarios;
         console.log(usuariosReducido)
     }
-    console.log(usuariosReducido)
+    // console.log(usuariosReducido)
 
     const userlogiado2 = JSON.parse(localStorage.getItem('usuariosLogiados'))
     if (userlogiado2 !== null) {

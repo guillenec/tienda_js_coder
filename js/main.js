@@ -112,19 +112,23 @@ const generaElementModal = (element, contenedor) =>{
 const generaElementBanner = (element,contenedor) =>{
     const seccion = document.createElement('section');
         seccion.className = "art_princial swiper-slide";
-        seccion.id= `banner${element.id}`;
-        seccion.innerHTML = `\n
-            <div class="caja left">
-                <img src="${element.imagenA}" alt="${element.descripcion}">
-            </div>
-            <div class="caja right">
-                <h2 class="titulo">#${element.id} ${element.nombre}</h2>
-                <h3 class="precio">$${element.precio}</h3>
-                <p class="textos">${element.descripcion}</p>
-                <a href="" id="reservar${element.id}">reservalo</a>
-                <span class="descuento">${element.descuento}%</span>
-            </div> \n`;
+        seccion.innerHTML = `\n 
+        <div class="caja left">
+            <img src="${element.imagenA}" alt="${element.descripcion}">
+        </div>
+        \n`;
 
+        const div = document.createElement('div');
+        div.className = "caja right";
+        div.innerHTML = `\n 
+            <h2 class="titulo">#${element.id} ${element.nombre}</h2>
+            <h3 class="precio">$${element.precio}</h3>
+            <p class="textos">${element.descripcion}</p>
+            <a href="" id="reservar${element.id}">reservalo</a>
+            <span class="descuento">${element.descuento}%</span>
+        \n`;
+
+    seccion.append(div)
     contenedor.append(seccion);
 
     let reservar = document.querySelector(`#reservar${element.id}`);
@@ -140,7 +144,7 @@ const generaElementCategoria = (element,contador,contenedor) =>{
 
     const seccion = document.createElement('section');
         seccion.className = `targeta_simple ${claseLeftRight(contador)}`;
-        console.log(claseLeftRight(contador));
+        // console.log(claseLeftRight(contador));
         seccion.id= `"categoria${id}"`;
         seccion.innerHTML = `\n
             <img src="${img1 || img2 ||img3 ||img4}" alt="${descripcion}">
@@ -228,9 +232,13 @@ const contenedorFiguras = document.querySelector('.cont_figuras')   // seccion f
 //#region cargaEstructuras  
 //cargan de datos la estructura del banner, generando un elemento, estructura html , por cada elemento del arreglo filtrado correspondiente a su tipo (banner).
 const cargaEstructuraBanner = (array) => {
-    array.forEach(element => {
-        generaElementBanner(element,contenedorBanner);
-    });
+    let i = 0;
+    if (i<=2) {
+        array.forEach(element => {
+            generaElementBanner(element,contenedorBanner);
+            i++;
+        });
+    }
 }
 
 //cargan de datos la estructura de la seccion categorias
@@ -526,12 +534,14 @@ const renderPrecioTotalCarrito = () => {
     precioCarrito.innerHTML =  `${(carritoCompra.reduce((acum, producto) => acum += precioTotalMasIVA(producto), 0)).toFixed(2)}`;
 }
 
+//Setea un arreglo al storage
 const setCarritoStorage = () => {
     localStorage.setItem('carritoStorage', JSON.stringify(carritoCompra));
     //const productos = JSON.parse(localStorage.getItem('carritoStorage'));
 }
 
 //#endregion
+//llama a las funciones que hacen el render del carrito , precio, cantidad y setea al storage.
 const renderVentanaCarr = () => {
     renderElementoCarrito();
     renderPrecioTotalCarrito();
@@ -539,7 +549,7 @@ const renderVentanaCarr = () => {
     setCarritoStorage()
 }
 
-//Abrir y cerrar la ventana emergente carrito real
+//Permite abrir y cerrar la ventana emergente carrito real
 const abreCierraVentanaCar = () => {
     abrirCarrito.addEventListener('click', e =>{
         e.preventDefault();
@@ -568,6 +578,8 @@ const abreCierraVentanaCar = () => {
 }
 abreCierraVentanaCar();
 
+
+//resetea el carrito, antes del reseteo lo guardaen el local storage y en un arreglo local, para sup posterior uso.
 let carritoFinal = [];
 const compraFinal = () => {
     localStorage.setItem('carritoFinal', JSON.stringify(carritoCompra)); //para no perder los datos que compro
@@ -641,23 +653,24 @@ let productosCategoria1= [];
 let productosDestacados1 = [];
 let productosFiguras1 = [];
 
+//funcion asincrona para traer los datos desde la db falasa (.JSON)
 async function pedirFunkos(){
     const resp = await fetch('./js/db_stockJSON.js')
-    console.log("------ aweit ----- ")
+    // console.log("------ aweit ----- ")
     const data = await resp.json();
     data.forEach(element => {
-        console.log(element);
+        // console.log(element);
         productosBanner1 = fitraProductosStock(arregloJuguetes,"banner");
         productosCategoria1 = fitraProductosStock(arregloJuguetes,"categoria");
         productosDestacados1 = fitraProductosStock(arregloJuguetes,"destacados");
         productosFiguras1 = fitraProductosStock(arregloJuguetes,"figura");
         //Productos ya filtrados sin stock
     });
-        console.log("*************** uwu ************** ")
-        console.log(productosBanner1);
-        console.log(productosCategoria1);
-        console.log(productosDestacados1);
-        console.log(productosFiguras1);
+        // console.log("*************** uwu ************** ")
+        // console.log(productosBanner1);
+        // console.log(productosCategoria1);
+        // console.log(productosDestacados1);
+        // console.log(productosFiguras1);
 
         const renderSeccionesPage = () => {
             cargaEstructuraBanner(productosBanner1);
@@ -668,14 +681,35 @@ async function pedirFunkos(){
         
         if (contenedorBanner && contenedorCategoria && contenedorDestacado && contenedorFiguras) {
             renderSeccionesPage();
-            console.log("+++++++++++ SI EXISTEN LOS DATOS +++++++++")
+            // console.log("+++++++++++ SI EXISTEN LOS DATOS +++++++++")
         }else{
             console.log("---------- NO EXISTEN ESTOS DATOS -------------")
         }
 
 }
-pedirFunkos()
 
+if(document.querySelector('#main_index')){
+    pedirFunkos()
+}
+//si poseo datos en el storage carrito carrito == storage
+const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
+    if (carritoLStorage != null) {
+        carritoCompra = carritoLStorage;
+        renderVentanaCarr();
+    }
+// console.log(carritoCompra);
+
+//Swipper
+const swiper1 = document.querySelector('.swiper')
+if (swiper1) {
+    console.log("hasy swipper")
+    const swiperReal = document.querySelector('.swiper').swiper;
+    swiperReal.slideNext();
+}else{
+    console.log('no anda el swipper')
+}
+
+//permite cargar el carrito y renderisar la ventana al recargar la page
 window.addEventListener('load',e =>{
     const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
     if (carritoLStorage != null) {
@@ -686,11 +720,4 @@ window.addEventListener('load',e =>{
     
 })
 
-console.log("---- vuelvo a cargar el carrito si x las dudas  ----")
-const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
-    if (carritoLStorage != null) {
-        carritoCompra = carritoLStorage;
-        renderVentanaCarr();
-    }
-console.log(carritoCompra);
 

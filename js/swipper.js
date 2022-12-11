@@ -5,6 +5,7 @@ const swiper = new Swiper('.swiper', {
     effect: 'slider',
     speed: 2000,
     initialSlider: 1,
+
     // If we need pagination
     autoplay: {
         delay:10000,
@@ -30,4 +31,4 @@ const swiper = new Swiper('.swiper', {
 
 
 // Now you can use all slider methods like
-swiper.slideNext();
+

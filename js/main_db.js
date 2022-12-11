@@ -6,10 +6,10 @@ let contador = 0;
 
 async function pedirProds(){
     const resp = await fetch('../js/db_stockJSON.js')
-    console.log("------ aweit ----- ")
+    // console.log("------ aweit ----- ")
     const data = await resp.json();
     data.forEach(element => {
-        console.log(element,contador);
+        // console.log(element,contador);
         generaElemenBusqueda(element,contador)
         contador++
     });
@@ -50,7 +50,7 @@ pedirProds()
 const generaElemenBusqueda = (element,contador) =>{
     const contentElementGeneral = document.querySelector('#contenedorGeneral')
     if (contentElementGeneral) {
-        console.log(contentElementGeneral)
+        // console.log(contentElementGeneral)
 
     //Destructuracio
     const seccion = document.createElement('section');
@@ -74,7 +74,7 @@ const generaElemenBusqueda = (element,contador) =>{
             </div> \n`;
     
     const constarrayRet = generaElementModal(element, contentElementGeneral);
-    console.log(constarrayRet);
+    // console.log(constarrayRet);
     contenedorBotones(element, div, seccion, constarrayRet);
     seccion.append(div);
 
