@@ -112,6 +112,7 @@ const generaElementModal = (element, contenedor) =>{
 const generaElementBanner = (element,contenedor) =>{
     const seccion = document.createElement('section');
         seccion.className = "art_princial swiper-slide";
+        seccion.id = `bannerEl${element.id}`;
     const div = document.createElement('div');
         div.className ="caja left";
         div.innerHTML = `\n <img src="${element.imagenA}" alt="${element.descripcion}"> \n`;
@@ -121,19 +122,60 @@ const generaElementBanner = (element,contenedor) =>{
     div2.innerHTML = `\n <h2 class="titulo">#${element.id} ${element.nombre}</h2>
             <h3 class="precio">$${element.precio}</h3>
             <p class="textos">${element.descripcion}</p>
-            <a href="" id="reservar${element.id}">reservalo</a>
-            <span class="descuento">${element.descuento}%</span>\n`;    
+            <span class="descuento">${element.descuento}%</span>
+            \n`;    
 
-    
+    const aniadeCar = document.createElement('a');
+        aniadeCar.className = "añadirCar";
+        aniadeCar.id = `aniadeElement${element.id}`;
+        aniadeCar.title= "carrito";
+        aniadeCar.href= "#";
+        aniadeCar.data=`${element.id}`;
+        aniadeCar.innerHTML = `\n <ion-icon name="cart"></ion-icon> \n`;
+
+    aniadeCar.addEventListener('click', e => {
+            if (aniadeCar.classList.contains('agotado')){
+                e.preventDefault();
+                Toastify({
+                    text: "producto agotado!!!",
+                    gravity: "bottom",
+                    position: "right",
+                    duration: 3000,
+                    style: {
+                        background: "#e94a4a",
+                        color:`#fff`,
+                    }
+                }).showToast();
+                console.log('se agoto todo');   
+                
+            }else{
+                e.preventDefault();
+                Toastify({
+                    text: "añadido al carrito",
+                    gravity: "bottom",
+                    position: "right",
+                    duration: 3000,
+                    style: {
+                        background: "#ff6347",
+                        color:`#fff`,
+                    }
+                }).showToast();
+                agregaElementAlCarrito(element);
+            }
+            
+        })
+
+    div2.append(aniadeCar)
     seccion.append(div)
     seccion.append(div2)
     contenedor.append(seccion);
 
-    let reservar = document.querySelector(`#reservar${element.id}`);
-    reservar.addEventListener('click', e => {
-        e.preventDefault();
-        agregaElementAlCarrito(element);
-    })   
+    // const reservar = document.querySelector(`#reservar${element.id}`);
+    // reservar.addEventListener('click', e => {
+    //     e.preventDefault();
+        
+    //     agregaElementAlCarrito(element);
+    // })   
 }
 
 const generaElementCategoria = (element,contador,contenedor) =>{
@@ -481,7 +523,8 @@ const renderElementoCarrito = () => {
 
             productoGeneral = document.querySelector(`#general${element.id}`);
 
-            
+            productoBanner = document.querySelector(`#bannerEl${element.id}`);
+
 
             console.log("stock agotado")
             //alert("producto agotado") 
@@ -491,15 +534,16 @@ const renderElementoCarrito = () => {
                 const agotado = document.createElement('div');
                 agotado.id = `agotado${element.id}`;
                 agotado.className = "agotado";
+
                 // productoDest.append(agotado);
                 if (productoGeneral) {
                     productoGeneral.append(agotado);
                     botonCar.classList.remove('añadirCar');
                     botonCar.classList.add('agotado');
                 }
-                else if(productoFig && productoDest ){
+                // else if(productoFig && productoDest ){
 
-                }
+                // }
                 if (element.tipo == 'destacados') {
                     productoDest.append(agotado);
                     botonCar.classList.remove('añadirCar');
@@ -515,7 +559,11 @@ const renderElementoCarrito = () => {
                     botonCar.classList.remove('añadirCar');
                     botonCar.classList.add('agotado');
                 }
-
+                else if(element.tipo == 'banner'){
+                    productoBanner.append(agotado);
+                    botonCar.classList.remove('añadirCar');
+                    botonCar.classList.add('agotado');
+                }
                 
                 
             }
