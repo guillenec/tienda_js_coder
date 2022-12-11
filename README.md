@@ -20,7 +20,7 @@
 <p>Se que el modal no funciona para añadir productos y demas, si alcanzo lo dejare funcional, lo mismos con las tarjetas generales, para que los botones tengan alguna fioncionalidad mas que solo añadir al carrito.. la funcionalidad productos agotados de momento funciona en todos los elementos, pero nose si es la mejor manera.</p>
 <br>
 
-## :pushpin: Vistazo a funkshop
+## :pushpin: Vistazacion page funkshop
 ![screenshot of HTTRiRi website](https://res.cloudinary.com/dpiwmbsog/image/upload/v1670550414/imgs/Captura_desde_2022-12-08_04-14-27_c3c7ch.png)
 
 <br>
