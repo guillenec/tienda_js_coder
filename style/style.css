@@ -655,7 +655,10 @@ para movil y tablets  horizontal
                   width: 100%;
                   z-index: -1; }
           .footer .f_main .f_main_left form .content_inp .taxtareaGen {
-            resize: none; }
+            resize: none;
+            /*
+                        probando 123
+                        */ }
           .footer .f_main .f_main_left form .content_inp textarea {
             width: 100%; }
         .footer .f_main .f_main_left form .enviar_form {
