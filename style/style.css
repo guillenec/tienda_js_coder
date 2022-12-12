@@ -654,6 +654,8 @@ para movil y tablets  horizontal
                   top: 13px;
                   width: 100%;
                   z-index: -1; }
+          .footer .f_main .f_main_left form .content_inp .taxtareaGen {
+            resize: none; }
           .footer .f_main .f_main_left form .content_inp textarea {
             width: 100%; }
         .footer .f_main .f_main_left form .enviar_form {
