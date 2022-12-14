@@ -253,14 +253,14 @@ const fitraProductosTerminados = (array) =>{
     return array.filter((el) => el.stock <= 0);
 }
 
-//arreglo nuevo de productos filtrados del arreglo principal por 1 tipo especifico  
-const productosBanner = fitraProductosStock(arregloJuguetes,"banner");
-const productosCategoria = fitraProductosStock(arregloJuguetes,"categoria");
-const productosDestacados = fitraProductosStock(arregloJuguetes,"destacados");
-const productosFiguras = fitraProductosStock(arregloJuguetes,"figura");
-const productosGenerales = fitraProductosStock(arregloJuguetes,"general");
-//Productos ya filtrados sin stock
-const productosTerminados = fitraProductosTerminados(arregloJuguetes);
+// //arreglo nuevo de productos filtrados del arreglo principal por 1 tipo especifico  
+// const productosBanner = fitraProductosStock(arregloJuguetes,"banner");
+// const productosCategoria = fitraProductosStock(arregloJuguetes,"categoria");
+// const productosDestacados = fitraProductosStock(arregloJuguetes,"destacados");
+// const productosFiguras = fitraProductosStock(arregloJuguetes,"figura");
+// const productosGenerales = fitraProductosStock(arregloJuguetes,"general");
+// //Productos ya filtrados sin stock
+// const productosTerminados = fitraProductosTerminados(arregloJuguetes);
 
 
 //accedo a contenedores donde pienso crear estructuras nuevas 
@@ -701,6 +701,7 @@ let productosBanner1 = [];
 let productosCategoria1= [];
 let productosDestacados1 = [];
 let productosFiguras1 = [];
+let arregloJuguetes = [];
 
 //funcion asincrona para traer los datos desde la db falasa (.JSON)
 async function pedirFunkos(){
@@ -709,12 +710,14 @@ async function pedirFunkos(){
     const data = await resp.json();
     data.forEach(element => {
         // console.log(element);
-        productosBanner1 = fitraProductosStock(arregloJuguetes,"banner");
-        productosCategoria1 = fitraProductosStock(arregloJuguetes,"categoria");
-        productosDestacados1 = fitraProductosStock(arregloJuguetes,"destacados");
-        productosFiguras1 = fitraProductosStock(arregloJuguetes,"figura");
+        arregloJuguetes.push(element)
         //Productos ya filtrados sin stock
     });
+
+    productosBanner1 = fitraProductosStock(arregloJuguetes,"banner");
+    productosCategoria1 = fitraProductosStock(arregloJuguetes,"categoria");
+    productosDestacados1 = fitraProductosStock(arregloJuguetes,"destacados");
+    productosFiguras1 = fitraProductosStock(arregloJuguetes,"figura");
         // console.log("*************** uwu ************** ")
         // console.log(productosBanner1);
         // console.log(productosCategoria1);
@@ -748,6 +751,28 @@ const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
         renderVentanaCarr();
     }
 // console.log(carritoCompra);
+
+const buscarEnProductos = (buscadoer) => {
+
+}
+
+const redireccionAbusqueda = () => {
+    const formBusqueda = document.querySelector('#buscadorProductos')
+
+    formBusqueda.addEventListener('submit',e => {
+        e.preventDefault()
+        const dato = Object.fromEntries(new FormData(e.target)); //forma resumida
+
+        const buscado = JSON.stringify(dato.buscar);
+        if (document.querySelector('#main_index')) {
+            window.location.href = './pages/busqueda.html?elementBusqueda='+buscado;
+        }
+        else if(document.querySelector('#todosYbusqueda')){
+            window.location.href = '../pages/busqueda.html?elementBusqueda='+buscado;
+        }
+    })
+} 
+redireccionAbusqueda();
 
 //permite cargar el carrito y renderisar la ventana al recargar la page
 window.addEventListener('load',e =>{

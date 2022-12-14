@@ -13,6 +13,12 @@ async function pedirProds(){
         generaElemenBusqueda(element,contador)
         contador++
     });
+
+    print_r($_GET["elementBusqueda"])
+
+    // const filtrados = data.find(elem => elem.clave1 == busqueda || elem.clave2 == busqueda || elem.clave3 == busqueda || elem.nombre == busqueda ||elem.genero == busqueda) || "error al buscar"; 
+    // console.log(`filtrados por ${busqueda}:`)
+    // console.log(filtrados)
 }
 pedirProds()
 
