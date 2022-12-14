@@ -6,6 +6,10 @@ let iva = 0.04;
 let precio;
 let descuento;
 
+const loader = document.querySelector('#loader');
+if (document.querySelector('#loader')) {
+    loader.classList.add('activoLoad')
+}
 //Para recorrido con foreach
 const descuentoReal = (element) => {
     return Number(element.descuento) * 0.01;

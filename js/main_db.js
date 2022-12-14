@@ -3,7 +3,9 @@
 // carritoCompra=JSON.parse(localStorage.getItem('carritoStorage'));
 // console.log(carritoCompra)
 let contador = 0;
+
 async function pedirProds(){
+
     const resp = await fetch('../js/db_stockJSON.js')
     // console.log("------ aweit ----- ")
     const data = await resp.json();
@@ -30,6 +32,12 @@ async function pedirProds(){
     // const filtrados = data.find(elem => elem.clave1 == busqueda || elem.clave2 == busqueda || elem.clave3 == busqueda || elem.nombre == busqueda ||elem.genero == busqueda) || "error al buscar"; 
     // console.log(`filtrados por ${busqueda}:`)
     // console.log(filtrados)
+    if (document.querySelector('.activoLoad')) {
+        setTimeout(() => {
+            let loader = document.querySelector('#loader');
+            loader.classList.remove('activoLoad');
+        },2000);
+    }
 }
 pedirProds()
 

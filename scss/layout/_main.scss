@@ -7,13 +7,55 @@
         height: 100%;
         position: fixed;
         inset: 0;
-        background: rgba(0,0,0,0.3);
-        font-size: 3rem;
-        font-family: $titulo1;
-        color: $color_titulo2;
-        font-weight: 700px;
+        background: $color_titulo1;
         display: none;
         align-items: center;
         justify-content: center;
+        overflow-x:scroll;
+        overflow-y:hidden;        
+        z-index: 10;
+        transition: .7s;
+
+        .loading{
+            position: relative;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            animation: spin 1.3s linear infinite;       
+
+            &::before,&::after{
+                content: '';
+                position: absolute;
+                border-radius: inherit;
+                top: 0;
+                left: 0;
+            }
+            &::before{
+                width: 100%;
+                height: 100%;
+                background-image: linear-gradient(0deg, $color_titulo2 0%, $color_titulo4 100%);
+            }
+            &::after{
+                width: 80%;
+                height: 80%;
+                background: $color_titulo1;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        &.activoLoad{
+            display: flex;
+
+        }
+
+
     }
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+    
 }

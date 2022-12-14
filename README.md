@@ -16,6 +16,7 @@
     <li>10) Al hacer clic en el elemento usuario en el nav, se abrirá una nueva sección, usando eventos de javascript, en la misma encontrara un formulario para registrarse y login, capturo los datos desde javascrit, usando promesas luego genero un nuevo arreglo de usuario. y se añade a los usuarios previamente ya cargados.</li>
     <li>11) Todas las secciones dentro del main y el main del footer se generan desde un archivo Json, se usa fetch promesas y llamamos a las funciones que en entregas anteriores ya habíamos realizado.</li>
     <li>12) El buscador funciona de forma simple, ingrese una palabra clave ("terror, anime, serie tv, los simpsons, futurama, pace maker, game of throne, etc") buscara la palabra dentro del arreglo, alert toastify EXISTE y lo redirigira a la pagina busqueda.html, donde se generaran las tarjetas coincicidentes.</li>
+    <li>Loader, al redirigirnos y mientras carga la pagina, se mostrara un loader, solo para que se pueda visualizar se usara un setTimeout de 2s aprox.</li>
     </ul>
 <div>
 <p>Se que el modal no funciona para añadir productos y demas, si alcanzo lo dejare funcional, lo mismos con las tarjetas generales, para que los botones tengan alguna fioncionalidad mas que solo añadir al carrito.. la funcionalidad productos agotados de momento funciona en todos los elementos, pero nose si es la mejor manera.</p>
