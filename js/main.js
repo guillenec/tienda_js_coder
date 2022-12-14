@@ -752,8 +752,8 @@ const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
     }
 // console.log(carritoCompra);
 
-const buscarEnProductos = (buscadoer) => {
-
+const verificaExisteBusqueda = (buscado) => {
+    return arregloJuguetes.some((el) => el.nombre == buscado || el.genero == buscado || el.clave1 == buscado || el.clave2 == buscado || el.clave3 == buscado);
 }
 
 const redireccionAbusqueda = () => {
@@ -762,13 +762,19 @@ const redireccionAbusqueda = () => {
     formBusqueda.addEventListener('submit',e => {
         e.preventDefault()
         const dato = Object.fromEntries(new FormData(e.target)); //forma resumida
-
-        const buscado = JSON.stringify(dato.buscar);
-        if (document.querySelector('#main_index')) {
-            window.location.href = './pages/busqueda.html?elementBusqueda='+buscado;
-        }
-        else if(document.querySelector('#todosYbusqueda')){
-            window.location.href = '../pages/busqueda.html?elementBusqueda='+buscado;
+        if (!verificaExisteBusqueda(dato.buscar)) {
+            mjsToastify(`${dato.buscar} no existe !!!`,'#ff6347','#e94a4a' );
+        }else {
+            const buscado = JSON.stringify(dato.buscar);
+            mjsToastify(`${dato.buscar} encontrado, redirigiendo!!!`,'#00b09b','#96c93d' );
+            setTimeout(() => {
+                if (document.querySelector('#main_index')) {
+                    window.location.href = './pages/busqueda.html?elementBusqueda='+buscado;
+                }
+                else if(document.querySelector('#todosYbusqueda')){
+                    window.location.href = '../pages/busqueda.html?elementBusqueda='+buscado;
+                }
+            }, 2000);     
         }
     })
 } 
