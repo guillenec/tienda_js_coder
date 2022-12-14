@@ -758,15 +758,17 @@ const verificaExisteBusqueda = (buscado) => {
 
 const redireccionAbusqueda = () => {
     const formBusqueda = document.querySelector('#buscadorProductos')
-
+    console.log(arregloJuguetes)
     formBusqueda.addEventListener('submit',e => {
         e.preventDefault()
         const dato = Object.fromEntries(new FormData(e.target)); //forma resumida
         if (!verificaExisteBusqueda(dato.buscar)) {
             mjsToastify(`${dato.buscar} no existe !!!`,'#ff6347','#e94a4a' );
+            console.log(dato.buscar)
         }else {
             const buscado = JSON.stringify(dato.buscar);
             mjsToastify(`${dato.buscar} encontrado, redirigiendo!!!`,'#00b09b','#96c93d' );
+            
             setTimeout(() => {
                 if (document.querySelector('#main_index')) {
                     window.location.href = './pages/busqueda.html?elementBusqueda='+buscado;

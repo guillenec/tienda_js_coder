@@ -3,18 +3,18 @@
 // carritoCompra=JSON.parse(localStorage.getItem('carritoStorage'));
 // console.log(carritoCompra)
 let contador = 0;
-
 async function pedirProds(){
     const resp = await fetch('../js/db_stockJSON.js')
     // console.log("------ aweit ----- ")
     const data = await resp.json();
     data.forEach(element => {
         // console.log(element,contador);
+        arregloJuguetes.push(element);
         generaElemenBusqueda(element,contador)
         contador++
     });
 
-    print_r($_GET["elementBusqueda"])
+    // print_r($_GET["elementBusqueda"])
 
     // const filtrados = data.find(elem => elem.clave1 == busqueda || elem.clave2 == busqueda || elem.clave3 == busqueda || elem.nombre == busqueda ||elem.genero == busqueda) || "error al buscar"; 
     // console.log(`filtrados por ${busqueda}:`)

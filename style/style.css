@@ -147,7 +147,8 @@ para movil y tablets  horizontal
               .header .nav .cajaA .contieneBuscador .row .icon ion-icon.busca2 {
                 opacity: 0; }
           .header .nav .cajaA .contieneBuscador .row .submitBuscador {
-            background: tomato; }
+            background: tomato;
+            border: none; }
           .header .nav .cajaA .contieneBuscador .row:hover .search {
             width: 100px;
             padding-left: 15px; }
