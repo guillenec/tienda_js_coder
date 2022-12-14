@@ -5,23 +5,26 @@
 let contador = 0;
 
 async function pedirProds(){
-
     const resp = await fetch('../js/db_stockJSON.js')
     // console.log("------ aweit ----- ")
     const data = await resp.json();
     let objUrlParams = new URLSearchParams(window.location.search);
     // console.log(objUrlParams.get('elementBusqueda')); 
     let elementGet = JSON.parse(objUrlParams.get('elementBusqueda') || 7575);
+
     // console.log(elementGet)
     arregloJuguetes = data;
     // console.log(arregloJuguetes)
+    let titulo = document.querySelector('#tituloPageBusqueda');
 
     if (elementGet == 7575) {
+        titulo.innerText = "todos nuestros funkos";
         arregloJuguetes.forEach(element => {
             generaElemenBusqueda(element,contador)
             contador++
         });
     }else {
+        titulo.innerText = `funkos: ${elementGet}`;
         const productosBuscados = fitraProductosPorBusqueda(arregloJuguetes, elementGet)
         productosBuscados.forEach(element => {
             generaElemenBusqueda(element,contador)
@@ -114,4 +117,6 @@ const generaElemenBusqueda = (element,contador) =>{
     }
     
 }
+
+
 
