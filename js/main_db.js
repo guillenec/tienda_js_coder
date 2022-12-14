@@ -7,13 +7,25 @@ async function pedirProds(){
     const resp = await fetch('../js/db_stockJSON.js')
     // console.log("------ aweit ----- ")
     const data = await resp.json();
-    data.forEach(element => {
-        // console.log(element,contador);
-        arregloJuguetes.push(element);
-        generaElemenBusqueda(element,contador)
-        contador++
-    });
+    let objUrlParams = new URLSearchParams(window.location.search);
+    // console.log(objUrlParams.get('elementBusqueda')); 
+    let elementGet = JSON.parse(objUrlParams.get('elementBusqueda') || 7575);
+    // console.log(elementGet)
+    arregloJuguetes = data;
+    // console.log(arregloJuguetes)
 
+    if (elementGet == 7575) {
+        arregloJuguetes.forEach(element => {
+            generaElemenBusqueda(element,contador)
+            contador++
+        });
+    }else {
+        const productosBuscados = fitraProductosPorBusqueda(arregloJuguetes, elementGet)
+        productosBuscados.forEach(element => {
+            generaElemenBusqueda(element,contador)
+            contador++
+        });
+    }
 
     // const filtrados = data.find(elem => elem.clave1 == busqueda || elem.clave2 == busqueda || elem.clave3 == busqueda || elem.nombre == busqueda ||elem.genero == busqueda) || "error al buscar"; 
     // console.log(`filtrados por ${busqueda}:`)
@@ -21,6 +33,9 @@ async function pedirProds(){
 }
 pedirProds()
 
+const fitraProductosPorBusqueda = (array, filtro) =>{
+    return array.filter((el) => el.nombre == filtro || el.genero == filtro || el.clave1 == filtro || el.clave2 == filtro || el.clave3 == filtro);
+}
 // const loader = document.querySelector('#loader');
 
 // const simulaPedidaDatos = () => {
@@ -54,6 +69,7 @@ pedirProds()
 //genera productos generales
 const generaElemenBusqueda = (element,contador) =>{
     const contentElementGeneral = document.querySelector('#contenedorGeneral')
+
     if (contentElementGeneral) {
         // console.log(contentElementGeneral)
 
