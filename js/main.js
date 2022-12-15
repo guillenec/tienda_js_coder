@@ -1,5 +1,3 @@
-//#region /* Funcion Depurador*/
-//#endregion
 
 //#region /* ---- Funciones para calcular Precio real de los productos ---- */
 let iva = 0.04;
@@ -41,7 +39,7 @@ const calculaPrecioFinal = (element) =>{
 
 //#region generan los elementos , ya sea la estructura de 1 modal, una tarjeta Destacada, etc
 //Genera un nombre de clase HTML: rigt = par, left = inpar
-const claseLeftRight = (valor) => {
+let claseLeftRight = (valor) => {
     return ((valor % 2) == 0 ) ? "left" : "right"; 
 }
 

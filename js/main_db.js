@@ -1,4 +1,3 @@
-//Tratare de hacer el buscador de productos 
 // console.log(JSON.parse(localStorage.getItem('carritoStorage')));
 // carritoCompra=JSON.parse(localStorage.getItem('carritoStorage'));
 // console.log(carritoCompra)
@@ -42,42 +41,11 @@ async function pedirProds(){
         },2000);
     }
 }
-pedirProds()
 
 const fitraProductosPorBusqueda = (array, filtro) =>{
     return array.filter((el) => el.nombre == filtro || el.genero == filtro || el.clave1 == filtro || el.clave2 == filtro || el.clave3 == filtro);
 }
-// const loader = document.querySelector('#loader');
 
-// const simulaPedidaDatos = () => {
-//     return new Promise((resolve, reject) => {
-//         setTimeout(() => {
-//             resolve(StockFunkosJSON)
-//         }, 3000);
-//     })
-// }
-
-// // loader.style.display = 'flex';
-
-// simulaPedidaDatos()
-//     .then((respuesta)=>{
-//         // loader.style.display = 'none';
-//         console.log("--- respuesta ---")
-//         console.log(respuesta)
-//         //la respuesta sera el array que traiga del server
-//         let i = 0;
-//         respuesta.forEach(element => {
-//             generaElemenBusqueda(element)
-//         });
-//     })
-//     .catch((err)=> { console.log(err) })
-//     .finally(() => {
-//         // loader.style.display = 'none';
-//     })
-
-//contenedor productos generaes
-
-//genera productos generales
 const generaElemenBusqueda = (element,contador) =>{
     const contentElementGeneral = document.querySelector('#contenedorGeneral')
 
@@ -94,8 +62,8 @@ const generaElemenBusqueda = (element,contador) =>{
         div.innerHTML = `\n
             <section class="cont_img">
                 <img class="img1" src="${element.imagenA}" alt="${element.descripcion}">
-                <img class="img1" src="${element.imagenB}" alt="${element.descripcion}">
-                <img class="img1" src="${element.imagenc}" alt="${element.descripcion}">
+                <img class="img2" src="${element.imagenB}" alt="${element.descripcion}">
+                <img class="img3" src="${element.imagenc}" alt="${element.descripcion}">
             </section>\n`;
 
         seccion.innerHTML =`\n
@@ -118,5 +86,5 @@ const generaElemenBusqueda = (element,contador) =>{
     
 }
 
-
+pedirProds()
 

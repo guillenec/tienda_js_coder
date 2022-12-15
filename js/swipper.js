@@ -40,16 +40,3 @@ const swiper = new Swiper('.swiper', {
 }
 }, 3000);
 
-
-// Now you can use all slider methods like
-// swiper.slideNext();
-
-
-// if (document.querySelector('.swiper')) {
-//     swiper.slideNext();
-// }else{
-//     console.log('no anda el swipper')
-// }
-
-// Now you can use all slider methods like
-;
