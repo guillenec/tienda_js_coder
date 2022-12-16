@@ -82,22 +82,67 @@ const generaElementModal = (element, contenedor) =>{
                 </form>
             </div>
         </div>
-        <div class="inferior">
-            <div class="redes" id="redes">
+        \n`;
+
+    const divInferior = document.createElement('div');
+        divInferior.className = "inferior";
+        const divRedes = document.createElement('div');
+            divRedes.className = "redes";
+            divRedes.id = "redes";
+            divRedes.innerHTML = `\n 
                 <a href="#redes"><ion-icon name="logo-whatsapp"></ion-icon></a>
                 <a href="#redes"><ion-icon name="logo-instagram"></ion-icon></a>
                 <a href="#redes"><ion-icon name="logo-facebook"></ion-icon></a>
                 <a href="#redes"><ion-icon name="mail-outline"></ion-icon></a>
-            </div>
-            <div class="palabras_clave" id="palClav">
-                <a href="palClav">${element.nombre}</a>
-                <a href="palClav">${element.genero}</a>
-                <a href="palClav">${element.tipo}</a>
-                <a href="palClav">${element.clave1}</a>
-                <a href="palClav">${element.clave2}</a>
-                <a href="palClav">${element.clave3}</a>
-            </div>
-        </div> \n`;
+            \n`;
+
+        const divPalabraClave = document.createElement('div');
+            divPalabraClave.className = "palabras_clave";
+            divPalabraClave.id = "palClav";
+
+            const aClave1 = document.createElement('a');
+            aClave1.className = "palClave";
+            aClave1.innerText = `${element.nombre}`;
+            const aClave2 = document.createElement('a');
+            aClave2.className = "palClave";
+            aClave2.innerText = `${element.genero}`;
+            const aClave3 = document.createElement('a');
+            aClave3.className = "palClave";
+            aClave3.innerText = `${element.tipo}`;
+            const aClave4 = document.createElement('a');
+            aClave4.className = "palClave";
+            aClave4.innerText = `${element.clave1}`;
+            const aClave5 = document.createElement('a');
+            aClave5.className = "palClave";
+            aClave5.innerText = `${element.clave2}`;
+            const aClave6 = document.createElement('a');
+            aClave6.className = "palClave";
+            aClave6.innerText = `${element.clave3}`;
+
+    
+            aClave1.addEventListener('click' , e => {
+                palabraClave(e, element.nombre);
+            })
+            aClave2.addEventListener('click' , e => {
+                palabraClave(e, element.genero);
+            })
+            aClave3.addEventListener('click' , e => {
+                palabraClave(e, element.tipo);
+            })
+            aClave4.addEventListener('click' , e => {
+                palabraClave(e, element.clave1);
+            })
+            aClave5.addEventListener('click' , e => {
+                palabraClave(e, element.clave2);
+            })
+            aClave6.addEventListener('click' , e => {
+                palabraClave(e, element.clave3);
+            })
+    
+    divInferior.append(divRedes);    
+    divPalabraClave.append(aClave1, aClave2, aClave3, aClave4, aClave5,aClave6);
+    divInferior.append(divPalabraClave);
+    modal.append(divInferior)
 
     const cierraModal = document.createElement('a');
     cierraModal.className = "cerrar";
@@ -360,9 +405,6 @@ const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
                 let img2 = document.querySelector(`#img2General${element.id}`)
                 let img3 = document.querySelector(`#img3General${element.id}`)
 
-                console.log(img1)
-                console.log(img2)
-                console.log(img3)
                 if (img1.classList.contains('img1Contain')) {
 
                     img1.classList.remove('img1Contain')
@@ -830,6 +872,22 @@ const redireccionAbusqueda = () => {
     })
 } 
 redireccionAbusqueda();
+
+const palabraClave = (event,elementoBuscado) => {
+    event.preventDefault();
+    
+    const buscado = JSON.stringify(elementoBuscado);
+    mjsToastify(`redirigiendo a ${buscado} -->`,'#00b09b','#96c93d' );
+        
+        setTimeout(() => {
+            if (document.querySelector('#main_index')) {
+                window.location.href = './pages/busqueda.html?elementBusqueda='+buscado;
+            }
+            else if(document.querySelector('#todosYbusqueda')){
+                window.location.href = '../pages/busqueda.html?elementBusqueda='+buscado;
+            }
+        }, 2000);     
+}
 
 //permite cargar el carrito y renderisar la ventana al recargar la page
 window.addEventListener('load',e =>{

@@ -32,7 +32,7 @@
         }
 
         @include tablets() {
-            @include caja_flex(column, wrap, flex-start, space-between, center);
+            @include caja_flex(column, nowrap, flex-start, space-between, center);
             height: 800px;
 
         }

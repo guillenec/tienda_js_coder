@@ -1139,7 +1139,7 @@ para movil y tablets  horizontal
       .categorias .cont_categorias {
         display: flex;
         flex-direction: column;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         align-content: flex-start;
         justify-content: space-between;
         align-items: center;
