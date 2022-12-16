@@ -59,12 +59,53 @@ const generaElemenBusqueda = (element,contador) =>{
         
     const div = document.createElement('div');
         div.className = "producto_imagen";
-        div.innerHTML = `\n
-            <section class="cont_img">
-                <img class="img1" src="${element.imagenA}" alt="${element.descripcion}">
-                <img class="img2" src="${element.imagenB}" alt="${element.descripcion}">
-                <img class="img3" src="${element.imagenc}" alt="${element.descripcion}">
-            </section>\n`;
+
+    const seccionimg1 = document.createElement('section');
+        seccionimg1.className = "cont_img";    
+
+    const containImg1 = document.createElement('div')
+    containImg1.className = 'img1Contain';
+    containImg1.id = `img1General${element.id}`;
+
+    const containImg2 = document.createElement('div')
+    containImg2.className = `img2Contain`;
+    containImg2.id = `img2General${element.id}`
+
+    const containImg3 = document.createElement('div')
+    containImg3.className = `img3Contain`;
+    containImg3.id = `img3General${element.id}`
+
+
+        if (!element.imagenA == '') {
+            const img1 = document.createElement('img')
+            img1.className = "img1";
+            img1.src = `${element.imagenA}`;
+            img1.alt = `${element.descripcion}`;
+            img1.id = `imgA${element.id}`
+            containImg1.append(img1)
+        }
+        if (!element.imagenB == '') {
+            const img2 = document.createElement('img')
+            img2.className = "img2";
+            img2.src = `${element.imagenB}`;
+            img2.alt = `${element.descripcion}`;
+            img2.id = `imgB${element.id}`
+            containImg2.append(img2)
+        }
+        if (!element.imagenC == '') {
+            const img3 = document.createElement('img')
+            img3.className = "img3";
+            img3.src = `${element.imagenC}`;
+            img3.alt = `${element.descripcion}`;
+            img3.id = `imgC${element.id}`
+            containImg3.append(img3)
+        }
+    
+    seccionimg1.append(containImg1)
+    seccionimg1.append(containImg2)
+    seccionimg1.append(containImg3)
+    // seccionimg1.append(divMini);
+    div.append(seccionimg1)
 
         seccion.innerHTML =`\n
             <div class="textos_tarjeta">

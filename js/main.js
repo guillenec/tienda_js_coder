@@ -353,7 +353,54 @@ const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
 
         rotar.addEventListener('click', e => {
             e.preventDefault();
+            if (document.querySelector('#todosYbusqueda')) {
+                console.log("estamos en busquedas");
+
+                let img1 = document.querySelector(`#img1General${element.id}`)
+                let img2 = document.querySelector(`#img2General${element.id}`)
+                let img3 = document.querySelector(`#img3General${element.id}`)
+
+                console.log(img1)
+                console.log(img2)
+                console.log(img3)
+                if (img1.classList.contains('img1Contain')) {
+
+                    img1.classList.remove('img1Contain')
+                    img1.classList.add('img3Contain')
+
+                    img2.classList.remove('img2Contain')
+                    img2.classList.add('img1Contain')
+
+                    img3.classList.remove('img3Contain')
+                    img3.classList.add('img2Contain')
+                }
+                else if (img1.classList.contains('img3Contain')) {
+
+                    img1.classList.remove('img3Contain')
+                    img1.classList.add('img2Contain')
+
+                    img2.classList.remove('img1Contain')
+                    img2.classList.add('img3Contain')
+
+                    img3.classList.remove('img2Contain')
+                    img3.classList.add('img1Contain')
+                }
+                else if (img1.classList.contains('img2Contain')) {
+
+                    img1.classList.remove('img2Contain')
+                    img1.classList.add('img1Contain')
+
+                    img2.classList.remove('img3Contain')
+                    img2.classList.add('img2Contain')
+
+                    img3.classList.remove('img1Contain')
+                    img3.classList.add('img3Contain')
+                }
+                
+                
+            }
             rotarCaja.classList.toggle('rotar');
+
         })
     
         // console.log(arrayModal[0])

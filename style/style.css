@@ -1388,7 +1388,7 @@ para movil y tablets  horizontal
         height: 70%;
         position: relative;
         overflow: hidden; }
-        .destacados .cont_destacados .tarjeta .producto_imagen .cont_img, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .img1, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .img1, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .img2, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .img2 {
+        .destacados .cont_destacados .tarjeta .producto_imagen .cont_img, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria, .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria {
           display: block;
           position: relative;
           width: 100%;
@@ -1790,27 +1790,43 @@ para movil y tablets  horizontal
       overflow: hidden;
       z-index: 1; }
       .generales .cont_general .tarjeta .producto_imagen {
+        position: relative;
         width: 100%;
         height: 70%;
-        position: relative;
         overflow: hidden; }
-        .generales .cont_general .tarjeta .producto_imagen .cont_img, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .imgPrimaria, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .imgSecundaria, .generales .cont_general .tarjeta .producto_imagen .cont_img .img1, .generales .cont_general .tarjeta .producto_imagen .cont_img .img2 {
-          display: block;
+        .generales .cont_general .tarjeta .producto_imagen .cont_img, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .imgPrimaria, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .imgSecundaria {
           position: relative;
+          background: tomato;
           width: 100%;
           height: 100%;
+          bottom: 0;
+          left: 0;
           overflow: hidden;
-          transition: .7s; }
-          .generales .cont_general .tarjeta .producto_imagen .cont_img .img1 {
-            display: block;
-            object-fit: contain;
-            opacity: 1;
-            transition: .9s ease-in-out; }
-          .generales .cont_general .tarjeta .producto_imagen .cont_img .img2 {
-            object-fit: contain;
-            opacity: 0;
-            display: none;
-            transition: .9s ease-in-out; }
+          transition: .7s;
+          gap: 15px;
+          display: grid;
+          grid-template-columns: 1fr 1fr 1fr;
+          grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr;
+          gap: 7px; }
+          .generales .cont_general .tarjeta .producto_imagen .cont_img .img1Contain {
+            grid-area: 1 / 1 / 7 / 3; }
+            .generales .cont_general .tarjeta .producto_imagen .cont_img .img1Contain img {
+              width: 100%;
+              height: 100%;
+              padding: 10px;
+              object-fit: contain; }
+          .generales .cont_general .tarjeta .producto_imagen .cont_img .img2Contain {
+            grid-area: 2 / 3 / 4 / 4; }
+            .generales .cont_general .tarjeta .producto_imagen .cont_img .img2Contain img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain; }
+          .generales .cont_general .tarjeta .producto_imagen .cont_img .img3Contain {
+            grid-area: 4 / 3 / 6 / 4; }
+            .generales .cont_general .tarjeta .producto_imagen .cont_img .img3Contain img {
+              width: 100%;
+              height: 100%;
+              object-fit: contain; }
         .generales .cont_general .tarjeta .producto_imagen .botones_func {
           position: absolute;
           bottom: 0;
