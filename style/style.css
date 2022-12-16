@@ -1797,6 +1797,7 @@ para movil y tablets  horizontal
         .generales .cont_general .tarjeta .producto_imagen .cont_img, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgPrimaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .imgPrimaria, .generales .cont_general .destacados .cont_destacados .tarjeta .producto_imagen .cont_img .imgSecundaria, .destacados .cont_destacados .generales .cont_general .tarjeta .producto_imagen .cont_img .imgSecundaria {
           position: relative;
           background: tomato;
+          border-radius: 0 0 5px 5px;
           width: 100%;
           height: 100%;
           bottom: 0;
