@@ -43,7 +43,7 @@ async function pedirProds(){
 }
 
 const fitraProductosPorBusqueda = (array, filtro) =>{
-    return array.filter((el) => el.nombre == filtro || el.genero == filtro || el.clave1 == filtro || el.clave2 == filtro || el.clave3 == filtro);
+    return array.filter((el) => el.nombre == filtro || el.genero == filtro || el.tipo == filtro || el.clave1 == filtro || el.clave2 == filtro || el.clave3 == filtro);
 }
 
 const generaElemenBusqueda = (element,contador) =>{
