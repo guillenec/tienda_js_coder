@@ -240,6 +240,9 @@ para movil y tablets  horizontal
               .header .nav .menu .list .item a {
                 width: 95px;
                 font-size: 1rem; } }
+            @media screen and (max-width: 992px) {
+              .header .nav .menu .list .item a {
+                width: auto; } }
       .header .nav .menu .li_usuarioActivo {
         display: none; }
       .header .nav .menu.userActivo #usuarioLog {
@@ -271,7 +274,8 @@ para movil y tablets  horizontal
         transition: .5s; }
         @media screen and (max-width: 992px) {
           .header .nav .menu.userActivo .li_usuarioActivo {
-            color: #FFDE62; } }
+            color: #FFDE62;
+            width: auto; } }
         .header .nav .menu.userActivo .li_usuarioActivo .caja_img {
           position: relative;
           min-width: 40px;
@@ -288,6 +292,8 @@ para movil y tablets  horizontal
             width: 98%;
             height: 98%;
             object-fit: contain; }
+        .header .nav .menu.userActivo .li_usuarioActivo p {
+          width: 100%; }
     .header .nav .toggle {
       display: none; }
       @media screen and (max-width: 992px) {

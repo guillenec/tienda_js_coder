@@ -110,7 +110,7 @@ const procesaFormRegistro = (e) => {
         setTimeout(() => {
             ventana_login.classList.remove('mostrar')
             elUsuarioLoginExiste(datos);
-            renderNombreUsuario(datos.nombre)
+            renderNombreUsuario(datos)
         }, 500);
         // // usuarios.push(usuarioNueevo);
         // console.log("----- sseeegg -----")
@@ -129,9 +129,17 @@ const verificaUsuarioLoguiado = (objeto) =>{
     return usuariosReducido.some((el) => el.nombre == objeto.nombre && el.password == objeto.password )
 };
 
-const renderNombreUsuario = (nombre) => {
+const renderNombreUsuario = (objeto) => {
     const nombreUserLog = document.querySelector('#li_usuarioActivo');
-    nombreUserLog.innerText = `${nombre}`
+    // nombreUserLog.innerText = `${objeto.nombre}`;
+    const div = document.createElement('div');
+    div.className = "caja_img";
+    div.innerHTML = `<img  class="iconUs" src="${objeto.foto}" alt="foto perfil ${objeto.nombre}}>`;
+
+    const p = document.createElement('p');
+    p.innerText = `${objeto.nombre}`;
+    nombreUserLog.append(div);
+    nombreUserLog.append(p)
 }
 
 const formIngresoUser = document.querySelector('#ingresarUs');
@@ -140,7 +148,7 @@ const usuarioLogiado = () =>{
         e.preventDefault();
         const datosLog = Object.fromEntries(new FormData(e.target)); //forma resumida
         elUsuarioLoginExiste(datosLog);
-        renderNombreUsuario(datos.nombre)
+        renderNombreUsuario(datosLog)
     })
 }
 usuarioLogiado();
@@ -257,7 +265,7 @@ window.addEventListener('load', e =>{
         usuariosReducido = [];
         usuariosReducido = storagrUsuarios;
         console.log(usuariosReducido)
-        renderNombreUsuario(userLog.nombre);
+        renderNombreUsuario(userLog);
     }
     // console.log(usuariosReducido)
 
