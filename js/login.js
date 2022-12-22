@@ -18,22 +18,6 @@ fetch( `${API_USER}/users`)
     })
     .catch(err => console.error(err));
 
-    // console.log("--- USERS 2 ---")
-    // console.log(usuariosReducido)
-
-// fetch('https://jsonplaceholder.typicode.com/posts/user', {
-//     method: 'POST',
-//     body: JSON.stringify({
-//         title: 'titulo guille',
-//         body: 'coderhouse guill',
-//         userId: 1,
-//     }),
-//     headers: {
-//         'Content-type': 'application/json; charset=UTF-8',
-//     },
-// })
-// .then((response) => response.json())
-// .then((json) => console.log(json,"----------- json --------"));
 
 function usuario(nombre,correo,password,img) {
     this.id = uniqueId('user');
@@ -42,32 +26,6 @@ function usuario(nombre,correo,password,img) {
     this.password= password;
     this.foto=img;
 }
-//#region Ventana de logueo y registro 
-
-// let usuarios = [
-//     {
-//         'id': uniqueId('user'),
-//         'nombre': 'root',
-//         'correo': 'root@gmail.com',
-//         'password': 'root1234',
-//         'img':'https://res.cloudinary.com/dpiwmbsog/image/upload/v1667461454/icons/pinguino05_e24mtr.gif'
-//     },
-//     {
-//         'id': uniqueId('user'),
-//         'nombre': 'guilleNec',
-//         'correo': 'guillermoneculqueo@gmail.com',
-//         'password': 'guilleNec123',
-//         'img':'https://res.cloudinary.com/dpiwmbsog/image/upload/v1662872387/imgs/peakpx_4_vhuizk.jpg'
-//     },
-//     {
-//         'id': uniqueId('user'),
-//         'nombre': 'tux123',
-//         'correo': 'tux123@gmail.com',
-//         'password': 'tux12345',
-//         'img':'https://res.cloudinary.com/dpiwmbsog/image/upload/v1662872388/imgs/peakpx_2_rqss7p.jpg'
-//     }
-// ]
-
 
 const ventana_login = document.querySelector('.seccionlogin')
 const botonUs = document.querySelector('.usuario_log')
@@ -147,8 +105,13 @@ const procesaFormRegistro = (e) => {
         localStorage.setItem('usuariosPage', JSON.stringify(usuariosReducido))
         usuariosReducido = [];
         usuariosReducido = JSON.parse(localStorage.getItem('usuariosPage'))
-    
         menu_navegacion.classList.add('userActivo')
+
+        setTimeout(() => {
+            ventana_login.classList.remove('mostrar')
+            elUsuarioLoginExiste(datos);
+            renderNombreUsuario(datos.nombre)
+        }, 500);
         // // usuarios.push(usuarioNueevo);
         // console.log("----- sseeegg -----")
         // console.log(usuariosReducido)
@@ -156,7 +119,9 @@ const procesaFormRegistro = (e) => {
     }
 }
 const formRegistraUser = document.querySelector('#registroUs');
-formRegistraUser.addEventListener('submit', procesaFormRegistro)
+formRegistraUser.addEventListener('submit', e =>{
+    procesaFormRegistro(e)
+})
 
 const verificaUsuarioLoguiado = (objeto) =>{
     // console.log(usuariosReducido)
@@ -164,6 +129,10 @@ const verificaUsuarioLoguiado = (objeto) =>{
     return usuariosReducido.some((el) => el.nombre == objeto.nombre && el.password == objeto.password )
 };
 
+const renderNombreUsuario = (nombre) => {
+    const nombreUserLog = document.querySelector('#li_usuarioActivo');
+    nombreUserLog.innerText = `${nombre}`
+}
 
 const formIngresoUser = document.querySelector('#ingresarUs');
 const usuarioLogiado = () =>{
@@ -171,7 +140,7 @@ const usuarioLogiado = () =>{
         e.preventDefault();
         const datosLog = Object.fromEntries(new FormData(e.target)); //forma resumida
         elUsuarioLoginExiste(datosLog);
-        
+        renderNombreUsuario(datos.nombre)
     })
 }
 usuarioLogiado();
@@ -282,11 +251,13 @@ const renderMenuUsuario = (objeto) =>{
 
 window.addEventListener('load', e =>{
     const storagrUsuarios = JSON.parse(localStorage.getItem('usuariosPage'))
+    const userLog=  JSON.parse(localStorage.getItem('usuariosLogiados'))
     if (storagrUsuarios !== null) {
         console.log("usuario reducidio")
         usuariosReducido = [];
         usuariosReducido = storagrUsuarios;
         console.log(usuariosReducido)
+        renderNombreUsuario(userLog.nombre);
     }
     // console.log(usuariosReducido)
 

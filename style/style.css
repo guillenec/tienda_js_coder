@@ -269,6 +269,9 @@ para movil y tablets  horizontal
         padding: 0px;
         cursor: pointer;
         transition: .5s; }
+        @media screen and (max-width: 992px) {
+          .header .nav .menu.userActivo .li_usuarioActivo {
+            color: #FFDE62; } }
         .header .nav .menu.userActivo .li_usuarioActivo .caja_img {
           position: relative;
           min-width: 40px;

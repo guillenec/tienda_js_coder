@@ -300,16 +300,6 @@ const fitraProductosTerminados = (array) =>{
     return array.filter((el) => el.stock <= 0);
 }
 
-// //arreglo nuevo de productos filtrados del arreglo principal por 1 tipo especifico  
-// const productosBanner = fitraProductosStock(arregloJuguetes,"banner");
-// const productosCategoria = fitraProductosStock(arregloJuguetes,"categoria");
-// const productosDestacados = fitraProductosStock(arregloJuguetes,"destacados");
-// const productosFiguras = fitraProductosStock(arregloJuguetes,"figura");
-// const productosGenerales = fitraProductosStock(arregloJuguetes,"general");
-// //Productos ya filtrados sin stock
-// const productosTerminados = fitraProductosTerminados(arregloJuguetes);
-
-
 //accedo a contenedores donde pienso crear estructuras nuevas 
 const contenedorBanner = document.querySelector('.swiper-wrapper'); //donde ira el banner
 const contenedorCategoria = document.querySelector('#top_prod');    //secion categorias
@@ -319,25 +309,21 @@ const contenedorFiguras = document.querySelector('.cont_figuras')   // seccion f
 //#region cargaEstructuras  
 //cargan de datos la estructura del banner, generando un elemento, estructura html , por cada elemento del arreglo filtrado correspondiente a su tipo (banner).
 const cargaEstructuraBanner = (array) => {
-    let i = 0;
-    if (i<=2) {
-        array.forEach(element => {
-            generaElementBanner(element,contenedorBanner);
-            i++;
-        });
-    }
-
+    array.forEach(element => {
+        generaElementBanner(element, contenedorBanner);
+    });
 }
 
 //cargan de datos la estructura de la seccion categorias
 const cargaEstructuraCategoria = (array) => {
     let i = 0;
-    if (i<=3) {
-        array.forEach(element => {
-            generaElementCategoria(element,i,contenedorCategoria);
+    array.forEach(element => {
+        if (i < 3) {
+            generaElementCategoria(element, i, contenedorCategoria);
             i++;
-        });
-    }
+        }
+    });
+
     const seccion = document.createElement('section');
     seccion.className = 'boton_todos';
     seccion.ib = 'boton todos';
@@ -349,7 +335,7 @@ const cargaEstructuraCategoria = (array) => {
 const cargaEstructuraDestacado = (array) => {
     let i = 0;
     array.forEach(element => {
-        if (i<=6) {
+        if (i <= 5) {
             generaElementDestacado(element,i,contenedorDestacado);
             i++;
         }
@@ -360,7 +346,7 @@ const cargaEstructuraDestacado = (array) => {
 const cargaEstructuraFigura = (array) => {
     let i = 0
     array.forEach(element => {
-        if (i<=6) {
+        if (i<=5) {
             generaElementFigura(element, i++,contenedorFiguras);
         }
     });
@@ -502,22 +488,6 @@ const contenedorBotones = (element, cajaBotonera, rotarCaja, arrayModal) =>{
     botonera.append(aniadeCar);
     cajaBotonera.append(botonera);
 } 
-
-// //Render pagina principal
-// const renderSeccionesPage = () => {
-//     cargaEstructuraBanner(productosBanner);
-//     cargaEstructuraCategoria(productosCategoria);
-//     cargaEstructuraDestacado(productosDestacados);
-//     cargaEstructuraFigura(productosFiguras);
-// }
-
-
-// if (contenedorBanner && contenedorCategoria && contenedorDestacado && contenedorFiguras) {
-//     renderSeccionesPage();
-//     console.log("+++++++++++ SI EXISTEN LOS DATOS +++++++++")
-// }else{
-//     console.log("---------- NO EXISTEN ESTOS DATOS -------------")
-// }
 
 
 //#region  //render de todos los elementos de la ventana carrito

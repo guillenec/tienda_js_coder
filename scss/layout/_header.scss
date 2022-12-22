@@ -217,6 +217,10 @@
                     cursor: pointer;
                     transition: .5s;
 
+                    @include notebook(){
+                        color: $color_titulo4;
+                    }
+
                     .caja_img{
                         position: relative;
                         min-width: 40px;
