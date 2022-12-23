@@ -64,6 +64,7 @@
     <script defer src="./js/datos_Ayudas.js"></script>
     <script defer src="./js/faq.js"></script>
 
+    <script defer src="./js/formularioContacto.js"></script>
 
 
     <!-- <script src="./js/db_productosJSON.js"></script>
@@ -180,6 +181,7 @@
                     <a class="salir" id="salirLogin" href=""><ion-icon name="log-out-outline"></ion-icon> salir</a>
                 </div>
             </div> -->
+            <!-- <a href="#" class="closeFormUserActivo" id="cerrarFormUserActivo"><ion-icon name="close-sharp"></ion-icon></a> -->
         </section>
     </header>
     <!-- #endregion -->
@@ -267,21 +269,21 @@
         </section>
         <section class="f_main">
             <section class="f_main_left">
-                <form action="" method="">
+                <form class="formContact" id="formContact" action="https://formsubmit.co/guillermoneculqueo@gmial.com" method="">
                     <h2>Consultas</h2>
                     <div class="content_inp"> 
-                        <input class="text_inp" type="text" name="nombre" id="mail" placeholder="Nombre">
+                    <input class="text_inp" type="text" name="nombre" id="mail" placeholder="Nombre" pattern="^[A-Za-zNnÁáÉéÍíÓóÜü\s]+$" required>
                         <label class="label" for="nombre">nombre</label>
                     </div>
                     <div class="content_inp">
-                        <input class="text_inp" type="email" name="email" id="mail" placeholder="@Mail">
+                        <input class="text_inp" type="email" name="email" id="mail" placeholder="@Mail" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
                         <label class="label" for="email">@mail</label>
                     </div>
                     <div class="content_inp">
-                    <textarea class="text_inp taxtareaGen" name="consulta" id="consulta" placeholder="Consultanos"></textarea>
+                    <textarea class="text_inp taxtareaGen" name="consulta" id="consulta" placeholder="Consultanos" data-pattern="^.{1,255}$" required></textarea>
                         <label class="label" for="consulta">consulta</label>
                     </div>    
-                    <input class="enviar_form" type="submit" value="enviar">
+                    <input class="enviar_form" id="enviar_form_contact" type="submit" value="enviar">
                 </form>
             </section>
             <section class="f_main_right">

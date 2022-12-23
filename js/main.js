@@ -819,7 +819,7 @@ const verificaExisteBusqueda = (buscado) => {
 
 const redireccionAbusqueda = () => {
     const formBusqueda = document.querySelector('#buscadorProductos')
-    console.log(arregloJuguetes)
+    // console.log(arregloJuguetes)
     formBusqueda.addEventListener('submit',e => {
         e.preventDefault()
         const dato = Object.fromEntries(new FormData(e.target)); //forma resumida
@@ -860,7 +860,7 @@ const palabraClave = (event,elementoBuscado) => {
 }
 
 //permite cargar el carrito y renderisar la ventana al recargar la page
-window.addEventListener('load',e =>{
+window.addEventListener('load', e =>{
     const carritoLStorage = JSON.parse(localStorage.getItem('carritoStorage'));
     if (carritoLStorage != null) {
         carritoCompra = carritoLStorage;

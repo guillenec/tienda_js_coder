@@ -24,12 +24,15 @@ function usuario(nombre,correo,password,img) {
     this.nombre = nombre;
     this.correo = correo;
     this.password= password;
-    this.foto=img;
+    this.foto = img;
 }
 
 const ventana_login = document.querySelector('.seccionlogin')
 const botonUs = document.querySelector('.usuario_log')
 const cerrarLogin = document.querySelector('.closeForm')
+
+// const ventanaUsuarioActivo = document.querySelector('#usuarioActivoMenu')
+// const cerrarMenuUsuario = document.querySelector('#cerrarFormUserActivo')
 
 const irAregistro = document.querySelector('#registro_sesion')
 const irLogin = document.querySelector('#login_sesion')
@@ -41,12 +44,21 @@ botonUs.addEventListener('click', e =>{
     e.preventDefault();
     ventana_login.classList.toggle('mostrar')
 })
-
 cerrarLogin.addEventListener('click', e =>{
     e.preventDefault();
     console.log('hello')
     ventana_login.classList.remove('mostrar')
 })
+
+// ventanaUsuarioActivo.addEventListener('click', e => {
+//     e.preventDefault();
+//     ventana_login.classList.toggle('mostrar')
+// })
+// cerrarMenuUsuario.addEventListener('click', e =>{
+//     e.preventDefault();
+//     console.log('hello')
+//     ventanaUsuarioActivo.classList.remove('mostrar')
+// })
 
 irAregistro.addEventListener('click',e => {
     e.preventDefault();
@@ -91,32 +103,50 @@ const procesaFormRegistro = (e) => {
     // const datosCompleto = Object.fromEntries(datos1.entries());
 
     const datos = Object.fromEntries(new FormData(e.target)); //forma resumida
-    // return datos;
+    // return datos;    
+
+    console.log("----- todos los datos -----")
+    console.log(datos)
+
+    const fotoPerfil = datos.foto;
+    const fileImg = new FileReader();
+    fileImg.readAsDataURL(fotoPerfil); //transform base 64
+
+    fileImg.onload = () =>{
+        // console.log(fileImg.result)//resultado en base 64
+        // setTimeout(() => {
+        //     const fotoUsuario = document.querySelector('.iconUs')
+        //     fotoUsuario.src = `${fileImg.result}`
+        // }, 1000);
+        // //iconUs
+
+        if(usuariosReducido.some((elem) => elem.correo == datos.email || elem.nombre == datos.nombre)){
+            mjsToastify(`${datos.nombre} ya existe !!!`,'#ff6347','#e94a4a' );
+            // console.log("el usuario ya existe objeto ya existe")
+        }
+        else{
+            console.log(fileImg.result)
+            usuariosReducido.push(new usuario(datos.nombre, datos.email, datos.password, fileImg.result));
+            localStorage.setItem('usuariosPage', JSON.stringify(usuariosReducido))
     
-    console.log("----- datos del formulario -----")
-    console.log(datos.foto)
+            // usuariosReducido = [];
+            // usuariosReducido = JSON.parse(localStorage.getItem('usuariosPage'))
+            menu_navegacion.classList.add('userActivo')
+    
+            setTimeout(() => {
+                ventana_login.classList.remove('mostrar')
+                elUsuarioLoginExiste(datos);
+                renderNombreUsuario(usuariosReducido)
+            }, 500);
+            // // usuarios.push(usuarioNueevo);
+            // console.log("----- sseeegg -----")
+            // console.log(usuariosReducido)
+            // console.log(datos)
+        }
+    };
+    
 
-    if(usuariosReducido.some((elem) => elem.correo == datos.email || elem.nombre == datos.nombre)){
-        mjsToastify(`${datos.nombre} ya existe !!!`,'#ff6347','#e94a4a' );
-        // console.log("el usuario ya existe objeto ya existe")
-    }
-    else{
-        usuariosReducido.push(new usuario(datos.nombre, datos.email, datos.password, datos.foto));
-        localStorage.setItem('usuariosPage', JSON.stringify(usuariosReducido))
-        usuariosReducido = [];
-        usuariosReducido = JSON.parse(localStorage.getItem('usuariosPage'))
-        menu_navegacion.classList.add('userActivo')
-
-        setTimeout(() => {
-            ventana_login.classList.remove('mostrar')
-            elUsuarioLoginExiste(datos);
-            renderNombreUsuario(datos)
-        }, 500);
-        // // usuarios.push(usuarioNueevo);
-        // console.log("----- sseeegg -----")
-        // console.log(usuariosReducido)
-        // console.log(datos)
-    }
+    
 }
 const formRegistraUser = document.querySelector('#registroUs');
 formRegistraUser.addEventListener('submit', e =>{
@@ -131,11 +161,17 @@ const verificaUsuarioLoguiado = (objeto) =>{
 
 const renderNombreUsuario = (objeto) => {
     const nombreUserLog = document.querySelector('#li_usuarioActivo');
+    nombreUserLog.innerHTML = '';
     // nombreUserLog.innerText = `${objeto.nombre}`;
     const div = document.createElement('div');
     div.className = "caja_img";
-    div.innerHTML = `<img  class="iconUs" src="${objeto.foto}" alt="foto perfil ${objeto.nombre}}>`;
+    
+    const img = document.createElement('img');
+    img.className = "iconUs";
+    img.alt = `foto perfil ${objeto.nombre}`
+    img.src = `${objeto.foto}`;
 
+    div.append(img)
     const p = document.createElement('p');
     p.innerText = `${objeto.nombre}`;
     nombreUserLog.append(div);
@@ -232,8 +268,7 @@ const renderMenuUsuario = (objeto) =>{
             <div class="saludoUsuario">
                 <p class="saludo">Hola <span class="us_saludo">${objeto.nombre}</span> !!!</p>
                 <p class="puntosUs">Mail <span class="span_puntosUs">${objeto.correo}</span></p>
-            </div>
-            
+            </div> 
         </div>
     \n`;
     const divCuerpo = document.createElement('div');
@@ -244,6 +279,7 @@ const renderMenuUsuario = (objeto) =>{
         <a class="ayudaUs" href=""><ion-icon name="help-outline"></ion-icon> preguntas</a>
         <a class="miPerfil" href=""><ion-icon name="person-outline"></ion-icon> mi perfil</a>
     \n`;
+    const salir = document.createElement('a');
 
     const asalir = document.createElement('a');
     asalir.className = "salir";
@@ -261,10 +297,10 @@ window.addEventListener('load', e =>{
     const storagrUsuarios = JSON.parse(localStorage.getItem('usuariosPage'))
     const userLog=  JSON.parse(localStorage.getItem('usuariosLogiados'))
     if (storagrUsuarios !== null) {
-        console.log("usuario reducidio")
+        // console.log("usuario reducidio")
         usuariosReducido = [];
         usuariosReducido = storagrUsuarios;
-        console.log(usuariosReducido)
+        // console.log(usuariosReducido)
         renderNombreUsuario(userLog);
     }
     // console.log(usuariosReducido)
@@ -272,7 +308,7 @@ window.addEventListener('load', e =>{
     const userlogiado2 = JSON.parse(localStorage.getItem('usuariosLogiados'))
     if (userlogiado2 !== null) {
     elUsuarioLoginExiste(userlogiado2);
-    console.log(userlogiado2)
+    // console.log(userlogiado2)
     }
 
 })
