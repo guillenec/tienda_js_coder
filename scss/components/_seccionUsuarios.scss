@@ -9,7 +9,7 @@
     .us_log{
         width: 100%;
         height: 80px;
-        background: $color_titulo2;
+        background: $hover1;
         border-radius: 2px;
         @include caja_flex(row, nowrap, center, flex-start, center );
         gap: 10px;
@@ -21,11 +21,13 @@
             border-radius: 50%;
             background: $colorBorde1;
             margin-left: 5px;
+            border: solid 3px $color_titulo1;
+            overflow: hidden;
 
             img{
                 width: 100%;
                 height: 100%;
-                object-fit: contain;
+                object-fit: cover;
             }
         }
         .saludoUsuario{
@@ -33,15 +35,20 @@
 
             .saludo,.us_saludo{
                 font-family: $titulo1;
-                font-weight: 500;
-                color: $color_titulo1;
+                font-weight: 600;
+                color: $color_titulo5;
+                text-transform: capitalize;
             }
             .puntosUs{
                 font-family: $titulo1;
-                font-weight: 500;
-                color: $color_titulo1;
+                font-weight: 600;
+                color: $color_titulo5;
+                font-size: .9rem;
+
                 .span_puntosUs{
-                    color:$color_titulo3;
+                    font-family: $parrafo1;
+                    color:$color_titulo1;
+                    padding-left: 5px;
                 }
             }
         }   
@@ -66,7 +73,7 @@
             
             ion-icon{
                 font-size: 1.3rem;
-                color: $color_titulo5;
+                color: $color_titulo4;
                 transition: .7s;
             }
 

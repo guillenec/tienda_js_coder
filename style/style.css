@@ -283,15 +283,15 @@ para movil y tablets  horizontal
           height: 40px;
           border-radius: 50%;
           border: solid 2px #FF7C5F;
-          overflow: hidden;
           background: #3F3F3F;
           display: grid;
-          place-content: center; }
+          place-content: center;
+          overflow: hidden; }
           .header .nav .menu.userActivo .li_usuarioActivo .caja_img .iconUs {
             display: block;
-            width: 98%;
-            height: 98%;
-            object-fit: contain; }
+            width: 100%;
+            height: 100%;
+            object-fit: cover; }
         .header .nav .menu.userActivo .li_usuarioActivo p {
           width: 100%; }
     .header .nav .toggle {
@@ -470,6 +470,36 @@ para movil y tablets  horizontal
     opacity: 0;
     visibility: hidden;
     transition: .7s; }
+    .header .usuarioActivoMenu .cerrarUsuarioActivo {
+      position: absolute;
+      display: block;
+      top: 14px;
+      right: 14px;
+      z-index: 1;
+      background: #3F3F3F;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      color: #FFDE62;
+      transition: .7s;
+      display: grid;
+      place-content: center; }
+      .header .usuarioActivoMenu .cerrarUsuarioActivo::before {
+        content: "";
+        position: absolute;
+        top: -4.5px;
+        left: -4.5px;
+        width: 28px;
+        height: 28px;
+        border: solid 3px #FFDE62;
+        z-index: 1;
+        border-radius: 50%;
+        transition: .7s; }
+      .header .usuarioActivoMenu .cerrarUsuarioActivo:hover {
+        background: #FFDE62;
+        color: #3F3F3F; }
+        .header .usuarioActivoMenu .cerrarUsuarioActivo:hover::before {
+          border: solid 3px #3F3F3F; }
     @media screen and (max-width: 768px) {
       .header .usuarioActivoMenu {
         width: 500px; } }
@@ -2247,7 +2277,7 @@ para movil y tablets  horizontal
   .usuarioID .us_log {
     width: 100%;
     height: 80px;
-    background: #FF7C5F;
+    background: #ff6347;
     border-radius: 2px;
     display: flex;
     flex-direction: row;
@@ -2262,23 +2292,29 @@ para movil y tablets  horizontal
       border: solid 2px #ff6347;
       border-radius: 50%;
       background: #3b3b3b;
-      margin-left: 5px; }
+      margin-left: 5px;
+      border: solid 3px #3F3F3F;
+      overflow: hidden; }
       .usuarioID .us_log .logoUs img {
         width: 100%;
         height: 100%;
-        object-fit: contain; }
+        object-fit: cover; }
     .usuarioID .us_log .saludoUsuario {
       width: calc(100% - 75px); }
       .usuarioID .us_log .saludoUsuario .saludo, .usuarioID .us_log .saludoUsuario .us_saludo {
         font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        color: #3F3F3F; }
+        font-weight: 600;
+        color: #fff;
+        text-transform: capitalize; }
       .usuarioID .us_log .saludoUsuario .puntosUs {
         font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        color: #3F3F3F; }
+        font-weight: 600;
+        color: #fff;
+        font-size: .9rem; }
         .usuarioID .us_log .saludoUsuario .puntosUs .span_puntosUs {
-          color: #107263; }
+          font-family: "Sintony", sans-serif;
+          color: #3F3F3F;
+          padding-left: 5px; }
   .usuarioID .us_cuerpo {
     width: 100%;
     height: 300px;
@@ -2307,7 +2343,7 @@ para movil y tablets  horizontal
       transition: .7s; }
       .usuarioID .us_cuerpo a ion-icon {
         font-size: 1.3rem;
-        color: #fff;
+        color: #FFDE62;
         transition: .7s; }
       .usuarioID .us_cuerpo a:hover {
         color: #FFDE62; }

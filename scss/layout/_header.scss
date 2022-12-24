@@ -232,15 +232,16 @@
                         height: 40px;
                         border-radius: 50%;
                         border: solid 2px $color_titulo2;
-                        overflow: hidden;
                         background: $color_titulo1;
                         @include align_mid_grid();
+                        overflow: hidden;
+
 
                         .iconUs{     
                             display: block;                   
-                            width: 98%;
-                            height: 98%;
-                            object-fit: contain;
+                            width: 100%;
+                            height: 100%;
+                            object-fit: cover;
                         }
                     }
                     p{
@@ -468,6 +469,44 @@
         opacity: 0;
         visibility: hidden; 
         transition: .7s;
+
+        .cerrarUsuarioActivo{
+            position: absolute;
+            display: block;
+            top: 14px;
+            right: 14px;
+            z-index: 1;
+            background: $color_titulo1;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            color: $color_titulo4;
+            transition: .7s;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: -4.5px;
+                left: -4.5px;
+                width: 28px;
+                height: 28px;
+                border: solid 3px $color_titulo4;
+                z-index: 1;
+                border-radius: 50%;
+                transition: .7s;
+            }
+
+            @include align_mid_grid();
+
+            &:hover{
+                background: $color_titulo4;
+                color: $color_titulo1;
+
+                &::before {
+                    border: solid 3px $color_titulo1;
+                }
+            }
+        }
     
         @include tablets(){
             width: 500px;

@@ -792,12 +792,7 @@ async function pedirFunkos(){
             cargaEstructuraFigura(productosFiguras1);
         }
         
-        if (contenedorBanner && contenedorCategoria && contenedorDestacado && contenedorFiguras) {
-            renderSeccionesPage();
-            // console.log("+++++++++++ SI EXISTEN LOS DATOS +++++++++")
-        }else{
-            console.log("---------- NO EXISTEN ESTOS DATOS -------------")
-        }
+        (contenedorBanner && contenedorCategoria && contenedorDestacado && contenedorFiguras) ? renderSeccionesPage() : console.log("---- No existen datos ----")
 
 }
 
