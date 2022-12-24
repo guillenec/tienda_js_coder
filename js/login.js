@@ -31,8 +31,8 @@ const ventana_login = document.querySelector('.seccionlogin')
 const botonUs = document.querySelector('.usuario_log')
 const cerrarLogin = document.querySelector('.closeForm')
 
-// const ventanaUsuarioActivo = document.querySelector('#usuarioActivoMenu')
-// const cerrarMenuUsuario = document.querySelector('#cerrarFormUserActivo')
+const ventanaUsuarioActivo = document.querySelector('#usuarioActivoMenu')
+const cerrarMenuUsuario = document.querySelector('#cerrarUsuarioActivo')
 
 const irAregistro = document.querySelector('#registro_sesion')
 const irLogin = document.querySelector('#login_sesion')
@@ -54,11 +54,11 @@ cerrarLogin.addEventListener('click', e =>{
 //     e.preventDefault();
 //     ventana_login.classList.toggle('mostrar')
 // })
-// cerrarMenuUsuario.addEventListener('click', e =>{
-//     e.preventDefault();
-//     console.log('hello')
-//     ventanaUsuarioActivo.classList.remove('mostrar')
-// })
+cerrarMenuUsuario.addEventListener('click', e =>{
+    e.preventDefault();
+    console.log('hello')
+    ventanaUsuarioActivo.classList.remove('mostrar')
+})
 
 irAregistro.addEventListener('click',e => {
     e.preventDefault();
