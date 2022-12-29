@@ -629,6 +629,12 @@ para movil y tablets  horizontal
         .footer .f_header .f_redesSociales a.github {
           color: #363636;
           border: solid 3px #363636; }
+        .footer .f_header .f_redesSociales a.cafe {
+          color: #5e7cce;
+          border: solid 3px #5e7cce; }
+        .footer .f_header .f_redesSociales a.gmail {
+          color: #F14336;
+          border: solid 3px #F14336; }
         .footer .f_header .f_redesSociales a:hover.telegram {
           color: #0574c9;
           border: solid 3px #0574c9; }
@@ -651,8 +657,14 @@ para movil y tablets  horizontal
           color: #3c07a0;
           border: solid 3px #3c07a0; }
         .footer .f_header .f_redesSociales a:hover.github {
-          color: #000000;
-          border: solid 3px #000000; }
+          color: #4e278a;
+          border: solid 3px #4e278a; }
+        .footer .f_header .f_redesSociales a:hover.cafe {
+          color: #1944bb;
+          border: solid 3px #1944bb; }
+        .footer .f_header .f_redesSociales a:hover.gmail {
+          color: #bd160a;
+          border: solid 3px #bd160a; }
       @media screen and (max-width: 992px) {
         .footer .f_header .f_redesSociales a {
           padding: 7px;
