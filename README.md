@@ -27,7 +27,7 @@
 
 <br>
 ## 👍 Espero te guste. 
-Espero sea de tu agrado mi web.. ¡¡¡ ACEPTO SUGERENCIAS !!! ...
+Espero sea de tu agrado mi web...
 <br>
 
 ## :octocat: Mi contacto
